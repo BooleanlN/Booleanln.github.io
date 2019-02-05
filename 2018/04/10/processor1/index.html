@@ -5,16 +5,16 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>进程的描述与控制（上篇） | Hexo</title>
+  <link rel="dns-prefetch" href="http://booleanln.github.io">
+  <title>进程的描述与控制（上篇） | Fortress</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="进程的描述与控制为什么引入进程首先了解下程序并发执行（同一时间间隔内运行多个程序，在一个程序结束之前就可以运行其他程序）的特点：  间断性（程序通常是时断时续地来执行）  失去封闭性（程序的环境变量不再是封闭不可见的，是共享的，如全局变量）  不可再现性（由于失去了封闭性，使得执行结果不可再现，如全局变量）   为了跟踪并描述程序的并发执行，引入了进程的概念。 当并发执行的时候，有可能是同一程序对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="进程的描述与控制（上篇）">
-<meta property="og:url" content="http://yoursite.com/2018/04/10/processor1/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="http://booleanln.github.io/2018/04/10/processor1/index.html">
+<meta property="og:site_name" content="Fortress">
 <meta property="og:description" content="进程的描述与控制为什么引入进程首先了解下程序并发执行（同一时间间隔内运行多个程序，在一个程序结束之前就可以运行其他程序）的特点：  间断性（程序通常是时断时续地来执行）  失去封闭性（程序的环境变量不再是封闭不可见的，是共享的，如全局变量）  不可再现性（由于失去了封闭性，使得执行结果不可再现，如全局变量）   为了跟踪并描述程序的并发执行，引入了进程的概念。 当并发执行的时候，有可能是同一程序对">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="file://C:/Users/Boolean/Documents/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/images/pcb_po.png?lastModify=1523293230">
 <meta property="og:image" content="file://C:/Users/Boolean/Documents/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/images/pcb_state.png?lastModify=1523293230">
 <meta property="og:image" content="file://C:/Users/Boolean/Documents/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/images/pcb_link.png?lastModify=1523293230">
@@ -25,7 +25,7 @@
 <meta name="twitter:description" content="进程的描述与控制为什么引入进程首先了解下程序并发执行（同一时间间隔内运行多个程序，在一个程序结束之前就可以运行其他程序）的特点：  间断性（程序通常是时断时续地来执行）  失去封闭性（程序的环境变量不再是封闭不可见的，是共享的，如全局变量）  不可再现性（由于失去了封闭性，使得执行结果不可再现，如全局变量）   为了跟踪并描述程序的并发执行，引入了进程的概念。 当并发执行的时候，有可能是同一程序对">
 <meta name="twitter:image" content="file://C:/Users/Boolean/Documents/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/images/pcb_po.png?lastModify=1523293230">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Fortress" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -55,8 +55,10 @@
 			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">boolean_ln</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">be a coder</p>
 		
 
 		<nav class="header-menu">
@@ -113,8 +115,10 @@
 				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">boolean_ln</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>be a coder<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -485,7 +489,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/10/processor1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://booleanln.github.io/2018/04/10/processor1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -553,7 +557,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 John Doe
+    		&copy; 2019 boolean_ln
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -656,10 +660,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">https</a>
               </li>
              
@@ -669,6 +669,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
