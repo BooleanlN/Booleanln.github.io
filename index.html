@@ -256,143 +256,7 @@
 </tr>
 </tbody>
 </table>
-<p>对于定点数和浮点数，定点数在mysql内部以字符串形式存放，比浮点数更加精确，适合用来表示货币等精度高的数据。</p>
-<p>定点数或浮点数可跟MD，M表示表示位数精度，D表示标度。</p>
-<p>浮点数若不写精度和标度，则会安装默认的精度标度表示，若有则会四舍五入</p>
-<p>定点数默认精度标度为(10,0)，超出则报错。</p>
-<p>BIT类型，用于存放字段值，BIT(M)可存放多位二进制数，select后需要用bin()或hex())函数进行读取</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create table t2(</span><br><span class="line">	id bit(1)</span><br><span class="line">);</span><br><span class="line">insert into t1(id) values(7);</span><br><span class="line">select  bin(id),hex(id) from t1;</span><br></pre></td></tr></table></figure>
-<h4 id="日期类型"><a href="#日期类型" class="headerlink" title="日期类型"></a>日期类型</h4><table>
-<thead>
-<tr>
-<th>日期和时间类型</th>
-<th>字节</th>
-<th>最小值</th>
-<th>最大值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DATE</td>
-<td>4</td>
-<td>1000-01-01</td>
-<td>9999-12-31</td>
-</tr>
-<tr>
-<td>DATETIME</td>
-<td>8</td>
-<td>1000-01-01 00:00:00</td>
-<td>9999-12-31 23:59:59</td>
-</tr>
-<tr>
-<td>TIMESTAMP</td>
-<td>4</td>
-<td>19700101080001</td>
-<td>2038的某一时刻</td>
-</tr>
-<tr>
-<td>TIME</td>
-<td>3</td>
-<td>-838:59:59</td>
-<td>838:59:59</td>
-</tr>
-<tr>
-<td>YEAR</td>
-<td>1</td>
-<td>1901</td>
-<td>2155</td>
-</tr>
-</tbody>
-</table>
-<p>timestamp与时区相关，当插入日期时会先转换为本地时区后存放，当取出时，会先将日期转换为本地时区再显示。</p>
-<p>timestamp默认值为系统日期，如果有第二个timestamp类型，则默认值为0.</p>
-<p>datetime只能反映插入时当地的时区，其他时区查看时会出现误差。</p>
-<p>插入时的格式：</p>
-<ul>
-<li>YYYY-MM-DD HH:MM:SS 或YY-MM-DD HH:MM:SS的字符串</li>
-<li>YYYYMMDDHHMMSS或YYMMDDHHMMSS格式的字符串</li>
-<li>YYYYMMDDHHMMSS或YYMMDDHHMMSS格式的数字</li>
-</ul>
-<h4 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h4><table>
-<thead>
-<tr>
-<th>字符串类型</th>
-<th>字节</th>
-<th>描述及存储需求</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>char(M)</td>
-<td>M</td>
-<td>M 0~255</td>
-</tr>
-<tr>
-<td>varchar(M)</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>tinyblob</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>blob</td>
-<td></td>
-<td>二进制大对象，存储图片等二进制文件</td>
-</tr>
-<tr>
-<td>mediumblob</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>LONGBLOB</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>TINYTEXT</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>TEXT</td>
-<td></td>
-<td>存储文章等</td>
-</tr>
-<tr>
-<td>MEDIUMTEXT</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>LONGTEXT</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>VARBINARY(M)</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>BINARY(M)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>CHAR与varchar用于保存较短字符串：</p>
-<ul>
-<li>char删除尾部空格</li>
-<li>varchar保留空格</li>
-</ul>
-<h4 id="enum类型"><a href="#enum类型" class="headerlink" title="enum类型"></a>enum类型</h4><p>枚举类型，枚举范围需要在创建表时，通过枚举方式显式指定</p>
-<p>enum(‘a’,’b’)</p>
-<p>enum类型只允许从值集合中选取单个值，而不能一次取多个值</p>
-<h4 id="set类型"><a href="#set类型" class="headerlink" title="set类型"></a>set类型</h4><p>与enum类型，区别是set可一次选取多个成员</p>
-
+        
       
 
       
@@ -621,15 +485,7 @@
       
         <h3 id="ByteArrayInputStream"><a href="#ByteArrayInputStream" class="headerlink" title="ByteArrayInputStream"></a>ByteArrayInputStream</h3><p><em>字节数组输入流，继承于InputStream</em></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ByteArrayInputStream</span> <span class="keyword">extends</span> <span class="title">InputStream</span></span></span><br></pre></td></tr></table></figure>
-<h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ByteArrayInputStream</span> <span class="keyword">extends</span> <span class="title">InputStream</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">byte</span> buf[];<span class="comment">//字节缓冲数组</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> pos;<span class="comment">//要读取的字节的索引</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> mark = <span class="number">0</span>;<span class="comment">//标记的索引</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> count;<span class="comment">//字节流长度</span></span><br><span class="line">    <span class="comment">//使用字节数组构造流</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ByteArrayInputStream</span><span class="params">(<span class="keyword">byte</span> buf[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.buf = buf;</span><br><span class="line">        <span class="keyword">this</span>.pos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.count = buf.length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//指定范围</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ByteArrayInputStream</span><span class="params">(<span class="keyword">byte</span> buf[], <span class="keyword">int</span> offset, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.buf = buf;</span><br><span class="line">        <span class="keyword">this</span>.pos = offset;</span><br><span class="line">        <span class="keyword">this</span>.count = Math.min(offset + length, buf.length);</span><br><span class="line">        <span class="keyword">this</span>.mark = offset;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//读取字节</span></span><br><span class="line">    <span class="comment">//buf[pos++] &amp; 0xff,将byte转换为int型，高位补0</span></span><br><span class="line">    <span class="comment">//byte-8bit,int-32bit</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (pos &lt; count) ? (buf[pos++] &amp; <span class="number">0xff</span>) : -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//读取指定长度字节，结果保存在b中，返回实际读取字节数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">byte</span> b[], <span class="keyword">int</span> off, <span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (b == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (off &lt; <span class="number">0</span> || len &lt; <span class="number">0</span> || len &gt; b.length - off) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException();</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="comment">//读取结束</span></span><br><span class="line">        <span class="keyword">if</span> (pos &gt;= count) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="comment">//可读取字节数</span></span><br><span class="line">        <span class="keyword">int</span> avail = count - pos;</span><br><span class="line">        <span class="keyword">if</span> (len &gt; avail) &#123;</span><br><span class="line">            len = avail;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//读取0个字节</span></span><br><span class="line">        <span class="keyword">if</span> (len &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//读取结果传输给b[]</span></span><br><span class="line">        System.arraycopy(buf, pos, b, off, len);</span><br><span class="line">        pos += len;</span><br><span class="line">        <span class="keyword">return</span> len;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//跳过n个字节</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">long</span> <span class="title">skip</span><span class="params">(<span class="keyword">long</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> k = count - pos;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; k) &#123;</span><br><span class="line">            k = n &lt; <span class="number">0</span> ? <span class="number">0</span> : n;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        pos += k;</span><br><span class="line">        <span class="keyword">return</span> k;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//返回剩余可读字节数</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">available</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> count - pos;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//是否支持mark</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">markSupported</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//保存当前位置。readAheadLimit在此处没有任何实际意义</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mark</span><span class="params">(<span class="keyword">int</span> readAheadLimit)</span> </span>&#123;</span><br><span class="line">        mark = pos;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//重置到标记位</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">reset</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        pos = mark;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//关闭流</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><ul>
-<li>ByteArrayInputStream使用字节数组构造实现</li>
-<li>实现InputStream的read()函数，用于读取下一字节</li>
-<li>支持标记功能，可reset()</li>
-<li>avaliable()返回剩余可读取字节数</li>
-</ul>
-<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> IO;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.ByteArrayInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by 13633 on 2019/3/21.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ByteArrayISTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="number">0x61</span>,<span class="number">0x62</span>,<span class="number">0x63</span>,<span class="number">0x64</span>,<span class="number">0x65</span>,<span class="number">0x70</span>&#125;;</span><br><span class="line">       InputStream inputStream = <span class="keyword">new</span> ByteArrayInputStream(bytes);</span><br><span class="line">       InputStream inputStream2 = <span class="keyword">new</span> ByteArrayInputStream(bytes,<span class="number">0</span>,<span class="number">5</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="keyword">while</span> (inputStream.available()!=<span class="number">0</span>)&#123;</span><br><span class="line">               <span class="keyword">int</span> tmp = inputStream.read();<span class="comment">//pos++</span></span><br><span class="line">               System.out.println(Integer.toHexString(tmp));</span><br><span class="line">               <span class="keyword">if</span>(inputStream.available()==<span class="number">3</span>)&#123;</span><br><span class="line">                   inputStream.skip(<span class="number">1</span>);<span class="comment">//pos++</span></span><br><span class="line">                  <span class="keyword">if</span>(inputStream.markSupported())&#123;</span><br><span class="line">                      inputStream.mark(<span class="number">100</span>);<span class="comment">//mark = pos;</span></span><br><span class="line">                  &#125;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">//reset到mark位置</span></span><br><span class="line">           inputStream.reset();</span><br><span class="line">           System.out.println(Integer.toHexString(inputStream.read()));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                inputStream.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        
       
 
       
@@ -1318,10 +1174,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -1334,7 +1186,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1342,7 +1194,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1351,14 +1211,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1371,6 +1223,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
