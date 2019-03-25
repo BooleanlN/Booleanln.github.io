@@ -146,6 +146,542 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Mysql-2-数据类型" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/25/Mysql-2-数据类型/">Mysql_2_数据类型</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/25/Mysql-2-数据类型/" class="archive-article-date">
+  	<time datetime="2019-03-25T10:28:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h4><table>
+<thead>
+<tr>
+<th>整数类型</th>
+<th>字节</th>
+<th>最小值</th>
+<th>最大值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TINYINT</td>
+<td>1</td>
+<td>有符号 -128，u:0</td>
+<td>有符号：127，u：255</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>2</td>
+<td>有符号-32768，u:0</td>
+<td>有符号：32767，u：65535</td>
+</tr>
+<tr>
+<td>MEDIUMINT</td>
+<td>3</td>
+<td>有符号：-8388608，u：0</td>
+<td>有符号：8388607，u：1677215</td>
+</tr>
+<tr>
+<td>INT、INTEGER</td>
+<td>4</td>
+<td>有符号：-2147483648 u：0</td>
+<td>有符号：2147483647,u：4294967295</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>8</td>
+<td>-2^63,0</td>
+<td>2^63-1,0</td>
+</tr>
+<tr>
+<td>浮点数类型</td>
+<td>字节</td>
+<td>最小值</td>
+<td>最大值</td>
+</tr>
+<tr>
+<td>FLOAT</td>
+<td>4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DOUBLE</td>
+<td>8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>定点数</td>
+<td>字节</td>
+<td>描述</td>
+<td></td>
+</tr>
+<tr>
+<td>DEC(M,D)</td>
+<td>M+2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DECIMAL(M,D)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>位类型</td>
+<td>字节</td>
+<td>最小值</td>
+<td>最大值</td>
+</tr>
+<tr>
+<td>BIT(M)</td>
+<td>1~8</td>
+<td>BIT(1)</td>
+<td>BIT(64)</td>
+</tr>
+</tbody>
+</table>
+<p>对于定点数和浮点数，定点数在mysql内部以字符串形式存放，比浮点数更加精确，适合用来表示货币等精度高的数据。</p>
+<p>定点数或浮点数可跟MD，M表示表示位数精度，D表示标度。</p>
+<p>浮点数若不写精度和标度，则会安装默认的精度标度表示，若有则会四舍五入</p>
+<p>定点数默认精度标度为(10,0)，超出则报错。</p>
+<p>BIT类型，用于存放字段值，BIT(M)可存放多位二进制数，select后需要用bin()或hex())函数进行读取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create table t2(</span><br><span class="line">	id bit(1)</span><br><span class="line">);</span><br><span class="line">insert into t1(id) values(7);</span><br><span class="line">select  bin(id),hex(id) from t1;</span><br></pre></td></tr></table></figure>
+<h4 id="日期类型"><a href="#日期类型" class="headerlink" title="日期类型"></a>日期类型</h4><table>
+<thead>
+<tr>
+<th>日期和时间类型</th>
+<th>字节</th>
+<th>最小值</th>
+<th>最大值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DATE</td>
+<td>4</td>
+<td>1000-01-01</td>
+<td>9999-12-31</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>8</td>
+<td>1000-01-01 00:00:00</td>
+<td>9999-12-31 23:59:59</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td>4</td>
+<td>19700101080001</td>
+<td>2038的某一时刻</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>3</td>
+<td>-838:59:59</td>
+<td>838:59:59</td>
+</tr>
+<tr>
+<td>YEAR</td>
+<td>1</td>
+<td>1901</td>
+<td>2155</td>
+</tr>
+</tbody>
+</table>
+<p>timestamp与时区相关，当插入日期时会先转换为本地时区后存放，当取出时，会先将日期转换为本地时区再显示。</p>
+<p>timestamp默认值为系统日期，如果有第二个timestamp类型，则默认值为0.</p>
+<p>datetime只能反映插入时当地的时区，其他时区查看时会出现误差。</p>
+<p>插入时的格式：</p>
+<ul>
+<li>YYYY-MM-DD HH:MM:SS 或YY-MM-DD HH:MM:SS的字符串</li>
+<li>YYYYMMDDHHMMSS或YYMMDDHHMMSS格式的字符串</li>
+<li>YYYYMMDDHHMMSS或YYMMDDHHMMSS格式的数字</li>
+</ul>
+<h4 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h4><table>
+<thead>
+<tr>
+<th>字符串类型</th>
+<th>字节</th>
+<th>描述及存储需求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char(M)</td>
+<td>M</td>
+<td>M 0~255</td>
+</tr>
+<tr>
+<td>varchar(M)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tinyblob</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>blob</td>
+<td></td>
+<td>二进制大对象，存储图片等二进制文件</td>
+</tr>
+<tr>
+<td>mediumblob</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LONGBLOB</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TINYTEXT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td></td>
+<td>存储文章等</td>
+</tr>
+<tr>
+<td>MEDIUMTEXT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LONGTEXT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VARBINARY(M)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BINARY(M)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>CHAR与varchar用于保存较短字符串：</p>
+<ul>
+<li>char删除尾部空格</li>
+<li>varchar保留空格</li>
+</ul>
+<h4 id="enum类型"><a href="#enum类型" class="headerlink" title="enum类型"></a>enum类型</h4><p>枚举类型，枚举范围需要在创建表时，通过枚举方式显式指定</p>
+<p>enum(‘a’,’b’)</p>
+<p>enum类型只允许从值集合中选取单个值，而不能一次取多个值</p>
+<h4 id="set类型"><a href="#set类型" class="headerlink" title="set类型"></a>set类型</h4><p>与enum类型，区别是set可一次选取多个成员</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/25/Mysql-2-数据类型/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JAVA-SE-8的流库" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/25/JAVA-SE-8的流库/">JAVA SE 8的流库</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/25/JAVA-SE-8的流库/" class="archive-article-date">
+  	<time datetime="2019-03-25T09:07:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JAVA-SE-8-的流库"><a href="#JAVA-SE-8-的流库" class="headerlink" title="JAVA SE 8 的流库"></a>JAVA SE 8 的流库</h3><p><em>流提供了一种让我们可以在比集合更高的概念上指定计算的数据视图。将操作的调度留给具体实现去解决</em></p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> 流不存储数据，这些元素可能存储在底层的集合中，或者是按需生成的</li>
+<li style="list-style: none"><input type="checkbox" checked> 流的操作不会修改其数据源</li>
+<li style="list-style: none"><input type="checkbox" checked> 流的操作是尽可能惰性执行的</li>
+</ul>
+<h4 id="流的创建"><a href="#流的创建" class="headerlink" title="流的创建"></a>流的创建</h4>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/25/JAVA-SE-8的流库/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Redis-1-1-基础" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/25/Redis-1-1-基础/">Redis_1_1_基础</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/25/Redis-1-1-基础/" class="archive-article-date">
+  	<time datetime="2019-03-25T06:51:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a href="http://redis.io" target="_blank" rel="noopener">http://redis.io</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/releases/redis-xxx.tar.gz	</span><br><span class="line">tar xzf redisxxx</span><br><span class="line">cd redisxxx</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/25/Redis-1-1-基础/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ByteArrayInputStream简介源码分析与实例" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/24/ByteArrayInputStream简介源码分析与实例/">ByteArrayInputStream简介源码分析与实例</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/24/ByteArrayInputStream简介源码分析与实例/" class="archive-article-date">
+  	<time datetime="2019-03-24T14:26:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="ByteArrayInputStream"><a href="#ByteArrayInputStream" class="headerlink" title="ByteArrayInputStream"></a>ByteArrayInputStream</h3><p><em>字节数组输入流，继承于InputStream</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ByteArrayInputStream</span> <span class="keyword">extends</span> <span class="title">InputStream</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ByteArrayInputStream</span> <span class="keyword">extends</span> <span class="title">InputStream</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">byte</span> buf[];<span class="comment">//字节缓冲数组</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> pos;<span class="comment">//要读取的字节的索引</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> mark = <span class="number">0</span>;<span class="comment">//标记的索引</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> count;<span class="comment">//字节流长度</span></span><br><span class="line">    <span class="comment">//使用字节数组构造流</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ByteArrayInputStream</span><span class="params">(<span class="keyword">byte</span> buf[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.buf = buf;</span><br><span class="line">        <span class="keyword">this</span>.pos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.count = buf.length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//指定范围</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ByteArrayInputStream</span><span class="params">(<span class="keyword">byte</span> buf[], <span class="keyword">int</span> offset, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.buf = buf;</span><br><span class="line">        <span class="keyword">this</span>.pos = offset;</span><br><span class="line">        <span class="keyword">this</span>.count = Math.min(offset + length, buf.length);</span><br><span class="line">        <span class="keyword">this</span>.mark = offset;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//读取字节</span></span><br><span class="line">    <span class="comment">//buf[pos++] &amp; 0xff,将byte转换为int型，高位补0</span></span><br><span class="line">    <span class="comment">//byte-8bit,int-32bit</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (pos &lt; count) ? (buf[pos++] &amp; <span class="number">0xff</span>) : -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//读取指定长度字节，结果保存在b中，返回实际读取字节数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">byte</span> b[], <span class="keyword">int</span> off, <span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (b == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (off &lt; <span class="number">0</span> || len &lt; <span class="number">0</span> || len &gt; b.length - off) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException();</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="comment">//读取结束</span></span><br><span class="line">        <span class="keyword">if</span> (pos &gt;= count) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="comment">//可读取字节数</span></span><br><span class="line">        <span class="keyword">int</span> avail = count - pos;</span><br><span class="line">        <span class="keyword">if</span> (len &gt; avail) &#123;</span><br><span class="line">            len = avail;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//读取0个字节</span></span><br><span class="line">        <span class="keyword">if</span> (len &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//读取结果传输给b[]</span></span><br><span class="line">        System.arraycopy(buf, pos, b, off, len);</span><br><span class="line">        pos += len;</span><br><span class="line">        <span class="keyword">return</span> len;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//跳过n个字节</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">long</span> <span class="title">skip</span><span class="params">(<span class="keyword">long</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> k = count - pos;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; k) &#123;</span><br><span class="line">            k = n &lt; <span class="number">0</span> ? <span class="number">0</span> : n;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        pos += k;</span><br><span class="line">        <span class="keyword">return</span> k;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//返回剩余可读字节数</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">available</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> count - pos;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//是否支持mark</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">markSupported</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//保存当前位置。readAheadLimit在此处没有任何实际意义</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mark</span><span class="params">(<span class="keyword">int</span> readAheadLimit)</span> </span>&#123;</span><br><span class="line">        mark = pos;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//重置到标记位</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">reset</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        pos = mark;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//关闭流</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><ul>
+<li>ByteArrayInputStream使用字节数组构造实现</li>
+<li>实现InputStream的read()函数，用于读取下一字节</li>
+<li>支持标记功能，可reset()</li>
+<li>avaliable()返回剩余可读取字节数</li>
+</ul>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> IO;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.ByteArrayInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by 13633 on 2019/3/21.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ByteArrayISTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[]&#123;<span class="number">0x61</span>,<span class="number">0x62</span>,<span class="number">0x63</span>,<span class="number">0x64</span>,<span class="number">0x65</span>,<span class="number">0x70</span>&#125;;</span><br><span class="line">       InputStream inputStream = <span class="keyword">new</span> ByteArrayInputStream(bytes);</span><br><span class="line">       InputStream inputStream2 = <span class="keyword">new</span> ByteArrayInputStream(bytes,<span class="number">0</span>,<span class="number">5</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="keyword">while</span> (inputStream.available()!=<span class="number">0</span>)&#123;</span><br><span class="line">               <span class="keyword">int</span> tmp = inputStream.read();<span class="comment">//pos++</span></span><br><span class="line">               System.out.println(Integer.toHexString(tmp));</span><br><span class="line">               <span class="keyword">if</span>(inputStream.available()==<span class="number">3</span>)&#123;</span><br><span class="line">                   inputStream.skip(<span class="number">1</span>);<span class="comment">//pos++</span></span><br><span class="line">                  <span class="keyword">if</span>(inputStream.markSupported())&#123;</span><br><span class="line">                      inputStream.mark(<span class="number">100</span>);<span class="comment">//mark = pos;</span></span><br><span class="line">                  &#125;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">//reset到mark位置</span></span><br><span class="line">           inputStream.reset();</span><br><span class="line">           System.out.println(Integer.toHexString(inputStream.read()));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                inputStream.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/24/ByteArrayInputStream简介源码分析与实例/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Mysql1-sql基础" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -685,967 +1221,6 @@
 
 
   
-    <article id="post-mysql" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/19/mysql/">mysql常用操作</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/19/mysql/" class="archive-article-date">
-  	<time datetime="2018-07-19T05:38:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.创建表<br>CREATE TABLE table_name (column_name column_type);<br>CREATE TABLE IF NOT EXISTS `runoob_tbl`(<br>   `runoob_id` INT UNSIGNED AUTO_INCREMENT,<br>   `runoob_title` VARCHAR(100) NOT NULL,<br>   `runoob_author` VARCHAR(40) NOT NULL,<br>   `submission_date` DATE,<br>   PRIMARY KEY ( `runoob_id` )<br>)ENGINE=InnoDB DEFAULT CHARSET=utf8;<br>2.查看表结构：<br>describe tablename;<br>show columns from tablename;<br>explain tablename;<br>3.添加列<br>alter table tablename add column columnname varchar(30);<br>4.删除列<br>alter table tablename drop column columnname;<br>5.修改列名<br>alter table tablename change columnname newname varchar(30);<br>6.修改列属性<br>alter table tablename modify columanname varchar(22);<br>7.添加主键约束：<br>alter table 表名 add constraint 主键 （形如：PK_表名） primary key 表名(主键字段);<br>8.添加外键约束：<br>alter table 从表 add constraint 外键（形如：FK_从表_主表） foreign key 从表(外键字段) references 主表(主键字段);<br>9.删除主键约束：<br>alter table 表名 drop primary key;<br>10.删除外键约束：<br>alter table 表名 drop foreign key 外键（区分大小写）;<br>11.修改表名：<br>alter table t_book rename to bbb;<br>12.select按降序：<br>select * from tablename order by columnname desc;<br>13.删除增加主键约束<br>alter table tablename drop primary key;<br>alter table tablename add primary key(xxx,xxx);</p>
-<h5 id="给已有字段设置默认值"><a href="#给已有字段设置默认值" class="headerlink" title="给已有字段设置默认值"></a>给已有字段设置默认值</h5><p>ALTER TABLE test ALTER COLUMN case_status SET DEFAULT ‘A’;</p>
-<h5 id="mysql编码格式"><a href="#mysql编码格式" class="headerlink" title="mysql编码格式"></a>mysql编码格式</h5><p>MYSQL写入数据时报错ERROR 1366 (HY000): Incorrect string value: ‘\xE8\x8B\xB1\xE5\xAF\xB8…’ for c 插入中文不能插入<br>解决：<br>    1.删除之前的表<br>    2.重新创建，并添加语句 ‘ DEFAULT CHARSET=utf8’<br>一些查看和修改字符集的命令：<br>查看mysql的字符集：show variables where Variable_name like ‘%char%’;<br>查看某一个数据库字符集：show create database enterprises;(注：enterprises为数据库)<br>查看某一个数据表字符集：show create table employees;(注：employees为数据表)<br>修改mysql的字符集：</p>
-<pre><code>mysql&gt; set character\_set\_client=utf8;
-
-mysql&gt; set character\_set\_connection=utf8;
-
-mysql&gt; set character\_set\_database=utf8;
-
-mysql&gt; set character\_set\_results=utf8;
-
-mysql&gt; set character\_set\_server=utf8;
-
-mysql&gt; set character\_set\_system=utf8;
-
-mysql&gt; set collation_connection=utf8;
-
-mysql&gt; set collation_database=utf8;
-
-mysql&gt; set collation_server=utf8;
-</code></pre><p>修改数据库enterprises的字符集：</p>
-<p>alter database enterprises character set utf8</p>
-<p>修改数据表employees的字符集：</p>
-<p>alter table employees character set utf8</p>
-<p>修改字段的字符集</p>
-<p>alter table employees change name name char(10) character set utf-8;</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql，数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/19/mysql/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-tkinter" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/19/tkinter/">Tkinter窗口使用</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/19/tkinter/" class="archive-article-date">
-  	<time datetime="2018-07-18T16:17:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#coding=utf-8<br>from tkinter import <em><br>from tkinter import filedialog<br>from Emulator import </em><br>import os</p>
-<p>#apk按钮事件<br>def get_apk():<br>    in_file = filedialog.askopenfilename()<br>    if Has_device():<br>        if Install_apk(in_file):<br>            pkname = getPackageName(in_file)<br>            Activities = getActivities(packagename=pkname, apk_Name=in_file)<br>            text.insert(END, “packagename：” + pkname + “\n”)<br>            pwd = os.getcwd()<br>            screen_dir = pwd + “\screen_shot”<br>            tmp_dir = screen_shot(screen_dir, apk_name=in_file,Activities=Activities,packagename=pkname)<br>            text.insert(END,”检索Activity：”+”\n”)<br>            for activity in Activities:<br>                text.insert(END, activity+”\n”)<br>            text.insert(END, “获取运行图片…”)<br>        else:<br>            text.insert(END, “安装失败！”)<br>    else:<br>        text.insert(END,”无设备连接！”)</p>
-<p>#运行模拟器事件<br>def start_Gen():<br>    os.system(‘D:\Applications\Genymotion2\genymotion.exe’)</p>
-<p>#初始化界面<br>def init(root):</p>
-<pre><code>#滑轮
-S = Scrollbar(root)
-#grid布局
-label1 = Label(root,text=&quot;当前目录：&quot;,font=&apos;微软雅黑 10 normal&apos;,fg=&apos;black&apos;).grid(row=0,sticky=W,padx=10)
-pwd = Label(root,text=os.getcwd(),font=&apos;微软雅黑 8 normal&apos;,fg=&apos;#666666&apos;).grid(row=0,column=1,sticky=W)
-
-label2 = Label(root,text=&quot;菜单&quot;,font=&apos;微软雅黑 10 normal&apos;,fg=&apos;black&apos;).grid(row=1,sticky=W,pady=5,padx=10)
-
-btn_start = Button(root,text=&quot;运行模拟器&quot;,font=&apos;微软雅黑 8 normal&apos;,fg=&apos;black&apos;).grid(row=2,sticky=W,pady=10,padx=10)
-btn_run = Button(root,text=&quot;模拟运行APK&quot;,font=&apos;微软雅黑 8 normal&apos;,fg=&apos;black&apos;).grid(row=3,sticky=W,pady=10,padx=10)
-btn_res = Button(root, text=&quot;获取资源文件&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=4, sticky=W, pady=10, padx=10)
-
-state = Text(root,width=50,height=20)
-state.grid(row=2,rowspan=3,column=1,padx=10,pady=10)
-state.config(yscrollcommand=S.set)
-
-label3= Label(root, text=&quot;参数设置&quot;, font=&apos;微软雅黑 10 normal&apos;, fg=&apos;black&apos;).grid(row=5, sticky=W, pady=5, padx=10)
-default_btn = Checkbutton(root,text=&quot;默认&quot;).grid(row=6 ,sticky=W, pady=5, padx=10,column=0)
-set_btn = Checkbutton(root,text=&quot;设置&quot;).grid(row=6 ,sticky=W, pady=5, padx=10,column=1)
-
-prefix = Label(root, text=&quot;资源文件保存位置：&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=7, sticky=W, pady=5, padx=10,column=0)
-enter_file = Entry(width=50).grid(row=7,column=1)
-
-log = Label(root, text=&quot;日志文件保存位置：&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=8, sticky=W, pady=5, padx=10,column=0)
-enter_log = Entry(width=50).grid(row=8, column=1)
-
-res = Label(root, text=&quot;结果文件保存位置：&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=9, sticky=W, pady=5, padx=10,column=0)
-enter_log = Entry(width=50).grid(row=9, column=1)
-
-confirm = Button(root,text=&quot;保存设置&quot;).grid(row=10, pady=5, padx=10, sticky=W)
-</code></pre><p>def main():</p>
-<pre><code>#设置主窗体属性
-root = Tk()
-root.geometry(&apos;500x600&apos;)
-root.title(&quot;Android应用资源文件检测程序&quot;)
-init(root)
-mainloop()
-</code></pre><p>if __name__ == ‘__main__‘:<br>    main()</p>
-<p><img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/TIM图片20180719001631.png" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tkinter</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ui</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/19/tkinter/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js-base" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/16/js-base/">JS基础</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/16/js-base/" class="archive-article-date">
-  	<time datetime="2018-07-16T13:55:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="js组成"><a href="#js组成" class="headerlink" title="js组成"></a>js组成</h3><ul>
-<li><p>核心（ECMAScript）：描述了语法、类型、语句、关键字、保留字、运算符、对象等内容，定义了脚本语言的所有属性、方法和对象。</p>
-</li>
-<li><p>文档对象模型（DOM）：是HTML和XML的应用程序接口（API）。DOM将把整个页面规划成由节点层级构成的文档。HTML或XML页面的每个部分都是一个节点的衍生物。通过创建树来表示文档，从而使开发者对文档的内容和结构具有空前的控制力。基本统一</p>
-<ul>
-<li><p>DOM试图</p>
-</li>
-<li><p>DOM事件</p>
-</li>
-<li><p>DOM样式</p>
-</li>
-<li><p>DOM遍历和范围</p>
-</li>
-<li><p>其他DOM</p>
-<ul>
-<li><p>SVG</p>
-</li>
-<li><p>MathML</p>
-</li>
-<li><p>SMTL</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>浏览器对象模型（BOM）：对浏览器窗口进行访问和操作。使用BOM，开发者可以移动窗口、改变状态栏中的文本以及执行其他与页面内容不直接相关的动作。不统一</p>
-</li>
-</ul>
-<h3 id="js语法"><a href="#js语法" class="headerlink" title="js语法"></a>js语法</h3><h4 id="变量命名规则"><a href="#变量命名规则" class="headerlink" title="变量命名规则"></a>变量命名规则</h4><ul>
-<li><p>区分大小写</p>
-</li>
-<li><p>变量是弱类型的</p>
-</li>
-<li><p>结尾;可有可无</p>
-</li>
-<li><p>注释与JAVA、C和PHP相同</p>
-</li>
-<li><p>括号表示代码块</p>
-</li>
-<li><p>变量第一个字符必须是字母、下划线或美元符号</p>
-</li>
-<li><p>余下字母可以是下划线、美元符号或任何字母或数字字符</p>
-</li>
-<li><p>Camel标记法</p>
-</li>
-</ul>
-<h4 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h4><p>break、else…</p>
-<h4 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h4><p>abstract、enum</p>
-<h4 id="原始值和引用值"><a href="#原始值和引用值" class="headerlink" title="原始值和引用值"></a>原始值和引用值</h4><ul>
-<li><p>原始值：存储在栈中的简单数据段，也就是说它们的值直接存储在变量访问的位置</p>
-</li>
-<li><p>typeof()函数返回值：</p>
-<ul>
-<li><p>“undefined” 变量是Undefined型：未初始化，即var a;未定义返回也是undefined，函数无返回值也是undefined</p>
-</li>
-<li><p>“boolean” 变量是Boolean型</p>
-</li>
-<li><p>“number” 变量是Number型</p>
-<ul>
-<li><p>32位整数，64位浮点数</p>
-</li>
-<li><p>8进制：首字符为0，16进制：首字符为0x，所有数学运算返回结果都为十进制</p>
-</li>
-<li><p>科学记数法：3.125e7</p>
-</li>
-<li><p>Number.MAX_VALUE、Number.MIN_VALUE定义了Number的值边界，所有ECMAScript数字值必须在这两个数中间，计算结果可以除外。</p>
-</li>
-<li><p>无穷大：Infinity Number.POSITIVE_INFINITY/Number.NEGATIVE_INFINITY</p>
-</li>
-<li><p>NaN,代表非数</p>
-</li>
-</ul>
-</li>
-<li><p>“string” 变量是String型</p>
-<ul>
-<li>双引号与单引号都可，因为没有字符型</li>
-</ul>
-</li>
-<li><p>“object” 变量是一种引用类型或Null类型 null是Null类型的专用值，ECMA将null与undefined（由null派生而来）定义为相等</p>
-</li>
-</ul>
-</li>
-<li><p>引用值：存储在堆中的对象，也就是说，存储在变量处的值是一个指针，指向存储对象的内存地址</p>
-</li>
-<li><p>数据类型的相互转换</p>
-<ul>
-<li><p>toString()方法</p>
-<ul>
-<li><p>Number的toStrng()方法有两种，默认模式与基模式（2，8，16）</p>
-</li>
-<li><p>String类型也有toString方法（伪对象）</p>
-</li>
-</ul>
-</li>
-<li><p>parseInt()和parseFloat()</p>
-<ul>
-<li><p>从位置0查看每一个字符，直到找到第一个非有效字符为止，将前面的值转为数字</p>
-</li>
-<li><p>parseInt可以转化8或16进制字符，parseFloat不可以</p>
-</li>
-</ul>
-</li>
-<li><p>强制类型转换</p>
-<ul>
-<li><p>Boolean(value)</p>
-</li>
-<li><p>Number(value)</p>
-</li>
-<li><p>String(value)</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>引用类型（实际上是对象）：</p>
-<ul>
-<li><p>var o = new Object();</p>
-</li>
-<li><p>Object类：</p>
-<ul>
-<li><p>属性：</p>
-<ul>
-<li><p>Constructor——对创建对象的函数的引用（指针）</p>
-</li>
-<li><p>Prototype——对该对象的对象原型的引用</p>
-</li>
-</ul>
-</li>
-<li><p>方法：</p>
-<ul>
-<li><p>HasOnwnProperty——判断对象是否有某个特定的属性。必须用字符串指定该属性</p>
-</li>
-<li><p>IsPrototypeOf——判断该对象是否为另一个对象的原型</p>
-</li>
-<li><p>PropertyIsEnumerable——判断对象是否可以有for…in语句进行枚举</p>
-</li>
-<li><p>ToString——返回对象的原始字符串表示</p>
-</li>
-<li><p>ValueOf——返回最适合该对象的原始值</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Boolean类</p>
-</li>
-<li><p>Number类</p>
-<ul>
-<li><p>toFixed()方法，返回具有指定位数小数的数字的字符串表示 99 —toFixed(2)—99.00</p>
-</li>
-<li><p>toExponential()方法，返回科学记数法表示的数字的字符串形式99—toExponential(1)—9.9e+1</p>
-</li>
-<li><p>toPrecision()方法，根据最有意义的方式返回数字的预定形式或指数形式</p>
-</li>
-<li><p>以上方法都会进行舍入操作，以使用正确的小数位数正确地表示一个数</p>
-</li>
-</ul>
-</li>
-<li><p>String类</p>
-<ul>
-<li><p>属性length，返回字符串中字符的个数（即使字符串中包含双字节 字符，每个字符也只算是一个字符）</p>
-</li>
-<li><p>charAt()返回包含指定位置字符的字符串</p>
-</li>
-<li><p>charCodeAt()返回字符代码</p>
-</li>
-<li><p>concat()用于将一个或多个字符串连接在String对象的原始值上，返回String原始值，原对象保持不变</p>
-</li>
-<li><p>indexOf()返回指定子串在字符串中的位置或-1，lastIndexOf()从结尾开始检索</p>
-</li>
-<li><p>localeCompare()对字符串值进行排序，该方法需要传参作为比较的字符串：</p>
-<ul>
-<li><p>之前，返回负数</p>
-</li>
-<li><p>等于，返回0</p>
-</li>
-<li><p>之后，返回正数</p>
-</li>
-</ul>
-</li>
-<li><p>从子串创建字符串值：</p>
-<ul>
-<li><p>slice()</p>
-</li>
-<li><p>substring()</p>
-</li>
-<li><p>两个方法返回的都是要处理的字符串的子串，都接受一个或两个参数，第一个参数为起始位置，第二个参数为终止位置。</p>
-</li>
-<li><p>对于负数参数，slice()会用字符串的长度加上参数，sustring()则将其当作0处理</p>
-</li>
-</ul>
-</li>
-<li><p>toLowerCase()、toLocalLowerCase()、toUpperCase()、toLocaleUpperCase()</p>
-</li>
-<li><p>String类的所有属性和方法都可以利用到String原始值上，因为它是伪对象</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>instanceof()函数</p>
-<p>用于识别正在处理的对象的类型，instanceof要求开发者明确地确认对象为某特定类型</p>
-</li>
-</ul>
-<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><h5 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h5><ul>
-<li><p>delete：删除对以前定义的对象属性或方法的引用</p>
-</li>
-<li><p>void：对任何值都返回undefined。用于避免输出不应该输出的值：</p>
-<p>​ <code>&lt;a href=&quot;javascript:void(window.open(&#39;about:blank&#39;))&quot;&gt;&lt;/a&gt;</code></p>
-<p>​ 没有返回值的函数返回的都是undefined</p>
-</li>
-<li><p>前增量/前减量运算符</p>
-</li>
-<li><p>后增量/后减量运算符</p>
-<ul>
-<li><p>前…表示先进行增/减运算再进行表达式运算，后则相反</p>
-</li>
-<li><p><code>var num = 10; alert(num--);//结果为10 alert(--num);//结果为8</code></p>
-</li>
-</ul>
-</li>
-<li><p>一元加法和一元减法</p>
-<ul>
-<li>一元加法或一元减法会把字符串转换为近似的数字</li>
-</ul>
-</li>
-<li><p>位运算符</p>
-<p>​ ECMA使用32位存储有符号整数，第31位作为符号位，使用补码存储</p>
-<ul>
-<li><p>NOT运算符(~)：将数字的二进制码取反码，最后转化为浮点数输出</p>
-</li>
-<li><p>AND运算符(&amp;)：25 &amp; 3 = 0….11001 &amp;0….00011 = 00001 = 1</p>
-</li>
-<li><p>OR运算符(|)：25 | 3 = 0….11001 | 0….00011 = 11011 = 27</p>
-</li>
-<li><p>XOR运算符(^)：25^3 = 0….11001^0….00011 = 0….11010 = 26</p>
-</li>
-<li><p>左移运算符(&lt;&lt;)2&lt;&lt;5 = 64 保留符号位</p>
-</li>
-<li><p>右移运算符(&gt;&gt;)64&gt;&gt;5 = 2 , 无符号右移为&gt;&gt;&gt;</p>
-</li>
-</ul>
-</li>
-<li><p>Boolean运算符</p>
-<ul>
-<li><p>NOT运算符(!)：</p>
-<ul>
-<li><p>对象，返回false</p>
-</li>
-<li><p>0，返回true</p>
-</li>
-<li><p>0以外数字，返回false</p>
-</li>
-<li><p>null，返回true</p>
-</li>
-<li><p>NaN，true</p>
-</li>
-<li><p>undefined，发生错误</p>
-</li>
-</ul>
-</li>
-<li><p>逻辑AND运算符&amp;&amp;（懒运算）:</p>
-<ul>
-<li><p>如果一个运算数是对象，另一个是Boolean值，返回该对象</p>
-</li>
-<li><p>如果两个运算数都是对象，返回第二个对象</p>
-</li>
-<li><p>如果某个运算数是null，返回null</p>
-</li>
-<li><p>如果某个运算数是NaN，返回NaN</p>
-</li>
-<li><p>如果某个运算数是undefined，发生错误</p>
-</li>
-</ul>
-</li>
-<li><p>逻辑OR运算符||（懒运算）:</p>
-<ul>
-<li><p>如果一个运算数是对象，另一个是Boolean值，返回该对象</p>
-</li>
-<li><p>如果两个运算数都是对象，返回第二个对象</p>
-</li>
-<li><p>如果某个运算数是null，返回null</p>
-</li>
-<li><p>如果某个运算数是NaN，返回NaN</p>
-</li>
-<li><p>如果某个运算数是undefined，发生错误</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>乘性运算符</p>
-<ul>
-<li><p>乘法运算符</p>
-<ul>
-<li><p>某个运算数是NaN,结果为NaN</p>
-</li>
-<li><p>Infinity乘以0，结果为NaN</p>
-</li>
-<li><p>Infinity乘以0以外任何数字，结果为Infinity 或 -Infinity，由第二个运算数的符号决定</p>
-</li>
-<li><p>Infinity乘Infinity，结果为Infinity</p>
-</li>
-</ul>
-</li>
-<li><p>除法运算符</p>
-<ul>
-<li><p>Infinity除Infinity ， 结果为NaN</p>
-</li>
-<li><p>0除一个非无穷大的数字，结果为NaN</p>
-</li>
-<li><p>某个运算数字为NaN，结果为NaN</p>
-</li>
-</ul>
-</li>
-<li><p>取模运算符</p>
-<ul>
-<li>若被除数为0或者除数为0，结果为NaN</li>
-</ul>
-</li>
-<li><p>加性运算符</p>
-<ul>
-<li><p>若两个运算数都是字符串，把第二个字符串连接到第一个字符串</p>
-</li>
-<li><p>若只有一个是字符串，把另一个运算数转换为字符串，结果为两个字符串连接的字符串</p>
-</li>
-</ul>
-</li>
-<li><p>减法运算符</p>
-<ul>
-<li>某个运算符不是数字，结果为NaN</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>关系运算符</p>
-<ul>
-<li><p>‘&gt;’</p>
-</li>
-<li><p>&lt;</p>
-</li>
-<li><p>&lt;=</p>
-</li>
-<li><p>‘&gt;=’</p>
-</li>
-<li><p>对两个字符串应用关系运算符，则会用ascii码进行对比</p>
-</li>
-</ul>
-</li>
-<li><p>等性运算符</p>
-<ul>
-<li><p>等号和非等号</p>
-<ul>
-<li><p>==</p>
-</li>
-<li><p>!=</p>
-</li>
-<li><p>null与undefined相等，若某个运算数为NaN，返回false</p>
-</li>
-<li><p>若两个运算数都为对象，那么比较的是他们的引用值</p>
-</li>
-</ul>
-</li>
-<li><p>全等号和非全等号</p>
-<ul>
-<li><p>===</p>
-</li>
-<li><p>!==</p>
-</li>
-<li><p>与等号和非等号相比，在检查相等性的时候，不会进行类型转换</p>
-</li>
-</ul>
-</li>
-<li><p>条件运算符：三元运算符 <code>var iMax = (iNum1&gt;iNum2)?iNum1:iNum2</code></p>
-</li>
-</ul>
-</li>
-<li><p>赋值运算符</p>
-<ul>
-<li><p>=</p>
-<ul>
-<li>复合赋值运算符（常用）：*= 、/=、%=、+=、-=、&lt;&lt;=、&gt;&gt;=、&gt;&gt;&gt;=</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>逗号运算符</p>
-<ul>
-<li><code>var iNum = 1,iNum2 = 2,iNum3 = 3</code></li>
-</ul>
-</li>
-</ul>
-<h4 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h4><ul>
-<li><p>条件语句</p>
-</li>
-<li><p>迭代语句</p>
-<ul>
-<li><p>do-while语句</p>
-</li>
-<li><p>while语句</p>
-</li>
-<li><p>for语句</p>
-</li>
-<li><p>for-in语句</p>
-<p><code>for(property in expression) statement</code></p>
-</li>
-</ul>
-</li>
-<li><p>有标签的语句(给语句加标签，方便以后调用)</p>
-<p>label：statement <code>start:var count=10</code></p>
-</li>
-<li><p>break语句和continue语句</p>
-<ul>
-<li>break和continue可以与标签语句配合使用，跳转到对应语句</li>
-</ul>
-</li>
-<li><p>with语句</p>
-<ul>
-<li><p>用于设置代码在特定对象中的作用域 with(expression) statement;</p>
-</li>
-<li><p>with 语句可以方便地用来引用某个特定对象中已有的属性，但是不能用来给对象添加属性。要给对象创建新的属性，必须明确地引用该对象。<br>with(object instance)<br>{<br> //代码块<br>}<br> 有时候，我在一个程序代码中，多次需要使用某对象的属性或方法，照以前的写法，都是通过:对象.属性或者对象.方法这样的方式来分别获得该对象的属性和方法，着实有点麻烦，学习了with语句后，可以通过类似如下的方式来实现：<br>with(objInstance)<br>{<br> var str = 属性1;<br>…..<br>} 去除了多次写对象名的麻烦。  </p>
-</li>
-</ul>
-</li>
-<li><p>switch语句</p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础语法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JS才是最好的语言//" class="article-tag-list-link color5">JS才是最好的语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/16/js-base/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-densenet-ocr1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/16/densenet-ocr1/">keras_ocr代码——（densenet-ocr.ipynb）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/16/densenet-ocr1/" class="archive-article-date">
-  	<time datetime="2018-07-16T13:52:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>getsession(gpu_fraction=0.6)</strong></p>
-<ul>
-<li><p>os.environ.get(‘OMP_NUM_THREADS’) 获取线程</p>
-</li>
-<li><p>tf.GPUOptions(per_process_gpu_memory_fraction=gpu_fraction)</p>
-<p>tf.ConfigProto(gpu_options=gpu_options)</p>
-<p>tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))</p>
-<p>K.set_session(get_session())</p>
-<p>设置每个gpu应该拿出多少容量给进程使用</p>
-</li>
-<li><p>from keras import backend as K （K代表keras后端，可用于作为占位）</p>
-</li>
-</ul>
-<p><strong>ctc_lambda_func(args)</strong></p>
-<ul>
-<li><p>K.ctc_batch_cost(labels, y_pred, input_length, label_length)在batch上运行CTC损失算法</p>
-<p><code>ctc_batch_cost(y_true（真值）, y_pred（预测值）, input_length（y_pred每个batch序列长）, label_length（y_true每个序列长）)</code></p>
-<p>返回值：形如(samoles，1)的tensor，包含了每个元素的CTC损失</p>
-<p><a href="https://blog.csdn.net/luodongri/article/details/77005948" target="_blank" rel="noopener">CTC算法介绍</a></p>
-</li>
-</ul>
-<p><strong>class random_uniform_num()</strong></p>
-<ul>
-<li><p><code>__init__()</code></p>
-<p>初始化total、range以及顺序数字组并打乱，设置index=0</p>
-</li>
-<li><p><code>get()</code></p>
-<p>获取batchsize大小的乱序数组</p>
-</li>
-</ul>
-<p><strong>readtrainfile(filename)</strong></p>
-<p>读取训练文件</p>
-<p><strong>gen3(trainfile,batchsize=64,maxlabellength=10,imagesize=(32,280)):</strong></p>
-<p>文件读取，构造输入，输出，(input,target)型迭代器：</p>
-<ul>
-<li><p>常变量声明：</p>
-<p>#设置shape(64,32,282,1)<br>#因为只用了一个通道，恐怕只能识别在灰度下，字体和底色不同的图片<br>#是否可以改成tensor专用的？<br>x = np.zeros((batchsize, imagesize[0], imagesize[1], 1), dtype=np.float)<br>labels = np.ones([batchsize,maxlabellength])*10000<br>input_length = np.zeros([batchsize,1])<br>label_length = np.zeros([batchsize,1])<br>r_n = random_uniform_num(len(_imagefile))#初始化一个random_uniform_num类，一个随机数组<br>_imagefile = np.array(_imagefile)</p>
-</li>
-<li><ul>
-<li>文件读取，构造输入，输出，(input,target)型迭代器</li>
-</ul>
-<p>_imagefile = np.array(_imagefile)<br>#读取文件<br>while 1:</p>
-<pre><code>#读取文件
-shufimagefile = \_imagefile\[r\_n.get(batchsize)\]
-for i,j in enumerate(shufimagefile):
-    #灰度处理先
-    #L = R * 299/1000 + G * 587/1000+ B * 114/1000
-    img1 = Image.open(j).convert(&apos;L&apos;)
-    #Column-major order   获得一个img数组。全0，shape与img1相同，列主序
-    #（32，280）
-    img = np.array(img1,&apos;f&apos;)/255.0-0.5
-    #reshape()（32，280，1）
-    x\[i\] = np.expand_dims(img,axis=2)
-    #print(&apos;imag:shape&apos;,img.shape)
-    #取lable
-    str = image_label\[j\]
-    label_length\[i\] = len(str) 
-
-    if(len(str)&lt;=0):
-        print(&quot;len&lt;0&quot;,j)
-    #//取整除 \- 返回商的整数部分（向下取整）
-    input_length\[i\] = imagesize\[1\]//8
-    #caffe_ocr中把0作为blank，但是tf 的CTC  the last class is reserved to the blank label.
-    #https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/util/ctc/ctc\_loss\_calculator.h
- #构建输入输出迭代器
-    #获取label
-    labels\[i,:len(str)\] =\[int(i)-1 for i in str\]
-    print(&quot;label:&quot;+labels)
-
-#输入
-inputs = {&apos;the_input&apos;: x,
-        &apos;the_labels&apos;: labels,
-        &apos;input\_length&apos;: input\_length,
-        &apos;label\_length&apos;: label\_length,
-        }
-outputs = {&apos;ctc&apos;: np.zeros(\[batchsize\])} 
-</code></pre><h1 id="yield-的作用就是把一个函数变成一个-generator，带有-yield-的函数不再是一个普通函数，Python-解释器会将其视为一个-generator，"><a href="#yield-的作用就是把一个函数变成一个-generator，带有-yield-的函数不再是一个普通函数，Python-解释器会将其视为一个-generator，" class="headerlink" title="yield 的作用就是把一个函数变成一个 generator，带有 yield 的函数不再是一个普通函数，Python 解释器会将其视为一个 generator，"></a>yield 的作用就是把一个函数变成一个 generator，带有 yield 的函数不再是一个普通函数，Python 解释器会将其视为一个 generator，</h1><pre><code>yield (inputs,outputs)
-</code></pre><p>#调用函数，真正构建<br>print(‘———–beginfit–’)<br>#读取文件，构建迭代器<br>cc1=gen3(r’E:\C4\keras_ocr\images\train.txt’,batchsize=batch_size,maxlabellength=maxlabellength,imagesize=(img_h,img_w))<br>cc2=gen3(r’E:\C4\keras_ocr\images\test.txt’,batchsize=batch_size,maxlabellength=maxlabellength,imagesize=(img_h,img_w))</p>
-</li>
-</ul>
-<p><strong>model构建</strong></p>
-<p>#输入层，返回一个tensor，占位<br>input = Input(shape=(img_h,None,1),name=’the_input’)</p>
-<p>#使用desenet获得预测结果<br>y_pred= densenet.dense_cnn(input,nclass)</p>
-<p>#模型图构建<br>basemodel = Model(inputs=input,outputs=y_pred)</p>
-<p>#打印出模型概述信息。 它是 utils.print_summary 的简捷调用。<br>basemodel.summary()<br>labels = Input(name=’the_labels’,shape=[maxlabellength],dtype=’float32’)<br>input_length = Input(name=’input_length’, shape=[1], dtype=’int64’)<br>label_length = Input(name=’label_length’, shape=[1], dtype=’int64’)</p>
-<p>#Lambda用以对上一层的输出施以任何Theano/TensorFlow表达式</p>
-<p>#keras.layers.core.Lambda(function, output_shape=None, mask=None, arguments=None)<br>loss_out = Lambda(ctc_lambda_func, output_shape=(1,), name=’ctc’)([y_pred, labels, input_length, label_length]) </p>
-<p>#构建模型图<br>model = Model(inputs=[input, labels, input_length, label_length], outputs=loss_out)</p>
-<p>#优化器<br>adam = Adam()</p>
-<p>#模型编译<br>model.compile(loss={‘ctc’: lambda y_true, y_pred: y_pred}, optimizer=adam,metrics=[‘accuracy’])</p>
-<p><strong>回调函数声明</strong></p>
-<p>#keras.callbacks.ModelCheckpoint(filepath, monitor=’val_loss’, verbose=0, save_best_only=False, save_weights_only=False, mode=’auto’, period=1)<br>checkpoint = ModelCheckpoint(r’E:\deeplearn\OCR\Sample\model\weights-densent-{epoch:02d}.hdf5’,<br>                           save_weights_only=True) #检查点记录</p>
-<p>#keras.callbacks.EarlyStopping(monitor=’val_loss’, patience=0, verbose=0, mode=’auto’)</p>
-<p>#当监测值不再改善时，该回调函数将中止训练<br>earlystop = EarlyStopping(patience=10)#提前终止</p>
-<p>#tensorboard<br>tensorboard = TensorBoard(r’E:\deeplearn\OCR\Sample\model\tflog-densent’,write_graph=True)</p>
-<p><strong>训练</strong></p>
-<p>#<br>res = model.fit_generator(</p>
-<pre><code>                #生成器函数，或一个输入tuple
-                cc1,
-                      #当生成器返回steps\_per\_epoch次数据时计一个epoch结束，执行下一个epoch
-                steps\_per\_epoch =3279601// batch_size,
-                epochs = 100,
-                validation_data =cc2 ,
-                validation\_steps = 364400// batch\_size,
-#回调函数
-                callbacks =\[earlystop,checkpoint,tensorboard\],
-#日志显示，0为不在标准输出流输出日志信息，1为输出进度条记录，2为每个epoch输出一行记录
-                verbose=1
-                )
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">keras</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ocr</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习，神经网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/keras//" class="article-tag-list-link color1">keras</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/16/densenet-ocr1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1739,11 +1314,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1759,15 +1334,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1783,7 +1354,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">

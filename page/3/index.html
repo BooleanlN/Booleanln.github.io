@@ -146,6 +146,372 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-httpstx" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/httpstx/">https通信步骤</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/httpstx/" class="archive-article-date">
+  	<time datetime="2018-07-13T06:34:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>①客户端发送报文进行SSL通信。报文中包含客户端支持的SSL的指定版本、加密组件列表（加密算法及密钥长度等）。 ②服务器应答，并在应答报文中包含SSL版本以及加密组件。服务器的加密组件内容是从接受到的客户端加密组件内筛选出来的。 ③服务器发送报文，报文中包含公开密钥证书。 ④服务器发送报文通知客户端，最初阶段SSL握手协商部分结束。 ⑤SSL第一次握手结束之后，客户端发送一个报文作为回应。报文中包含通信加密中使用的一种被称Pre-master secret的随机密码串。该密码串已经使用服务器的公钥加密。 ⑥客户端发送报文，并提示服务器，此后的报文通信会采用Pre-master secret密钥加密。 ⑦客户端发送Finished报文。该报文包含连接至今全部报文的整体校验值。这次握手协商是否能够完成成功，要以服务器是否能够正确解密该报文作为判定标准。 ⑧服务器同样发送Change Cipher Spec报文。 ⑨服务器同样发送Finished报文。 ⑩服务器和客户端的Finished报文交换完毕之后，SSL连接就算建立完成。 ⑪应用层协议通信，即发送HTTP响应。 ⑫最后由客户端断开链接。断开链接时，发送close_nofify报文。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Html是程序语言乎？//" class="article-tag-list-link color2">Html是程序语言乎？</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/httpstx/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-cookiessessionstoragelocalstorage" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/cookiessessionstoragelocalstorage/">cookies,sessionStorage和localStorage</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/cookiessessionstoragelocalstorage/" class="archive-article-date">
+  	<time datetime="2018-07-13T06:32:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="cookies-sessionStorage和localStorage"><a href="#cookies-sessionStorage和localStorage" class="headerlink" title="cookies,sessionStorage和localStorage"></a>cookies,sessionStorage和localStorage</h6><p>sessionStorage用于本地存储一个会话中的数据，这些数据只有在同一个会话的页面才能访问，并且会话结束后，数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。而localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。</p>
+<p>webStorage的概念和cookie相似，区别是它是为了更大容量存储设计的。Cookie的大小是受限的，并且每次你请求一个新的页面的时候Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。</p>
+<p>除此之外，Web Storage拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。但是Cookie也是不可以或缺的：Cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在 ，而Web Storage仅仅是为了在本地“存储”数据而生。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Html是程序语言乎？//" class="article-tag-list-link color2">Html是程序语言乎？</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/cookiessessionstoragelocalstorage/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-located" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/located/">相对定位，绝对定位，固定定位</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/located/" class="archive-article-date">
+  	<time datetime="2018-07-13T06:32:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="相对定位，绝对定位，固定定位https-www-cnblogs-com-gchlcc-p-6295199-html"><a href="#相对定位，绝对定位，固定定位https-www-cnblogs-com-gchlcc-p-6295199-html" class="headerlink" title="相对定位，绝对定位，固定定位https://www.cnblogs.com/gchlcc/p/6295199.html"></a>相对定位，绝对定位，固定定位<a href="https://www.cnblogs.com/gchlcc/p/6295199.html" target="_blank" rel="noopener">https://www.cnblogs.com/gchlcc/p/6295199.html</a></h6><ol>
+<li><p>相对定位：微调元素位置，让元素相对自己原来的位置，进行位置的微调</p>
+<p>相对定位不脱标,真实位置是在老家,只不过影子出去了,可以到处飘.</p>
+<ul>
+<li><p>可以用left,right来描述盒子右,左的移动</p>
+</li>
+<li><p>可以用top,bottom来描述盒子的下,上的移动.</p>
+</li>
+</ul>
+</li>
+<li><p>绝对定位：</p>
+<ul>
+<li><p>绝对定位的盒子,还脱离标准文档流的.所以,所有的标准文档流的性质,绝对定位之后都不遵守了.</p>
+</li>
+<li><p>绝对定位之后,标签就不区分所谓的行内元素,块级元素了,不需要<code>display:block;</code>就可以设置宽高了</p>
+</li>
+<li><p>绝对定位的参考点：</p>
+<p>如果用top描述，那么定位参考点就是页面的左上角，而不是浏览器的左上角</p>
+<p>如果用bottom描述，那么定位参考点是浏览器首屏窗口尺寸，对应的页面的左下角</p>
+</li>
+<li><p>子绝父相</p>
+</li>
+</ul>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Html是程序语言乎？//" class="article-tag-list-link color2">Html是程序语言乎？</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/located/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-oraclefunc" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/oraclefunc/">Oracle函数</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/oraclefunc/" class="archive-article-date">
+  	<time datetime="2018-07-13T06:27:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>create or replace function return_sal(eno Jsj425.Emp.Empno%type)–声明或覆盖一个函数<br>return number –需要先声明返回值<br>    is  –is/as<br>v_sal Jsj425.Emp.sal%type;<br>–function body<br>–查找员工号是eno的sal<br>begin<br>  select sal into v_sal from Jsj425.Emp where empno = eno;<br>  return v_sal;<br>exception<br>  when NO_DATA_FOUND then<br>    dbms_output.put_line(‘无此员工信息’);<br>  when others then<br>    dbms_output.put_line(‘其他未知错误’);<br> end return_sal;<br> —函数调用<br> declare<br>  v_sal number(7,2);<br>  begin<br>    v_sal:=return_sal(7369);<br>    dbms_output.put_line(v_sal);<br>  end;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ORACLE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/oraclefunc/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-oracleexception" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -703,514 +1069,6 @@
 
 
   
-    <article id="post-apache2-https" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/13/apache2-https/">Apache2下https的配置</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/13/apache2-https/" class="archive-article-date">
-  	<time datetime="2018-07-13T05:10:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Apache2下https的配置"><a href="#Apache2下https的配置" class="headerlink" title="Apache2下https的配置"></a>Apache2下https的配置</h4><blockquote>
-<p><a href="https://blog.csdn.net/positlive/article/details/54972990" target="_blank" rel="noopener">https://blog.csdn.net/positlive/article/details/54972990</a></p>
-</blockquote>
-<ol>
-<li><p>安装apache2</p>
-</li>
-<li><p>激活SSL模块</p>
-<p><code>sudo a2enmod ssl</code></p>
-</li>
-<li><p>重启apache2</p>
-</li>
-<li><p>创建自签名SSL证书</p>
-<p>sudo mkdir /etc/apache2/ssl<br>sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt<br>我用的是腾讯云的证书，免费一年<br><a href="https://cloud.tencent.com/document/product/400" target="_blank" rel="noopener">https://cloud.tencent.com/document/product/400</a></p>
-</li>
-<li><p>编辑配置文件，修改</p>
-<p>SSL的证书路径</p>
-<p><ifmodule mod_ssl.c=""><br> <virtualhost \_default\_:443=""><br> ServerAdmin webmaster@localhost<br>​<br> DocumentRoot /var/www/html<br>​</virtualhost></ifmodule></p>
-<h1 id="Available-loglevels-trace8-…-trace1-debug-info-notice-warn"><a href="#Available-loglevels-trace8-…-trace1-debug-info-notice-warn" class="headerlink" title="Available loglevels: trace8, …, trace1, debug, info, notice, warn,"></a>Available loglevels: trace8, …, trace1, debug, info, notice, warn,</h1><h1 id="error-crit-alert-emerg"><a href="#error-crit-alert-emerg" class="headerlink" title="error, crit, alert, emerg."></a>error, crit, alert, emerg.</h1><h1 id="It-is-also-possible-to-configure-the-loglevel-for-particular"><a href="#It-is-also-possible-to-configure-the-loglevel-for-particular" class="headerlink" title="It is also possible to configure the loglevel for particular"></a>It is also possible to configure the loglevel for particular</h1><h1 id="modules-e-g"><a href="#modules-e-g" class="headerlink" title="modules, e.g."></a>modules, e.g.</h1><p> #LogLevel info ssl:warn<br>​<br> ErrorLog ${APACHE_LOG_DIR}/error.log<br> CustomLog ${APACHE_LOG_DIR}/access.log combined<br>​</p>
-<h1 id="For-most-configuration-files-from-conf-available-which-are"><a href="#For-most-configuration-files-from-conf-available-which-are" class="headerlink" title="For most configuration files from conf-available/, which are"></a>For most configuration files from conf-available/, which are</h1><h1 id="enabled-or-disabled-at-a-global-level-it-is-possible-to"><a href="#enabled-or-disabled-at-a-global-level-it-is-possible-to" class="headerlink" title="enabled or disabled at a global level, it is possible to"></a>enabled or disabled at a global level, it is possible to</h1><h1 id="include-a-line-for-only-one-particular-virtual-host-For-example-the"><a href="#include-a-line-for-only-one-particular-virtual-host-For-example-the" class="headerlink" title="include a line for only one particular virtual host. For example the"></a>include a line for only one particular virtual host. For example the</h1><h1 id="following-line-enables-the-CGI-configuration-for-this-host-only"><a href="#following-line-enables-the-CGI-configuration-for-this-host-only" class="headerlink" title="following line enables the CGI configuration for this host only"></a>following line enables the CGI configuration for this host only</h1><h1 id="after-it-has-been-globally-disabled-with-“a2disconf”"><a href="#after-it-has-been-globally-disabled-with-“a2disconf”" class="headerlink" title="after it has been globally disabled with “a2disconf”."></a>after it has been globally disabled with “a2disconf”.</h1><p> #Include conf-available/serve-cgi-bin.conf<br>​</p>
-<h1 id="SSL-Engine-Switch"><a href="#SSL-Engine-Switch" class="headerlink" title="SSL Engine Switch:"></a>SSL Engine Switch:</h1><h1 id="Enable-Disable-SSL-for-this-virtual-host"><a href="#Enable-Disable-SSL-for-this-virtual-host" class="headerlink" title="Enable/Disable SSL for this virtual host."></a>Enable/Disable SSL for this virtual host.</h1><p> SSLEngine on<br>​</p>
-<h1 id="A-self-signed-snakeoil-certificate-can-be-created-by-installing"><a href="#A-self-signed-snakeoil-certificate-can-be-created-by-installing" class="headerlink" title="A self-signed (snakeoil) certificate can be created by installing"></a>A self-signed (snakeoil) certificate can be created by installing</h1><h1 id="the-ssl-cert-package-See"><a href="#the-ssl-cert-package-See" class="headerlink" title="the ssl-cert package. See"></a>the ssl-cert package. See</h1><h1 id="usr-share-doc-apache2-README-Debian-gz-for-more-info"><a href="#usr-share-doc-apache2-README-Debian-gz-for-more-info" class="headerlink" title="/usr/share/doc/apache2/README.Debian.gz for more info."></a>/usr/share/doc/apache2/README.Debian.gz for more info.</h1><h1 id="If-both-key-and-certificate-are-stored-in-the-same-file-only-the"><a href="#If-both-key-and-certificate-are-stored-in-the-same-file-only-the" class="headerlink" title="If both key and certificate are stored in the same file, only the"></a>If both key and certificate are stored in the same file, only the</h1><h1 id="SSLCertificateFile-directive-is-needed"><a href="#SSLCertificateFile-directive-is-needed" class="headerlink" title="SSLCertificateFile directive is needed."></a>SSLCertificateFile directive is needed.</h1><p> #SSLCertificateFile     /etc/ssl/certs/ssl-cert-snakeoil.pem<br> #SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key<br> SSLCertificateFile /etc/apache2/ssl/2_<a href="http://www.booleanln.cn.crt" target="_blank" rel="noopener">www.booleanln.cn.crt</a><br> SSLCertificateKeyFile /etc/apache2/ssl/3_<a href="http://www.booleanln.cn.key" target="_blank" rel="noopener">www.booleanln.cn.key</a></p>
-<h1 id="Server-Certificate-Chain"><a href="#Server-Certificate-Chain" class="headerlink" title="Server Certificate Chain:"></a>Server Certificate Chain:</h1><h1 id="Point-SSLCertificateChainFile-at-a-file-containing-the"><a href="#Point-SSLCertificateChainFile-at-a-file-containing-the" class="headerlink" title="Point SSLCertificateChainFile at a file containing the"></a>Point SSLCertificateChainFile at a file containing the</h1><h1 id="concatenation-of-PEM-encoded-CA-certificates-which-form-the"><a href="#concatenation-of-PEM-encoded-CA-certificates-which-form-the" class="headerlink" title="concatenation of PEM encoded CA certificates which form the"></a>concatenation of PEM encoded CA certificates which form the</h1><h1 id="certificate-chain-for-the-server-certificate-Alternatively"><a href="#certificate-chain-for-the-server-certificate-Alternatively" class="headerlink" title="certificate chain for the server certificate. Alternatively"></a>certificate chain for the server certificate. Alternatively</h1><h1 id="the-referenced-file-can-be-the-same-as-SSLCertificateFile"><a href="#the-referenced-file-can-be-the-same-as-SSLCertificateFile" class="headerlink" title="the referenced file can be the same as SSLCertificateFile"></a>the referenced file can be the same as SSLCertificateFile</h1><h1 id="when-the-CA-certificates-are-directly-appended-to-the-server"><a href="#when-the-CA-certificates-are-directly-appended-to-the-server" class="headerlink" title="when the CA certificates are directly appended to the server"></a>when the CA certificates are directly appended to the server</h1><h1 id="certificate-for-convinience"><a href="#certificate-for-convinience" class="headerlink" title="certificate for convinience."></a>certificate for convinience.</h1><p> #SSLCertificateChainFile /etc/apache2/ssl.crt/server-ca.crt<br> SSLCertificateChainFile /etc/apache2/ssl/1_root_bundle.crt</p>
-<h1 id="Certificate-Authority-CA"><a href="#Certificate-Authority-CA" class="headerlink" title="Certificate Authority (CA):"></a>Certificate Authority (CA):</h1><h1 id="Set-the-CA-certificate-verification-path-where-to-find-CA"><a href="#Set-the-CA-certificate-verification-path-where-to-find-CA" class="headerlink" title="Set the CA certificate verification path where to find CA"></a>Set the CA certificate verification path where to find CA</h1><h1 id="certificates-for-client-authentication-or-alternatively-one"><a href="#certificates-for-client-authentication-or-alternatively-one" class="headerlink" title="certificates for client authentication or alternatively one"></a>certificates for client authentication or alternatively one</h1><h1 id="huge-file-containing-all-of-them-file-must-be-PEM-encoded"><a href="#huge-file-containing-all-of-them-file-must-be-PEM-encoded" class="headerlink" title="huge file containing all of them (file must be PEM encoded)"></a>huge file containing all of them (file must be PEM encoded)</h1><h1 id="Note-Inside-SSLCACertificatePath-you-need-hash-symlinks"><a href="#Note-Inside-SSLCACertificatePath-you-need-hash-symlinks" class="headerlink" title="Note: Inside SSLCACertificatePath you need hash symlinks"></a>Note: Inside SSLCACertificatePath you need hash symlinks</h1><h1 id="to-point-to-the-certificate-files-Use-the-provided"><a href="#to-point-to-the-certificate-files-Use-the-provided" class="headerlink" title="to point to the certificate files. Use the provided"></a>to point to the certificate files. Use the provided</h1><h1 id="Makefile-to-update-the-hash-symlinks-after-changes"><a href="#Makefile-to-update-the-hash-symlinks-after-changes" class="headerlink" title="Makefile to update the hash symlinks after changes."></a>Makefile to update the hash symlinks after changes.</h1><p> #SSLCACertificatePath /etc/ssl/certs/<br> #SSLCACertificateFile /etc/apache2/ssl.crt/ca-bundle.crt</p>
-</li>
-</ol>
-<ol start="6">
-<li><p>激活SSL虚拟Host</p>
-<p><code>sudo a2ensite default-ssl.conf</code></p>
-</li>
-<li><p>重启apache2</p>
-<p><code>sudo service apache2 restart</code></p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">server</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Ubuntu//" class="article-tag-list-link color2">Ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/13/apache2-https/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mnistconvolutional" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/mnistconvolutional/">MNIST卷积神经网络结构</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/mnistconvolutional/" class="archive-article-date">
-  	<time datetime="2018-07-10T09:32:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="卷积神经网络结构"><a href="#卷积神经网络结构" class="headerlink" title="卷积神经网络结构"></a>卷积神经网络结构</h5><ol>
-<li><p><strong>卷积(Convolution):</strong></p>
-<p>一个函数（如：单位响应）在另一个函数（如：输入信号）上的<strong>加权叠加。</strong></p>
-<p><a href="https://www.zhihu.com/question/22298352" target="_blank" rel="noopener">https://www.zhihu.com/question/22298352</a></p>
-<ul>
-<li><p>卷积函数：</p>
-<ul>
-<li><p>tf.nn.conv2d(input, filter, strides, padding, use_cudnn_on_gpu=None, data_format=None, name=None)</p>
-<p>input:输入图像tensor，并且shape为（batch,height,width,channels）(<strong>训练时一个batch图像的数量，图像高度，图像宽度， 图像通道数</strong> )</p>
-<p>filter:卷积核，使用Tensor表示，shape为（<strong>filter_height, filter_width, in_channels, out_channels</strong> ）<strong>[卷积核高度，卷积核宽度，图像通道数，卷积核个数]</strong></p>
-<p>strides:步长，平滑移动的大小，长度为4的一位向量</p>
-<p>padding:”SAME”或“VALID”两种卷积方式</p>
-<ul>
-<li><p>SAME:外围补一圈，然后将每个像素作为卷积核中心进行卷积，最后会得到一个和原图大小相同的特征图</p>
-</li>
-<li><p>VALID:只考虑卷积核中心走过的位置，最终生成的特征图会小一圈</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<pre><code>use\_cudnn\_on_gpu:是否使用GPU进行运算加速，默认为TRUE
-
-data_format :设置input的tensor格式
-
-name:别名
-
-返回值：生成的特征图
-</code></pre><ol start="2">
-<li><p><strong>激活函数</strong></p>
-<p>激活函数是在神经网络的神经元上运行的函数，负责奖神经元的输入映射到输出端，常见的映射函数有Sigmoid、TanHyperbolic、Relu、softplus及softmax.</p>
-<p><strong>加入激活函数是用来加入非线性因素的，解决线性模型所不能解决的问题。</strong></p>
-<ul>
-<li><p>ReLU</p>
-</li>
-<li><p>Sigmoid</p>
-</li>
-</ul>
-</li>
-</ol>
-<ol start="3">
-<li><p><strong>池化（pooling）</strong></p>
-<p>扫描小型grid中的图像，用一个包含给定grid中最高值的单个单元替换每个grid</p>
-<ul>
-<li><p>池化函数</p>
-<ul>
-<li><p>tf.nn.max_pool(value,ksize,strides,padding,name=None):特征值取最大</p>
-<p>value：池化的输入，一般是由卷积操作后得到的特征图</p>
-<p>ksize：池化窗口的大小，</p>
-<p>strides：步长设置</p>
-<p>padding：VALID或“SAME”</p>
-<p>返回值：池化后的tensor，同input的shape</p>
-</li>
-<li><p>tf.nn.mean_pooling</p>
-</li>
-<li><p>tf.nn.Stochastic-pooling</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>密集连接层</strong></p>
-<p>用于将前边提取的特征综合起来，由于其全相连的特性，一般全链接层的参数也是最多的，方便交给最后的分类器或者回归。</p>
-<ul>
-<li>reshape()</li>
-</ul>
-</li>
-<li><p><strong>Dropout</strong></p>
-<p>为了减少过拟合，在输出层前加入dropout，Dropout即在训练过程中随机扔掉一部分神经元</p>
-<ul>
-<li><p>tf.nn.dropout(x, keep_prob, noise_shape=None, seed=None,name=None)</p>
-<p>x：输入</p>
-<p>keep_prob：设置神经元被选中的概率，是一个占位符（0，1]</p>
-<p>noise_shape：干扰shape</p>
-<p>seed</p>
-<p>返回值：tensor</p>
-<p>训练过程中启用droout，测试过程中，关闭dropout</p>
-</li>
-</ul>
-</li>
-<li><p>输出层</p>
-</li>
-<li><p>训练和评估</p>
-<ul>
-<li>交叉熵评估，真实值及实际值的偏差</li>
-</ul>
-</li>
-</ol>
-<pre><code>*   优化器：ADAM优化器，最小化交叉熵
-
-*   accuracy.eval()：f.Tensor.eval(feed_dict=None, session=None)
-
-    feed_dict:参数字典
-</code></pre><ol start="8">
-<li><p>代码：</p>
-<p>from __future__ import print_function<br>import tensor.down as input_data<br>import tensorflow as tf<br>mnist = input_data.read_data_sets(“.”, False, one_hot=True)<br>sess = tf.InteractiveSession()<br>def weight_variable(shape):<br>initial = tf.truncated_normal(shape,stddev=0.1)<br>return tf.Variable(initial_value=initial)<br>def bias_variable(shape):<br>initial = tf.constant(0.1,shape=shape)<br>return tf.Variable(initial_value=initial)<br>def conv2d(x,W):<br>return tf.nn.conv2d(x,W,strides=[1,1,1,1],padding=’SAME’)<br>def max_pool_2x2(x):<br>return tf.nn.max_pool(x, ksize=[1,2,2,1],<br>strides=[1,2,2,1],padding=’SAME’)<br>#数据<br>x = tf.placeholder(“float”, [None, 784])<br>y_ = tf.placeholder(“float”, [None, 10])<br>#变量<br>W = tf.Variable(tf.zeros([784,10]))<br>b = tf.Variable(tf.zeros([10]))</p>
-<p>y = tf.nn.softmax(tf.matmul(x,W)+b)<br>#第一层卷积<br>w_conv1 = weight_variable([5,5,1,32]) #卷积核为5x5，在每个patch上算出32个特征，，前两个维度是patch的大小，然后是通道数目，最后是输出的通道数目<br>b_conv1 = bias_variable([32])#偏置量</p>
-<p>x_image = tf.reshape(x, [-1,28,28,1]) #使用卷积层需要将转换为一个4维向量，第一位是批次数，2，3维对应图片宽高，最后一个对应颜色通道数<br>#tf.nn.conv2d(input, filter, strides, padding, use_cudnn_on_gpu=None,data_format=None, name=None)<br>h_conv1 = tf.nn.relu(conv2d(x_image, w_conv1)+b_conv1) #卷积relu函数激活<br>h_pool1 = max_pool_2x2(h_conv1)</p>
-<p>#第二层卷积<br>w_conv2 = weight_variable([5,5,32,64])<br>b_conv2 = weight_variable([64])</p>
-<p>h_conv2 = tf.nn.relu(conv2d(h_pool1, w_conv2)+b_conv2)<br>h_pool2 = max_pool_2x2(h_conv2)</p>
-<p>#密集链接层<br>#用于将前边提取的特征综合起来，由于其全相连的特性，一般全链接层的参数也是最多的，方便交给最后的分类器或者回归。<br>w_fc1 = weight_variable([7*7*64, 1024]) #7*7的尺寸，64个特征的图片，使用一个1024个神经元的全连接层<br>b_fc1 = bias_variable([1024])#偏置</p>
-<p>h_pool2_flat = tf.reshape(h_pool2, [-1,7*7*64])#由原来的7x7x64x1的四维向量转换为列为7*7*64的tensor<br>h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, w_fc1)+ b_fc1) #reLU进行运算<br>#减少过拟合，执行dropout<br>keep_prob = tf.placeholder(“float”)<br>h_fc1_drop = tf.nn.dropout(h_fc1,keep_prob=keep_prob)<br>#输出层softmax<br>W_fc2 = weight_variable([1024, 10])<br>b_fc2 = bias_variable([10])</p>
-<p>y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)<br>#训练评估<br>cross_entropy = -tf.reduce_sum(y_*tf.log(y_conv)) #交叉熵<br>train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)#ADAM优化器，调整模型<br>correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))<br>accuracy = tf.reduce_mean(tf.cast(correct_prediction, “float”))<br>sess.run(tf.global_variables_initializer())<br>for i in range(20000):<br>batch = mnist.train.next_batch(50)<br>if i%100 == 0:<br>train_accuracy = accuracy.eval(feed_dict={<br>x: batch[0], y_: batch[1], keep_prob: 1.0}) #测试不使用dropout<br>print(“step %d, training accuracy %g” % (i, train_accuracy))<br>train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})#训练</p>
-<p>print(“test accuracy %g” % accuracy.eval(feed_dict={<br>x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))</p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习，神经网络</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Tensorflow//" class="article-tag-list-link color1">Tensorflow</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/mnistconvolutional/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mnist" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/mnist/">MNIST模型搭建</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/mnist/" class="archive-article-date">
-  	<time datetime="2018-07-09T16:17:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="MNIST模型搭建"><a href="#MNIST模型搭建" class="headerlink" title="MNIST模型搭建"></a>MNIST模型搭建</h5><ol>
-<li><p>Mnist</p>
-<p>mnist（Mixed National Institute of Standards and Technology database ），是一系列带标记的数字图片，原始的Minst数据集的训练集是美国人口普查局的雇员的笔迹，而验证集是采集于美国中学生的笔迹。</p>
-<p>Mnist的图片一般是28*28的图片，每个像素都进行了归一化，使得其都在0-1范围内</p>
-</li>
-<li><p>模型选择：</p>
-<p>入门案例中，没有选择图像识别最常用的卷积神经网络，而是采用了全连接网络+Softmax输出层</p>
-<p>对图片784个像素值进行加权求和，然后加点偏置，衡量得出的结果，与0-9作比较，用不同的权值加权10次，得到10个不同的结果，最后使用softmax输出，最后的10个输出都会有一个概率值。</p>
-<p>这里的softmax可以看成是一个激励函数或者链接函数。</p>
-</li>
-<li><p>模型评估（模型训练）：</p>
-<p>这个案例中，如果使用均分误差法进行评估，归约速度太慢，所以使用“交叉熵”来进行评估</p>
-<p>y是我们预测的概率分布，y‘是实际的分布</p>
-</li>
-<li><p>优化</p>
-<p>使用GradientDescentOptimizer(0.01) 步长为0.01的梯度下降算法来最小化交叉熵</p>
-</li>
-<li><p>开始训练</p>
-</li>
-<li><p>模型评估</p>
-<p>代码：</p>
-<p>from __future__ import print_function<br>import tensor.down as input_data<br>import tensorflow as tf<br>import  numpy as np<br>#数据读取<br>mnist = input_data.read_data_sets(“.”, False, one_hot=True)<br>#常量声明<br>sess = tf.InteractiveSession()<br>x = tf.placeholder(“float”,shape=[None,784])<br>y_ = tf.placeholder(“float”,shape=[None,10])<br>#权值、偏置变量声明<br>W = tf.Variable(tf.zeros([784,10]))<br>b = tf.Variable(tf.zeros([10]))<br>#运行session，初始化变量<br>sess.run(tf.initialize_all_variables())<br>#模型搭建<br>y = tf.nn.softmax(tf.matmul(x,W)+b)<br>cross_entropy = -tf.reduce_sum(y_*tf.log(y)) #交叉熵<br>#优化，梯度下降<br>train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)<br>#随机训练<br>for i in range(1000):<br> batch = mnist.train.next_batch(50)<br> train_step.run(feed_dict={x:batch[0], y_:batch[1]})<br>#模型评估<br>correct_prediction = tf.equal(tf.argmax(y,1),tf.argmax(y_,1)) #判断位置是否一样<br>accuracy = tf.reduce_mean(tf.cast(correct_prediction,”float”))#bool转换为float<br>print(accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels}))<br>sess.close()</p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习，神经网络</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Tensorflow//" class="article-tag-list-link color1">Tensorflow</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/mnist/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-miniwechat-lottery" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/05/miniwechat-lottery/">微信小程序——抽奖小程序</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/05/miniwechat-lottery/" class="archive-article-date">
-  	<time datetime="2018-07-05T08:20:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>微信小程序-抽奖 git地址：<a href="https://github.com/BooleanlN/miniwechat_lottery" target="_blank" rel="noopener">https://github.com/BooleanlN/miniwechat_lottery</a> <img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/IMG_2656.png" alt=""><img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/IMG_2657.png" alt=""><img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/IMG_2658.png" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信小程序//" class="article-tag-list-link color1">微信小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/05/miniwechat-lottery/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1304,11 +1162,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1324,15 +1182,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1348,7 +1202,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
