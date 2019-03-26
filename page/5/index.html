@@ -146,6 +146,139 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-overview-of-data-structure" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/19/overview-of-data-structure/">数据结构概述 (Overview of data structure)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/19/overview-of-data-structure/" class="archive-article-date">
+  	<time datetime="2018-06-19T01:33:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是数据结构？"><a href="#什么是数据结构？" class="headerlink" title="什么是数据结构？"></a>什么是数据结构？</h3><p>书架问题，怎么去摆放书，有多少种摆放方法？各种摆放方法有什么优势，劣势？</p>
+<p>数的遍历问题：</p>
+<p>两种遍历方法，对比：</p>
+<p>void printN(int N);<br>int main()<br>{<br> int n;<br> scanf(“%d”,&amp;n);<br> printN(n);<br> return 0;<br>}<br>//第一种<br>void printN(int N)<br>{<br> int i = 1;<br> for(i;i&lt;=N;i++)<br> {<br> printf(“%d\n”,i);<br> }<br> return;<br>}<br>//第二种<br>void printN(int N)<br>{<br> if(N)<br> {<br> printN(N-1);<br> printf(“%d\n”,N);<br> }<br> return;<br>}<br>​</p>
+<p>当输入N超过100000左右时，第二种递归方法会产生错误，跳出程序执行 结论：算法的优劣与空间的利用有关 两种计算多项式方法比较： 结论：算法优劣与时间效率有关 什么是数据结构？</p>
+<ul>
+<li><p>数据对象在计算机中的组织方式——逻辑结构，物理存储结构</p>
+</li>
+<li><p>数据对象必定与一系列加在其上的操作相关联</p>
+</li>
+<li><p>完成这些操作所用的方法，即算法</p>
+</li>
+</ul>
+<h3 id="什么是算法？"><a href="#什么是算法？" class="headerlink" title="什么是算法？"></a>什么是算法？</h3><ul>
+<li><p>一个有限指令集</p>
+</li>
+<li><p>接受一些输入</p>
+</li>
+<li><p>产生输出</p>
+</li>
+<li><p>有限步骤终止</p>
+</li>
+</ul>
+<p>好的算法：</p>
+<ul>
+<li><p>空间复杂度S(n)</p>
+</li>
+<li><p>时间复杂度T(n)</p>
+</li>
+<li><p>最坏情况复杂度Tworst(n)</p>
+</li>
+<li><p>平均复杂度Tavg(n)</p>
+</li>
+<li><p>复杂度的渐进表示法(复杂度从小到大)</p>
+<ul>
+<li><p>1</p>
+</li>
+<li><p>log n</p>
+</li>
+<li><p>n</p>
+</li>
+<li><p>nlog n</p>
+</li>
+<li><p>n*n</p>
+</li>
+<li><p>n<em> n </em> n</p>
+</li>
+<li><p>2^n</p>
+</li>
+<li><p>n!</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>两段算法分别有复杂度T1 = O(f(n))和 T2 = O(f(n)) T1+T2 = max(O(f1(n)),O(f2(n))) T1*T2 = O(f1(n)xf2(n)) 一个for循环的时间复杂度等于循环次数乘以循环体内代码的复杂度 if-else结构的复杂度取决于if的条件判断复杂度和两个分支部分的复杂度，总体复杂度取三者中最大 最大子列和问题学习：</p>
+<p>/*1.在线解决方法：*/<br>package leetcode;<br>​<br>import java.util.Scanner;<br>​<br>/*<em><br> \</em> Created by Boolean on 2018/5/8.<br> */<br>public class Solution2 {<br> public static void main(String[] args)<br> {<br> Scanner scanner = new Scanner(System.in);<br> int num = scanner.nextInt();<br> int[] arr = new int[num];<br> int i = 0;<br> while(num–!=0) {<br> arr[i] = scanner.nextInt();<br> i++;<br> }<br> scanner.close();<br> int sum = 0,currentsum=0;<br> for(i=0;i&lt;arr.length;i++)<br> {<br> currentsum+=arr[i];<br> if(currentsum&lt;0)<br> {<br> currentsum = 0;<br> }else if(currentsum&gt;sum){<br> sum = currentsum;<br> }<br> }<br> System.out.print(sum);<br> }<br>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Other//" class="article-tag-list-link color1">Other</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Other/数据结构//" class="article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/19/overview-of-data-structure/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-pythonunapk" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1461,263 +1594,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/04/10/processor1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-gs" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/08/gs/">操作系统概述</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/08/gs/" class="archive-article-date">
-  	<time datetime="2018-04-08T15:53:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="什么是操作系统"><a href="#什么是操作系统" class="headerlink" title="什么是操作系统"></a>什么是操作系统</h4><ol>
-<li><p>用户与计算机硬件的接口</p>
-<p>对硬件抽象，与硬件部分相互作用，为应用程序提供了运行环境，使应用程序的开发更简单，更高效</p>
-</li>
-<li><p>计算机资源的管理者</p>
-<p>管理处理机，内存，设备，文本，网络等</p>
-</li>
-</ol>
-<h4 id="操作系统的发展"><a href="#操作系统的发展" class="headerlink" title="操作系统的发展"></a>操作系统的发展</h4><ol>
-<li><p>无操作系统</p>
-<p>电子管，用插线板上的硬连线或穿孔卡表示程序，没有内存，无操作系统。</p>
-</li>
-<li><p>单道批处理系统</p>
-<p>晶体管，磁性存储，作业（程序+数据）</p>
-<p>特点：自动性、顺序性、单道性</p>
-<p>优点：减少人工等待的时间</p>
-<p>缺点：作业独占CPU、<strong>CPU等待I/O使得CPU利用率低</strong>（怎样的流程？）</p>
-<p>每次主机内存中仅存放一道作业，每当它运行期间（注意这里是“运行时”，并不是“完成后”）发出输入/输出请求后，高速的CPU便处于等待低速的I/O完成状态。</p>
-</li>
-<li><p>多道程序系统</p>
-<p>集成电路芯片，多道批处理系统、分时系统</p>
-<p>多道批处理系统：</p>
-<p>特点：多道性、无序性、调度性（作业调度与进程调度）、复杂性</p>
-<p>优点：1.<strong>提高CPU利用率</strong> （如何提高？） 2.提高内存和I/O利用率 3.增加系统吞吐量</p>
-<p>同时把多个程序放入内存，并允许它们交替在CPU中运行，它们共享系统中的各种硬、软件资源。当一道程序因I/O请求而暂停运行时，CPU便立即转去运行另一道程序。它没有用某些机制提高某一技术方面的瓶颈问题，而是让系统的各个组成部分都尽量去“忙”，花费很少时间去切换任务，达到了系统各部件之间的并行工作，使其整体在单位时间内的效率翻倍。</p>
-<p>缺点：1.<strong>平均周转时间长而系统吞吐量变大</strong> （为什么？） 2.缺乏交互能力</p>
-<p>微观上是串行的，那么这就使得某一作业已经完成了，但此时cpu处于“忙碌”状态，导致周转时间增加<br>周转时间为1个作业在系统中一直到处理完离开系统</p>
-<p>分时系统：</p>
-<p>特点：多路性、独立性、及时性、交互性</p>
-<p>优点：提高人机交互、多终端共享主机</p>
-</li>
-<li><p>微机操作系统</p>
-<p>Intel 8080</p>
-</li>
-<li><p>实时操作系统</p>
-<p>支持实时计算的系统，例如锅炉温度控制系统，系统正确性不仅取决于计算的逻辑结果，而且依赖于产生结果的时间</p>
-<p>特点：多路性、独立性、及时性、交互性、可靠性</p>
-<p>分类：硬实时：锅炉 软实时：手机</p>
-<p>硬实时系统中，任务只有在特定的时间区间内完成，才有正的收益。如果过早或过晚完成，收益为负无穷<br>软实时系统中，即使任务过早或过晚完成，仍有一定的收益。<br>硬实时系统可以认为是软实时系统的一种特例。</p>
-</li>
-<li><p>操作系统现状</p>
-<ul>
-<li><p>主机操作系统——OS/360</p>
-</li>
-<li><p>服务器操作系统——WindowsSever</p>
-</li>
-<li><p>微机操作系统——Macintosh、Windows</p>
-</li>
-<li><p>嵌入式操作系统——宿主于非计算机设备的计算机系统</p>
-<p>特点：小巧、实时性、可装卸、固化代码、弱交互性、强稳定性、统一的接口</p>
-<p>运行在嵌入式系统环境中，对整个嵌入式系统以及它所操作、控制的各种部件装置等等资源进行统一协调、调度、指挥和控制的系统软件<br>Android Vxwork、WindowsCE</p>
-</li>
-<li><p>实时操作系统</p>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="操作系统的特征"><a href="#操作系统的特征" class="headerlink" title="操作系统的特征"></a>操作系统的特征</h4><ol>
-<li><p>并发</p>
-<blockquote>
-<p>两个或多个事件在<strong>同一时间间隔</strong>内发生</p>
-</blockquote>
-<p><strong>并发与并行的辨析</strong></p>
-<p>并发的关键是你有处理多个任务的能力，不一定要同时。<br>并行的关键是你有同时处理多个任务的能力。</p>
-</li>
-<li><p>共享</p>
-<blockquote>
-<p>系统中的资源可供内存中多个并发执行的进程共同使用</p>
-</blockquote>
-<p>互斥共享、同时共享</p>
-<p>共享依赖于并发、并发需要共享的支持</p>
-</li>
-<li><p>虚拟</p>
-<blockquote>
-<p>通过某种技术把一个物理实体变成若干逻辑上的对应物 虚拟打印机、虚拟磁盘、虚拟CPU</p>
-</blockquote>
-</li>
-<li><p>异步</p>
-<blockquote>
-<p>进程以不可预知的速度向前推进，进程何时执行、何时结束、以怎样速度进行、需要花多少时间完成都是不可预知的</p>
-</blockquote>
-</li>
-</ol>
-<h4 id="操作系统的功能"><a href="#操作系统的功能" class="headerlink" title="操作系统的功能"></a>操作系统的功能</h4><ol>
-<li><p>存储器管理功能</p>
-<ul>
-<li><p>内存分配</p>
-</li>
-<li><p>内存保护——确保每道用户程序都在自己的内存空间中运行，互不干扰</p>
-</li>
-<li><p>地址映射——<strong>逻辑地址与物理地址</strong>的映射关系</p>
-<p>一个应用程序经编译后，通常会形成若干个目标程序，这些目标程序再经过链接而形成可装入程序。这些<br>程序的地址都是从某一起始地址开始的，程序中的其它地址都是相对于起始地址计算的；由这些地址所形成的地址范围称为“地址空间”，其中的地址称为“逻辑地址”<br>由内存中的一系列单元所限定的地址范围称为“内存空间”，其中的地址称为“物理地址”。</p>
-</li>
-<li><p>内存扩充——虚拟内存</p>
-</li>
-</ul>
-</li>
-<li><p>进程管理功能</p>
-<ul>
-<li><p>进程控制</p>
-</li>
-<li><p>进程同步</p>
-</li>
-<li><p>进程通信</p>
-</li>
-<li><p>进程调度</p>
-</li>
-</ul>
-</li>
-<li><p>设备管理功能</p>
-<ul>
-<li><p>缓冲管理</p>
-</li>
-<li><p>设备分配</p>
-</li>
-<li><p>设备处理</p>
-</li>
-<li><p>设备独立性和虚拟设备</p>
-</li>
-</ul>
-</li>
-<li><p>文件管理功能</p>
-<ul>
-<li><p>文件存储空间的管理</p>
-</li>
-<li><p>目录管理</p>
-</li>
-<li><p>文件的读写管理和存取控制</p>
-</li>
-</ul>
-</li>
-<li><p>用户接口</p>
-<ul>
-<li><p>命令接口</p>
-</li>
-<li><p>图形接口</p>
-</li>
-<li><p>程序接口</p>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="操作系统体系结构分析"><a href="#操作系统体系结构分析" class="headerlink" title="操作系统体系结构分析"></a>操作系统体系结构分析</h4><ol>
-<li><p>简单的监控程序模型 FMS、IBSYS</p>
-</li>
-<li><p>单体结构模型 MS-DOS、OS X、UNIX</p>
-<p>结构简单、便于理解和实现，系统所有部分集中于内核效率较高；但系统结构关系复杂，容易引起循环调用和死锁；系统可修改性与可维护性较差。</p>
-</li>
-<li><p>层次结构模型</p>
-<p>克服模块间的无需调用</p>
-</li>
-<li><p>客户/服务器模型与微内核结构</p>
-<p>核心功能外移，保留最基本的功能（处理器调度、消息通讯等），将其他部分放到内核之外作为一个独立的服务器进程来实现</p>
-</li>
-<li><p>动态可拓展模型</p>
-<p>运行过程中能够动态地实现系统行为拓展的结构</p>
-</li>
-</ol>
-<h4 id="指令的执行"><a href="#指令的执行" class="headerlink" title="指令的执行"></a>指令的执行</h4><ol>
-<li><p>指令周期</p>
-<p>一个单一指令需要的处理时间称为指令周期，包括两部分，取指周期与执行周期</p>
-</li>
-<li><p>取指令</p>
-<p>处理器从存储器中取一条指令，PC中存有下一次要取的指令的地址</p>
-</li>
-<li><p>执行指令</p>
-<p>取到的指令被放在IR中，通过指令译码部件及运算部件来进行指令的执行</p>
-</li>
-<li><p>PC：存指令地址</p>
-<p>IR：存正在执行的指令</p>
-<p>AC：临时存储体和累加操作</p>
-</li>
-<li><p><strong>硬件上下文</strong></p>
-<p>回复某一个程序P的执行必须保存的CPU寄存器的值就构成了进程P的硬件上下文。PC与AC中的内容一般都需要保存</p>
-</li>
-<li><p><strong>指令执行的结果</strong></p>
-<p>指令执行的结果就是使寄存器或内存单元的值发生变化。指令执行的过程也就是存储体内容不断变化的过程。</p>
-</li>
-</ol>
-<p>​ 不同硬件的体系结构支持不同的指令集合，为某一种硬件平台开发的操作系统不能直接在另一种体系结构的硬 件上运行。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础课程收录//" class="article-tag-list-link color2">基础课程收录</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础课程收录/操作系统//" class="article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/08/gs/">展开全文 >></a>
         </p>
       
 
