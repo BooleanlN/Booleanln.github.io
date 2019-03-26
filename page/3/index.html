@@ -146,6 +146,285 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-cssyxj" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/cssyxj/">CSS优先级</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/cssyxj/" class="archive-article-date">
+  	<time datetime="2018-07-13T06:36:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>style最优先，id比class优先，class最次，与顺序无关</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Html是程序语言乎？//" class="article-tag-list-link color2">Html是程序语言乎？</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/cssyxj/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-xuanran" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/xuanran/">浏览器渲染页面过程</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/xuanran/" class="archive-article-date">
+  	<time datetime="2018-07-13T06:36:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="浏览器渲染过程https-blog-csdn-net-longholidays-article-details-62054097"><a href="#浏览器渲染过程https-blog-csdn-net-longholidays-article-details-62054097" class="headerlink" title="浏览器渲染过程https://blog.csdn.net/longholidays/article/details/62054097"></a>浏览器渲染过程<a href="https://blog.csdn.net/longholidays/article/details/62054097" target="_blank" rel="noopener">https://blog.csdn.net/longholidays/article/details/62054097</a></h6><p>浏览器的渲染页面时，表示网站资源已经请求成功。 渲染时，大致的流程如下：</p>
+<p>（解析html以构建dom树-&gt;构建render树-&gt;布局render树-&gt;绘制render树）</p>
+<p>具体的流程如下：</p>
+<p>1：浏览器会将HTML解析成一个DOM树，DOM树的构建过程是一个深度遍历过程，当前节点的所有子节点都构建好后才会去构建当前节点的下一个兄弟节点，</p>
+<p>2：将CSS解析成CSS规则树；</p>
+<p>3：根据DOM树和CSS来构造render树，渲染树不等于DOM树，像header和display：none；这种没有具体内容的东西就不在渲染树中；</p>
+<p>4：根据render树，浏览器可以计算出网页中有哪些节点，各节点的CSS以及从属关系，然后可以计算出每个节点在屏幕中的位置；</p>
+<p>5：遍历render树进行绘制页面中的各元素。 P.S页面发生重拍（回流）的话，会重新加载DOM树，影响页面加载速度。</p>
+<p>会导致页面重拍的原因如下：</p>
+<p>**1：页面初始化；</p>
+<p>2：操作DOM时；</p>
+<p>3：某些元素的尺寸变了；</p>
+<p>4：CSS的属性发生改变。</p>
+<p>** 浏览器加载页面资源的步骤如下（部分参考网络资料）：</p>
+<p>1.用户输入网址（假设是第一次访问），浏览器向服务器发出请求，服务器返回html文件；</p>
+<p>2.浏览器开始载入html代码，发现＜head＞标签内有一个＜link＞标签引用外部CSS文件；</p>
+<p>3.浏览器又发出CSS文件的请求，服务器返回这个CSS文件；</p>
+<p>4.浏览器继续载入html中＜body＞部分的代码，并且CSS文件已经拿到手了；</p>
+<p>5.浏览器在代码中发现一个＜img＞标签引用了一张图片，向服务器发出请求。此时浏览器不会等到图片下载完，而是继续加载后面的代码；</p>
+<p>6.服务器返回图片文件，由于图片占用了一定面积，影响了后面段落的排布，因此浏览器需要回过头来重新渲染这部分代码；</p>
+<p>7.浏览器发现了一个包含一行Javascript代码的＜script＞标签，直接运行该脚本；</p>
+<p>8.Javascript脚本执行了这条语句，它命令浏览器隐藏掉代码中的某个＜div＞ （style.display=”none”）。少了一个元素，浏览器不得不重新渲染这部分代码；</p>
+<p>9.＜/html＞表示暂时加载完成； 10.此时用户点了一下界面中的“换肤”按钮，Javascript让浏览器换了一下＜link＞标签的CSS路径； 11.浏览器向服务器请求了新的CSS文件，重新加载页面。然后执行渲染过程。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Html是程序语言乎？//" class="article-tag-list-link color2">Html是程序语言乎？</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/xuanran/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-cross" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/cross/">跨域解决</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/cross/" class="archive-article-date">
+  	<time datetime="2018-07-13T06:34:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h6><p>浏览器执行javascript脚本时，会检查这个脚本属于哪个页面，如果不是同源页面，就不会被执行。</p>
+<p>解决方法： <strong>1.JSONP：</strong>原理：ajax请求受同源策略影响，不允许进行跨域请求，而script标签src属性中的链接却可以访问跨域的js脚本，利用这个特性，服务端不再返回JSON格式的数据，而是返回一段调用某个函数的js代码，在src中进行了调用，这样实现了跨域。<a href="https://blog.csdn.net/u011897301/article/details/52679486" target="_blank" rel="noopener">https://blog.csdn.net/u011897301/article/details/52679486</a> <strong>2.代理</strong> 3.<strong>PHP端修改header（XHR2方式）</strong> 在php接口脚本中加入以下两句即可： header(‘Access-Control-Allow-Origin:*’);//允许所有来源访问 header(‘Access-Control-Allow-Method:POST,GET’);//允许访问的方式 <strong>4.CORS</strong> 　CORS(Cross-Origin Resource Sharing, 跨源资源共享)是W3C出的一个标准，其思想是使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功，还是应该失败。因此，要想实现CORS进行跨域，需要服务器进行一些设置，同时前端也需要做一些配置和分析。 服务器端对于<code>CORS</code>的支持，主要就是通过设置<code>Access-Control-Allow-Origin</code>来进行的。如果浏览器检测到相应的设置，就可以允许<code>Ajax</code>进行跨域的访问。 分为简单请求（GET,HEAD.POST；且头信息只包含Accept，Accept-Lanuage，Content-Language，Content-Type（x-www-form-urlencoded，form-data，plain））和非简单请求 简单请求，浏览器与服务器只进行一次</p>
+<p>非简单请求，要先进行预检请求</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Html是程序语言乎？//" class="article-tag-list-link color2">Html是程序语言乎？</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/cross/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-httpstx" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -828,250 +1107,9 @@
 
 
   
-    <article id="post-ubuntu-apache2-log" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/13/ubuntu-apache2-log/">Ubuntu_apache2 log查看</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/13/ubuntu-apache2-log/" class="archive-article-date">
-  	<time datetime="2018-07-13T06:16:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>apache2日志查看</strong></p>
-<ul>
-<li><p>查看apache2.conf</p>
-<p>ErrorLog ${APACHE_LOG_DIR}/error.log</p>
-</li>
-<li><p>找到日志位置，以变量形式存放</p>
-<p>export APACHE_LOG_DIR=/var/log/apache2$SUFFIX<br>cat /etc/apache2/envvars</p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Ubuntu//" class="article-tag-list-link color2">Ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/13/ubuntu-apache2-log/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-php7-0ext" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/13/php7-0ext/">PHP7.0常用拓展列表</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/13/php7-0ext/" class="archive-article-date">
-  	<time datetime="2018-07-13T06:14:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>sudo apt-get install php7.0-bcmath<br>sudo apt-get install php7.0-bz2<br>sudo apt-get install php7.0-calendar<br>sudo apt-get install php7.0-ctype<br>sudo apt-get install php7.0-curl<br>sudo apt-get install php7.0-dom<br>sudo apt-get install php7.0-enchant<br>sudo apt-get install php7.0-exif<br>sudo apt-get install php7.0-fileinfo<br>sudo apt-get install php7.0-ftp<br>sudo apt-get install php7.0-gd<br>sudo apt-get install php7.0-gettext<br>sudo apt-get install php7.0-gmp<br>sudo apt-get install php7.0-iconv<br>sudo apt-get install php7.0-intl<br>sudo apt-get install php7.0-json<br>sudo apt-get install php7.0-ldap<br>sudo apt-get install php7.0-mbstring<br>sudo apt-get install php7.0-mysqli<br>sudo apt-get install php7.0-mysqlnd<br>sudo apt-get install php7.0-opcache<br>sudo apt-get install php7.0-pdo<br>sudo apt-get install php7.0-phar<br>sudo apt-get install php7.0-posix<br>sudo apt-get install php7.0-pspell<br>sudo apt-get install php7.0-readline<br>sudo apt-get install php7.0-shmop<br>sudo apt-get install php7.0-simplexml<br>sudo apt-get install php7.0-snmp<br>sudo apt-get install php7.0-soap<br>sudo apt-get install php7.0-sockets<br>sudo apt-get install php7.0-sqlite3<br>sudo apt-get install php7.0-sysvmsg<br>sudo apt-get install php7.0-sysvsem<br>sudo apt-get install php7.0-sysvshm<br>sudo apt-get install php7.0-wddx<br>sudo apt-get install php7.0-xml<br>sudo apt-get install php7.0-xsl</p>
-<p>以下不能一次性全部安装，因为要选y<br>sudo apt-get install php7.0-recode<br>sudo apt-get install php7.0-dba<br>sudo apt-get install php7.0-imap<br>sudo apt-get install php7.0-interbase<br>sudo apt-get install php7.0-odbc<br>sudo apt-get install php7.0-pgsql<br>sudo apt-get install php7.0-tidy<br>sudo apt-get install php7.0-zip</p>
-<p>以下部分无法安装<br>我使用的是ubuntu 16.04 32位系统，如果有不同情况还请不宁赐教，<br>xmlreader<br>xmlrpc<br>xmlwriter</p>
-<p>pdo_dblib<br>pdo_firebird<br>pdo_mysql<br>pdo_oci<br>pdo_odbc<br>pdo_pgsql<br>pdo_sqlite</p>
-<p>com_dotnet<br>date<br>filter<br>hash<br>libxml<br>mcrypt<br>oci8<br>openssl<br>pcntl<br>pcre<br>reflection<br>session<br>skeleton<br>spl<br>standard<br>vtokenizer<br>zlib</p>
-<p>php-7.0 扩展列表<br>bcmath<br>bz2<br>calendar<br>com_dotnet<br>ctype<br>curl<br>date<br>dba<br>dom<br>enchant<br>exif<br>fileinfo<br>filter<br>ftp<br>gd<br>gettext<br>gmp<br>hash<br>iconv<br>imap<br>interbase<br>intl<br>json<br>ldap<br>libxml<br>mbstring<br>mcrypt<br>mysqli<br>mysqlnd<br>oci8<br>odbc<br>opcache<br>openssl<br>pcntl<br>pcre<br>pdo<br>pdo_dblib<br>pdo_firebird<br>pdo_mysql<br>pdo_oci<br>pdo_odbc<br>pdo_pgsql<br>pdo_sqlite<br>pgsql<br>phar<br>posix<br>pspell<br>readline<br>recode<br>reflection<br>session<br>shmop<br>simplexml<br>skeleton<br>snmp<br>soap<br>sockets<br>spl<br>sqlite3<br>standard<br>sysvmsg<br>sysvsem<br>sysvshm<br>tidy<br>vtokenizer<br>wddx<br>xml<br>xmlreader<br>xmlrpc<br>xmlwriter<br>xsl<br>zip<br>zlib</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/PHP是最好的语言//" class="article-tag-list-link color5">PHP是最好的语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/13/php7-0ext/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-lamp" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/13/lamp/">LAMP环境搭建</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/13/lamp/" class="archive-article-date">
-  	<time datetime="2018-07-13T06:10:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.apache安装</p>
-<p>sudo apt-get install apache2</p>
-<p>2.mysql-server 安装</p>
-<p>sudo apt-get install mysql-server</p>
-<p>4.</p>
-<p>sudo apt-get install libapache2-mod-php</p>
-<p>自动配置..牛批，想我当年还得手配 3.php7安装 <code>sudo apt-get install -y php7.0 php7.0-mysql php7.0-curl php7.0-json php7.0-cgi php7.0-dom php7.0-mbstring php7.0-fpm php7.0-sqlite3 php7.0-xml php7.0-mysqli php7.0-calendar php7.0-exif php7.0-phar php7.0-snmp</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Ubuntu//" class="article-tag-list-link color2">Ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/13/lamp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1166,6 +1204,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -1178,19 +1224,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1203,18 +1241,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1231,6 +1257,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习，神经网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1251,6 +1289,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">-mysql</a>
               </li>
              
               <li class="article-tag-list-item">
