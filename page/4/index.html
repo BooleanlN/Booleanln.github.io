@@ -146,6 +146,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-cookiessessionstoragelocalstorage" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/cookiessessionstoragelocalstorage/">cookies,sessionStorage和localStorage</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/cookiessessionstoragelocalstorage/" class="archive-article-date">
+  	<time datetime="2018-07-13T06:32:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="cookies-sessionStorage和localStorage"><a href="#cookies-sessionStorage和localStorage" class="headerlink" title="cookies,sessionStorage和localStorage"></a>cookies,sessionStorage和localStorage</h6><p>sessionStorage用于本地存储一个会话中的数据，这些数据只有在同一个会话的页面才能访问，并且会话结束后，数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。而localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。</p>
+<p>webStorage的概念和cookie相似，区别是它是为了更大容量存储设计的。Cookie的大小是受限的，并且每次你请求一个新的页面的时候Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。</p>
+<p>除此之外，Web Storage拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。但是Cookie也是不可以或缺的：Cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在 ，而Web Storage仅仅是为了在本地“存储”数据而生。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Html是程序语言乎？//" class="article-tag-list-link color2">Html是程序语言乎？</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/cookiessessionstoragelocalstorage/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-located" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1022,203 +1109,6 @@
 
 
   
-    <article id="post-mnistconvolutional" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/mnistconvolutional/">MNIST卷积神经网络结构</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/mnistconvolutional/" class="archive-article-date">
-  	<time datetime="2018-07-10T09:32:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="卷积神经网络结构"><a href="#卷积神经网络结构" class="headerlink" title="卷积神经网络结构"></a>卷积神经网络结构</h5><ol>
-<li><p><strong>卷积(Convolution):</strong></p>
-<p>一个函数（如：单位响应）在另一个函数（如：输入信号）上的<strong>加权叠加。</strong></p>
-<p><a href="https://www.zhihu.com/question/22298352" target="_blank" rel="noopener">https://www.zhihu.com/question/22298352</a></p>
-<ul>
-<li><p>卷积函数：</p>
-<ul>
-<li><p>tf.nn.conv2d(input, filter, strides, padding, use_cudnn_on_gpu=None, data_format=None, name=None)</p>
-<p>input:输入图像tensor，并且shape为（batch,height,width,channels）(<strong>训练时一个batch图像的数量，图像高度，图像宽度， 图像通道数</strong> )</p>
-<p>filter:卷积核，使用Tensor表示，shape为（<strong>filter_height, filter_width, in_channels, out_channels</strong> ）<strong>[卷积核高度，卷积核宽度，图像通道数，卷积核个数]</strong></p>
-<p>strides:步长，平滑移动的大小，长度为4的一位向量</p>
-<p>padding:”SAME”或“VALID”两种卷积方式</p>
-<ul>
-<li><p>SAME:外围补一圈，然后将每个像素作为卷积核中心进行卷积，最后会得到一个和原图大小相同的特征图</p>
-</li>
-<li><p>VALID:只考虑卷积核中心走过的位置，最终生成的特征图会小一圈</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<pre><code>use\_cudnn\_on_gpu:是否使用GPU进行运算加速，默认为TRUE
-
-data_format :设置input的tensor格式
-
-name:别名
-
-返回值：生成的特征图
-</code></pre><ol start="2">
-<li><p><strong>激活函数</strong></p>
-<p>激活函数是在神经网络的神经元上运行的函数，负责奖神经元的输入映射到输出端，常见的映射函数有Sigmoid、TanHyperbolic、Relu、softplus及softmax.</p>
-<p><strong>加入激活函数是用来加入非线性因素的，解决线性模型所不能解决的问题。</strong></p>
-<ul>
-<li><p>ReLU</p>
-</li>
-<li><p>Sigmoid</p>
-</li>
-</ul>
-</li>
-</ol>
-<ol start="3">
-<li><p><strong>池化（pooling）</strong></p>
-<p>扫描小型grid中的图像，用一个包含给定grid中最高值的单个单元替换每个grid</p>
-<ul>
-<li><p>池化函数</p>
-<ul>
-<li><p>tf.nn.max_pool(value,ksize,strides,padding,name=None):特征值取最大</p>
-<p>value：池化的输入，一般是由卷积操作后得到的特征图</p>
-<p>ksize：池化窗口的大小，</p>
-<p>strides：步长设置</p>
-<p>padding：VALID或“SAME”</p>
-<p>返回值：池化后的tensor，同input的shape</p>
-</li>
-<li><p>tf.nn.mean_pooling</p>
-</li>
-<li><p>tf.nn.Stochastic-pooling</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>密集连接层</strong></p>
-<p>用于将前边提取的特征综合起来，由于其全相连的特性，一般全链接层的参数也是最多的，方便交给最后的分类器或者回归。</p>
-<ul>
-<li>reshape()</li>
-</ul>
-</li>
-<li><p><strong>Dropout</strong></p>
-<p>为了减少过拟合，在输出层前加入dropout，Dropout即在训练过程中随机扔掉一部分神经元</p>
-<ul>
-<li><p>tf.nn.dropout(x, keep_prob, noise_shape=None, seed=None,name=None)</p>
-<p>x：输入</p>
-<p>keep_prob：设置神经元被选中的概率，是一个占位符（0，1]</p>
-<p>noise_shape：干扰shape</p>
-<p>seed</p>
-<p>返回值：tensor</p>
-<p>训练过程中启用droout，测试过程中，关闭dropout</p>
-</li>
-</ul>
-</li>
-<li><p>输出层</p>
-</li>
-<li><p>训练和评估</p>
-<ul>
-<li>交叉熵评估，真实值及实际值的偏差</li>
-</ul>
-</li>
-</ol>
-<pre><code>*   优化器：ADAM优化器，最小化交叉熵
-
-*   accuracy.eval()：f.Tensor.eval(feed_dict=None, session=None)
-
-    feed_dict:参数字典
-</code></pre><ol start="8">
-<li><p>代码：</p>
-<p>from __future__ import print_function<br>import tensor.down as input_data<br>import tensorflow as tf<br>mnist = input_data.read_data_sets(“.”, False, one_hot=True)<br>sess = tf.InteractiveSession()<br>def weight_variable(shape):<br>initial = tf.truncated_normal(shape,stddev=0.1)<br>return tf.Variable(initial_value=initial)<br>def bias_variable(shape):<br>initial = tf.constant(0.1,shape=shape)<br>return tf.Variable(initial_value=initial)<br>def conv2d(x,W):<br>return tf.nn.conv2d(x,W,strides=[1,1,1,1],padding=’SAME’)<br>def max_pool_2x2(x):<br>return tf.nn.max_pool(x, ksize=[1,2,2,1],<br>strides=[1,2,2,1],padding=’SAME’)<br>#数据<br>x = tf.placeholder(“float”, [None, 784])<br>y_ = tf.placeholder(“float”, [None, 10])<br>#变量<br>W = tf.Variable(tf.zeros([784,10]))<br>b = tf.Variable(tf.zeros([10]))</p>
-<p>y = tf.nn.softmax(tf.matmul(x,W)+b)<br>#第一层卷积<br>w_conv1 = weight_variable([5,5,1,32]) #卷积核为5x5，在每个patch上算出32个特征，，前两个维度是patch的大小，然后是通道数目，最后是输出的通道数目<br>b_conv1 = bias_variable([32])#偏置量</p>
-<p>x_image = tf.reshape(x, [-1,28,28,1]) #使用卷积层需要将转换为一个4维向量，第一位是批次数，2，3维对应图片宽高，最后一个对应颜色通道数<br>#tf.nn.conv2d(input, filter, strides, padding, use_cudnn_on_gpu=None,data_format=None, name=None)<br>h_conv1 = tf.nn.relu(conv2d(x_image, w_conv1)+b_conv1) #卷积relu函数激活<br>h_pool1 = max_pool_2x2(h_conv1)</p>
-<p>#第二层卷积<br>w_conv2 = weight_variable([5,5,32,64])<br>b_conv2 = weight_variable([64])</p>
-<p>h_conv2 = tf.nn.relu(conv2d(h_pool1, w_conv2)+b_conv2)<br>h_pool2 = max_pool_2x2(h_conv2)</p>
-<p>#密集链接层<br>#用于将前边提取的特征综合起来，由于其全相连的特性，一般全链接层的参数也是最多的，方便交给最后的分类器或者回归。<br>w_fc1 = weight_variable([7*7*64, 1024]) #7*7的尺寸，64个特征的图片，使用一个1024个神经元的全连接层<br>b_fc1 = bias_variable([1024])#偏置</p>
-<p>h_pool2_flat = tf.reshape(h_pool2, [-1,7*7*64])#由原来的7x7x64x1的四维向量转换为列为7*7*64的tensor<br>h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, w_fc1)+ b_fc1) #reLU进行运算<br>#减少过拟合，执行dropout<br>keep_prob = tf.placeholder(“float”)<br>h_fc1_drop = tf.nn.dropout(h_fc1,keep_prob=keep_prob)<br>#输出层softmax<br>W_fc2 = weight_variable([1024, 10])<br>b_fc2 = bias_variable([10])</p>
-<p>y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)<br>#训练评估<br>cross_entropy = -tf.reduce_sum(y_*tf.log(y_conv)) #交叉熵<br>train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)#ADAM优化器，调整模型<br>correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))<br>accuracy = tf.reduce_mean(tf.cast(correct_prediction, “float”))<br>sess.run(tf.global_variables_initializer())<br>for i in range(20000):<br>batch = mnist.train.next_batch(50)<br>if i%100 == 0:<br>train_accuracy = accuracy.eval(feed_dict={<br>x: batch[0], y_: batch[1], keep_prob: 1.0}) #测试不使用dropout<br>print(“step %d, training accuracy %g” % (i, train_accuracy))<br>train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})#训练</p>
-<p>print(“test accuracy %g” % accuracy.eval(feed_dict={<br>x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))</p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习，神经网络</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Tensorflow//" class="article-tag-list-link color1">Tensorflow</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/mnistconvolutional/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1316,10 +1206,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -1329,6 +1215,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1416,19 +1306,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
               </li>
              
               <li class="article-tag-list-item">

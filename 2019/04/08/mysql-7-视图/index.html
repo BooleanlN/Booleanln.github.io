@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://booleanln.github.io">
-  <title>Tag: mysql | Fortress</title>
+  <title>mysql_7_视图 | Fortress</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Fortress">
-<meta property="og:url" content="http://booleanln.github.io/tags/mysql/index.html">
+  <meta name="description" content="Mysql_视图视图概述视图是一种虚拟存在的表，对于使用视图的用户来说基本上是透明的。视图并不在数据库中实际存在，行和列数据来自定义视图的查询中使用的表，并且是在使用视图时动态生成的。 优势：  简单，视图用户无需考虑后面的表结构  安全，访问权限管理可以限制到某个行某个列  数据独立，屏蔽表结构变化对用户的影响  视图操作创建视图123456789101112131415create [or r">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql_7_视图">
+<meta property="og:url" content="http://booleanln.github.io/2019/04/08/mysql-7-视图/index.html">
 <meta property="og:site_name" content="Fortress">
+<meta property="og:description" content="Mysql_视图视图概述视图是一种虚拟存在的表，对于使用视图的用户来说基本上是透明的。视图并不在数据库中实际存在，行和列数据来自定义视图的查询中使用的表，并且是在使用视图时动态生成的。 优势：  简单，视图用户无需考虑后面的表结构  安全，访问权限管理可以限制到某个行某个列  数据独立，屏蔽表结构变化对用户的影响  视图操作创建视图123456789101112131415create [or r">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-08T10:04:19.756Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fortress">
+<meta name="twitter:title" content="mysql_7_视图">
+<meta name="twitter:description" content="Mysql_视图视图概述视图是一种虚拟存在的表，对于使用视图的用户来说基本上是透明的。视图并不在数据库中实际存在，行和列数据来自定义视图的查询中使用的表，并且是在使用视图时动态生成的。 优势：  简单，视图用户无需考虑后面的表结构  安全，访问权限管理可以限制到某个行某个列  数据独立，屏蔽表结构变化对用户的影响  视图操作创建视图123456789101112131415create [or r">
   
     <link rel="alternative" href="/atom.xml" title="Fortress" type="application/atom+xml">
   
@@ -144,36 +149,89 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-mysql-7-视图" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      mysql_7_视图
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/08/mysql-7-视图/" class="archive-article-date">
+
+        
+        <a href="/2019/04/08/mysql-7-视图/" class="archive-article-date">
   	<time datetime="2019-04-08T08:52:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/08/mysql-7-视图/">mysql_7_视图</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Mysql-视图"><a href="#Mysql-视图" class="headerlink" title="Mysql_视图"></a>Mysql_视图</h3><h4 id="视图概述"><a href="#视图概述" class="headerlink" title="视图概述"></a>视图概述</h4><p>视图是一种虚拟存在的表，对于使用视图的用户来说基本上是透明的。视图并不在数据库中实际存在，行和列数据来自定义视图的查询中使用的表，并且是在使用视图时动态生成的。</p>
+<p>优势：</p>
+<ul>
+<li><p>简单，视图用户无需考虑后面的表结构</p>
+</li>
+<li><p>安全，访问权限管理可以限制到某个行某个列</p>
+</li>
+<li>数据独立，屏蔽表结构变化对用户的影响</li>
+</ul>
+<h4 id="视图操作"><a href="#视图操作" class="headerlink" title="视图操作"></a>视图操作</h4><h5 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">create [or replace][algorithm=&#123;undefined|merge|temptable&#125;]</span><br><span class="line">	view view_name [(column_list)]</span><br><span class="line">	AS select_statement</span><br><span class="line">	[WITH[CASCADED|LOCAL]CHECK OPTION]</span><br><span class="line">alter [algorithm=&#123;undefined|merge|temptable&#125;]</span><br><span class="line">	view view_name [(column_list)]</span><br><span class="line">	AS select_statement</span><br><span class="line">	[WITH[CASCADED|LOCAL]CHECK OPTION]</span><br><span class="line">-- 实例	</span><br><span class="line">begin;</span><br><span class="line">create view salary_view as select * from salary where salary&gt;1000;</span><br><span class="line">select * from salary;</span><br><span class="line">select * from salary_view;</span><br><span class="line">alter view salary_view as select * from salary where salary&lt;1000;</span><br><span class="line">commit;</span><br></pre></td></tr></table></figure>
+<p>MySQL视图限制：</p>
+<ul>
+<li>FROM关键字后不能包含子查询</li>
+<li>不可更新：<ul>
+<li>包含：聚合函数、DISTINCT、GROUP BY、HAVING、UNION或者UNION ALL</li>
+<li>常量视图 (create view pi as select 3.1415926 as pi)</li>
+<li>join</li>
+<li>select中包含子查询</li>
+<li>from一个不可更新的视图</li>
+<li>where字句的子查询引用了from字句中的表</li>
+</ul>
+</li>
+</ul>
+<p>[WITH[CASCADED|LOCAL] CHECK OPTION]：</p>
+<ul>
+<li>cascaded级联，满足所有针对该视图的所有视图的条件才可以更新</li>
+<li>local 只要满足本视图条件就可以更新</li>
+</ul>
+<h5 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">DROP VIEW [IF EXISTS] view_name[,view_name2]...[RESTRICT|CASCADE]</span><br><span class="line"></span><br><span class="line">-- 删除、查看视图操作</span><br><span class="line">drop view salary_view restrict;</span><br><span class="line">show tables;</span><br><span class="line">show table status;</span><br><span class="line">show create view salary_view;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thanks for rewarding!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -185,209 +243,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://booleanln.github.io/2019/04/08/mysql-7-视图/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/07/mysql-6-索引机制/" class="archive-article-date">
-  	<time datetime="2019-04-07T13:35:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/07/mysql-6-索引机制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql_6_索引机制</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/07/mysql-6-索引机制/">mysql_6_索引机制</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/mysql-5-引擎的选择/" class="archive-article-date">
-  	<time datetime="2019-03-27T01:10:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/mysql-5-引擎的选择/">mysql_5_引擎的选择</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/mysqlql-4-常用函数/" class="archive-article-date">
-  	<time datetime="2019-03-26T01:39:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/mysqlql-4-常用函数/">mysqlql_4_常用函数</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/mysql-3-运算符/" class="archive-article-date">
-  	<time datetime="2019-03-26T01:19:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/mysql-3-运算符/">mysql_3_运算符</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/25/Mysql-2-数据类型/" class="archive-article-date">
-  	<time datetime="2019-03-25T10:28:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/25/Mysql-2-数据类型/">Mysql_2_数据类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -410,9 +365,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

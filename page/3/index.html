@@ -146,6 +146,141 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-tkinter" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/19/tkinter/">Tkinter窗口使用</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/19/tkinter/" class="archive-article-date">
+  	<time datetime="2018-07-18T16:17:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#coding=utf-8<br>from tkinter import <em><br>from tkinter import filedialog<br>from Emulator import </em><br>import os</p>
+<p>#apk按钮事件<br>def get_apk():<br>    in_file = filedialog.askopenfilename()<br>    if Has_device():<br>        if Install_apk(in_file):<br>            pkname = getPackageName(in_file)<br>            Activities = getActivities(packagename=pkname, apk_Name=in_file)<br>            text.insert(END, “packagename：” + pkname + “\n”)<br>            pwd = os.getcwd()<br>            screen_dir = pwd + “\screen_shot”<br>            tmp_dir = screen_shot(screen_dir, apk_name=in_file,Activities=Activities,packagename=pkname)<br>            text.insert(END,”检索Activity：”+”\n”)<br>            for activity in Activities:<br>                text.insert(END, activity+”\n”)<br>            text.insert(END, “获取运行图片…”)<br>        else:<br>            text.insert(END, “安装失败！”)<br>    else:<br>        text.insert(END,”无设备连接！”)</p>
+<p>#运行模拟器事件<br>def start_Gen():<br>    os.system(‘D:\Applications\Genymotion2\genymotion.exe’)</p>
+<p>#初始化界面<br>def init(root):</p>
+<pre><code>#滑轮
+S = Scrollbar(root)
+#grid布局
+label1 = Label(root,text=&quot;当前目录：&quot;,font=&apos;微软雅黑 10 normal&apos;,fg=&apos;black&apos;).grid(row=0,sticky=W,padx=10)
+pwd = Label(root,text=os.getcwd(),font=&apos;微软雅黑 8 normal&apos;,fg=&apos;#666666&apos;).grid(row=0,column=1,sticky=W)
+
+label2 = Label(root,text=&quot;菜单&quot;,font=&apos;微软雅黑 10 normal&apos;,fg=&apos;black&apos;).grid(row=1,sticky=W,pady=5,padx=10)
+
+btn_start = Button(root,text=&quot;运行模拟器&quot;,font=&apos;微软雅黑 8 normal&apos;,fg=&apos;black&apos;).grid(row=2,sticky=W,pady=10,padx=10)
+btn_run = Button(root,text=&quot;模拟运行APK&quot;,font=&apos;微软雅黑 8 normal&apos;,fg=&apos;black&apos;).grid(row=3,sticky=W,pady=10,padx=10)
+btn_res = Button(root, text=&quot;获取资源文件&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=4, sticky=W, pady=10, padx=10)
+
+state = Text(root,width=50,height=20)
+state.grid(row=2,rowspan=3,column=1,padx=10,pady=10)
+state.config(yscrollcommand=S.set)
+
+label3= Label(root, text=&quot;参数设置&quot;, font=&apos;微软雅黑 10 normal&apos;, fg=&apos;black&apos;).grid(row=5, sticky=W, pady=5, padx=10)
+default_btn = Checkbutton(root,text=&quot;默认&quot;).grid(row=6 ,sticky=W, pady=5, padx=10,column=0)
+set_btn = Checkbutton(root,text=&quot;设置&quot;).grid(row=6 ,sticky=W, pady=5, padx=10,column=1)
+
+prefix = Label(root, text=&quot;资源文件保存位置：&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=7, sticky=W, pady=5, padx=10,column=0)
+enter_file = Entry(width=50).grid(row=7,column=1)
+
+log = Label(root, text=&quot;日志文件保存位置：&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=8, sticky=W, pady=5, padx=10,column=0)
+enter_log = Entry(width=50).grid(row=8, column=1)
+
+res = Label(root, text=&quot;结果文件保存位置：&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=9, sticky=W, pady=5, padx=10,column=0)
+enter_log = Entry(width=50).grid(row=9, column=1)
+
+confirm = Button(root,text=&quot;保存设置&quot;).grid(row=10, pady=5, padx=10, sticky=W)
+</code></pre><p>def main():</p>
+<pre><code>#设置主窗体属性
+root = Tk()
+root.geometry(&apos;500x600&apos;)
+root.title(&quot;Android应用资源文件检测程序&quot;)
+init(root)
+mainloop()
+</code></pre><p>if __name__ == ‘__main__‘:<br>    main()</p>
+<p><img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/TIM图片20180719001631.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tkinter</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ui</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/19/tkinter/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-js-base" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1494,93 +1629,6 @@ outputs = {&apos;ctc&apos;: np.zeros(\[batchsize\])}
 
 
   
-    <article id="post-cookiessessionstoragelocalstorage" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/13/cookiessessionstoragelocalstorage/">cookies,sessionStorage和localStorage</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/13/cookiessessionstoragelocalstorage/" class="archive-article-date">
-  	<time datetime="2018-07-13T06:32:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="cookies-sessionStorage和localStorage"><a href="#cookies-sessionStorage和localStorage" class="headerlink" title="cookies,sessionStorage和localStorage"></a>cookies,sessionStorage和localStorage</h6><p>sessionStorage用于本地存储一个会话中的数据，这些数据只有在同一个会话的页面才能访问，并且会话结束后，数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。而localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。</p>
-<p>webStorage的概念和cookie相似，区别是它是为了更大容量存储设计的。Cookie的大小是受限的，并且每次你请求一个新的页面的时候Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。</p>
-<p>除此之外，Web Storage拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。但是Cookie也是不可以或缺的：Cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在 ，而Web Storage仅仅是为了在本地“存储”数据而生。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Html是程序语言乎？//" class="article-tag-list-link color2">Html是程序语言乎？</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/13/cookiessessionstoragelocalstorage/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1678,10 +1726,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -1691,6 +1735,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1778,19 +1826,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
               </li>
              
               <li class="article-tag-list-item">

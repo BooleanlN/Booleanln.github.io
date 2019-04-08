@@ -146,6 +146,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Redis-1-1-基础" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/25/Redis-1-1-基础/">Redis_1_1_基础</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/25/Redis-1-1-基础/" class="archive-article-date">
+  	<time datetime="2019-03-25T06:51:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a href="http://redis.io" target="_blank" rel="noopener">http://redis.io</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/releases/redis-xxx.tar.gz	</span><br><span class="line">tar xzf redisxxx</span><br><span class="line">cd redisxxx</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/25/Redis-1-1-基础/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ByteArrayInputStream简介源码分析与实例" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -962,141 +1037,6 @@ mysql&gt; set collation_server=utf8;
 
 
   
-    <article id="post-tkinter" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/19/tkinter/">Tkinter窗口使用</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/19/tkinter/" class="archive-article-date">
-  	<time datetime="2018-07-18T16:17:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#coding=utf-8<br>from tkinter import <em><br>from tkinter import filedialog<br>from Emulator import </em><br>import os</p>
-<p>#apk按钮事件<br>def get_apk():<br>    in_file = filedialog.askopenfilename()<br>    if Has_device():<br>        if Install_apk(in_file):<br>            pkname = getPackageName(in_file)<br>            Activities = getActivities(packagename=pkname, apk_Name=in_file)<br>            text.insert(END, “packagename：” + pkname + “\n”)<br>            pwd = os.getcwd()<br>            screen_dir = pwd + “\screen_shot”<br>            tmp_dir = screen_shot(screen_dir, apk_name=in_file,Activities=Activities,packagename=pkname)<br>            text.insert(END,”检索Activity：”+”\n”)<br>            for activity in Activities:<br>                text.insert(END, activity+”\n”)<br>            text.insert(END, “获取运行图片…”)<br>        else:<br>            text.insert(END, “安装失败！”)<br>    else:<br>        text.insert(END,”无设备连接！”)</p>
-<p>#运行模拟器事件<br>def start_Gen():<br>    os.system(‘D:\Applications\Genymotion2\genymotion.exe’)</p>
-<p>#初始化界面<br>def init(root):</p>
-<pre><code>#滑轮
-S = Scrollbar(root)
-#grid布局
-label1 = Label(root,text=&quot;当前目录：&quot;,font=&apos;微软雅黑 10 normal&apos;,fg=&apos;black&apos;).grid(row=0,sticky=W,padx=10)
-pwd = Label(root,text=os.getcwd(),font=&apos;微软雅黑 8 normal&apos;,fg=&apos;#666666&apos;).grid(row=0,column=1,sticky=W)
-
-label2 = Label(root,text=&quot;菜单&quot;,font=&apos;微软雅黑 10 normal&apos;,fg=&apos;black&apos;).grid(row=1,sticky=W,pady=5,padx=10)
-
-btn_start = Button(root,text=&quot;运行模拟器&quot;,font=&apos;微软雅黑 8 normal&apos;,fg=&apos;black&apos;).grid(row=2,sticky=W,pady=10,padx=10)
-btn_run = Button(root,text=&quot;模拟运行APK&quot;,font=&apos;微软雅黑 8 normal&apos;,fg=&apos;black&apos;).grid(row=3,sticky=W,pady=10,padx=10)
-btn_res = Button(root, text=&quot;获取资源文件&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=4, sticky=W, pady=10, padx=10)
-
-state = Text(root,width=50,height=20)
-state.grid(row=2,rowspan=3,column=1,padx=10,pady=10)
-state.config(yscrollcommand=S.set)
-
-label3= Label(root, text=&quot;参数设置&quot;, font=&apos;微软雅黑 10 normal&apos;, fg=&apos;black&apos;).grid(row=5, sticky=W, pady=5, padx=10)
-default_btn = Checkbutton(root,text=&quot;默认&quot;).grid(row=6 ,sticky=W, pady=5, padx=10,column=0)
-set_btn = Checkbutton(root,text=&quot;设置&quot;).grid(row=6 ,sticky=W, pady=5, padx=10,column=1)
-
-prefix = Label(root, text=&quot;资源文件保存位置：&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=7, sticky=W, pady=5, padx=10,column=0)
-enter_file = Entry(width=50).grid(row=7,column=1)
-
-log = Label(root, text=&quot;日志文件保存位置：&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=8, sticky=W, pady=5, padx=10,column=0)
-enter_log = Entry(width=50).grid(row=8, column=1)
-
-res = Label(root, text=&quot;结果文件保存位置：&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=9, sticky=W, pady=5, padx=10,column=0)
-enter_log = Entry(width=50).grid(row=9, column=1)
-
-confirm = Button(root,text=&quot;保存设置&quot;).grid(row=10, pady=5, padx=10, sticky=W)
-</code></pre><p>def main():</p>
-<pre><code>#设置主窗体属性
-root = Tk()
-root.geometry(&apos;500x600&apos;)
-root.title(&quot;Android应用资源文件检测程序&quot;)
-init(root)
-mainloop()
-</code></pre><p>if __name__ == ‘__main__‘:<br>    main()</p>
-<p><img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/TIM图片20180719001631.png" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tkinter</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ui</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/19/tkinter/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1194,10 +1134,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -1207,6 +1143,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1294,19 +1234,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
               </li>
              
               <li class="article-tag-list-item">
