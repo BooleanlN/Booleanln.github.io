@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Fortress">
 <meta property="og:description" content="mysql触发器触发器是与表有关的数据库对象，在满足定义条件时触发，并执行触发器中定义的语句集合，触发器可以协助应用在数据库端确保数据的完整性。 触发器创建123456789101112131415161718192021222324CREATE TRIGGER trigger_name trigger_time trigger_event ON 	tbl_name FOR EACH ROW tr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-11T06:35:38.304Z">
+<meta property="og:updated_time" content="2019-04-11T09:00:23.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql_9_触发器">
 <meta name="twitter:description" content="mysql触发器触发器是与表有关的数据库对象，在满足定义条件时触发，并执行触发器中定义的语句集合，触发器可以协助应用在数据库端确保数据的完整性。 触发器创建123456789101112131415161718192021222324CREATE TRIGGER trigger_name trigger_time trigger_event ON 	tbl_name FOR EACH ROW tr">
@@ -171,7 +171,8 @@
       
         <h3 id="mysql触发器"><a href="#mysql触发器" class="headerlink" title="mysql触发器"></a>mysql触发器</h3><p>触发器是与表有关的数据库对象，在满足定义条件时触发，并执行触发器中定义的语句集合，触发器可以协助应用在数据库端确保数据的完整性。</p>
 <h4 id="触发器创建"><a href="#触发器创建" class="headerlink" title="触发器创建"></a>触发器创建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER trigger_name trigger_time trigger_event ON </span><br><span class="line">	tbl_name FOR EACH ROW trigger_stmt</span><br><span class="line">-- 实例</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger ins_emp after insert on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;aftInsert&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger ins_emp_n before insert on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;befInsert&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger up_emp after update on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;aftUpdate&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger up_emp_b before update on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;befUpdate&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter ;</span><br></pre></td></tr></table></figure>
-<p><strong>trigger_time</strong>：BEFORE or AFTER</p>
+<a id="more"></a>
+<p>trigger_time**：BEFORE or AFTER</p>
 <p><strong>trigger_event</strong> ：触发器触发事件，INSERT、UPDATE、DELETE等</p>
 <p>对同一个表相同时间的相同触发事件，只能定义一个触发器，<strong>这也是mysql和其他数据库的区别之一</strong></p>
 <p>使用<em>OLD</em>以及<em>NEW</em>来引用触发器中发生变化的记录内容</p>
@@ -288,6 +289,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/04/11/mysql-10—-安全及SQLMode/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          mysql_10—_安全及SQLMode
+        
+      </div>
+    </a>
   
   
     <a href="/2019/04/09/mysql-8-存储过程与函数/" id="article-nav-older" class="article-nav-link-wrap">
@@ -417,6 +427,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -429,11 +447,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -441,11 +455,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -461,15 +483,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
+                <a href="javascript:void(0)" class="js-tag color1">keras</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color4">ocr</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习，神经网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,18 +504,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">keras</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ocr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习，神经网络</a>
               </li>
              
               <li class="article-tag-list-item">

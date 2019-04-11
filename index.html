@@ -146,6 +146,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql-10—-安全及SQLMode" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/11/mysql-10—-安全及SQLMode/">mysql_10—_安全及SQLMode</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/11/mysql-10—-安全及SQLMode/" class="archive-article-date">
+  	<time datetime="2019-04-11T09:01:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="MySQL安全及SQLMode"><a href="#MySQL安全及SQLMode" class="headerlink" title="MySQL安全及SQLMode"></a>MySQL安全及SQLMode</h3><p>SQL安全问题：</p>
+<p><strong>SQL注入</strong> ，应对措施：PrepareStatement+Bind-Variable</p>
+<p>SQLMode：</p>
+<p><strong>作用</strong> ：</p>
+<ul>
+<li>可以完成不同严格程度的数据校验，有效保持数据准确性</li>
+<li>保证大多数SQL符合标准的SQL语法，利于迁移</li>
+<li>通过设置SQL Mode使得MySQL上数据更方便地迁移到目标数据库</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/11/mysql-10—-安全及SQLMode/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-mysql-9-触发器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -168,16 +250,7 @@
       
         <h3 id="mysql触发器"><a href="#mysql触发器" class="headerlink" title="mysql触发器"></a>mysql触发器</h3><p>触发器是与表有关的数据库对象，在满足定义条件时触发，并执行触发器中定义的语句集合，触发器可以协助应用在数据库端确保数据的完整性。</p>
 <h4 id="触发器创建"><a href="#触发器创建" class="headerlink" title="触发器创建"></a>触发器创建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER trigger_name trigger_time trigger_event ON </span><br><span class="line">	tbl_name FOR EACH ROW trigger_stmt</span><br><span class="line">-- 实例</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger ins_emp after insert on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;aftInsert&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger ins_emp_n before insert on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;befInsert&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger up_emp after update on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;aftUpdate&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger up_emp_b before update on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;befUpdate&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter ;</span><br></pre></td></tr></table></figure>
-<p><strong>trigger_time</strong>：BEFORE or AFTER</p>
-<p><strong>trigger_event</strong> ：触发器触发事件，INSERT、UPDATE、DELETE等</p>
-<p>对同一个表相同时间的相同触发事件，只能定义一个触发器，<strong>这也是mysql和其他数据库的区别之一</strong></p>
-<p>使用<em>OLD</em>以及<em>NEW</em>来引用触发器中发生变化的记录内容</p>
-<p>目前触发器只支持行级触发，不支持语句级触发</p>
-<p>触发器中不能显式或隐式方式开始或结束事务的语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert into emp(id,name,hiredate,deptno) values(3,&apos;赵温&apos;,&apos;19971216&apos;,5) on duplicate key update name=&apos;赵倩&apos;,hiredate=&apos;19971216&apos;,deptno=3;</span><br><span class="line">-- 先before insert触发器，然后before update、after update触发器</span><br></pre></td></tr></table></figure>
-<h4 id="删除触发器"><a href="#删除触发器" class="headerlink" title="删除触发器"></a>删除触发器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DROP TRIGER [schema_name]trigger_name</span><br><span class="line">drop trigger ins_emp;</span><br></pre></td></tr></table></figure>
-<h4 id="查看触发器"><a href="#查看触发器" class="headerlink" title="查看触发器"></a>查看触发器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show triggers;</span><br><span class="line">show create trigger ins_emp;</span><br></pre></td></tr></table></figure>
-
+        
       
 
       
@@ -253,31 +326,7 @@
         <h3 id="MySQL存储过程与函数"><a href="#MySQL存储过程与函数" class="headerlink" title="MySQL存储过程与函数"></a>MySQL存储过程与函数</h3><p><strong>存储过程（函数）</strong>：事先经过编译并存储在数据库中的一段SQL语句的集合，调用存储过程和函数可简化应用开发人员的很多工作，减少数据在应用服务器与数据库之间的传输，可适当提高数据处理的效率。</p>
 <p><em>存储过程</em>与<em>函数</em>相比，函数必须有返回值，而存储过程没有，存储过程参数可以是IN、OUT、INOUT类型的，而函数参数类型只能是IN类型。</p>
 <p>存储过程与函数虽然可以减少传输量，但在数据库服务器进行大量复杂的运算，会占有服务器的CPU，造成数据库的压力，所以不要在存储过程和函数中进行大量的复杂运算，应尽量将这些运算分摊到应用服务器上执行。</p>
-<h4 id="存储过程-函数的创建"><a href="#存储过程-函数的创建" class="headerlink" title="存储过程/函数的创建"></a>存储过程/函数的创建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">create procedure sp_name([proc_parameter[,...]])</span><br><span class="line">	[characteristic]routine_body</span><br><span class="line">create function sp_name([func_parameter[,...]])</span><br><span class="line">	returns type</span><br><span class="line">	[characteristic ...]routine_body</span><br><span class="line">	</span><br><span class="line">-- 存储过程创建</span><br><span class="line">delimiter $$</span><br><span class="line">create procedure proc_getS(in money INT, out counts int)</span><br><span class="line">reads sql data</span><br><span class="line">begin</span><br><span class="line">	select * from salary where salary &gt; money;</span><br><span class="line">    select found_rows() into counts;</span><br><span class="line">end $$</span><br><span class="line">delimiter ;</span><br><span class="line">-- 函数创建</span><br><span class="line">delimiter $$</span><br><span class="line">create function fun_getS(money INT)</span><br><span class="line">returns int</span><br><span class="line">reads sql data</span><br><span class="line">begin </span><br><span class="line">	return(select count(*) from salary where salary &gt; money);</span><br><span class="line">end $$</span><br><span class="line">delimiter ;</span><br></pre></td></tr></table></figure>
-<p><strong>[characteristic]：</strong></p>
-<ul>
-<li>LANGUAGE SQL：系统默认，说明下面过程的BODY是用SQL语言编写的</li>
-<li>[NOT] DETERMINISTIC：DETERMINISTIC确定的，相同输入必须相同输出</li>
-<li>{CONTAINS SQL|NO SQL|READS SQL DATA|MODIFIES SQL DATA}：这些特征提供子程序使用数据的年内在信息，目前只提供给服务器，并不会造成实际的约束，默认contains，分别对应，不含读写数据语句|不包含SQL语句|包含读|包含写</li>
-<li>SQL SECURITY {DEFINER|INVOKER}：指定子程序该用创建子程序者的权限（definer）来执行还是使用调用者的权限（invoker）来执行</li>
-<li>COMMENT ‘STRING’ :注释信息</li>
-</ul>
-<p><strong>delimiter</strong>:声明终止符，因为存储过程/函数中常有;，所以另外声明终止符，用于区分</p>
-<h4 id="存储过程-函数删除"><a href="#存储过程-函数删除" class="headerlink" title="存储过程/函数删除"></a>存储过程/函数删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">drop &#123;procedure|function&#125;[if exists] sp_name</span><br><span class="line"></span><br><span class="line">drop procedure if exists proc_getS;</span><br><span class="line">drop function if exists fun_getS;</span><br></pre></td></tr></table></figure>
-<h4 id="存储过程-函数调用"><a href="#存储过程-函数调用" class="headerlink" title="存储过程/函数调用"></a>存储过程/函数调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">call sp_name(para...);</span><br><span class="line">select fun_name(para...);</span><br></pre></td></tr></table></figure>
-<h4 id="查看存储过程-函数"><a href="#查看存储过程-函数" class="headerlink" title="查看存储过程/函数"></a>查看存储过程/函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">show &#123;procedure|function&#125;status[like &apos;pattern&apos;]; -- 查看状态</span><br><span class="line">show procedure status like &apos;proc_getS&apos;; </span><br><span class="line">show create &#123;procedure|function&#125; sp_name; -- 查看定义</span><br><span class="line">show create procedure proc_getS;</span><br></pre></td></tr></table></figure>
-<h5 id="变量使用"><a href="#变量使用" class="headerlink" title="变量使用"></a>变量使用</h5><h6 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">declare var_name[,...] type [default value]</span><br><span class="line">declare last_month_start date;</span><br></pre></td></tr></table></figure>
-<h6 id="变量赋值"><a href="#变量赋值" class="headerlink" title="变量赋值"></a>变量赋值</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set var_name = expr[, var_name=expr]...</span><br><span class="line">select col_name into var_name</span><br></pre></td></tr></table></figure>
-<h5 id="条件定义和处理"><a href="#条件定义和处理" class="headerlink" title="条件定义和处理"></a>条件定义和处理</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">declare condition_name condition for condition_value</span><br><span class="line">conditin_value:</span><br><span class="line">		SQLSTATE[VALUE] sqlstate_value</span><br><span class="line">	|mysql_error_code</span><br><span class="line">-- 条件的处理</span><br><span class="line">declare handler_type handler for condition_value[,...] sp_statement</span><br><span class="line">handler_tyoe:</span><br><span class="line">	CONTINUE|EXIT|UNDO</span><br><span class="line">CONDITION_VALUE:</span><br><span class="line">	SQLSTATE[VALUE] sqlstate_value|CONDITION_NAME|SQLWARING|NOT FOUND|SQLEXCRPTION|mysql_error_code</span><br><span class="line">	</span><br><span class="line">-- 实例，处理主键重复报错</span><br><span class="line">delimiter $$</span><br><span class="line">create procedure inse_emp()</span><br><span class="line">begin</span><br><span class="line"> declare continue handler for sqlstate &apos;23000&apos; set @x2 = 1; -- 跳过</span><br><span class="line"> set @x = 1;</span><br><span class="line"> insert into emp(id,name,hiredate,deptno) values(1,&apos;威威&apos;,&apos;2000-01-02&apos;,6);</span><br><span class="line"> set @x = 2;</span><br><span class="line">insert into emp(id,name,hiredate,deptno) values(5,&apos;五五&apos;,&apos;2000-01-12&apos;,8);</span><br><span class="line">set @x = 3;</span><br><span class="line">end;</span><br><span class="line">$$</span><br><span class="line">delimiter ;</span><br><span class="line">call inse_emp();</span><br><span class="line">select @x,@x2</span><br><span class="line">@x = 3,@x2 = 1;</span><br></pre></td></tr></table></figure>
-<h4 id="光标"><a href="#光标" class="headerlink" title="光标"></a>光标</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">-- 声明光标</span><br><span class="line">declare cursor_name CURSOR FOR select_statement</span><br><span class="line">-- OPEN光标</span><br><span class="line">OPEN cursor_name</span><br><span class="line">-- FETCH光标</span><br><span class="line">FETCH cursor_name INTO var_name[,var_name]...</span><br><span class="line">-- CLOSE光标</span><br><span class="line">CLOSE cursor_name</span><br><span class="line"></span><br><span class="line">-- 简单使用光标循环遍历每条记录，并根据id奇偶性求得两个相加和</span><br><span class="line"></span><br><span class="line">delimiter $$</span><br><span class="line">create procedure payment_sum()</span><br><span class="line">begin </span><br><span class="line">declare i_staff_id	int;</span><br><span class="line">declare d_amount int;</span><br><span class="line">declare cur_pay cursor for select userid,salary from salary;</span><br><span class="line">declare exit handler for not found close cur_pay;</span><br><span class="line">set @x=0;</span><br><span class="line">set @x2 = 0;</span><br><span class="line">open cur_pay;</span><br><span class="line">repeat</span><br><span class="line">	fetch cur_pay into i_staff_id,d_amount;</span><br><span class="line">		if i_staff_id%2=0 then</span><br><span class="line">			set @x = @x+d_amount;</span><br><span class="line">		else </span><br><span class="line">			set @x2 = @x2+d_amount;</span><br><span class="line">		end if;</span><br><span class="line">until 0 end repeat;</span><br><span class="line">close cur_pay;</span><br><span class="line">end;</span><br><span class="line">$$</span><br><span class="line">delimiter ;</span><br><span class="line">call payment_sum();</span><br><span class="line">select @x,@x2;</span><br></pre></td></tr></table></figure>
-<h6 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IF、CASE、loop、leave、iterate、repeate、while</span><br></pre></td></tr></table></figure>
-<h4 id="事件调度器"><a href="#事件调度器" class="headerlink" title="事件调度器"></a>事件调度器</h4><blockquote>
-<p>适用于定时收集统计信息、定期清理历史数据、定期数据库检查等</p>
-<p>但避免过多使用，复杂处理更适合用程序实现，开启和关闭调度器须su权限</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">create event event_name </span><br><span class="line">	on schedule at time + interval interval_time -- on schedule后接执行时间和执行频次</span><br><span class="line">	do</span><br><span class="line">		statement; --具体操作</span><br><span class="line">-- 实例，1分钟后插入一个记录</span><br><span class="line">create event myevent on schedule at current_timestamp + interval 1 minute</span><br><span class="line">do </span><br><span class="line">insert into emp(name,hiredate,deptno) values(&apos;李里&apos;,&apos;20190402&apos;,5);</span><br><span class="line">-- 实例，每5秒后插入一个记录</span><br><span class="line">create event myevent on schedule every 5 second</span><br><span class="line">do </span><br><span class="line">insert into emp(name,hiredate,deptno) values(&apos;李里&apos;,&apos;20190402&apos;,5);</span><br></pre></td></tr></table></figure>
-<h5 id="管理事件"><a href="#管理事件" class="headerlink" title="管理事件"></a>管理事件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">show events; -- 查看事件 </span><br><span class="line">set global event_scheduler = 1; -- 设置事件调度器开启</span><br><span class="line">show variables like &apos;%scheduler%&apos;; -- 查看事件调度器状态</span><br><span class="line">show processlist; -- 查看后台进程</span><br><span class="line">alter event myevent disable; -- 禁用调度器</span><br><span class="line">drop event 	myevent; -- 删除事件</span><br></pre></td></tr></table></figure>
-
+        
       
 
       
@@ -1064,68 +1113,6 @@
 
 
   
-    <article id="post-OutputStream源码分析" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/26/OutputStream源码分析/">OutputStream源码分析</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/26/OutputStream源码分析/" class="archive-article-date">
-  	<time datetime="2019-03-26T01:14:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/26/OutputStream源码分析/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1223,6 +1210,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -1235,11 +1230,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1247,11 +1238,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1267,15 +1266,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
+                <a href="javascript:void(0)" class="js-tag color1">keras</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color4">ocr</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习，神经网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1288,18 +1287,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">keras</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ocr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习，神经网络</a>
               </li>
              
               <li class="article-tag-list-item">
