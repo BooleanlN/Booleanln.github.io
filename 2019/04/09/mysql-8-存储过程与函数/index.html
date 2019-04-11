@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://booleanln.github.io">
-  <title>Category: Python是最好的语言 | Fortress</title>
+  <title>mysql_8_存储过程与函数 | Fortress</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Fortress">
-<meta property="og:url" content="http://booleanln.github.io/categories/Python是最好的语言/index.html">
+  <meta name="description" content="MySQL存储过程与函数存储过程（函数）：事先经过编译并存储在数据库中的一段SQL语句的集合，调用存储过程和函数可简化应用开发人员的很多工作，减少数据在应用服务器与数据库之间的传输，可适当提高数据处理的效率。 存储过程与函数相比，函数必须有返回值，而存储过程没有，存储过程参数可以是IN、OUT、INOUT类型的，而函数参数类型只能是IN类型。 存储过程与函数虽然可以减少传输量，但在数据库服务器进行">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql_8_存储过程与函数">
+<meta property="og:url" content="http://booleanln.github.io/2019/04/09/mysql-8-存储过程与函数/index.html">
 <meta property="og:site_name" content="Fortress">
+<meta property="og:description" content="MySQL存储过程与函数存储过程（函数）：事先经过编译并存储在数据库中的一段SQL语句的集合，调用存储过程和函数可简化应用开发人员的很多工作，减少数据在应用服务器与数据库之间的传输，可适当提高数据处理的效率。 存储过程与函数相比，函数必须有返回值，而存储过程没有，存储过程参数可以是IN、OUT、INOUT类型的，而函数参数类型只能是IN类型。 存储过程与函数虽然可以减少传输量，但在数据库服务器进行">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-09T09:15:51.206Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fortress">
+<meta name="twitter:title" content="mysql_8_存储过程与函数">
+<meta name="twitter:description" content="MySQL存储过程与函数存储过程（函数）：事先经过编译并存储在数据库中的一段SQL语句的集合，调用存储过程和函数可简化应用开发人员的很多工作，减少数据在应用服务器与数据库之间的传输，可适当提高数据处理的效率。 存储过程与函数相比，函数必须有返回值，而存储过程没有，存储过程参数可以是IN、OUT、INOUT类型的，而函数参数类型只能是IN类型。 存储过程与函数虽然可以减少传输量，但在数据库服务器进行">
   
     <link rel="alternative" href="/atom.xml" title="Fortress" type="application/atom+xml">
   
@@ -144,223 +149,207 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mysql-8-存储过程与函数" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mysql_8_存储过程与函数
+    </h1>
+  
+
+        
+        <a href="/2019/04/09/mysql-8-存储过程与函数/" class="archive-article-date">
+  	<time datetime="2019-04-09T07:09:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="MySQL存储过程与函数"><a href="#MySQL存储过程与函数" class="headerlink" title="MySQL存储过程与函数"></a>MySQL存储过程与函数</h3><p><strong>存储过程（函数）</strong>：事先经过编译并存储在数据库中的一段SQL语句的集合，调用存储过程和函数可简化应用开发人员的很多工作，减少数据在应用服务器与数据库之间的传输，可适当提高数据处理的效率。</p>
+<p><em>存储过程</em>与<em>函数</em>相比，函数必须有返回值，而存储过程没有，存储过程参数可以是IN、OUT、INOUT类型的，而函数参数类型只能是IN类型。</p>
+<p>存储过程与函数虽然可以减少传输量，但在数据库服务器进行大量复杂的运算，会占有服务器的CPU，造成数据库的压力，所以不要在存储过程和函数中进行大量的复杂运算，应尽量将这些运算分摊到应用服务器上执行。</p>
+<h4 id="存储过程-函数的创建"><a href="#存储过程-函数的创建" class="headerlink" title="存储过程/函数的创建"></a>存储过程/函数的创建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">create procedure sp_name([proc_parameter[,...]])</span><br><span class="line">	[characteristic]routine_body</span><br><span class="line">create function sp_name([func_parameter[,...]])</span><br><span class="line">	returns type</span><br><span class="line">	[characteristic ...]routine_body</span><br><span class="line">	</span><br><span class="line">-- 存储过程创建</span><br><span class="line">delimiter $$</span><br><span class="line">create procedure proc_getS(in money INT, out counts int)</span><br><span class="line">reads sql data</span><br><span class="line">begin</span><br><span class="line">	select * from salary where salary &gt; money;</span><br><span class="line">    select found_rows() into counts;</span><br><span class="line">end $$</span><br><span class="line">delimiter ;</span><br><span class="line">-- 函数创建</span><br><span class="line">delimiter $$</span><br><span class="line">create function fun_getS(money INT)</span><br><span class="line">returns int</span><br><span class="line">reads sql data</span><br><span class="line">begin </span><br><span class="line">	return(select count(*) from salary where salary &gt; money);</span><br><span class="line">end $$</span><br><span class="line">delimiter ;</span><br></pre></td></tr></table></figure>
+<p><strong>[characteristic]：</strong></p>
+<ul>
+<li>LANGUAGE SQL：系统默认，说明下面过程的BODY是用SQL语言编写的</li>
+<li>[NOT] DETERMINISTIC：DETERMINISTIC确定的，相同输入必须相同输出</li>
+<li>{CONTAINS SQL|NO SQL|READS SQL DATA|MODIFIES SQL DATA}：这些特征提供子程序使用数据的年内在信息，目前只提供给服务器，并不会造成实际的约束，默认contains，分别对应，不含读写数据语句|不包含SQL语句|包含读|包含写</li>
+<li>SQL SECURITY {DEFINER|INVOKER}：指定子程序该用创建子程序者的权限（definer）来执行还是使用调用者的权限（invoker）来执行</li>
+<li>COMMENT ‘STRING’ :注释信息</li>
+</ul>
+<p><strong>delimiter</strong>:声明终止符，因为存储过程/函数中常有;，所以另外声明终止符，用于区分</p>
+<h4 id="存储过程-函数删除"><a href="#存储过程-函数删除" class="headerlink" title="存储过程/函数删除"></a>存储过程/函数删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">drop &#123;procedure|function&#125;[if exists] sp_name</span><br><span class="line"></span><br><span class="line">drop procedure if exists proc_getS;</span><br><span class="line">drop function if exists fun_getS;</span><br></pre></td></tr></table></figure>
+<h4 id="存储过程-函数调用"><a href="#存储过程-函数调用" class="headerlink" title="存储过程/函数调用"></a>存储过程/函数调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">call sp_name(para...);</span><br><span class="line">select fun_name(para...);</span><br></pre></td></tr></table></figure>
+<h4 id="查看存储过程-函数"><a href="#查看存储过程-函数" class="headerlink" title="查看存储过程/函数"></a>查看存储过程/函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">show &#123;procedure|function&#125;status[like &apos;pattern&apos;]; -- 查看状态</span><br><span class="line">show procedure status like &apos;proc_getS&apos;; </span><br><span class="line">show create &#123;procedure|function&#125; sp_name; -- 查看定义</span><br><span class="line">show create procedure proc_getS;</span><br></pre></td></tr></table></figure>
+<h5 id="变量使用"><a href="#变量使用" class="headerlink" title="变量使用"></a>变量使用</h5><h6 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">declare var_name[,...] type [default value]</span><br><span class="line">declare last_month_start date;</span><br></pre></td></tr></table></figure>
+<h6 id="变量赋值"><a href="#变量赋值" class="headerlink" title="变量赋值"></a>变量赋值</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set var_name = expr[, var_name=expr]...</span><br><span class="line">select col_name into var_name</span><br></pre></td></tr></table></figure>
+<h5 id="条件定义和处理"><a href="#条件定义和处理" class="headerlink" title="条件定义和处理"></a>条件定义和处理</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">declare condition_name condition for condition_value</span><br><span class="line">conditin_value:</span><br><span class="line">		SQLSTATE[VALUE] sqlstate_value</span><br><span class="line">	|mysql_error_code</span><br><span class="line">-- 条件的处理</span><br><span class="line">declare handler_type handler for condition_value[,...] sp_statement</span><br><span class="line">handler_tyoe:</span><br><span class="line">	CONTINUE|EXIT|UNDO</span><br><span class="line">CONDITION_VALUE:</span><br><span class="line">	SQLSTATE[VALUE] sqlstate_value|CONDITION_NAME|SQLWARING|NOT FOUND|SQLEXCRPTION|mysql_error_code</span><br><span class="line">	</span><br><span class="line">-- 实例，处理主键重复报错</span><br><span class="line">delimiter $$</span><br><span class="line">create procedure inse_emp()</span><br><span class="line">begin</span><br><span class="line"> declare continue handler for sqlstate &apos;23000&apos; set @x2 = 1; -- 跳过</span><br><span class="line"> set @x = 1;</span><br><span class="line"> insert into emp(id,name,hiredate,deptno) values(1,&apos;威威&apos;,&apos;2000-01-02&apos;,6);</span><br><span class="line"> set @x = 2;</span><br><span class="line">insert into emp(id,name,hiredate,deptno) values(5,&apos;五五&apos;,&apos;2000-01-12&apos;,8);</span><br><span class="line">set @x = 3;</span><br><span class="line">end;</span><br><span class="line">$$</span><br><span class="line">delimiter ;</span><br><span class="line">call inse_emp();</span><br><span class="line">select @x,@x2</span><br><span class="line">@x = 3,@x2 = 1;</span><br></pre></td></tr></table></figure>
+<h4 id="光标"><a href="#光标" class="headerlink" title="光标"></a>光标</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">-- 声明光标</span><br><span class="line">declare cursor_name CURSOR FOR select_statement</span><br><span class="line">-- OPEN光标</span><br><span class="line">OPEN cursor_name</span><br><span class="line">-- FETCH光标</span><br><span class="line">FETCH cursor_name INTO var_name[,var_name]...</span><br><span class="line">-- CLOSE光标</span><br><span class="line">CLOSE cursor_name</span><br><span class="line"></span><br><span class="line">-- 简单使用光标循环遍历每条记录，并根据id奇偶性求得两个相加和</span><br><span class="line"></span><br><span class="line">delimiter $$</span><br><span class="line">create procedure payment_sum()</span><br><span class="line">begin </span><br><span class="line">declare i_staff_id	int;</span><br><span class="line">declare d_amount int;</span><br><span class="line">declare cur_pay cursor for select userid,salary from salary;</span><br><span class="line">declare exit handler for not found close cur_pay;</span><br><span class="line">set @x=0;</span><br><span class="line">set @x2 = 0;</span><br><span class="line">open cur_pay;</span><br><span class="line">repeat</span><br><span class="line">	fetch cur_pay into i_staff_id,d_amount;</span><br><span class="line">		if i_staff_id%2=0 then</span><br><span class="line">			set @x = @x+d_amount;</span><br><span class="line">		else </span><br><span class="line">			set @x2 = @x2+d_amount;</span><br><span class="line">		end if;</span><br><span class="line">until 0 end repeat;</span><br><span class="line">close cur_pay;</span><br><span class="line">end;</span><br><span class="line">$$</span><br><span class="line">delimiter ;</span><br><span class="line">call payment_sum();</span><br><span class="line">select @x,@x2;</span><br></pre></td></tr></table></figure>
+<h6 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IF、CASE、loop、leave、iterate、repeate、while</span><br></pre></td></tr></table></figure>
+<h4 id="事件调度器"><a href="#事件调度器" class="headerlink" title="事件调度器"></a>事件调度器</h4><blockquote>
+<p>适用于定时收集统计信息、定期清理历史数据、定期数据库检查等</p>
+<p>但避免过多使用，复杂处理更适合用程序实现，开启和关闭调度器须su权限</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">create event event_name </span><br><span class="line">	on schedule at time + interval interval_time -- on schedule后接执行时间和执行频次</span><br><span class="line">	do</span><br><span class="line">		statement; --具体操作</span><br><span class="line">-- 实例，1分钟后插入一个记录</span><br><span class="line">create event myevent on schedule at current_timestamp + interval 1 minute</span><br><span class="line">do </span><br><span class="line">insert into emp(name,hiredate,deptno) values(&apos;李里&apos;,&apos;20190402&apos;,5);</span><br><span class="line">-- 实例，每5秒后插入一个记录</span><br><span class="line">create event myevent on schedule every 5 second</span><br><span class="line">do </span><br><span class="line">insert into emp(name,hiredate,deptno) values(&apos;李里&apos;,&apos;20190402&apos;,5);</span><br></pre></td></tr></table></figure>
+<h5 id="管理事件"><a href="#管理事件" class="headerlink" title="管理事件"></a>管理事件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">show events; -- 查看事件 </span><br><span class="line">set global event_scheduler = 1; -- 设置事件调度器开启</span><br><span class="line">show variables like &apos;%scheduler%&apos;; -- 查看事件调度器状态</span><br><span class="line">show processlist; -- 查看后台进程</span><br><span class="line">alter event myevent disable; -- 禁用调度器</span><br><span class="line">drop event 	myevent; -- 删除事件</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thanks for rewarding!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/19/android/" class="archive-article-date">
-  	<time datetime="2018-07-19T15:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/19/android/">安卓adb、aapt调用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安卓</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://booleanln.github.io/2019/04/09/mysql-8-存储过程与函数/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/19/tkinter-2/" class="archive-article-date">
-  	<time datetime="2018-07-19T15:01:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/04/11/mysql-9-触发器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          mysql_9_触发器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/08/mysql-7-视图/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql_7_视图</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/19/tkinter-2/">Tkinter简单记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tkinter</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/19/tkinter/" class="archive-article-date">
-  	<time datetime="2018-07-18T16:17:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/19/tkinter/">Tkinter窗口使用</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tkinter</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ui</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/18/pythonunapk/" class="archive-article-date">
-  	<time datetime="2018-06-18T08:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/18/pythonunapk/">Python解包APK文件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -383,10 +372,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",

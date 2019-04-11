@@ -146,6 +146,244 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-tkinter-2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/19/tkinter-2/">Tkinter简单记录</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/19/tkinter-2/" class="archive-article-date">
+  	<time datetime="2018-07-19T15:01:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Python-Tkinter笔记"><a href="#Python-Tkinter笔记" class="headerlink" title="Python Tkinter笔记"></a>Python Tkinter笔记</h3><p>这次用了Tkinter ，特记录下</p>
+<blockquote>
+<p><strong>Tkinter：</strong> Tkinter 模块(Tk 接口)是 Python 的标准 Tk GUI 工具包的接口 .Tk 和 Tkinter 可以在大多数的 Unix 平台下使用,同样可以应用在 Windows 和 Macintosh 系统里。Tk8.0 的后续版本可以实现本地窗口风格,并良好地运行在绝大多数平台中。</p>
+</blockquote>
+<p>可以看到，可移植性是我选择它的前提</p>
+<p><strong>布局方式：</strong></p>
+<ul>
+<li><p>pack 包装，会从上往下分布</p>
+</li>
+<li><p>grid 网格，指定控件的（row，column）等参数，控制控件的分布</p>
+</li>
+<li><p>place 位置</p>
+</li>
+</ul>
+<p><strong>使用过的控件：</strong></p>
+<ul>
+<li>Button 按钮</li>
+</ul>
+<p><a href="http://www.runoob.com/python/python-tk-button.html" target="_blank" rel="noopener">http://www.runoob.com/python/python-tk-button.html</a></p>
+<p>btn_start = Button(root, text=”运行模拟器”, font=’微软雅黑 8 normal’, fg=’black’, command=start_Gen).grid(row=2, sticky=W,pady=10, padx=10)</p>
+<p>#pady距离上下，padx，距离左右，command:点击后的回调函数<br>btn_run = Button(root, text=”模拟运行APK”, font=’微软雅黑 8 normal’, fg=’black’, command=get_apk).grid(row=3, sticky=W,<br> pady=10, padx=10)<br>btn_res = Button(root, text=”获取资源文件”, font=’微软雅黑 8 normal’, fg=’black’, command=getRes).grid(row=4, sticky=W,<br> pady=10, padx=10)<br>btn_rec = Button(root, text=”识别”, font=’微软雅黑 8 normal’, fg=’black’, command=rec_txt).grid(row=5, sticky=W,<br> pady=10, padx=10)</p>
+<ul>
+<li>Entry 输入框</li>
+</ul>
+<p>res_e = StringVar()<br>enter_res= Entry(width=50,textvariable=res_e,fg=’#666666’)<br>enter_res.grid(row=10, column=1)<br>enter_res[‘state’]=’readonly’ #三种模式：readonly,normal,disable<br>res_dir = ‘./res/res.txt’<br>res_e.set(“default:  “+res_dir)</p>
+<ul>
+<li>Text 文本</li>
+</ul>
+<p>state = Text(root, width=50, height=20)<br>state.delete(0.0,END)#设置文本框为空<br>state.grid(row=2, rowspan=4, column=1, padx=10, pady=10) #rowspan跨越多行，columnspan<br>state.insert(END,”删除完成!”)#在末尾添加文本</p>
+<ul>
+<li>Label 标签</li>
+</ul>
+<p>label1 = Label(root, text=”当前目录：”, font=’微软雅黑 10 normal’, fg=’black’).grid(row=0, sticky=W, padx=10) #font 设置字体，fg设置字体颜色，sticky设置偏左，偏右，居中</p>
+<ul>
+<li>CheckButton 复选框</li>
+</ul>
+<p>default_btn = Checkbutton(root, text=”设置”,variable=default,command=default_it).grid(row=7, sticky=W, pady=5, padx=10, column=0)</p>
+<ul>
+<li>Canvas 画布</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tkinter</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/19/tkinter-2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/19/mysql/">mysql常用操作</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/19/mysql/" class="archive-article-date">
+  	<time datetime="2018-07-19T05:38:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.创建表<br>CREATE TABLE table_name (column_name column_type);<br>CREATE TABLE IF NOT EXISTS `runoob_tbl`(<br>   `runoob_id` INT UNSIGNED AUTO_INCREMENT,<br>   `runoob_title` VARCHAR(100) NOT NULL,<br>   `runoob_author` VARCHAR(40) NOT NULL,<br>   `submission_date` DATE,<br>   PRIMARY KEY ( `runoob_id` )<br>)ENGINE=InnoDB DEFAULT CHARSET=utf8;<br>2.查看表结构：<br>describe tablename;<br>show columns from tablename;<br>explain tablename;<br>3.添加列<br>alter table tablename add column columnname varchar(30);<br>4.删除列<br>alter table tablename drop column columnname;<br>5.修改列名<br>alter table tablename change columnname newname varchar(30);<br>6.修改列属性<br>alter table tablename modify columanname varchar(22);<br>7.添加主键约束：<br>alter table 表名 add constraint 主键 （形如：PK_表名） primary key 表名(主键字段);<br>8.添加外键约束：<br>alter table 从表 add constraint 外键（形如：FK_从表_主表） foreign key 从表(外键字段) references 主表(主键字段);<br>9.删除主键约束：<br>alter table 表名 drop primary key;<br>10.删除外键约束：<br>alter table 表名 drop foreign key 外键（区分大小写）;<br>11.修改表名：<br>alter table t_book rename to bbb;<br>12.select按降序：<br>select * from tablename order by columnname desc;<br>13.删除增加主键约束<br>alter table tablename drop primary key;<br>alter table tablename add primary key(xxx,xxx);</p>
+<h5 id="给已有字段设置默认值"><a href="#给已有字段设置默认值" class="headerlink" title="给已有字段设置默认值"></a>给已有字段设置默认值</h5><p>ALTER TABLE test ALTER COLUMN case_status SET DEFAULT ‘A’;</p>
+<h5 id="mysql编码格式"><a href="#mysql编码格式" class="headerlink" title="mysql编码格式"></a>mysql编码格式</h5><p>MYSQL写入数据时报错ERROR 1366 (HY000): Incorrect string value: ‘\xE8\x8B\xB1\xE5\xAF\xB8…’ for c 插入中文不能插入<br>解决：<br>    1.删除之前的表<br>    2.重新创建，并添加语句 ‘ DEFAULT CHARSET=utf8’<br>一些查看和修改字符集的命令：<br>查看mysql的字符集：show variables where Variable_name like ‘%char%’;<br>查看某一个数据库字符集：show create database enterprises;(注：enterprises为数据库)<br>查看某一个数据表字符集：show create table employees;(注：employees为数据表)<br>修改mysql的字符集：</p>
+<pre><code>mysql&gt; set character\_set\_client=utf8;
+
+mysql&gt; set character\_set\_connection=utf8;
+
+mysql&gt; set character\_set\_database=utf8;
+
+mysql&gt; set character\_set\_results=utf8;
+
+mysql&gt; set character\_set\_server=utf8;
+
+mysql&gt; set character\_set\_system=utf8;
+
+mysql&gt; set collation_connection=utf8;
+
+mysql&gt; set collation_database=utf8;
+
+mysql&gt; set collation_server=utf8;
+</code></pre><p>修改数据库enterprises的字符集：</p>
+<p>alter database enterprises character set utf8</p>
+<p>修改数据表employees的字符集：</p>
+<p>alter table employees character set utf8</p>
+<p>修改字段的字符集</p>
+<p>alter table employees change name name char(10) character set utf-8;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql，数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/19/mysql/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-tkinter" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1457,178 +1695,6 @@ outputs = {&apos;ctc&apos;: np.zeros(\[batchsize\])}
 
 
   
-    <article id="post-cross" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/13/cross/">跨域解决</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/13/cross/" class="archive-article-date">
-  	<time datetime="2018-07-13T06:34:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h6><p>浏览器执行javascript脚本时，会检查这个脚本属于哪个页面，如果不是同源页面，就不会被执行。</p>
-<p>解决方法： <strong>1.JSONP：</strong>原理：ajax请求受同源策略影响，不允许进行跨域请求，而script标签src属性中的链接却可以访问跨域的js脚本，利用这个特性，服务端不再返回JSON格式的数据，而是返回一段调用某个函数的js代码，在src中进行了调用，这样实现了跨域。<a href="https://blog.csdn.net/u011897301/article/details/52679486" target="_blank" rel="noopener">https://blog.csdn.net/u011897301/article/details/52679486</a> <strong>2.代理</strong> 3.<strong>PHP端修改header（XHR2方式）</strong> 在php接口脚本中加入以下两句即可： header(‘Access-Control-Allow-Origin:*’);//允许所有来源访问 header(‘Access-Control-Allow-Method:POST,GET’);//允许访问的方式 <strong>4.CORS</strong> 　CORS(Cross-Origin Resource Sharing, 跨源资源共享)是W3C出的一个标准，其思想是使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功，还是应该失败。因此，要想实现CORS进行跨域，需要服务器进行一些设置，同时前端也需要做一些配置和分析。 服务器端对于<code>CORS</code>的支持，主要就是通过设置<code>Access-Control-Allow-Origin</code>来进行的。如果浏览器检测到相应的设置，就可以允许<code>Ajax</code>进行跨域的访问。 分为简单请求（GET,HEAD.POST；且头信息只包含Accept，Accept-Lanuage，Content-Language，Content-Type（x-www-form-urlencoded，form-data，plain））和非简单请求 简单请求，浏览器与服务器只进行一次</p>
-<p>非简单请求，要先进行预检请求</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Html是程序语言乎？//" class="article-tag-list-link color2">Html是程序语言乎？</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/13/cross/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-httpstx" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/13/httpstx/">https通信步骤</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/13/httpstx/" class="archive-article-date">
-  	<time datetime="2018-07-13T06:34:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>①客户端发送报文进行SSL通信。报文中包含客户端支持的SSL的指定版本、加密组件列表（加密算法及密钥长度等）。 ②服务器应答，并在应答报文中包含SSL版本以及加密组件。服务器的加密组件内容是从接受到的客户端加密组件内筛选出来的。 ③服务器发送报文，报文中包含公开密钥证书。 ④服务器发送报文通知客户端，最初阶段SSL握手协商部分结束。 ⑤SSL第一次握手结束之后，客户端发送一个报文作为回应。报文中包含通信加密中使用的一种被称Pre-master secret的随机密码串。该密码串已经使用服务器的公钥加密。 ⑥客户端发送报文，并提示服务器，此后的报文通信会采用Pre-master secret密钥加密。 ⑦客户端发送Finished报文。该报文包含连接至今全部报文的整体校验值。这次握手协商是否能够完成成功，要以服务器是否能够正确解密该报文作为判定标准。 ⑧服务器同样发送Change Cipher Spec报文。 ⑨服务器同样发送Finished报文。 ⑩服务器和客户端的Finished报文交换完毕之后，SSL连接就算建立完成。 ⑪应用层协议通信，即发送HTTP响应。 ⑫最后由客户端断开链接。断开链接时，发送close_nofify报文。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Html是程序语言乎？//" class="article-tag-list-link color2">Html是程序语言乎？</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/13/httpstx/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1722,7 +1788,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1742,7 +1808,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1750,11 +1816,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1770,27 +1836,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">keras</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ocr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习，神经网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1803,6 +1857,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">keras</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ocr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习，神经网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1826,19 +1892,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
               </li>
              
               <li class="article-tag-list-item">
