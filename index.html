@@ -146,6 +146,168 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web性能优化-图片预加载" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/03/Web性能优化-图片预加载/">Web性能优化-图片预加载</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/03/Web性能优化-图片预加载/" class="archive-article-date">
+  	<time datetime="2019-05-03T09:27:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Web性能优化-图片预加载"><a href="#Web性能优化-图片预加载" class="headerlink" title="Web性能优化-图片预加载"></a>Web性能优化-图片预加载</h3><p>当网站存在大量图片时，由于需要进行大量的请求，如果不对这部分进行优化，就会出现图片死区等影响用户体验的情况。</p>
+<p>通过图片预加载技术对Web图片请求进行优化，可以提前加载所需图片，带给用户更好的用户体验。</p>
+<p>图片预加载可分为：</p>
+<ul>
+<li>无序预加载：图片无顺序要求，qq表情插件</li>
+<li>有序预加载：有顺序要求，漫画</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">web性能优化</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/03/Web性能优化-图片预加载/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-动态规划" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/27/动态规划/">动态规划</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/27/动态规划/" class="archive-article-date">
+  	<time datetime="2019-04-27T11:24:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="动态规划算法"><a href="#动态规划算法" class="headerlink" title="动态规划算法"></a>动态规划算法</h3><h5 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h5><p>动态规划算法常用来求解最优化问题，这类问题可以有很多可行解，我们希望找到这些可行解中具有最优值的解。动态规划常用于子问题重叠的情况，即不同的子问题拥有共同的子子问题，这时将共同的子子问题保存起来，减少运算次数。</p>
+<p>动态规划通过仔细安排求解顺序，对每个子问题只求解一次，并将结果保存下来，如果随后再次需要此问题的解，只需要查找保存的结果，无需重复计算，因此，动态规划付出额外的内存空间来节省计算时间，是典型的时空权衡。</p>
+<p>动态规划的实现一般有两种，<strong>带备忘录的自顶向下方法</strong>，此算法在求解顺序仍按原自然顺序，但会将子问题的解保存，当需要某问题的解时，先去“备忘录”检查是否有值，有则直接获取，否则再计算。</p>
+<p>另一种方法是<strong>自底向上法</strong>，此方法一般需要恰当定义子问题“规模”的概念，使得任何子问题的求解只依赖于更小的子问题，因此可以通过安排求解顺序，从小至大求解，这样在求解大问题时，小问题已经全部解决。</p>
+<p>两种方法具有相近的渐进时间复杂度，仅有的差异是备忘录法某些情况下未能递归地考察所有子问题，而自底向上法通常具有更小的时间复杂度系数。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">经典算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/27/动态规划/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-最长回文子串" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -184,11 +346,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">经典算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">经典算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
         		</li>
       		
 		</ul>
@@ -789,279 +951,6 @@
 
 
   
-    <article id="post-mysql-6-索引机制" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/07/mysql-6-索引机制/">mysql_6_索引机制</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/07/mysql-6-索引机制/" class="archive-article-date">
-  	<time datetime="2019-04-07T13:35:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Mysql-索引机制"><a href="#Mysql-索引机制" class="headerlink" title="Mysql_索引机制"></a>Mysql_索引机制</h3><h4 id="索引概述"><a href="#索引概述" class="headerlink" title="索引概述"></a>索引概述</h4><p>所有MySQL列类型都可以被索引，使用索引可以提高select操作性能。每种存储引擎对每个表至少支持16个索引，总索引长度至少为256字节，大多数存储引擎有更高的限制。</p>
-<p>MyISAM和InnoDB存储引擎的表默认创建的都是BTree索引，MEMORY存储引擎默认使用hash索引，但也支持BTree索引。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/07/mysql-6-索引机制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysql-5-引擎的选择" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/27/mysql-5-引擎的选择/">mysql_5_引擎的选择</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/27/mysql-5-引擎的选择/" class="archive-article-date">
-  	<time datetime="2019-03-27T01:10:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="mysql-5-引擎的选择"><a href="#mysql-5-引擎的选择" class="headerlink" title="mysql_5_引擎的选择"></a>mysql_5_引擎的选择</h3><table>
-<thead>
-<tr>
-<th>特点</th>
-<th>MyISAM</th>
-<th>InnoDB</th>
-<th>MEMORY</th>
-<th>MERGE</th>
-<th>NDB</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>存储限制</td>
-<td>√</td>
-<td>64TB</td>
-<td>√</td>
-<td></td>
-<td>√</td>
-</tr>
-<tr>
-<td>事务安全</td>
-<td></td>
-<td>√</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>锁机制</td>
-<td>表锁</td>
-<td>行锁</td>
-<td>表锁</td>
-<td>表锁</td>
-<td>行锁</td>
-</tr>
-<tr>
-<td>B树索引</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-</tr>
-<tr>
-<td>哈希索引</td>
-<td></td>
-<td></td>
-<td>√</td>
-<td></td>
-<td>√</td>
-</tr>
-<tr>
-<td>全文索引</td>
-<td>√</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>集群索引</td>
-<td></td>
-<td>√</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>数据缓存</td>
-<td></td>
-<td>√</td>
-<td>√</td>
-<td></td>
-<td>√</td>
-</tr>
-<tr>
-<td>索引缓存</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-</tr>
-<tr>
-<td>数据可压缩</td>
-<td>√</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>空间使用</td>
-<td>低</td>
-<td>高</td>
-<td>N/A</td>
-<td>低</td>
-<td>低</td>
-</tr>
-<tr>
-<td>内存使用</td>
-<td>低</td>
-<td>高</td>
-<td>中等</td>
-<td>低</td>
-<td>高</td>
-</tr>
-<tr>
-<td>批量插入的速度</td>
-<td>高</td>
-<td>低</td>
-<td>高</td>
-<td>高</td>
-<td>高</td>
-</tr>
-<tr>
-<td>支持外键</td>
-<td></td>
-<td>√</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/27/mysql-5-引擎的选择/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1159,6 +1048,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -1171,19 +1064,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1191,15 +1084,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1212,6 +1097,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1239,15 +1136,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线性表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1267,23 +1164,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -146,6 +146,200 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-located" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/located/">相对定位，绝对定位，固定定位</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/located/" class="archive-article-date">
+  	<time datetime="2018-07-13T06:32:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="相对定位，绝对定位，固定定位https-www-cnblogs-com-gchlcc-p-6295199-html"><a href="#相对定位，绝对定位，固定定位https-www-cnblogs-com-gchlcc-p-6295199-html" class="headerlink" title="相对定位，绝对定位，固定定位https://www.cnblogs.com/gchlcc/p/6295199.html"></a>相对定位，绝对定位，固定定位<a href="https://www.cnblogs.com/gchlcc/p/6295199.html" target="_blank" rel="noopener">https://www.cnblogs.com/gchlcc/p/6295199.html</a></h6><ol>
+<li><p>相对定位：微调元素位置，让元素相对自己原来的位置，进行位置的微调</p>
+<p>相对定位不脱标,真实位置是在老家,只不过影子出去了,可以到处飘.</p>
+<ul>
+<li><p>可以用left,right来描述盒子右,左的移动</p>
+</li>
+<li><p>可以用top,bottom来描述盒子的下,上的移动.</p>
+</li>
+</ul>
+</li>
+<li><p>绝对定位：</p>
+<ul>
+<li><p>绝对定位的盒子,还脱离标准文档流的.所以,所有的标准文档流的性质,绝对定位之后都不遵守了.</p>
+</li>
+<li><p>绝对定位之后,标签就不区分所谓的行内元素,块级元素了,不需要<code>display:block;</code>就可以设置宽高了</p>
+</li>
+<li><p>绝对定位的参考点：</p>
+<p>如果用top描述，那么定位参考点就是页面的左上角，而不是浏览器的左上角</p>
+<p>如果用bottom描述，那么定位参考点是浏览器首屏窗口尺寸，对应的页面的左下角</p>
+</li>
+<li><p>子绝父相</p>
+</li>
+</ul>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Html是程序语言乎？//" class="article-tag-list-link color2">Html是程序语言乎？</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/located/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-oraclefunc" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/oraclefunc/">Oracle函数</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/oraclefunc/" class="archive-article-date">
+  	<time datetime="2018-07-13T06:27:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>create or replace function return_sal(eno Jsj425.Emp.Empno%type)–声明或覆盖一个函数<br>return number –需要先声明返回值<br>    is  –is/as<br>v_sal Jsj425.Emp.sal%type;<br>–function body<br>–查找员工号是eno的sal<br>begin<br>  select sal into v_sal from Jsj425.Emp where empno = eno;<br>  return v_sal;<br>exception<br>  when NO_DATA_FOUND then<br>    dbms_output.put_line(‘无此员工信息’);<br>  when others then<br>    dbms_output.put_line(‘其他未知错误’);<br> end return_sal;<br> —函数调用<br> declare<br>  v_sal number(7,2);<br>  begin<br>    v_sal:=return_sal(7369);<br>    dbms_output.put_line(v_sal);<br>  end;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ORACLE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/oraclefunc/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-oracleexception" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1025,192 +1219,6 @@ name:别名
 
 
   
-    <article id="post-mnist" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/mnist/">MNIST模型搭建</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/10/mnist/" class="archive-article-date">
-  	<time datetime="2018-07-09T16:17:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="MNIST模型搭建"><a href="#MNIST模型搭建" class="headerlink" title="MNIST模型搭建"></a>MNIST模型搭建</h5><ol>
-<li><p>Mnist</p>
-<p>mnist（Mixed National Institute of Standards and Technology database ），是一系列带标记的数字图片，原始的Minst数据集的训练集是美国人口普查局的雇员的笔迹，而验证集是采集于美国中学生的笔迹。</p>
-<p>Mnist的图片一般是28*28的图片，每个像素都进行了归一化，使得其都在0-1范围内</p>
-</li>
-<li><p>模型选择：</p>
-<p>入门案例中，没有选择图像识别最常用的卷积神经网络，而是采用了全连接网络+Softmax输出层</p>
-<p>对图片784个像素值进行加权求和，然后加点偏置，衡量得出的结果，与0-9作比较，用不同的权值加权10次，得到10个不同的结果，最后使用softmax输出，最后的10个输出都会有一个概率值。</p>
-<p>这里的softmax可以看成是一个激励函数或者链接函数。</p>
-</li>
-<li><p>模型评估（模型训练）：</p>
-<p>这个案例中，如果使用均分误差法进行评估，归约速度太慢，所以使用“交叉熵”来进行评估</p>
-<p>y是我们预测的概率分布，y‘是实际的分布</p>
-</li>
-<li><p>优化</p>
-<p>使用GradientDescentOptimizer(0.01) 步长为0.01的梯度下降算法来最小化交叉熵</p>
-</li>
-<li><p>开始训练</p>
-</li>
-<li><p>模型评估</p>
-<p>代码：</p>
-<p>from __future__ import print_function<br>import tensor.down as input_data<br>import tensorflow as tf<br>import  numpy as np<br>#数据读取<br>mnist = input_data.read_data_sets(“.”, False, one_hot=True)<br>#常量声明<br>sess = tf.InteractiveSession()<br>x = tf.placeholder(“float”,shape=[None,784])<br>y_ = tf.placeholder(“float”,shape=[None,10])<br>#权值、偏置变量声明<br>W = tf.Variable(tf.zeros([784,10]))<br>b = tf.Variable(tf.zeros([10]))<br>#运行session，初始化变量<br>sess.run(tf.initialize_all_variables())<br>#模型搭建<br>y = tf.nn.softmax(tf.matmul(x,W)+b)<br>cross_entropy = -tf.reduce_sum(y_*tf.log(y)) #交叉熵<br>#优化，梯度下降<br>train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)<br>#随机训练<br>for i in range(1000):<br> batch = mnist.train.next_batch(50)<br> train_step.run(feed_dict={x:batch[0], y_:batch[1]})<br>#模型评估<br>correct_prediction = tf.equal(tf.argmax(y,1),tf.argmax(y_,1)) #判断位置是否一样<br>accuracy = tf.reduce_mean(tf.cast(correct_prediction,”float”))#bool转换为float<br>print(accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels}))<br>sess.close()</p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习，神经网络</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Tensorflow//" class="article-tag-list-link color1">Tensorflow</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/10/mnist/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-miniwechat-lottery" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/05/miniwechat-lottery/">微信小程序——抽奖小程序</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/05/miniwechat-lottery/" class="archive-article-date">
-  	<time datetime="2018-07-05T08:20:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>微信小程序-抽奖 git地址：<a href="https://github.com/BooleanlN/miniwechat_lottery" target="_blank" rel="noopener">https://github.com/BooleanlN/miniwechat_lottery</a> <img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/IMG_2656.png" alt=""><img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/IMG_2657.png" alt=""><img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/IMG_2658.png" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信小程序//" class="article-tag-list-link color1">微信小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/05/miniwechat-lottery/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1308,6 +1316,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -1320,19 +1332,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1340,15 +1352,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1361,6 +1365,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1388,15 +1404,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线性表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1416,23 +1432,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
               </li>
              
               <li class="article-tag-list-item">

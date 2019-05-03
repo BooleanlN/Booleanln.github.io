@@ -146,6 +146,192 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mnist" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/mnist/">MNIST模型搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/10/mnist/" class="archive-article-date">
+  	<time datetime="2018-07-09T16:17:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="MNIST模型搭建"><a href="#MNIST模型搭建" class="headerlink" title="MNIST模型搭建"></a>MNIST模型搭建</h5><ol>
+<li><p>Mnist</p>
+<p>mnist（Mixed National Institute of Standards and Technology database ），是一系列带标记的数字图片，原始的Minst数据集的训练集是美国人口普查局的雇员的笔迹，而验证集是采集于美国中学生的笔迹。</p>
+<p>Mnist的图片一般是28*28的图片，每个像素都进行了归一化，使得其都在0-1范围内</p>
+</li>
+<li><p>模型选择：</p>
+<p>入门案例中，没有选择图像识别最常用的卷积神经网络，而是采用了全连接网络+Softmax输出层</p>
+<p>对图片784个像素值进行加权求和，然后加点偏置，衡量得出的结果，与0-9作比较，用不同的权值加权10次，得到10个不同的结果，最后使用softmax输出，最后的10个输出都会有一个概率值。</p>
+<p>这里的softmax可以看成是一个激励函数或者链接函数。</p>
+</li>
+<li><p>模型评估（模型训练）：</p>
+<p>这个案例中，如果使用均分误差法进行评估，归约速度太慢，所以使用“交叉熵”来进行评估</p>
+<p>y是我们预测的概率分布，y‘是实际的分布</p>
+</li>
+<li><p>优化</p>
+<p>使用GradientDescentOptimizer(0.01) 步长为0.01的梯度下降算法来最小化交叉熵</p>
+</li>
+<li><p>开始训练</p>
+</li>
+<li><p>模型评估</p>
+<p>代码：</p>
+<p>from __future__ import print_function<br>import tensor.down as input_data<br>import tensorflow as tf<br>import  numpy as np<br>#数据读取<br>mnist = input_data.read_data_sets(“.”, False, one_hot=True)<br>#常量声明<br>sess = tf.InteractiveSession()<br>x = tf.placeholder(“float”,shape=[None,784])<br>y_ = tf.placeholder(“float”,shape=[None,10])<br>#权值、偏置变量声明<br>W = tf.Variable(tf.zeros([784,10]))<br>b = tf.Variable(tf.zeros([10]))<br>#运行session，初始化变量<br>sess.run(tf.initialize_all_variables())<br>#模型搭建<br>y = tf.nn.softmax(tf.matmul(x,W)+b)<br>cross_entropy = -tf.reduce_sum(y_*tf.log(y)) #交叉熵<br>#优化，梯度下降<br>train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)<br>#随机训练<br>for i in range(1000):<br> batch = mnist.train.next_batch(50)<br> train_step.run(feed_dict={x:batch[0], y_:batch[1]})<br>#模型评估<br>correct_prediction = tf.equal(tf.argmax(y,1),tf.argmax(y_,1)) #判断位置是否一样<br>accuracy = tf.reduce_mean(tf.cast(correct_prediction,”float”))#bool转换为float<br>print(accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels}))<br>sess.close()</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习，神经网络</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Tensorflow//" class="article-tag-list-link color1">Tensorflow</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/10/mnist/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-miniwechat-lottery" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/05/miniwechat-lottery/">微信小程序——抽奖小程序</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/05/miniwechat-lottery/" class="archive-article-date">
+  	<time datetime="2018-07-05T08:20:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>微信小程序-抽奖 git地址：<a href="https://github.com/BooleanlN/miniwechat_lottery" target="_blank" rel="noopener">https://github.com/BooleanlN/miniwechat_lottery</a> <img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/IMG_2656.png" alt=""><img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/IMG_2657.png" alt=""><img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/IMG_2658.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/微信小程序//" class="article-tag-list-link color1">微信小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/05/miniwechat-lottery/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-flask-mod-wsgi" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1258,228 +1444,6 @@ return head;
 
 
   
-    <article id="post-firstsec" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/19/firstsec/">网络安全复习——信息安全概述</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/19/firstsec/" class="archive-article-date">
-  	<time datetime="2018-04-18T16:45:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="信息安全概述"><a href="#信息安全概述" class="headerlink" title="信息安全概述"></a>信息安全概述</h4><h5 id="信息安全的根源"><a href="#信息安全的根源" class="headerlink" title="信息安全的根源"></a>信息安全的根源</h5><ul>
-<li><p>互联网的不安全性</p>
-</li>
-<li><p>操作系统的不安全性</p>
-</li>
-<li><p>数据的不安全性</p>
-</li>
-<li><p>传输线路的不安全性</p>
-</li>
-<li><p>网络管理的不安全性</p>
-</li>
-<li><p>位置信息的不安全性</p>
-</li>
-</ul>
-<h5 id="信息系统安全的基本概念"><a href="#信息系统安全的基本概念" class="headerlink" title="信息系统安全的基本概念"></a>信息系统安全的基本概念</h5><blockquote>
-<p>计算机系统的硬件、软件及数据受到保护，不因偶然或恶意的原因而遭到占用、破坏、更改、泄露，系统连续可靠正常地运行，系统服务不中断。</p>
-</blockquote>
-<h5 id="信息系统安全基本要素"><a href="#信息系统安全基本要素" class="headerlink" title="信息系统安全基本要素"></a>信息系统安全基本要素</h5><ol>
-<li><p>金三角：机密性、完整性、可用性</p>
-</li>
-<li><p>可控性</p>
-</li>
-<li><p>不可否认性</p>
-</li>
-</ol>
-<h5 id="信息系统安全的范畴"><a href="#信息系统安全的范畴" class="headerlink" title="信息系统安全的范畴"></a>信息系统安全的范畴</h5><ol>
-<li><p>物理安全：通信设备、线路</p>
-</li>
-<li><p>系统安全：计算机网络和系统安全</p>
-</li>
-<li><p>信息安全：信息窃取、</p>
-</li>
-</ol>
-<h5 id="信息系统安全的发展阶段"><a href="#信息系统安全的发展阶段" class="headerlink" title="信息系统安全的发展阶段"></a>信息系统安全的发展阶段</h5><ol>
-<li><p>通信保密阶段</p>
-</li>
-<li><p>计算机系统安全阶段</p>
-</li>
-<li><p>网络信息安全阶段</p>
-</li>
-<li><p>信息安全保障阶段</p>
-</li>
-<li><p>泛网安全阶段</p>
-</li>
-</ol>
-<h5 id="信息安全等级保护"><a href="#信息安全等级保护" class="headerlink" title="信息安全等级保护"></a>信息安全等级保护</h5><h6 id="TCSEC"><a href="#TCSEC" class="headerlink" title="TCSEC"></a>TCSEC</h6><ol>
-<li><p>D（低级保护）：MS-DOS、Win95/98</p>
-</li>
-<li><p>C1（受控制的存取控制）：早期Unix、NetWare</p>
-</li>
-<li><p>C2（自主安全保护）：Unix/Linux、NetWare后期版、WinNT/2K</p>
-</li>
-<li><p>B1（标识的安全保护）：军方系统</p>
-</li>
-<li><p>B2：结构化保护</p>
-</li>
-<li><p>B3：安全区域</p>
-</li>
-<li><p>验证设计</p>
-</li>
-</ol>
-<p>不足：针对孤立计算机系统，适合于小型机和主机系统、假设有一定的物理保障，不适合企业、模型是静态的。</p>
-<h6 id="CNITSEC"><a href="#CNITSEC" class="headerlink" title="CNITSEC"></a>CNITSEC</h6><p>《中华人民共和国计算机信息系统安全保护条例》制定有五个安全等级</p>
-<ol>
-<li><p>自主保护级</p>
-</li>
-<li><p>系统审计保护级</p>
-</li>
-<li><p>安全标记保护级</p>
-</li>
-<li><p>结构化保护级</p>
-</li>
-<li><p>访问验证保护级</p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络安全//" class="article-tag-list-link color5">网络安全</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/19/firstsec/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-gituse1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/14/gituse1/">Git的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/14/gituse1/" class="archive-article-date">
-  	<time datetime="2018-04-14T13:46:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>git的使用</strong> 在大佬的要求下，强行学会了使用Git，故记一下 之前参加比赛有使用过Git，所有电脑安装好了Git，不过之前不知道干了什么操作，右键并没有Git Bash,所以转向网上求助！知乎大法好！ 通过在注册表修改HKEY_CLASSES_ROOT\Directory\Background\shell\ 添加open git ，OK了！ 那么接下来开始Git大法！参考连接 <strong>1.Git 初始化</strong> <strong>Git 配置</strong> $ git config –global user.name “John Doe” $ git config –global user.email <a href="mailto:johndoe@example.com" target="_blank" rel="noopener">johndoe@example.com</a> <strong>在相应目录右键Git Bash</strong> git init ——创建一个.git子目录，包含Git的骨干文件 git add xx ——向Git仓库添加文件 git status ——查看当前状态 三种状态：untracked、modified、committed git commit -m “描述语句”——提交并添加描述语句 git add 可将文件由untracked、modified状态转至committed git clone 下载远程仓库的文件 <strong>2.连接远程仓库</strong> 首先生成自己的sshkey ssh-keygen -t rsa -C “用户名” 会让填写保存地址，若直接回车会保存在默认文件夹 用户/.ssh 接着两次回车 会生成两个文件，一个rsa，一个rsa.pub cat xxx.rsa.pub 复制内容，粘贴在github或coding的ssh设置 git remote add-name -url git remote -v 查看当前添加的remote主机 <strong>3.新建分支</strong> 两种方式： 远程新建分支，本地推送 git checkout -b feature-branch origin/feature-branch //检出远程的feature-branch分支到本地 本地创建新分支，推送 $ git checkout -b feature-branch //创建并切换到分支feature-branch $ git push origin feature-branch:feature-branch //推送本地的feature-branch(冒号前面的)分支到远程origin的feature-branch(冒号后面的)分支(没有会自动创建)</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程收录//" class="article-tag-list-link color5">编程收录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/14/gituse1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -1577,6 +1541,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -1589,19 +1557,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1609,15 +1577,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1630,6 +1590,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1657,15 +1629,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线性表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1685,23 +1657,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
               </li>
              
               <li class="article-tag-list-item">
