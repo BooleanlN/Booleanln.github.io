@@ -146,6 +146,247 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ubuntu-apache2-log" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/ubuntu-apache2-log/">Ubuntu_apache2 log查看</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/ubuntu-apache2-log/" class="archive-article-date">
+  	<time datetime="2018-07-13T06:16:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>apache2日志查看</strong></p>
+<ul>
+<li><p>查看apache2.conf</p>
+<p>ErrorLog ${APACHE_LOG_DIR}/error.log</p>
+</li>
+<li><p>找到日志位置，以变量形式存放</p>
+<p>export APACHE_LOG_DIR=/var/log/apache2$SUFFIX<br>cat /etc/apache2/envvars</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Ubuntu//" class="article-tag-list-link color2">Ubuntu</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/ubuntu-apache2-log/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-php7-0ext" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/php7-0ext/">PHP7.0常用拓展列表</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/php7-0ext/" class="archive-article-date">
+  	<time datetime="2018-07-13T06:14:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>sudo apt-get install php7.0-bcmath<br>sudo apt-get install php7.0-bz2<br>sudo apt-get install php7.0-calendar<br>sudo apt-get install php7.0-ctype<br>sudo apt-get install php7.0-curl<br>sudo apt-get install php7.0-dom<br>sudo apt-get install php7.0-enchant<br>sudo apt-get install php7.0-exif<br>sudo apt-get install php7.0-fileinfo<br>sudo apt-get install php7.0-ftp<br>sudo apt-get install php7.0-gd<br>sudo apt-get install php7.0-gettext<br>sudo apt-get install php7.0-gmp<br>sudo apt-get install php7.0-iconv<br>sudo apt-get install php7.0-intl<br>sudo apt-get install php7.0-json<br>sudo apt-get install php7.0-ldap<br>sudo apt-get install php7.0-mbstring<br>sudo apt-get install php7.0-mysqli<br>sudo apt-get install php7.0-mysqlnd<br>sudo apt-get install php7.0-opcache<br>sudo apt-get install php7.0-pdo<br>sudo apt-get install php7.0-phar<br>sudo apt-get install php7.0-posix<br>sudo apt-get install php7.0-pspell<br>sudo apt-get install php7.0-readline<br>sudo apt-get install php7.0-shmop<br>sudo apt-get install php7.0-simplexml<br>sudo apt-get install php7.0-snmp<br>sudo apt-get install php7.0-soap<br>sudo apt-get install php7.0-sockets<br>sudo apt-get install php7.0-sqlite3<br>sudo apt-get install php7.0-sysvmsg<br>sudo apt-get install php7.0-sysvsem<br>sudo apt-get install php7.0-sysvshm<br>sudo apt-get install php7.0-wddx<br>sudo apt-get install php7.0-xml<br>sudo apt-get install php7.0-xsl</p>
+<p>以下不能一次性全部安装，因为要选y<br>sudo apt-get install php7.0-recode<br>sudo apt-get install php7.0-dba<br>sudo apt-get install php7.0-imap<br>sudo apt-get install php7.0-interbase<br>sudo apt-get install php7.0-odbc<br>sudo apt-get install php7.0-pgsql<br>sudo apt-get install php7.0-tidy<br>sudo apt-get install php7.0-zip</p>
+<p>以下部分无法安装<br>我使用的是ubuntu 16.04 32位系统，如果有不同情况还请不宁赐教，<br>xmlreader<br>xmlrpc<br>xmlwriter</p>
+<p>pdo_dblib<br>pdo_firebird<br>pdo_mysql<br>pdo_oci<br>pdo_odbc<br>pdo_pgsql<br>pdo_sqlite</p>
+<p>com_dotnet<br>date<br>filter<br>hash<br>libxml<br>mcrypt<br>oci8<br>openssl<br>pcntl<br>pcre<br>reflection<br>session<br>skeleton<br>spl<br>standard<br>vtokenizer<br>zlib</p>
+<p>php-7.0 扩展列表<br>bcmath<br>bz2<br>calendar<br>com_dotnet<br>ctype<br>curl<br>date<br>dba<br>dom<br>enchant<br>exif<br>fileinfo<br>filter<br>ftp<br>gd<br>gettext<br>gmp<br>hash<br>iconv<br>imap<br>interbase<br>intl<br>json<br>ldap<br>libxml<br>mbstring<br>mcrypt<br>mysqli<br>mysqlnd<br>oci8<br>odbc<br>opcache<br>openssl<br>pcntl<br>pcre<br>pdo<br>pdo_dblib<br>pdo_firebird<br>pdo_mysql<br>pdo_oci<br>pdo_odbc<br>pdo_pgsql<br>pdo_sqlite<br>pgsql<br>phar<br>posix<br>pspell<br>readline<br>recode<br>reflection<br>session<br>shmop<br>simplexml<br>skeleton<br>snmp<br>soap<br>sockets<br>spl<br>sqlite3<br>standard<br>sysvmsg<br>sysvsem<br>sysvshm<br>tidy<br>vtokenizer<br>wddx<br>xml<br>xmlreader<br>xmlrpc<br>xmlwriter<br>xsl<br>zip<br>zlib</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/PHP是最好的语言//" class="article-tag-list-link color5">PHP是最好的语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/php7-0ext/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-lamp" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/lamp/">LAMP环境搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/lamp/" class="archive-article-date">
+  	<time datetime="2018-07-13T06:10:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.apache安装</p>
+<p>sudo apt-get install apache2</p>
+<p>2.mysql-server 安装</p>
+<p>sudo apt-get install mysql-server</p>
+<p>4.</p>
+<p>sudo apt-get install libapache2-mod-php</p>
+<p>自动配置..牛批，想我当年还得手配 3.php7安装 <code>sudo apt-get install -y php7.0 php7.0-mysql php7.0-curl php7.0-json php7.0-cgi php7.0-dom php7.0-mbstring php7.0-fpm php7.0-sqlite3 php7.0-xml php7.0-mysqli php7.0-calendar php7.0-exif php7.0-phar php7.0-snmp</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Ubuntu//" class="article-tag-list-link color2">Ubuntu</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/lamp/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-apache2-https" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1011,271 +1252,9 @@ return head;
 
 
   
-    <article id="post-pythonunapk" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/18/pythonunapk/">Python解包APK文件</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/18/pythonunapk/" class="archive-article-date">
-  	<time datetime="2018-06-18T08:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="解包APK文件"><a href="#解包APK文件" class="headerlink" title="解包APK文件"></a><strong>解包APK文件</strong></h4><p><code>import zipfile import os def un_zip(filename): zip_file = zipfile.ZipFile(filename) if os.path.isdir(filename + &quot;_files&quot;): pass else: os.mkdir(filename+&quot;_files&quot;) for names in zip_file.namelist(): zip_file.extract(names,filename + &quot;_files/&quot;) zip_file.close() un_zip(&quot;xxxx.apk&quot;)</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/18/pythonunapk/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-heap" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/18/heap/">堆（heap）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/18/heap/" class="archive-article-date">
-  	<time datetime="2018-06-18T05:52:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>概念</strong> <strong>优先队列：特殊的队列，取出元素的顺序依照元素的优先权大小，而不是元素进入队列的先后顺序</strong> 如何实现优先队列：数组？有序数组？链表？有序链表？二叉搜索树？ 方法：使用数组表示的完全二叉树来表示，任何一个结点都是其子树所有节点的最大值（或最小值） 从任意路径都可以保证有序性 <strong>ADT：</strong> 类型名称：<strong>最大堆（MAXHeap）</strong> 数据对象：<strong>完全二叉树，每个结点的值不小于其子树的任意一个结点的元素值</strong> 操作集： <code>1.MaxHeap Create（int MaxSize） 2.Boolean IsFull(MaxHeap Heap) 3.void Insert(MaxHeap heap,ElementType Item) 4.Boolean IsEmpty(heap) 5.ElementType DeleteMax(MaxHeap heap)</code> 代码实现： 堆的声明： <code>struct MaxHeap{ int *data; int MaxSize; int size; }; typedef struct MaxHeap* mxheap;</code> 1.堆的创建： <code>mxheap CreateHeap(int MaxSize) { mxheap heap = (struct MaxHeap*)malloc(sizeof(struct MaxHeap)); heap-&gt;data = (int *)malloc(sizeof(int)*MaxSize); heap-&gt;size = 0; heap-&gt;MaxSize = MaxSize; return heap; }</code> 2.非空、非满 <code>int IsFull(mxheap heap) { return (heap-&gt;size+1==heap-&gt;MaxSize); } int IsEmpty(mxheap heap) { return (heap-&gt;size==0); }</code> 3.插入元素 <code>void Insert(mxheap heap,int item) { if(IsFull(heap)) { printf(&quot;堆已满\n&quot;); return; } int i = ++heap-&gt;size; //从下往上遍历。直到堆顶 //判断i&gt;1，否则跳出，若当前位置的父节点小于要插入的结点，则将当前结点改为父节点值，并更改i值，直到找到合适的位置 for(;i&gt;1&amp;&amp;heap-&gt;data[i/2]&lt;item;i/=2) { heap-&gt;data[i] = heap-&gt;data[i/2]; } //赋值 heap-&gt;data[i]=item; // printf(&quot;%d位置插入data=%d\n&quot;,heap-&gt;size,heap-&gt;data[heap-&gt;size]); }</code> 4.删除元素 <code>int Delete(mxheap heap) { //空堆否？ if(IsEmpty(heap)) { printf(&quot;堆为空!\n&quot;); return; } //保存堆顶值 int MaxItem = heap-&gt;data[1]; //获取最后一个结点的值 int FinData = heap-&gt;data[heap-&gt;size--]; int parent,child; //遍历，调整当前堆为最大堆 for(parent = 1;parent*2&lt;=heap-&gt;size;parent=child) { child = parent*2; //若有两个子树，判断哪个更大 if(child!=heap-&gt;size&amp;&amp;heap-&gt;data[child]data[child+1])child++; //若当前位置子树的结点值小于最后的值，则找到插入位置 if(FinData&gt;=heap-&gt;data[child]){break;} //否则，当前位置的值为两个结点中的最大值 else { heap-&gt;data[parent]=heap-&gt;data[child]; } } //若放在函数体中，当size=1时，函数返回错误，所以将其放在外面 heap-&gt;data[parent]=FinData; return MaxItem; }</code> 5.遍历元素 <code>//遍历输出Heap； void ShowHeap(mxheap heap) { while(!IsEmpty(heap)) { printf(&quot;%d\n&quot;,Delete(heap)); } }</code> 6.测试 <code>int main() { mxheap heap = CreateHeap(10); Insert(heap,5); Insert(heap,10); Insert(heap,1); Insert(heap,8); Insert(heap,50); Insert(heap,25); Insert(heap,17); Insert(heap,-5); Insert(heap,6); Insert(heap,64); ShowHeap(heap); return 0; }</code> 测试结果： <code>堆已满 50 25 17 10 8 6 5 1 -5 Process returned 0 (0x0) execution time : 0.008 s Press any key to continue.</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">heap</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">堆</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构//" class="article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/18/heap/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-elementary-os" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/04/elementary-os/">Elementary OS 初体验</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/04/elementary-os/" class="archive-article-date">
-  	<time datetime="2018-06-04T08:00:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近因为受够了windows下开发的各种不方便，所以转战linux，版本选了Elementary OS，之前一直用的Ubuntu的KDE桌面，也用过Debian的GNome，但感觉都不是很好，发现EOS后，被它的设计所吸引，就抓紧装上了。 安装步骤： 使用UltarlSO工具将iso文件刻录至U盘，不可以使用PE，自己还用PE去尝试了下，后来一下怎么可能，文件系统都不一样… 进入安装之后，我使用的是自定义分区，给swap分区16GB，剩余空间都给了根分区，没有去区分各个文件夹。 等待安装结束之后，进入系统，先在设置lang/region里面设置了china/chinease，重启，done！ 接着下载了火狐浏览器，使用的是 Firefox Quantum： <code>sudo add-apt-repository ppa:mozillateam/firefox-next</code> sudo apt update &amp;&amp; sudo apt upgrade 如果你已经安装了Firefox，你会发现它已经被变成了Quantum。 Firefox徽标立即更改。 如果你还没有安装Firefox，你可以使用下面的命令来安装它： <code>sudo apt install firefox</code> reference： 接着，开发怎么能少了音乐呢，网易云音乐走起 <code>sudo dpkg -i netease-cloud-music_1.0.0_amd64_ubuntu16.04.deb</code> sudo apt-get install -f 网易云第二天开的时候死活打不开，后来发现是权限问题，导致某些文件权限用不了 <code>sudo netease-cloud-music</code> sudo nohup netease-cloud-music 开发工具安装了VSCode</p>
-<blockquote>
-<p>sudo dpkg -i code_1.23.1-1525968403_amd64.deb</p>
-</blockquote>
-<p>pycharm community</p>
-<blockquote>
-<p>sudo tar -zxvf pycharm-community-2018.1.4.tar.gz -C /usr/local</p>
-</blockquote>
-<blockquote>
-<p>sh /usr/local/pyfile/bin/pycharm.sh &amp;</p>
-</blockquote>
-<p>//此时pycharm已经可以运行了，但我们需要把快捷方式放到桌面</p>
-<blockquote>
-<p>vim /usr/share/applications/PyCharm.desktop:</p>
-</blockquote>
-<blockquote>
-<p>[Desktop Entry] Encoding=UTF-8 Name=Pycharm Comment=Pycharm IDE Exec=sh /usr/local/pycharm-community-2018.1.4/bin/pycharm.sh Icon=/usr/local/pycharm-community-2018.1.4/bin/pycharm.png Terminal=false StartupNotify=true Type=Application Categories=Application;Development;</p>
-</blockquote>
-<blockquote>
-<p>cp Pycharm.desktop /home/bool/</p>
-</blockquote>
-<p>done! 同样的，安装上Phpstorm！</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Ubuntu//" class="article-tag-list-link color2">Ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/04/elementary-os/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -1386,11 +1365,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1398,23 +1377,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1427,6 +1394,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1454,15 +1441,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线性表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1486,19 +1469,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Web性能优化</a>
+                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1506,7 +1477,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
+                <a href="javascript:void(0)" class="js-tag color3">Web性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
               </li>
              
               <li class="article-tag-list-item">

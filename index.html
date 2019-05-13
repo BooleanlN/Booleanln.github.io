@@ -146,6 +146,264 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JavaScript函数和变量声明提升" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/13/JavaScript函数和变量声明提升/">JavaScript函数和变量声明提升</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/13/JavaScript函数和变量声明提升/" class="archive-article-date">
+  	<time datetime="2019-05-13T14:05:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JavaScript函数和变量声明提升"><a href="#JavaScript函数和变量声明提升" class="headerlink" title="JavaScript函数和变量声明提升"></a>JavaScript函数和变量声明提升</h3><p>javascript面试题常常会考这个知识点的题</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">6</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">3</span>,b = <span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(a);</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		a = <span class="number">5</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	a();</span><br><span class="line">	alert(a);</span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br><span class="line">alert(a);</span><br></pre></td></tr></table></figure>
+<p>js在运行过程中通常会经过三个阶段</p>
+<ul>
+<li>语法解析——检查语法是否有错误</li>
+<li>预编译</li>
+<li>解释运行</li>
+</ul>
+<p>函数和变量声明提升就发生在预编译阶段</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/13/JavaScript函数和变量声明提升/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-关于rem" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/09/关于rem/">关于rem</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/09/关于rem/" class="archive-article-date">
+  	<time datetime="2019-05-09T07:38:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="关于rem"><a href="#关于rem" class="headerlink" title="关于rem"></a>关于rem</h3><p>rem(font size of the root element)</p>
+<ul>
+<li><p>字体单位</p>
+<p>值根据html根元素大小而定，也可作为宽度、高度等单位</p>
+</li>
+<li><p>适配原理</p>
+<p>将px修改为rem，动态修改html的font-size做适配</p>
+</li>
+<li><p>兼容性</p>
+<p>基本覆盖所有流行的手机系统</p>
+</li>
+</ul>
+<p>1 rem默认情况下大小等于浏览器默认font-size(16px)</p>
+<p>通过设置html即root ele的font-size可达到动态修改rem的效果</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1,user-scalable=no"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">		html&#123;</span></span><br><span class="line"><span class="undefined">			font-size: 17px;</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.box</span>&#123;</span></span><br><span class="line"><span class="undefined">			width: 10rem;</span></span><br><span class="line"><span class="undefined">			height: 10rem;</span></span><br><span class="line"><span class="undefined">			background-color: red;</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.text</span>&#123;</span></span><br><span class="line"><span class="css">			<span class="selector-tag">color</span>: <span class="selector-id">#fff</span>;</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">		/*</span></span><br><span class="line"><span class="undefined">		* 1rem = 16px(default)===html font-size</span></span><br><span class="line"><span class="undefined">		* 10rem = 160px</span></span><br><span class="line"><span class="undefined">		*/</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>mediaQuery与rem</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> screen and (max-width: <span class="number">320px</span>)&#123;</span><br><span class="line">			<span class="selector-tag">html</span>&#123;</span><br><span class="line">				<span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (max-width: <span class="number">360px</span>) and (min-width: <span class="number">321px</span>)&#123;</span><br><span class="line">				<span class="selector-tag">html</span>&#123;</span><br><span class="line">					<span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">				&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>js与rem</strong> </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//视窗宽度</span></span><br><span class="line"><span class="keyword">let</span> htmlWidth = <span class="built_in">document</span>.documentElement.clientWidth||<span class="built_in">document</span>.body.clientWidth;</span><br><span class="line"><span class="built_in">console</span>.log(htmlWidth);</span><br><span class="line"><span class="comment">//获取视窗高度</span></span><br><span class="line"><span class="keyword">let</span> htmlDOM = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'html'</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">htmlDOM.style.fontSize = htmlWidth / <span class="number">10</span> +<span class="string">'px'</span></span><br></pre></td></tr></table></figure>
+<p><strong>sass</strong> </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">function</span> px2rem($px)&#123;</span><br><span class="line">    $rem : 37.5px; //ipone6</span><br><span class="line">    @<span class="keyword">return</span> ($px / $rem ) + rem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">web性能优化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/09/关于rem/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-css选择器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/05/css选择器/">css选择器</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/05/css选择器/" class="archive-article-date">
+  	<time datetime="2019-05-05T14:21:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="CSS选择器整理"><a href="#CSS选择器整理" class="headerlink" title="CSS选择器整理"></a>CSS选择器整理</h4><p>CSS选择器是CSS的基础，但有很多开发者并没有充分使用它的功能，虽然可以通过类，ID以及标签选择器完成很多工作，但还有更多更好的方式可供我们选择。</p>
+<p>学会合理使用CSS2、CSS3中的选择器可以帮助我们编写出更加整洁的HTML代码。它可以让你尽可能少用不必须的类属性和少添加多余的div和span标签。</p>
+<p>选择器未能充分利用归因于IE对其不能有效的支持，但其他浏览器都有很好的支持，好消息是从IE7+开始，选择器得到了更好的支持。</p>
+<p>废话不说（不翻译）了，Let’s get it。</p>
+<p><em>（以上参考自<a href="https://www.456bereastreet.com/archive/200509/css_21_selectors_part_1/" target="_blank" rel="noopener">该网站</a>）</em></p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/05/css选择器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-网页布局-网格布局" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -710,254 +968,9 @@
 
 
   
-    <article id="post-mysql-1111-分区" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/11/mysql-1111-分区/">mysql_1111_分区</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/11/mysql-1111-分区/" class="archive-article-date">
-  	<time datetime="2019-04-11T12:54:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="MySQL分区"><a href="#MySQL分区" class="headerlink" title="MySQL分区"></a>MySQL分区</h3><p><strong>分区</strong>：是指根据一定规则，数据库将一个表分解成多个更小的、更容易管理的部分。有利于管理非常大的表，采用了“分而治之”的逻辑，分区引入了分区键的概念，分区键用于根据某个区间值、特定值列表或者HASH函数值执行数据的聚集，让数据根据规则分布在不同的分区中。</p>
-<p><strong>分区的优点 </strong>：</p>
-<ul>
-<li>相比单个磁盘或文件系统分区，可以存储更多数据</li>
-<li>优化查询</li>
-<li>对于已过期或不需要保存的数据，可通过删除与这些数据有关的分区来实现</li>
-<li>跨多个磁盘来分散数据查询，以获得更大的查询吞吐量</li>
-</ul>
-<h4 id="分区类型"><a href="#分区类型" class="headerlink" title="分区类型"></a>分区类型</h4><ul>
-<li>RANGE分区：基于一个给定连续区间范围</li>
-<li>LIST分区：类似RANGE分区，区别在LIST分区是基于枚举出的值列表分区，RANGE是基于给定的联系区间范围分区</li>
-<li>HASH分区：基于给定的分区个数，把数据分配给不同的分区</li>
-<li>KEY分区：类似于HASH分区</li>
-</ul>
-<p>若表有主键，则主键必须包含分区键，无主键则无此约束</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/11/mysql-1111-分区/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysql-10—-安全及SQLMode" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/11/mysql-10—-安全及SQLMode/">mysql_10—_安全及SQLMode</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/11/mysql-10—-安全及SQLMode/" class="archive-article-date">
-  	<time datetime="2019-04-11T09:01:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="MySQL安全及SQLMode"><a href="#MySQL安全及SQLMode" class="headerlink" title="MySQL安全及SQLMode"></a>MySQL安全及SQLMode</h3><p>SQL安全问题：</p>
-<p><strong>SQL注入</strong> ，应对措施：PrepareStatement+Bind-Variable</p>
-<p>SQLMode：</p>
-<p><strong>作用</strong> ：</p>
-<ul>
-<li>可以完成不同严格程度的数据校验，有效保持数据准确性</li>
-<li>保证大多数SQL符合标准的SQL语法，利于迁移</li>
-<li>通过设置SQL Mode使得MySQL上数据更方便地迁移到目标数据库</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/11/mysql-10—-安全及SQLMode/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysql-9-触发器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/11/mysql-9-触发器/">mysql_9_触发器</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/11/mysql-9-触发器/" class="archive-article-date">
-  	<time datetime="2019-04-11T03:20:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="mysql触发器"><a href="#mysql触发器" class="headerlink" title="mysql触发器"></a>mysql触发器</h3><p>触发器是与表有关的数据库对象，在满足定义条件时触发，并执行触发器中定义的语句集合，触发器可以协助应用在数据库端确保数据的完整性。</p>
-<h4 id="触发器创建"><a href="#触发器创建" class="headerlink" title="触发器创建"></a>触发器创建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER trigger_name trigger_time trigger_event ON </span><br><span class="line">	tbl_name FOR EACH ROW trigger_stmt</span><br><span class="line">-- 实例</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger ins_emp after insert on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;aftInsert&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger ins_emp_n before insert on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;befInsert&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger up_emp after update on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;aftUpdate&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger up_emp_b before update on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;befUpdate&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter ;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/11/mysql-9-触发器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1068,11 +1081,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1080,23 +1093,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1109,6 +1110,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1136,15 +1157,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线性表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1168,19 +1185,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Web性能优化</a>
+                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1188,7 +1193,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
+                <a href="javascript:void(0)" class="js-tag color3">Web性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
               </li>
              
               <li class="article-tag-list-item">

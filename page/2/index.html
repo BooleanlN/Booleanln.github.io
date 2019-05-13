@@ -146,6 +146,251 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql-1111-分区" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/11/mysql-1111-分区/">mysql_1111_分区</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/11/mysql-1111-分区/" class="archive-article-date">
+  	<time datetime="2019-04-11T12:54:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="MySQL分区"><a href="#MySQL分区" class="headerlink" title="MySQL分区"></a>MySQL分区</h3><p><strong>分区</strong>：是指根据一定规则，数据库将一个表分解成多个更小的、更容易管理的部分。有利于管理非常大的表，采用了“分而治之”的逻辑，分区引入了分区键的概念，分区键用于根据某个区间值、特定值列表或者HASH函数值执行数据的聚集，让数据根据规则分布在不同的分区中。</p>
+<p><strong>分区的优点 </strong>：</p>
+<ul>
+<li>相比单个磁盘或文件系统分区，可以存储更多数据</li>
+<li>优化查询</li>
+<li>对于已过期或不需要保存的数据，可通过删除与这些数据有关的分区来实现</li>
+<li>跨多个磁盘来分散数据查询，以获得更大的查询吞吐量</li>
+</ul>
+<h4 id="分区类型"><a href="#分区类型" class="headerlink" title="分区类型"></a>分区类型</h4><ul>
+<li>RANGE分区：基于一个给定连续区间范围</li>
+<li>LIST分区：类似RANGE分区，区别在LIST分区是基于枚举出的值列表分区，RANGE是基于给定的联系区间范围分区</li>
+<li>HASH分区：基于给定的分区个数，把数据分配给不同的分区</li>
+<li>KEY分区：类似于HASH分区</li>
+</ul>
+<p>若表有主键，则主键必须包含分区键，无主键则无此约束</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/11/mysql-1111-分区/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql-10—-安全及SQLMode" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/11/mysql-10—-安全及SQLMode/">mysql_10—_安全及SQLMode</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/11/mysql-10—-安全及SQLMode/" class="archive-article-date">
+  	<time datetime="2019-04-11T09:01:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="MySQL安全及SQLMode"><a href="#MySQL安全及SQLMode" class="headerlink" title="MySQL安全及SQLMode"></a>MySQL安全及SQLMode</h3><p>SQL安全问题：</p>
+<p><strong>SQL注入</strong> ，应对措施：PrepareStatement+Bind-Variable</p>
+<p>SQLMode：</p>
+<p><strong>作用</strong> ：</p>
+<ul>
+<li>可以完成不同严格程度的数据校验，有效保持数据准确性</li>
+<li>保证大多数SQL符合标准的SQL语法，利于迁移</li>
+<li>通过设置SQL Mode使得MySQL上数据更方便地迁移到目标数据库</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/11/mysql-10—-安全及SQLMode/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql-9-触发器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/11/mysql-9-触发器/">mysql_9_触发器</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/11/mysql-9-触发器/" class="archive-article-date">
+  	<time datetime="2019-04-11T03:20:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="mysql触发器"><a href="#mysql触发器" class="headerlink" title="mysql触发器"></a>mysql触发器</h3><p>触发器是与表有关的数据库对象，在满足定义条件时触发，并执行触发器中定义的语句集合，触发器可以协助应用在数据库端确保数据的完整性。</p>
+<h4 id="触发器创建"><a href="#触发器创建" class="headerlink" title="触发器创建"></a>触发器创建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER trigger_name trigger_time trigger_event ON </span><br><span class="line">	tbl_name FOR EACH ROW trigger_stmt</span><br><span class="line">-- 实例</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger ins_emp after insert on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;aftInsert&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger ins_emp_n before insert on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;befInsert&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger up_emp after update on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;aftUpdate&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter $$</span><br><span class="line">create trigger up_emp_b before update on emp for each row begin</span><br><span class="line">	insert into note(note) values(&apos;befUpdate&apos;);</span><br><span class="line">    end;</span><br><span class="line">$$</span><br><span class="line">delimiter ;</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/11/mysql-9-触发器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-mysql-8-存储过程与函数" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -894,296 +1139,9 @@
 
 
   
-    <article id="post-ByteArrayOutputStream源码分析及实例" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/26/ByteArrayOutputStream源码分析及实例/">ByteArrayOutputStream源码分析及实例</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/26/ByteArrayOutputStream源码分析及实例/" class="archive-article-date">
-  	<time datetime="2019-03-26T01:15:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/26/ByteArrayOutputStream源码分析及实例/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-OutputStream源码分析" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/26/OutputStream源码分析/">OutputStream源码分析</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/26/OutputStream源码分析/" class="archive-article-date">
-  	<time datetime="2019-03-26T01:14:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/26/OutputStream源码分析/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mysql-2-数据类型" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/25/Mysql-2-数据类型/">Mysql_2_数据类型</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/25/Mysql-2-数据类型/" class="archive-article-date">
-  	<time datetime="2019-03-25T10:28:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h4><table>
-<thead>
-<tr>
-<th>整数类型</th>
-<th>字节</th>
-<th>最小值</th>
-<th>最大值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>TINYINT</td>
-<td>1</td>
-<td>有符号 -128，u:0</td>
-<td>有符号：127，u：255</td>
-</tr>
-<tr>
-<td>SMALLINT</td>
-<td>2</td>
-<td>有符号-32768，u:0</td>
-<td>有符号：32767，u：65535</td>
-</tr>
-<tr>
-<td>MEDIUMINT</td>
-<td>3</td>
-<td>有符号：-8388608，u：0</td>
-<td>有符号：8388607，u：1677215</td>
-</tr>
-<tr>
-<td>INT、INTEGER</td>
-<td>4</td>
-<td>有符号：-2147483648 u：0</td>
-<td>有符号：2147483647,u：4294967295</td>
-</tr>
-<tr>
-<td>BIGINT</td>
-<td>8</td>
-<td>-2^63,0</td>
-<td>2^63-1,0</td>
-</tr>
-<tr>
-<td>浮点数类型</td>
-<td>字节</td>
-<td>最小值</td>
-<td>最大值</td>
-</tr>
-<tr>
-<td>FLOAT</td>
-<td>4</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>DOUBLE</td>
-<td>8</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>定点数</td>
-<td>字节</td>
-<td>描述</td>
-<td></td>
-</tr>
-<tr>
-<td>DEC(M,D)</td>
-<td>M+2</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>DECIMAL(M,D)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>位类型</td>
-<td>字节</td>
-<td>最小值</td>
-<td>最大值</td>
-</tr>
-<tr>
-<td>BIT(M)</td>
-<td>1~8</td>
-<td>BIT(1)</td>
-<td>BIT(64)</td>
-</tr>
-</tbody>
-</table>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/25/Mysql-2-数据类型/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1294,11 +1252,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1306,23 +1264,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1335,6 +1281,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1362,15 +1328,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线性表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1394,19 +1356,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Web性能优化</a>
+                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1414,7 +1364,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
+                <a href="javascript:void(0)" class="js-tag color3">Web性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
               </li>
              
               <li class="article-tag-list-item">
