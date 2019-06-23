@@ -146,6 +146,289 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JS异步机制简述" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/22/JS异步机制简述/">JS异步机制简述</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/22/JS异步机制简述/" class="archive-article-date">
+  	<time datetime="2019-06-22T09:43:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JS异步机制简述"><a href="#JS异步机制简述" class="headerlink" title="JS异步机制简述"></a>JS异步机制简述</h3><p>众所周知，javaScript引擎是单线程运行的，这就带来一个问题，当遇到一些执行时间较长的事件或者某些需要在特定时间点触发的事件时，就需要阻塞正在执行的代码，这显然是不可以的。</p>
+<p>所以，在js引擎当中，同步任务，会在执行栈中，由主线程顺序执行，而异步任务，如ajax、定时器、回调函数等，会添加至异步队列当中，当条件满足时，该任务会进入主线程中执行。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5452485-99f606742b17f745.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/444/format/webp" alt=""></p>
+<p>不同的异步操作，会交由浏览器内核的webcore来执行，如DOM Binding、timer、network模块</p>
+<h6 id="添加到主线程任务队列的时机"><a href="#添加到主线程任务队列的时机" class="headerlink" title="添加到主线程任务队列的时机"></a>添加到主线程任务队列的时机</h6><p>不久前，经历了一次头条的技术面试，与面试官相谈还算欢，面了我大概一个小时四十分钟，虽然没了后文（哭，不知道那里不满意），但也有了很多收获。</p>
+<p>比如本篇文章，就是因为面试中遇到的一个问题，所以才记录的，现在将它放在这里：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, rej</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">            resolve()</span><br><span class="line">    &#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>请回答出该问题的输出：</p>
+<p>这道题，我回答结果是错误的，面试官也指出了这是宏任务和微任务的区别，所以今天来捋一捋。</p>
+<p>首先，我们将代码中的同步、异步任务分开：</p>
+<p>同步有：</p>
+<ul>
+<li><p>new Promise(fun)</p>
+</li>
+<li><p>console.log(4)</p>
+</li>
+</ul>
+<p>异步有：</p>
+<ul>
+<li>resolve、reject回调函数</li>
+<li>setTimeout函数</li>
+</ul>
+<p>由于同步任务必然在异步任务之前，所以会输出 1、4</p>
+<p>关键是要搞清楚setTimeout与promise回调的输出顺序。</p>
+<p>在javascript当中，异步任务队列又被分为微任务与宏任务两种</p>
+<p><strong>宏任务队列</strong>包括setTimeout、setInterval、<strong>requestAnimationFrame</strong>、NodeJS中的I/O等。</p>
+<p><strong>微任务队列</strong>包括独立回调（如Promise）和复合回调（即不同状态回调在同一函数体内）两类。</p>
+<p>JavaScript完整执行顺序：</p>
+<ol>
+<li>顺序执行所有同步代码</li>
+<li>检查宏任务队列，若有触发的宏任务，则取第一个并调用其事件处理函数，然后转至第三步，若没有触发的宏任务，直接跳转至第三步</li>
+<li>检查微任务队列，执行该队列中所有已触发的异步任务，然后跳转至第二步，若无已触犯的异步，则直接返回第二步</li>
+<li>最后返回第二步，继续检查宏任务队列</li>
+<li>循环往复，直到所有的异步任务处理完成。</li>
+</ol>
+<p>所以上面的异步任务会先执行宏任务setTimeout，再执行微任务resolve</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/8/12/1652ed68a7bda9df?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<p><a href="https://juejin.im/post/5b7057b251882561381e69bf" target="_blank" rel="noopener">参考链接</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/22/JS异步机制简述/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue-router实现原理" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/20/vue-router实现原理/">vue-router实现原理</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/20/vue-router实现原理/" class="archive-article-date">
+  	<time datetime="2019-06-20T05:34:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="vue-router实现原理简述"><a href="#vue-router实现原理简述" class="headerlink" title="vue-router实现原理简述"></a>vue-router实现原理简述</h3><p>了解vue-router实现原理，就要先明白前端路由的两种常见方式：</p>
+<ul>
+<li>Hash路由</li>
+<li>History</li>
+</ul>
+<h5 id="hash路由"><a href="#hash路由" class="headerlink" title="hash路由"></a>hash路由</h5><p>hash路由，是前端实现路由的方式之一，被应用于vue、react的路由当中</p>
+<p>hash路由的实现主要借助onhashchange的监听方法，window.location.hash可以对锚值进行设置读取</p>
+<p>如果浏览器不支持onhashchange，可通过拿到location的href、hash，并通过setInterval对该属性进行监听，若发生变化则通过自定义方法进行处理</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/20/vue-router实现原理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-组件间通信" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/14/组件间通信/">组件间通信</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/14/组件间通信/" class="archive-article-date">
+  	<time datetime="2019-06-14T09:36:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="组件通信"><a href="#组件通信" class="headerlink" title="组件通信"></a>组件通信</h3><h5 id="父子间通信"><a href="#父子间通信" class="headerlink" title="父子间通信"></a>父子间通信</h5><p>父组件向子组件传递信息，通过<code>prop</code></p>
+<p>子组件向父组件传递信息，通过<code>this.$emit</code>触发自定义事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &#123;&#123;title&#125;&#125;</span><br><span class="line">    &lt;child @changeName=&quot;changeName&quot; :toChildProp=&quot;passData&quot;&gt;&lt;/child&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;test1&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      title: &apos;组件1&apos;,</span><br><span class="line">      passData: &apos;测试&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    changeName (name) &#123;</span><br><span class="line">      this.title = name</span><br><span class="line">      console.log(name)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    child: &#123;</span><br><span class="line">      template: &apos;&lt;button @click=&quot;componentInfo&quot;&gt;测试父子通信&lt;/button&gt;&apos;,</span><br><span class="line">      methods: &#123;</span><br><span class="line">        componentInfo () &#123;</span><br><span class="line">          this.$emit(&apos;changeName&apos;, &apos;父子通信&apos;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      props: &#123;</span><br><span class="line">        toChildProp: &#123;</span><br><span class="line">          type: String,</span><br><span class="line">          default: &apos;默认值&apos;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="非父子组件通信"><a href="#非父子组件通信" class="headerlink" title="非父子组件通信"></a>非父子组件通信</h5><p>非父子组件间通信可以使用中央事件总线的方式，即创建一个空的Vue实例，作为通信的中转站</p>
+<p><em>组件1</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;title&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;el-button @click=&quot;changeTitle&quot;&gt;测试&lt;/el-button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;test1&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      title: &apos;组件1&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">      // bus.$emit触发事件</span><br><span class="line">    changeTitle () &#123;</span><br><span class="line">      this.bus.$emit(&apos;toChangeTitle&apos;, &apos;首页&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><em>组件2</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;el-button&gt;&#123;&#123;foot&#125;&#125;&lt;/el-button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;test2&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      foot: &apos;组件2&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted () &#123;</span><br><span class="line">    // bus.$on监听触发的事件</span><br><span class="line">    this.bus.$on(&apos;toChangeTitle&apos;, function (title) &#123;</span><br><span class="line">      console.log(title)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><em>main</em>.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let bus = new Vue()</span><br><span class="line">Vue.prototype.bus = bus</span><br><span class="line">/* eslint-disable no-new */</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  router,</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: &apos;&lt;App/&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/14/组件间通信/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-VScode-常用插件集合" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -171,18 +454,8 @@
 <li>Auto Rename Tag</li>
 <li>Bracket Pair Clorizer</li>
 <li>Chinese Language</li>
-<li>ESLint</li>
-<li>filesize</li>
-<li>GitLens</li>
-<li>minapp - 微信小程序</li>
-<li>Path Intellisense</li>
-<li>Vetur - vue</li>
-<li>vscode-element-helper -element</li>
-<li>vscode-fileheader</li>
-<li>vscode-icons</li>
-<li>vue 2 snippets</li>
 </ul>
-
+        
       
 
       
@@ -259,7 +532,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="JavaScript闭包理解"><a href="#JavaScript闭包理解" class="headerlink" title="JavaScript闭包理解"></a>JavaScript闭包理解</h3><p>javascript闭包是面试常考题，理解它是理解javascript某些高级用法的关键。</p>
+
       
 
       
@@ -730,250 +1004,6 @@
 
 
   
-    <article id="post-Web性能优化-图片预加载" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/03/Web性能优化-图片预加载/">Web性能优化-图片预加载</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/03/Web性能优化-图片预加载/" class="archive-article-date">
-  	<time datetime="2019-05-03T09:27:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Web性能优化-图片预加载"><a href="#Web性能优化-图片预加载" class="headerlink" title="Web性能优化-图片预加载"></a>Web性能优化-图片预加载</h3><p>当网站存在大量图片时，由于需要进行大量的请求，如果不对这部分进行优化，就会出现图片死区等影响用户体验的情况。</p>
-<p>通过图片预加载技术对Web图片请求进行优化，可以提前加载所需图片，带给用户更好的用户体验。</p>
-<p>图片预加载可分为：</p>
-<ul>
-<li>无序预加载：图片无顺序要求，qq表情插件</li>
-<li>有序预加载：有顺序要求，漫画</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">web性能优化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/03/Web性能优化-图片预加载/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-动态规划" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/27/动态规划/">动态规划</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/27/动态规划/" class="archive-article-date">
-  	<time datetime="2019-04-27T11:24:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="动态规划算法"><a href="#动态规划算法" class="headerlink" title="动态规划算法"></a>动态规划算法</h3><h5 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h5><p>动态规划算法常用来求解最优化问题，这类问题可以有很多可行解，我们希望找到这些可行解中具有最优值的解。动态规划常用于子问题重叠的情况，即不同的子问题拥有共同的子子问题，这时将共同的子子问题保存起来，减少运算次数。</p>
-<p>动态规划通过仔细安排求解顺序，对每个子问题只求解一次，并将结果保存下来，如果随后再次需要此问题的解，只需要查找保存的结果，无需重复计算，因此，动态规划付出额外的内存空间来节省计算时间，是典型的时空权衡。</p>
-<p>动态规划的实现一般有两种，<strong>带备忘录的自顶向下方法</strong>，此算法在求解顺序仍按原自然顺序，但会将子问题的解保存，当需要某问题的解时，先去“备忘录”检查是否有值，有则直接获取，否则再计算。</p>
-<p>另一种方法是<strong>自底向上法</strong>，此方法一般需要恰当定义子问题“规模”的概念，使得任何子问题的求解只依赖于更小的子问题，因此可以通过安排求解顺序，从小至大求解，这样在求解大问题时，小问题已经全部解决。</p>
-<p>两种方法具有相近的渐进时间复杂度，仅有的差异是备忘录法某些情况下未能递归地考察所有子问题，而自底向上法通常具有更小的时间复杂度系数。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">经典算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/27/动态规划/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-最长回文子串" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/23/最长回文子串/">最长回文子串</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/23/最长回文子串/" class="archive-article-date">
-  	<time datetime="2019-04-23T09:26:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a>最长回文子串</h3><p>给定一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。你可以假设 <code>s</code> 的最大长度为 1000。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;babad&quot;</span><br><span class="line">输出: &quot;bab&quot;</span><br><span class="line">注意: &quot;aba&quot; 也是一个有效答案。</span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;cbbd&quot;</span><br><span class="line">输出: &quot;bb&quot;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">经典算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/23/最长回文子串/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1067,10 +1097,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -1083,15 +1109,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1103,11 +1141,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1127,19 +1165,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1199,15 +1233,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1216,6 +1250,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
               </li>
              
               <li class="article-tag-list-item">
