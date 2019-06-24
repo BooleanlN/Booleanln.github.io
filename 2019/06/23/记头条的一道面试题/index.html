@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://booleanln.github.io">
-  <title>进程的描述与控制（下篇1） | Fortress</title>
+  <title>记头条的一道面试题 | Fortress</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="操作系统内核 功能： 1. 支撑功能：中断处理、时钟管理、原语操作 2. 资源管理功能：进程管理、存储器管理，设备管理 中断处理 什么是中断？ 中断是改变处理器执行指令顺序的一种事件。与CPU芯片内外部硬件电路产生的电信号相对应 为什么需要中断 为了使得cpu能与其他设备并行工作，不需要轮询确定当前的状态，能有效提高cpu的利用率，改善系统性能 中断类型 - 内部中断——由CPU控制单元产生，如除">
+  <meta name="description" content="一道面试题前几天，参加了两场面试，一个是字节跳动，也就是头条，一个是网易云音乐，面试岗位都是前端。 两个面试都超过了一小时，不管结果如何，都通过这两次面试认识到了自己的短板。 这里记一道面试题。">
+<meta name="keywords" content="javaScript,面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="进程的描述与控制（下篇1）">
-<meta property="og:url" content="http://booleanln.github.io/2018/04/12/processor2/index.html">
+<meta property="og:title" content="记头条的一道面试题">
+<meta property="og:url" content="http://booleanln.github.io/2019/06/23/记头条的一道面试题/index.html">
 <meta property="og:site_name" content="Fortress">
-<meta property="og:description" content="操作系统内核 功能： 1. 支撑功能：中断处理、时钟管理、原语操作 2. 资源管理功能：进程管理、存储器管理，设备管理 中断处理 什么是中断？ 中断是改变处理器执行指令顺序的一种事件。与CPU芯片内外部硬件电路产生的电信号相对应 为什么需要中断 为了使得cpu能与其他设备并行工作，不需要轮询确定当前的状态，能有效提高cpu的利用率，改善系统性能 中断类型 - 内部中断——由CPU控制单元产生，如除">
+<meta property="og:description" content="一道面试题前几天，参加了两场面试，一个是字节跳动，也就是头条，一个是网易云音乐，面试岗位都是前端。 两个面试都超过了一小时，不管结果如何，都通过这两次面试认识到了自己的短板。 这里记一道面试题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-05T06:32:43.939Z">
+<meta property="og:updated_time" content="2019-06-24T03:56:43.972Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="进程的描述与控制（下篇1）">
-<meta name="twitter:description" content="操作系统内核 功能： 1. 支撑功能：中断处理、时钟管理、原语操作 2. 资源管理功能：进程管理、存储器管理，设备管理 中断处理 什么是中断？ 中断是改变处理器执行指令顺序的一种事件。与CPU芯片内外部硬件电路产生的电信号相对应 为什么需要中断 为了使得cpu能与其他设备并行工作，不需要轮询确定当前的状态，能有效提高cpu的利用率，改善系统性能 中断类型 - 内部中断——由CPU控制单元产生，如除">
+<meta name="twitter:title" content="记头条的一道面试题">
+<meta name="twitter:description" content="一道面试题前几天，参加了两场面试，一个是字节跳动，也就是头条，一个是网易云音乐，面试岗位都是前端。 两个面试都超过了一小时，不管结果如何，都通过这两次面试认识到了自己的短板。 这里记一道面试题。">
   
     <link rel="alternative" href="/atom.xml" title="Fortress" type="application/atom+xml">
   
@@ -148,27 +149,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-processor2" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-记头条的一道面试题" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      进程的描述与控制（下篇1）
+      记头条的一道面试题
     </h1>
   
 
         
-        <a href="/2018/04/12/processor2/" class="archive-article-date">
-  	<time datetime="2018-04-12T01:44:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-12</time>
+        <a href="/2019/06/23/记头条的一道面试题/" class="archive-article-date">
+  	<time datetime="2019-06-23T06:21:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>操作系统内核 功能： 1. 支撑功能：中断处理、时钟管理、原语操作 2. 资源管理功能：进程管理、存储器管理，设备管理 中断处理 什么是中断？ 中断是改变处理器执行指令顺序的一种事件。与CPU芯片内外部硬件电路产生的电信号相对应 为什么需要中断 为了使得cpu能与其他设备并行工作，不需要轮询确定当前的状态，能有效提高cpu的利用率，改善系统性能 中断类型 - 内部中断——由CPU控制单元产生，如除0错误 - 外部中断——由其他硬件设备依照cpu时钟信号随机产生的 - 可屏蔽中断——关中断可被屏蔽的外部中断 - 不可屏蔽中断——硬件故障 响应中断的条件 前提：开中断、每执行一条指令会检测 单重终端执行过程 取指令-》执行指令-》检测是否有中断（若有）-》中断响应-》关中断-》保护现场-》执行中断服务子程序-》恢复现场-》开中断。 嵌套中断可在中断程序过程中，响应中断 如何找到中断子程序的入口地址 中断描述符表：与每一个中断或异常向量相联系，每一个向量在表中有相应的中断或异常处理程序的入口地址。内核在允许中断发生前，必须正确地初始化IDT（lidt） 当中断发生时，cpu根据中断号获取中断向量值，再根据中断描述符表找到子程序地址 时钟管理 两个时钟 1. RTC时钟，CMOS时钟，是一块时钟芯片，靠电池供电，最原始，最底层的时间数据 2. OS时钟，产生于PC机主板的定时/计数芯片，开机时有效，由OS控制 1. PIT可编程间隔定时器 由三部分组成：晶振、计数器、保持寄存器 2. 时钟驱动程序 OS时钟机制 1. 保存当前的日期和时间 2. 维持定时器 Linux时钟 时钟滴答 jiffes保存从时间基准（1970.1.1.0）至今的时钟滴答数 系统调用 操作系统内核中预先定义好的一些模块，它们提提供一条管道让应用程序或一般用户能由此得到核心程序的服务 用户态与内核态 程序在用户空间执行，则为进程的用户态执行 程序在系统核心空间执行，当进程处于具有执行系统核心代码的权力状态时，为内核态执行 系统调用执行过程：</p>
+        <h3 id="一道面试题"><a href="#一道面试题" class="headerlink" title="一道面试题"></a>一道面试题</h3><p>前几天，参加了两场面试，一个是字节跳动，也就是头条，一个是网易云音乐，面试岗位都是前端。</p>
+<p>两个面试都超过了一小时，不管结果如何，都通过这两次面试认识到了自己的短板。</p>
+<p>这里记一道面试题。</p>
+<a id="more"></a>
+<h5 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h5><p>使用javaScript的OOP语法，创建一个Flow类，这个类内有两个函数，一个是注册函数register，另一个是next函数，该函数会打印出当前运行的任务。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">register (key, callback) &#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">next (key) &#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> flow = <span class="keyword">new</span> Flow()</span><br><span class="line">flow.register(<span class="string">'task 1'</span>, () =&gt; &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'run task 1'</span>)</span><br><span class="line">&#125;)register(<span class="string">'task 2'</span>, () =&gt; &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'run task 2'</span>)</span><br><span class="line">&#125;).register(<span class="string">'task 3'</span>, () =&gt; &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'run task 3'</span>)</span><br><span class="line">&#125;)register(<span class="string">'task 4'</span>, () =&gt; &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'run task 4'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">flow.next(<span class="string">'task 1'</span>).next(<span class="string">'task 2'</span>) <span class="comment">// run task 1 run task 2</span></span><br><span class="line">flow.next(<span class="string">'task 3'</span>).next(<span class="string">'task 1'</span>) <span class="comment">// run task 3 run task 1</span></span><br><span class="line"></span><br><span class="line">flow.next(<span class="string">'task 3'</span>).next(<span class="string">'task 1'</span>).next(<span class="string">'task 3'</span>).next(<span class="string">'task 1'</span>)</span><br><span class="line"><span class="comment">// run task 3 run task 1 run task 3 run task 1</span></span><br></pre></td></tr></table></figure>
+<p>面试时给出的答案（面试官给我降低了难度）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Flow</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.callbackFunc = &#123;&#125;</span><br><span class="line">    <span class="keyword">this</span>.runFunc = []</span><br><span class="line">    <span class="keyword">this</span>.startIndex = <span class="number">0</span>,</span><br><span class="line">    <span class="keyword">this</span>.register = <span class="function"><span class="keyword">function</span> (<span class="params">key, callback</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.callbackFunc[key] = callback</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">this</span>.next = <span class="function"><span class="keyword">function</span> (<span class="params">key</span>) </span>&#123;</span><br><span class="line">    	<span class="keyword">this</span>.runFunc.push(<span class="keyword">this</span>.callbackFunc[key])</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">this</span>.run = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    	<span class="keyword">this</span>.runFunc.forEach(<span class="function">(<span class="params">item,index</span>) =&gt;</span> &#123;</span><br><span class="line">    		<span class="keyword">if</span>(index&gt;=<span class="keyword">this</span>.startIndex)</span><br><span class="line">    		&#123;</span><br><span class="line">    			item()</span><br><span class="line">    			<span class="keyword">this</span>.startIndex ++</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 借助一个run函数实现，其实没必要，当时脑子糊了</span></span><br></pre></td></tr></table></figure>
+<p>ES6写法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Flow</span></span>&#123;</span><br><span class="line">	callbackFunc = &#123;&#125;</span><br><span class="line">	register(key, callback)&#123;</span><br><span class="line">		<span class="keyword">this</span>.callbackFunc[key] = callback</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">	&#125;</span><br><span class="line">	next(key)&#123;</span><br><span class="line">		<span class="keyword">this</span>.callbackFunc[key]()</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> flow = <span class="keyword">new</span> Flow()</span><br><span class="line">flow.register(<span class="string">'task 1'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'run task 1'</span>)</span><br><span class="line">&#125;).register(<span class="string">'task 2'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'run task 2'</span>)</span><br><span class="line">&#125;).register(<span class="string">'task 3'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'run task 3'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">flow.next(<span class="string">'task 1'</span>).next(<span class="string">'task 2'</span>)</span><br><span class="line">flow.next(<span class="string">'task 3'</span>).next(<span class="string">'task 1'</span>)</span><br><span class="line"></span><br><span class="line">flow.next(<span class="string">'task 3'</span>).next(<span class="string">'task 1'</span>).next(<span class="string">'task 3'</span>).next(<span class="string">'task 1'</span>)</span><br></pre></td></tr></table></figure>
+<p>这道题主要考察了javaScript当中的面向对象编程以及链式调用的实现。</p>
+<p>javaScript的面向对象在ES5之前，主要通过原型模式实现。</p>
+<p>在函数对象中，会有一个原型对象的属性，如Object构造函数等，都包含一个原型属性，该属性指向一个原型对象，在原型对象中，必然包含一个constructor属性，该属性指向该构造函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Flow.prototype.constructor === Flow <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>该Flow类的实例是一个Object对象，几乎所有的对象都含有一个<code>__proto__</code>属性，该属性指向Flow类的原型对象，即</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flow.__proto__ === Flow.prototype <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>如果Function构造函数实现封装，通过原型链实现继承和多态。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubFlow</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 多态</span></span><br><span class="line">	<span class="keyword">this</span>.next = <span class="function"><span class="keyword">function</span> (<span class="params">key</span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'subnext'</span>)</span><br><span class="line">    	<span class="keyword">this</span>.runFunc.push(<span class="keyword">this</span>.callbackFunc[key])</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line">SubFlow.prototype = <span class="keyword">new</span> Flow() <span class="comment">// 继承</span></span><br></pre></td></tr></table></figure>
+<p>js引擎在解析时，会顺着原型链一直往上找，直到<code>Object.prototype.__proto__</code>为null</p>
+<p>在ES6中，则通过class来实现面向对象，class其实是一个语法糖，它的本质仍然是构造函数。</p>
+<h6 id="链式调用"><a href="#链式调用" class="headerlink" title="链式调用"></a>链式调用</h6><p>链式调用的实现原理即是将this作为返回，则对于下一个函数来说，是由上一个函数设置过的对象进行调用的。</p>
 
       
 
@@ -203,22 +224,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/基础课程收录//" class="article-tag-list-link color2">基础课程收录</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/基础课程收录/操作系统//" class="article-tag-list-link color5">操作系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -268,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://booleanln.github.io/2018/04/12/processor2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://booleanln.github.io/2019/06/23/记头条的一道面试题/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -282,18 +303,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/04/14/gituse1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Git的使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/10/processor1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">进程的描述与控制（上篇）</div>
+    <a href="/2019/06/22/JS异步机制简述/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS异步机制简述</div>
       <i class="icon-circle-right"></i>
     </a>
   

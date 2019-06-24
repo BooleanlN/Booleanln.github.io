@@ -146,6 +146,153 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-wx-createanimation" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/28/wx-createanimation/">wx.createAnimation微信小程序动画接口与CSS3对比</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/28/wx-createanimation/" class="archive-article-date">
+  	<time datetime="2018-04-28T03:37:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="wx-createAnimation微信小程序动画接口"><a href="#wx-createAnimation微信小程序动画接口" class="headerlink" title="wx.createAnimation微信小程序动画接口"></a><strong>wx.createAnimation微信小程序动画接口</strong></h3><p>首先创建一个动画实例：animation=”{ {animation对象}}”</p>
+&lt;image src=’../images/bglottery.png’style=’height:200px;width:200px;position:absolute;top:17%;left:25%;’ animation=”{ {an_zhuanp}}”&gt;
+
+<p>调用微信小程序实例方法，描述动画，初始化animation</p>
+<p> var animation = wx.createAnimation({<br> duration: 1000,<br> timingFunction: “ease”,<br> });<br> animation.rotate(360 * n).step();</p>
+<p>wx.createAnimation参数列表：</p>
+<ul>
+<li><p>duration Integer 默认值 400ms —动画持续时间</p>
+</li>
+<li><p>timing Function String 默认值“linear”</p>
+</li>
+<li><p>delay Integer 默认值 0 动画延迟时间</p>
+</li>
+<li><p>transformOrigin String 默认值”50% 50% 0“ 旋转的基点位置</p>
+</li>
+</ul>
+<p>timingFunction有效值：</p>
+<ul>
+<li><p>linear 动画从头到尾速度是相同的</p>
+</li>
+<li><p>ease 动画从低速开始，加快、变慢</p>
+</li>
+<li><p>ease-in 从低速开始</p>
+</li>
+<li><p>ease-in-out 低速开始，低速结束</p>
+</li>
+<li><p>ease-out 低速结束</p>
+</li>
+<li><p>step-start 动画第一帧就跳至结束状态直到</p>
+</li>
+<li><p>step-end 动画一直保持开始状态，最后一帧跳至结束状态</p>
+</li>
+</ul>
+<p>animation方法列表： 样式：</p>
+<ul>
+<li><p>opacity</p>
+</li>
+<li><p>backgroundColor</p>
+</li>
+<li><p>width</p>
+</li>
+<li><p>height</p>
+</li>
+<li><p>top</p>
+</li>
+<li><p>left</p>
+</li>
+<li><p>bottom</p>
+</li>
+<li><p>right</p>
+</li>
+</ul>
+<p>旋转：rotate 参数 deg（-180~180）</p>
+<ul>
+<li><p>rotateX</p>
+</li>
+<li><p>rotateY</p>
+</li>
+<li><p>rotateZ</p>
+</li>
+<li><p>rotate3d</p>
+</li>
+</ul>
+<p>缩放：scale (sx,[sy])一个参数X轴缩放sx，两个参数：x轴缩放sx，y轴缩放sy</p>
+<p>偏移：translate(tx,[ty])</p>
+<p>倾斜：skew(ax,[ay]) 矩阵变形：matrix(a,b,c,d,tx,ty) 调用操作方法后需要调用step()方法来表示一组动画的完成。（step 可以传入一个跟 <code>wx.createAnimation()</code> 一样的配置参数用于指定当前组动画的配置。）</p>
+<p>旋转实例：</p>
+<p> animation.rotate(360 * n).step();<br> _this.setData({<br> an_zhuanp: animation.export()<br> });</p>
+<p>例子：setInterval与setTime实现一个选择轮盘</p>
+<p>var timer=setInterval(function(){<br> var animation = wx.createAnimation({<br> duration: 1000,<br> timingFunction: “ease”,<br> });<br> animation.rotate(360 * n).step();<br> _this.setData({<br> an_zhuanp: animation.export()<br> });<br> n++;<br> },100);<br> setTimeout(function(){<br> clearInterval(timer);<br> timer=null;<br> var animation = wx.createAnimation({<br> duration:1000,<br> timingFunction:”ease”,<br> });<br> var deg = 0;<br> wx.request({<br> url: ‘<a href="https://www.booleanln.cn/net/getPrice.php&#39;" target="_blank" rel="noopener">https://www.booleanln.cn/net/getPrice.php&#39;</a>,<br> data:{<br> phone:xtele,<br> stunum:xh,<br> name :xm,<br> openid:openid<br> },<br> header: { “content-type”: “application/www-form-urlencode” },<br> method: ‘get’,<br> success: function (res) {<br> deg = res.data;<br> console.log(deg);<br> animation.rotate(deg).step();<br> _this.setData({<br> an_zhuanp: animation.export(),<br> start:null<br> });},3000}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/微信小程序//" class="article-tag-list-link color1">微信小程序</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/微信小程序/编程收录//" class="article-tag-list-link color5">编程收录</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/28/wx-createanimation/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-firstsec" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1159,6 +1306,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -1171,6 +1322,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
@@ -1179,19 +1338,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1203,6 +1354,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -1211,7 +1366,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1224,18 +1379,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1255,6 +1398,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">heap</a>
               </li>
              
@@ -1271,11 +1418,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1295,6 +1442,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -1303,19 +1454,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Web性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">

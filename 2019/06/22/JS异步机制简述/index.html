@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://booleanln.github.io">
   <title>JS异步机制简述 | Fortress</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JS异步机制简述众所周知，javaScript引擎是单线程运行的，这就带来一个问题，当遇到一些执行时间较长的事件或者某些需要在特定时间点触发的事件时，就需要阻塞正在执行的代码，这显然是不可以的。 所以，在js引擎当中，同步任务，会在执行栈中，由主线程顺序执行，而异步任务，如ajax、定时器、回调函数等，会添加至异步队列当中，当条件满足时，该任务会进入主线程中执行。  不同的异步操作，会交由浏览器内">
+  <meta name="description" content="JS异步机制简述众所周知，javaScript引擎是单线程运行的，这就带来一个问题，当遇到一些执行时间较长的事件或者某些需要在特定时间点触发的事件时，就需要阻塞正在执行的代码，这显然是不可以的。 所以，在js引擎当中，同步任务，会在执行栈中，由主线程顺序执行，而异步任务，如ajax、定时器、回调函数等，会添加至异步队列当中，当条件满足时，该任务会进入主线程中执行。">
 <meta name="keywords" content="javaScript,面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS异步机制简述">
 <meta property="og:url" content="http://booleanln.github.io/2019/06/22/JS异步机制简述/index.html">
 <meta property="og:site_name" content="Fortress">
-<meta property="og:description" content="JS异步机制简述众所周知，javaScript引擎是单线程运行的，这就带来一个问题，当遇到一些执行时间较长的事件或者某些需要在特定时间点触发的事件时，就需要阻塞正在执行的代码，这显然是不可以的。 所以，在js引擎当中，同步任务，会在执行栈中，由主线程顺序执行，而异步任务，如ajax、定时器、回调函数等，会添加至异步队列当中，当条件满足时，该任务会进入主线程中执行。  不同的异步操作，会交由浏览器内">
+<meta property="og:description" content="JS异步机制简述众所周知，javaScript引擎是单线程运行的，这就带来一个问题，当遇到一些执行时间较长的事件或者某些需要在特定时间点触发的事件时，就需要阻塞正在执行的代码，这显然是不可以的。 所以，在js引擎当中，同步任务，会在执行栈中，由主线程顺序执行，而异步任务，如ajax、定时器、回调函数等，会添加至异步队列当中，当条件满足时，该任务会进入主线程中执行。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5452485-99f606742b17f745.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/444/format/webp">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/12/1652ed68a7bda9df?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
-<meta property="og:updated_time" content="2019-06-22T14:53:05.093Z">
+<meta property="og:updated_time" content="2019-06-23T06:54:38.190Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS异步机制简述">
-<meta name="twitter:description" content="JS异步机制简述众所周知，javaScript引擎是单线程运行的，这就带来一个问题，当遇到一些执行时间较长的事件或者某些需要在特定时间点触发的事件时，就需要阻塞正在执行的代码，这显然是不可以的。 所以，在js引擎当中，同步任务，会在执行栈中，由主线程顺序执行，而异步任务，如ajax、定时器、回调函数等，会添加至异步队列当中，当条件满足时，该任务会进入主线程中执行。  不同的异步操作，会交由浏览器内">
+<meta name="twitter:description" content="JS异步机制简述众所周知，javaScript引擎是单线程运行的，这就带来一个问题，当遇到一些执行时间较长的事件或者某些需要在特定时间点触发的事件时，就需要阻塞正在执行的代码，这显然是不可以的。 所以，在js引擎当中，同步任务，会在执行栈中，由主线程顺序执行，而异步任务，如ajax、定时器、回调函数等，会添加至异步队列当中，当条件满足时，该任务会进入主线程中执行。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5452485-99f606742b17f745.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/444/format/webp">
   
     <link rel="alternative" href="/atom.xml" title="Fortress" type="application/atom+xml">
@@ -174,6 +174,7 @@
       
         <h3 id="JS异步机制简述"><a href="#JS异步机制简述" class="headerlink" title="JS异步机制简述"></a>JS异步机制简述</h3><p>众所周知，javaScript引擎是单线程运行的，这就带来一个问题，当遇到一些执行时间较长的事件或者某些需要在特定时间点触发的事件时，就需要阻塞正在执行的代码，这显然是不可以的。</p>
 <p>所以，在js引擎当中，同步任务，会在执行栈中，由主线程顺序执行，而异步任务，如ajax、定时器、回调函数等，会添加至异步队列当中，当条件满足时，该任务会进入主线程中执行。</p>
+<a id="more"></a>
 <p><img src="https://upload-images.jianshu.io/upload_images/5452485-99f606742b17f745.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/444/format/webp" alt=""></p>
 <p>不同的异步操作，会交由浏览器内核的webcore来执行，如DOM Binding、timer、network模块</p>
 <h6 id="添加到主线程任务队列的时机"><a href="#添加到主线程任务队列的时机" class="headerlink" title="添加到主线程任务队列的时机"></a>添加到主线程任务队列的时机</h6><p>不久前，经历了一次头条的技术面试，与面试官相谈还算欢，面了我大概一个小时四十分钟，虽然没了后文（哭，不知道那里不满意），但也有了很多收获。</p>
@@ -323,6 +324,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/06/23/记头条的一道面试题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          记头条的一道面试题
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/06/20/vue-router实现原理/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">vue-router实现原理</div>
@@ -447,6 +457,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -459,6 +473,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
@@ -467,19 +489,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,6 +505,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -499,7 +517,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,18 +530,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,6 +549,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">heap</a>
               </li>
              
@@ -559,11 +569,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,6 +593,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -591,19 +605,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Web性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
