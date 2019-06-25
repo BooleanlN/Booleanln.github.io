@@ -146,6 +146,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-heap" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/18/heap/">堆（heap）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/18/heap/" class="archive-article-date">
+  	<time datetime="2018-06-18T05:52:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概念</strong> <strong>优先队列：特殊的队列，取出元素的顺序依照元素的优先权大小，而不是元素进入队列的先后顺序</strong> 如何实现优先队列：数组？有序数组？链表？有序链表？二叉搜索树？ 方法：使用数组表示的完全二叉树来表示，任何一个结点都是其子树所有节点的最大值（或最小值） 从任意路径都可以保证有序性 <strong>ADT：</strong> 类型名称：<strong>最大堆（MAXHeap）</strong> 数据对象：<strong>完全二叉树，每个结点的值不小于其子树的任意一个结点的元素值</strong> 操作集： <code>1.MaxHeap Create（int MaxSize） 2.Boolean IsFull(MaxHeap Heap) 3.void Insert(MaxHeap heap,ElementType Item) 4.Boolean IsEmpty(heap) 5.ElementType DeleteMax(MaxHeap heap)</code> 代码实现： 堆的声明： <code>struct MaxHeap{ int *data; int MaxSize; int size; }; typedef struct MaxHeap* mxheap;</code> 1.堆的创建： <code>mxheap CreateHeap(int MaxSize) { mxheap heap = (struct MaxHeap*)malloc(sizeof(struct MaxHeap)); heap-&gt;data = (int *)malloc(sizeof(int)*MaxSize); heap-&gt;size = 0; heap-&gt;MaxSize = MaxSize; return heap; }</code> 2.非空、非满 <code>int IsFull(mxheap heap) { return (heap-&gt;size+1==heap-&gt;MaxSize); } int IsEmpty(mxheap heap) { return (heap-&gt;size==0); }</code> 3.插入元素 <code>void Insert(mxheap heap,int item) { if(IsFull(heap)) { printf(&quot;堆已满\n&quot;); return; } int i = ++heap-&gt;size; //从下往上遍历。直到堆顶 //判断i&gt;1，否则跳出，若当前位置的父节点小于要插入的结点，则将当前结点改为父节点值，并更改i值，直到找到合适的位置 for(;i&gt;1&amp;&amp;heap-&gt;data[i/2]&lt;item;i/=2) { heap-&gt;data[i] = heap-&gt;data[i/2]; } //赋值 heap-&gt;data[i]=item; // printf(&quot;%d位置插入data=%d\n&quot;,heap-&gt;size,heap-&gt;data[heap-&gt;size]); }</code> 4.删除元素 <code>int Delete(mxheap heap) { //空堆否？ if(IsEmpty(heap)) { printf(&quot;堆为空!\n&quot;); return; } //保存堆顶值 int MaxItem = heap-&gt;data[1]; //获取最后一个结点的值 int FinData = heap-&gt;data[heap-&gt;size--]; int parent,child; //遍历，调整当前堆为最大堆 for(parent = 1;parent*2&lt;=heap-&gt;size;parent=child) { child = parent*2; //若有两个子树，判断哪个更大 if(child!=heap-&gt;size&amp;&amp;heap-&gt;data[child]data[child+1])child++; //若当前位置子树的结点值小于最后的值，则找到插入位置 if(FinData&gt;=heap-&gt;data[child]){break;} //否则，当前位置的值为两个结点中的最大值 else { heap-&gt;data[parent]=heap-&gt;data[child]; } } //若放在函数体中，当size=1时，函数返回错误，所以将其放在外面 heap-&gt;data[parent]=FinData; return MaxItem; }</code> 5.遍历元素 <code>//遍历输出Heap； void ShowHeap(mxheap heap) { while(!IsEmpty(heap)) { printf(&quot;%d\n&quot;,Delete(heap)); } }</code> 6.测试 <code>int main() { mxheap heap = CreateHeap(10); Insert(heap,5); Insert(heap,10); Insert(heap,1); Insert(heap,8); Insert(heap,50); Insert(heap,25); Insert(heap,17); Insert(heap,-5); Insert(heap,6); Insert(heap,64); ShowHeap(heap); return 0; }</code> 测试结果： <code>堆已满 50 25 17 10 8 6 5 1 -5 Process returned 0 (0x0) execution time : 0.008 s Press any key to continue.</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">heap</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">堆</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据结构//" class="article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/18/heap/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-elementary-os" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1759,6 +1852,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
@@ -1767,15 +1872,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1787,15 +1892,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1804,10 +1901,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1823,19 +1916,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">heap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1851,7 +1936,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">heap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1879,6 +1972,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -1887,11 +1984,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
+                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1900,10 +1997,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Web性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
               </li>
              
               <li class="article-tag-list-item">

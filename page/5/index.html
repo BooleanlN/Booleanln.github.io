@@ -146,6 +146,110 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-android" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/19/android/">安卓adb、aapt调用</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/19/android/" class="archive-article-date">
+  	<time datetime="2018-07-19T15:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安卓adb、aapt调用 使用subprocess库</p>
+<p>常用adb命令：</p>
+<p>adb devices ：列出连接设备 adb install -r “xxxx.apk” :安装app adb uninstall “Xxxx”</p>
+<p>adb shell “xxx”：执行shell命令，常用有“ls”、“mkdir”、“rm”</p>
+<p>adb shell screencap -p “保存截图的路径” ：截图保存</p>
+<p>adb pull “手机路径” “电脑路径” 将文件从手机导出到电脑</p>
+<p>#设备连接<br>def Has_device():<br> conn = ‘adb devices’<br> pi = subprocess.Popen(conn, shell=True, stdout=subprocess.PIPE)<br> if pi.stdout.read().splitlines().__len__() &gt;= 3:<br> return True<br> else:<br> return False</p>
+<p>#apk安装<br>def Install_apk(apk_name):<br> if apk_name!=” “:<br> install_apk = ‘adb install -r ‘ + apk_name<br> print(install_apk)</p>
+<p> #print(install_apk)<br> install = subprocess.Popen(install_apk, shell=True, stdout=subprocess.PIPE).stdout.read()<br> str1 = str(install)<br> if str1.find(“Success”)!=-1:<br> return True<br> else:<br> return False<br> else:<br> return False</p>
+<p>常用aapt命令： aapt dump badging “xxx.apk”：列出apk信息，包括包名等 aapt dump xmltree “xxx.xml” 解析xml文件，如解析AndroidManifest.xml</p>
+<p>aapt l “xxx.apk” 获取资源文件列表</p>
+<p>#获取ACTIVITIES<br>def getActivities(packagename,apk_Name,xmlName=’ AndroidManifest.xml’):<br> getMainXml = ‘aapt dump xmltree ‘+apk_Name +xmlName<br> MainXml = subprocess.Popen(getMainXml,shell=True,stdout=subprocess.PIPE).stdout.read().splitlines()<br> Activitys = []<br> for i in range(MainXml.__len__()):<br> str_xml = str(MainXml[i])<br> if(str(MainXml[i]).find(‘android:name’)!=-1 and str(MainXml[i]).find(packagename)!=-1):<br> index = str_xml.split(“\“”)<br> Activitys.append(index[1])<br> return Activitys</p>
+<p>#获取app包名<br>def getPackageName(apkname):<br> getBadging = ‘aapt dump badging ‘+apkname<br> res = bytes.decode(subprocess.Popen(getBadging,shell=True,stdout=subprocess.PIPE).stdout.read())<br> return  res.splitlines()[0].split(“\‘“)[1]</p>
+<p>#aapt 获取资源文件<br>def aapt_get(dirname,resname=”res”):<br> Img = [“.png”, “.jpg”, “.jpeg”, “.gif”, “.bmp”]<br> shell_ml = ‘aapt l ‘+dirname<br> ImgFolder = tempfile.mkdtemp(“img”,”unzip”,”.\\temp”)<br> res = subprocess.Popen(shell_ml,stdout=subprocess.PIPE,shell=True).stdout.read().splitlines()</p>
+<p> #print(dirname)<br> dir_pi= []<br> for i in res:<br> file = bytes.decode(os.path.splitext(i)[1])<br> if file in Img:<br> dir_pi.append(bytes.decode(i))<br> dir = zipfile.ZipFile(dirname)<br> tempfolder=tempfile.mkdtemp(resname+”_unzip”,prefix=”temp”,dir=’’)<br> for names in dir.namelist():<br> try:<br> dir.extract(names,tempfolder)<br> except:<br> continue<br> dir.close()<br> for item in dir_pi:</p>
+<p> #print(tempfolder+”/“+item)<br> try:<br> shutil.move(tempfolder+”/“+item, ImgFolder)<br> except:<br> continue<br> return ImgFolder</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安卓</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/19/android/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-tkinter-2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1588,113 +1692,6 @@ outputs = {&apos;ctc&apos;: np.zeros(\[batchsize\])}
 
 
   
-    <article id="post-xuanran" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/13/xuanran/">浏览器渲染页面过程</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/13/xuanran/" class="archive-article-date">
-  	<time datetime="2018-07-13T06:36:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="浏览器渲染过程https-blog-csdn-net-longholidays-article-details-62054097"><a href="#浏览器渲染过程https-blog-csdn-net-longholidays-article-details-62054097" class="headerlink" title="浏览器渲染过程https://blog.csdn.net/longholidays/article/details/62054097"></a>浏览器渲染过程<a href="https://blog.csdn.net/longholidays/article/details/62054097" target="_blank" rel="noopener">https://blog.csdn.net/longholidays/article/details/62054097</a></h6><p>浏览器的渲染页面时，表示网站资源已经请求成功。 渲染时，大致的流程如下：</p>
-<p>（解析html以构建dom树-&gt;构建render树-&gt;布局render树-&gt;绘制render树）</p>
-<p>具体的流程如下：</p>
-<p>1：浏览器会将HTML解析成一个DOM树，DOM树的构建过程是一个深度遍历过程，当前节点的所有子节点都构建好后才会去构建当前节点的下一个兄弟节点，</p>
-<p>2：将CSS解析成CSS规则树；</p>
-<p>3：根据DOM树和CSS来构造render树，渲染树不等于DOM树，像header和display：none；这种没有具体内容的东西就不在渲染树中；</p>
-<p>4：根据render树，浏览器可以计算出网页中有哪些节点，各节点的CSS以及从属关系，然后可以计算出每个节点在屏幕中的位置；</p>
-<p>5：遍历render树进行绘制页面中的各元素。 P.S页面发生重拍（回流）的话，会重新加载DOM树，影响页面加载速度。</p>
-<p>会导致页面重拍的原因如下：</p>
-<p>**1：页面初始化；</p>
-<p>2：操作DOM时；</p>
-<p>3：某些元素的尺寸变了；</p>
-<p>4：CSS的属性发生改变。</p>
-<p>** 浏览器加载页面资源的步骤如下（部分参考网络资料）：</p>
-<p>1.用户输入网址（假设是第一次访问），浏览器向服务器发出请求，服务器返回html文件；</p>
-<p>2.浏览器开始载入html代码，发现＜head＞标签内有一个＜link＞标签引用外部CSS文件；</p>
-<p>3.浏览器又发出CSS文件的请求，服务器返回这个CSS文件；</p>
-<p>4.浏览器继续载入html中＜body＞部分的代码，并且CSS文件已经拿到手了；</p>
-<p>5.浏览器在代码中发现一个＜img＞标签引用了一张图片，向服务器发出请求。此时浏览器不会等到图片下载完，而是继续加载后面的代码；</p>
-<p>6.服务器返回图片文件，由于图片占用了一定面积，影响了后面段落的排布，因此浏览器需要回过头来重新渲染这部分代码；</p>
-<p>7.浏览器发现了一个包含一行Javascript代码的＜script＞标签，直接运行该脚本；</p>
-<p>8.Javascript脚本执行了这条语句，它命令浏览器隐藏掉代码中的某个＜div＞ （style.display=”none”）。少了一个元素，浏览器不得不重新渲染这部分代码；</p>
-<p>9.＜/html＞表示暂时加载完成； 10.此时用户点了一下界面中的“换肤”按钮，Javascript让浏览器换了一下＜link＞标签的CSS路径； 11.浏览器向服务器请求了新的CSS文件，重新加载页面。然后执行渲染过程。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Html是程序语言乎？//" class="article-tag-list-link color2">Html是程序语言乎？</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/13/xuanran/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1800,6 +1797,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
@@ -1808,15 +1817,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1828,15 +1837,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1845,10 +1846,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1864,19 +1861,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">heap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1892,7 +1881,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">heap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1920,6 +1917,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -1928,11 +1929,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程练习</a>
+                <a href="javascript:void(0)" class="js-tag color5">经典算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1941,10 +1942,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Web性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
               </li>
              
               <li class="article-tag-list-item">
