@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://booleanln.github.io">
-  <title>Tag: https | Fortress</title>
+  <title>事件委托 | Fortress</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Fortress">
-<meta property="og:url" content="http://booleanln.github.io/tags/https/index.html">
+  <meta name="description" content="事件委托事件流事件流，在DOM当中，事件一共经过三个阶段，分别是捕获阶段、目标执行阶段、冒泡阶段，也就是说事件会从顶层dom一直向下直到目标DOM节点，然后在目标节点执行回调函数，最后经过事件冒泡阶段，事件从下往上溢出 事件委托事件委托，即利用事件冒泡的原理，将事件绑定在dom节点的父级节点上，并通过事件冒泡，在父级节点将事件捕获，并通过事件的target属性，拿到此时点击dom的dom名称或do">
+<meta name="keywords" content="javaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事件委托">
+<meta property="og:url" content="http://booleanln.github.io/2019/06/24/事件委托/index.html">
 <meta property="og:site_name" content="Fortress">
+<meta property="og:description" content="事件委托事件流事件流，在DOM当中，事件一共经过三个阶段，分别是捕获阶段、目标执行阶段、冒泡阶段，也就是说事件会从顶层dom一直向下直到目标DOM节点，然后在目标节点执行回调函数，最后经过事件冒泡阶段，事件从下往上溢出 事件委托事件委托，即利用事件冒泡的原理，将事件绑定在dom节点的父级节点上，并通过事件冒泡，在父级节点将事件捕获，并通过事件的target属性，拿到此时点击dom的dom名称或do">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-25T10:50:50.517Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fortress">
+<meta name="twitter:title" content="事件委托">
+<meta name="twitter:description" content="事件委托事件流事件流，在DOM当中，事件一共经过三个阶段，分别是捕获阶段、目标执行阶段、冒泡阶段，也就是说事件会从顶层dom一直向下直到目标DOM节点，然后在目标节点执行回调函数，最后经过事件冒泡阶段，事件从下往上溢出 事件委托事件委托，即利用事件冒泡的原理，将事件绑定在dom节点的父级节点上，并通过事件冒泡，在父级节点将事件捕获，并通过事件的target属性，拿到此时点击dom的dom名称或do">
   
     <link rel="alternative" href="/atom.xml" title="Fortress" type="application/atom+xml">
   
@@ -144,79 +149,175 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-事件委托" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/13/apache2-https/" class="archive-article-date">
-  	<time datetime="2018-07-13T05:10:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/13/apache2-https/">Apache2下https的配置</a>
+    <h1 class="article-title" itemprop="name">
+      事件委托
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/06/24/事件委托/" class="archive-article-date">
+  	<time datetime="2019-06-24T15:05:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><h5 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h5><p>事件流，在DOM当中，事件一共经过三个阶段，分别是捕获阶段、目标执行阶段、冒泡阶段，也就是说事件会从顶层dom一直向下直到目标DOM节点，然后在目标节点执行回调函数，最后经过事件冒泡阶段，事件从下往上溢出</p>
+<h5 id="事件委托-1"><a href="#事件委托-1" class="headerlink" title="事件委托"></a>事件委托</h5><p>事件委托，即利用事件冒泡的原理，将事件绑定在dom节点的父级节点上，并通过事件冒泡，在父级节点将事件捕获，并通过事件的target属性，拿到此时点击dom的dom名称或domId，据此再做出对应的响应。</p>
+<p>事件委托在循环绑定事件时可以优化浏览器内存性能，带来更好的用户体验</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ulNode = <span class="built_in">document</span>.querySelector(<span class="string">"ul"</span>)</span><br><span class="line"><span class="keyword">let</span> box = <span class="built_in">document</span>.querySelector(<span class="string">"#box"</span>)</span><br><span class="line">ulNode.addEventListener(<span class="string">"click"</span>, (e) =&gt; &#123;</span><br><span class="line">	<span class="keyword">let</span> tar = e.target</span><br><span class="line">	<span class="keyword">let</span> tarName = tar.nodeName.toLowerCase()</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'你点击了'</span> + tarName)</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'currenttarget是'</span>+e.currentTarget.nodeName.toLowerCase())</span><br><span class="line">	<span class="keyword">if</span> (tarName === <span class="string">'li'</span>) &#123;</span><br><span class="line">		box.style.background = <span class="string">'red'</span></span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		box.style.background = <span class="string">'green'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thanks for rewarding!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">server</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Ubuntu//" class="article-tag-list-link color2">Ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://booleanln.github.io/2019/06/24/事件委托/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/06/24/JS数组去重/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS数组去重</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -239,9 +340,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
