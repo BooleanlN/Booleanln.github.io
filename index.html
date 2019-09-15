@@ -398,7 +398,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="let为什么不存在变量提升？"><a href="#let为什么不存在变量提升？" class="headerlink" title="let为什么不存在变量提升？"></a>let为什么不存在变量提升？</h3><p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(x) <span class="comment">//Uncaught SyntaxError: Identifier ‘x’ has already been declared</span></span><br><span class="line"><span class="keyword">let</span> x = <span class="number">10</span>;</span><br><span class="line">x = <span class="number">10</span>;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="built_in">console</span>.log(x) <span class="comment">//Cannot access ‘x’ before initialization</span></span><br><span class="line"><span class="keyword">let</span> x = <span class="number">10</span>;</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(x) <span class="comment">//Cannot access ‘x’ before initialization</span></span><br><span class="line"><span class="keyword">const</span> x = <span class="number">10</span>;</span><br></pre></td></tr></table></figure></p>
+<p>对比上面两个可以发现，使用var声明的变量存在变量提升现象，而let、const声明的变量在声明之前无法使用。</p><br><p>关于这个问题，我们知道javaScript引擎在顺序执行代码之前，有一个预编译阶段，在这个阶段里面，会创建全局对象/活动对象，然后检查代码中的声明语句，将变量和函数添加至当前活动对象的属性上。</p><br><p><img src="https://user-gold-cdn.xitu.io/2019/7/18/16c0267e8e8a2819?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><br><p><code>var</code>和<code>let\const</code>不同的原因是在于，使用var声明的变量不仅会进行声明，还会进行初始化，初始化为undefined。</p><br><p>而let与const在预编译环节仅仅进行声明阶段，初始化阶段会在执行期间，执行到<code>let x;</code>或者<code>let x= 10;</code>时才会进行初始化。</p><br><p>而且let与const之间的区别就在于，const没有赋值阶段</p><br><p>那么在声明阶段和初始化阶段就存在一个<strong>暂时性死区</strong>的概念，在暂时性死区使用变量都是会报错的。</p><br><p>下面几张图形象地描述了不同声明方式的生命周期：</p><br><h5 id="var-变量声明"><a href="#var-变量声明" class="headerlink" title="var 变量声明"></a>var 变量声明</h5><p><img src="https://user-gold-cdn.xitu.io/2019/7/18/16c0268034604f07?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><br><h5 id="函数声明生命周期"><a href="#函数声明生命周期" class="headerlink" title="函数声明生命周期"></a>函数声明生命周期</h5><p><img src="https://user-gold-cdn.xitu.io/2019/7/18/16c0268219cd05ed?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><br><h5 id="let声明生命周期"><a href="#let声明生命周期" class="headerlink" title="let声明生命周期"></a>let声明生命周期</h5><p><img src="https://user-gold-cdn.xitu.io/2019/7/18/16c02684278e676f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><br><p>在查阅资料时候，遇到一个很有趣的问题：</p><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">x </span><br><span class="line"><span class="comment">//VM62:1 Uncaught ReferenceError: x is not defined</span></span><br><span class="line"><span class="comment">//    at &lt;anonymous&gt;:1:1</span></span><br><span class="line"><span class="comment">//(anonymous) @ VM62:1</span></span><br><span class="line"><span class="keyword">let</span> x = x </span><br><span class="line"><span class="comment">//VM87:1 Uncaught ReferenceError: Cannot access ‘x’ before initialization</span></span><br><span class="line"><span class="comment">//    at &lt;anonymous&gt;:1:9</span></span><br><span class="line"><span class="comment">//(anonymous) @ VM87:1</span></span><br><span class="line"><span class="keyword">let</span> x</span><br><span class="line"><span class="comment">//VM103:1 Uncaught SyntaxError: Identifier ‘x’ has already been declared</span></span><br><span class="line"><span class="comment">//    at &lt;anonymous&gt;:1:1</span></span><br><span class="line"><span class="comment">//(anonymous) @ VM103:1</span></span><br><span class="line">x = <span class="number">10</span>;</span><br><span class="line"><span class="comment">//VM123:1 Uncaught ReferenceError: x is not defined</span></span><br><span class="line"><span class="comment">//    at &lt;anonymous&gt;:1:3</span></span><br><span class="line"><span class="comment">//(anonymous) @ VM123:1</span></span><br><span class="line"><span class="keyword">let</span> x</span><br><span class="line"><span class="comment">//VM131:1 Uncaught SyntaxError: Identifier ‘x’ has already been declared</span></span><br><span class="line"><span class="comment">//    at &lt;anonymous&gt;:1:1</span></span><br></pre></td></tr></table></figure><br><p>此处的x永远处于一种已声明但未初始化的状态。</p>
+
       
 
       
@@ -406,6 +409,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
