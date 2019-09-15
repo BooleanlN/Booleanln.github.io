@@ -146,6 +146,964 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql-5-引擎的选择" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/27/mysql-5-引擎的选择/">mysql_5_引擎的选择</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/27/mysql-5-引擎的选择/" class="archive-article-date">
+  	<time datetime="2019-03-27T01:10:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="mysql-5-引擎的选择"><a href="#mysql-5-引擎的选择" class="headerlink" title="mysql_5_引擎的选择"></a>mysql_5_引擎的选择</h3><table>
+<thead>
+<tr>
+<th>特点</th>
+<th>MyISAM</th>
+<th>InnoDB</th>
+<th>MEMORY</th>
+<th>MERGE</th>
+<th>NDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>存储限制</td>
+<td>√</td>
+<td>64TB</td>
+<td>√</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>事务安全</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>锁机制</td>
+<td>表锁</td>
+<td>行锁</td>
+<td>表锁</td>
+<td>表锁</td>
+<td>行锁</td>
+</tr>
+<tr>
+<td>B树索引</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>哈希索引</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>全文索引</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>集群索引</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>数据缓存</td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>索引缓存</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>数据可压缩</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>空间使用</td>
+<td>低</td>
+<td>高</td>
+<td>N/A</td>
+<td>低</td>
+<td>低</td>
+</tr>
+<tr>
+<td>内存使用</td>
+<td>低</td>
+<td>高</td>
+<td>中等</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>批量插入的速度</td>
+<td>高</td>
+<td>低</td>
+<td>高</td>
+<td>高</td>
+<td>高</td>
+</tr>
+<tr>
+<td>支持外键</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/27/mysql-5-引擎的选择/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue-1-数据绑定和第一个Vue应用" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/26/vue-1-数据绑定和第一个Vue应用/">vue_1_数据绑定和第一个Vue应用</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/26/vue-1-数据绑定和第一个Vue应用/" class="archive-article-date">
+  	<time datetime="2019-03-26T09:27:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="数据绑定和第一个Vue应用"><a href="#数据绑定和第一个Vue应用" class="headerlink" title="数据绑定和第一个Vue应用"></a>数据绑定和第一个Vue应用</h3><ul>
+<li>el:指定页面中已存在的DOM元素来挂在Vue实例，可以说htmlele，也可以是css选择器</li>
+<li>v-model:数据双向绑定</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;title&gt;hello world&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">		&lt;input type=<span class="string">"text"</span> v-model=<span class="string">"name"</span> placeholder=<span class="string">"yourname"</span>&gt;</span><br><span class="line">		&lt;h1&gt;你好&#123;&#123;name&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>div&gt;</span><br><span class="line">	&lt;script  src=<span class="string">"https://unpkg.com/vue@2.6.10/dist/vue.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">	&lt;script&gt;</span><br><span class="line">		<span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">			el:<span class="string">'#app'</span>,</span><br><span class="line">			data:&#123;</span><br><span class="line">				name: <span class="string">''</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">		<span class="built_in">console</span>.log(app.name);</span><br><span class="line">	&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vue.js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/26/vue-1-数据绑定和第一个Vue应用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysqlql-4-常用函数" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/26/mysqlql-4-常用函数/">mysqlql_4_常用函数</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/26/mysqlql-4-常用函数/" class="archive-article-date">
+  	<time datetime="2019-03-26T01:39:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><h4 id="日期和时间函数"><a href="#日期和时间函数" class="headerlink" title="日期和时间函数"></a>日期和时间函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>curdate()</td>
+<td>返回当前日期</td>
+</tr>
+<tr>
+<td>curtime()</td>
+<td>返回当前时间</td>
+</tr>
+<tr>
+<td>now()</td>
+<td>日期+时间</td>
+</tr>
+<tr>
+<td>unixtimestamp()</td>
+<td>当前日期对应的时间戳</td>
+</tr>
+<tr>
+<td>from_unixtime()</td>
+<td>时间戳对应的日期</td>
+</tr>
+<tr>
+<td>week(date)</td>
+<td>date对应的周数</td>
+</tr>
+<tr>
+<td>year(date)</td>
+<td>date对应的年份</td>
+</tr>
+<tr>
+<td>hour(time)</td>
+<td>time对应的小时值</td>
+</tr>
+<tr>
+<td>minute(time)</td>
+<td>time对应的分钟值</td>
+</tr>
+<tr>
+<td>mouthname(date)</td>
+<td>日期对应的月份英文名称</td>
+</tr>
+<tr>
+<td>date_format(date,fmt)</td>
+<td>格式化date值</td>
+</tr>
+<tr>
+<td>date_add(date,interval expr type)</td>
+<td></td>
+</tr>
+<tr>
+<td>datediff(expr,expr2)</td>
+</tr>
+</tbody>
+</table>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/26/mysqlql-4-常用函数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql-3-运算符" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/26/mysql-3-运算符/">mysql_3_运算符</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/26/mysql-3-运算符/" class="archive-article-date">
+  	<time datetime="2019-03-26T01:19:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><h4 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h4><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>加法</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减法</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法</td>
+</tr>
+<tr>
+<td>/，div</td>
+<td>除法</td>
+</tr>
+<tr>
+<td>%，mod</td>
+<td>取余</td>
+</tr>
+</tbody>
+</table>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/26/mysql-3-运算符/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ByteArrayOutputStream源码分析及实例" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/26/ByteArrayOutputStream源码分析及实例/">ByteArrayOutputStream源码分析及实例</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/26/ByteArrayOutputStream源码分析及实例/" class="archive-article-date">
+  	<time datetime="2019-03-26T01:15:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/26/ByteArrayOutputStream源码分析及实例/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-OutputStream源码分析" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/26/OutputStream源码分析/">OutputStream源码分析</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/26/OutputStream源码分析/" class="archive-article-date">
+  	<time datetime="2019-03-26T01:14:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/26/OutputStream源码分析/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mysql-2-数据类型" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/25/Mysql-2-数据类型/">Mysql_2_数据类型</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/25/Mysql-2-数据类型/" class="archive-article-date">
+  	<time datetime="2019-03-25T10:28:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h4><table>
+<thead>
+<tr>
+<th>整数类型</th>
+<th>字节</th>
+<th>最小值</th>
+<th>最大值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TINYINT</td>
+<td>1</td>
+<td>有符号 -128，u:0</td>
+<td>有符号：127，u：255</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>2</td>
+<td>有符号-32768，u:0</td>
+<td>有符号：32767，u：65535</td>
+</tr>
+<tr>
+<td>MEDIUMINT</td>
+<td>3</td>
+<td>有符号：-8388608，u：0</td>
+<td>有符号：8388607，u：1677215</td>
+</tr>
+<tr>
+<td>INT、INTEGER</td>
+<td>4</td>
+<td>有符号：-2147483648 u：0</td>
+<td>有符号：2147483647,u：4294967295</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>8</td>
+<td>-2^63,0</td>
+<td>2^63-1,0</td>
+</tr>
+<tr>
+<td>浮点数类型</td>
+<td>字节</td>
+<td>最小值</td>
+<td>最大值</td>
+</tr>
+<tr>
+<td>FLOAT</td>
+<td>4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DOUBLE</td>
+<td>8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>定点数</td>
+<td>字节</td>
+<td>描述</td>
+<td></td>
+</tr>
+<tr>
+<td>DEC(M,D)</td>
+<td>M+2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DECIMAL(M,D)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>位类型</td>
+<td>字节</td>
+<td>最小值</td>
+<td>最大值</td>
+</tr>
+<tr>
+<td>BIT(M)</td>
+<td>1~8</td>
+<td>BIT(1)</td>
+<td>BIT(64)</td>
+</tr>
+</tbody>
+</table>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/25/Mysql-2-数据类型/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JAVA-SE-8的流库" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/25/JAVA-SE-8的流库/">JAVA SE 8的流库</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/25/JAVA-SE-8的流库/" class="archive-article-date">
+  	<time datetime="2019-03-25T09:07:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JAVA-SE-8-的流库"><a href="#JAVA-SE-8-的流库" class="headerlink" title="JAVA SE 8 的流库"></a>JAVA SE 8 的流库</h3><p><em>流提供了一种让我们可以在比集合更高的概念上指定计算的数据视图。将操作的调度留给具体实现去解决</em></p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> 流不存储数据，这些元素可能存储在底层的集合中，或者是按需生成的</li>
+<li style="list-style: none"><input type="checkbox" checked> 流的操作不会修改其数据源</li>
+<li style="list-style: none"><input type="checkbox" checked> 流的操作是尽可能惰性执行的</li>
+</ul>
+<h4 id="流的创建"><a href="#流的创建" class="headerlink" title="流的创建"></a>流的创建</h4>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/25/JAVA-SE-8的流库/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Redis-1-1-基础" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/25/Redis-1-1-基础/">Redis_1_1_基础</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/25/Redis-1-1-基础/" class="archive-article-date">
+  	<time datetime="2019-03-25T06:51:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a href="http://redis.io" target="_blank" rel="noopener">http://redis.io</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/releases/redis-xxx.tar.gz	</span><br><span class="line">tar xzf redisxxx</span><br><span class="line">cd redisxxx</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/25/Redis-1-1-基础/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ByteArrayInputStream简介源码分析与实例" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -221,885 +1179,9 @@
 
 
   
-    <article id="post-Mysql1-sql基础" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/22/Mysql1-sql基础/">Mysql1_sql基础</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/22/Mysql1-sql基础/" class="archive-article-date">
-  	<time datetime="2019-03-22T07:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Mysql-sql基础"><a href="#Mysql-sql基础" class="headerlink" title="Mysql_sql基础"></a>Mysql_sql基础</h3><ol>
-<li><p>DDL</p>
-<p>创建/删除数据库</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> dbname;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> dbname;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </li></ol></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/22/Mysql1-sql基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JAVA-inputStream" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/22/JAVA-inputStream/">JAVA inputStream源码简介（jdk1.8）</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/22/JAVA-inputStream/" class="archive-article-date">
-  	<time datetime="2019-03-21T16:16:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="InputStream源码简述"><a href="#InputStream源码简述" class="headerlink" title="InputStream源码简述"></a>InputStream源码简述</h3><blockquote>
-<p>这个抽象类是表示输入字节流的所有类的超类。</p>
-</blockquote>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/22/JAVA-inputStream/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-剑指offer代码收录" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/13/剑指offer代码收录/">剑指offer代码收录</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/13/剑指offer代码收录/" class="archive-article-date">
-  	<time datetime="2019-02-13T14:33:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="剑指offer题目代码收录"><a href="#剑指offer题目代码收录" class="headerlink" title="剑指offer题目代码收录"></a>剑指offer题目代码收录</h3><ol>
-<li><p><strong>面试题3</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by 13633 on 2019/1/19.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc</span> 输入一个二维数组，该数组从左至右，从上至下递增，输入该数组，再输入一个数，在这个数组中</span></span><br><span class="line"><span class="comment"> * 找到该数字，返回是否找到</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">       <span class="keyword">int</span> m,n;</span><br><span class="line">       Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">       m = scanner.nextInt();</span><br><span class="line">       n = scanner.nextInt();</span><br><span class="line">       <span class="keyword">int</span> matrix[][] = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">               matrix[i][j] = scanner.nextInt();</span><br><span class="line">       <span class="keyword">int</span> num = scanner.nextInt();</span><br><span class="line">       <span class="keyword">boolean</span> isFound = <span class="keyword">false</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=n-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--) &#123;</span><br><span class="line">           <span class="keyword">if</span>(matrix[<span class="number">0</span>][i]&gt;num)<span class="keyword">continue</span>;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[j][i]==num) &#123;</span><br><span class="line">                    System.out.println(<span class="string">"位置在("</span> + (i + <span class="number">1</span>) + <span class="string">"，"</span> + (j + <span class="number">1</span>) + <span class="string">")"</span>);</span><br><span class="line">                    isFound = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(matrix[j][i]&gt;num)<span class="keyword">break</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>(!isFound) System.out.println(<span class="string">"没 有 找 到 ！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>面试题4</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by 13633 on 2019/1/19.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc</span> 输入一个字符串，将字符串中空格换成%20</span></span><br><span class="line"><span class="comment"> * 采用由后往前置换</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        String str = scanner.nextLine();</span><br><span class="line">        <span class="keyword">int</span> len = str.length();</span><br><span class="line">        <span class="keyword">int</span> space_n = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(str.charAt(i)==<span class="string">' '</span>)</span><br><span class="line">                space_n++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> new_len = len+space_n*<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">char</span>[] new_str = <span class="keyword">new</span> <span class="keyword">char</span>[new_len];</span><br><span class="line">        <span class="keyword">int</span> index = new_len-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=len-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(str.charAt(i)==<span class="string">' '</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                new_str[index] = <span class="string">'0'</span>;</span><br><span class="line">                new_str[index-<span class="number">1</span>] = <span class="string">'2'</span>;</span><br><span class="line">                new_str[index-<span class="number">2</span>] = <span class="string">'%'</span>;</span><br><span class="line">                index-=<span class="number">3</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                new_str[index] = str.charAt(i);</span><br><span class="line">                index--;</span><br><span class="line">              <span class="comment">//  System.out.println(index);</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(new_str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>字符串leetcode</p>
-<ul>
-<li><p>无重复字符的最长子串</p>
-<p>采用滑动窗口机制以及hashmap或数组来做字典映射：</p>
-<p>复杂度最低：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span>[] chars = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">128</span>];</span><br><span class="line">      <span class="keyword">int</span> maxlen = <span class="number">0</span>,left = <span class="number">0</span>,right = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">int</span> n = s.length();</span><br><span class="line">      <span class="keyword">for</span> (right = <span class="number">0</span>; right &lt; n;right++) &#123;</span><br><span class="line">          <span class="keyword">char</span> ch = s.charAt(right);</span><br><span class="line">          <span class="comment">//若新字符在字典中已出现，则表明，须从该字符第一次出现的地方开始重新计数，则</span></span><br><span class="line">          <span class="comment">//left取该字符第一次出现时的数字，right-left+1则为新串长度</span></span><br><span class="line">          <span class="keyword">if</span>(chars[ch]&gt;left)left = chars[ch];</span><br><span class="line">          <span class="comment">//右窗口外延，长度增加</span></span><br><span class="line">          chars[ch] = right+<span class="number">1</span>;</span><br><span class="line">          <span class="comment">//长度对比</span></span><br><span class="line">          maxlen = maxlen&gt;(right-left+<span class="number">1</span>)?maxlen:(right-left+<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> maxlen;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println( lengthOfLongestSubstring(<span class="string">"abcabcvv"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>自己写的：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span>[] chars = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">128</span>];</span><br><span class="line">      <span class="keyword">int</span> maxlen = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>,j=<span class="number">0</span>; j &lt;s.length() ;) &#123;</span><br><span class="line">          <span class="keyword">if</span>(chars[s.charAt(j)]==<span class="number">0</span>)</span><br><span class="line">          &#123;</span><br><span class="line">              chars[s.charAt(j++)]++;</span><br><span class="line">              maxlen = Math.max(maxlen,j-i);</span><br><span class="line">          &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">              chars[s.charAt(i++)] = <span class="number">0</span>;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> maxlen;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编程练习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/13/剑指offer代码收录/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HEXO-FIRST-EXPERIENCE" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/05/HEXO-FIRST-EXPERIENCE/">HEXO FIRST EXPERIENCE</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/05/HEXO-FIRST-EXPERIENCE/" class="archive-article-date">
-  	<time datetime="2019-02-05T09:02:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="由wordpress向github-hexo迁移"><a href="#由wordpress向github-hexo迁移" class="headerlink" title="由wordpress向github+hexo迁移"></a>由wordpress向github+hexo迁移</h3><h4 id="hexo本地环境配置"><a href="#hexo本地环境配置" class="headerlink" title="hexo本地环境配置"></a>hexo本地环境配置</h4><ol>
-<li><p>Node.js与npm、cnpm安装</p>
-<p>  <strong>官网链接:</strong><a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
-</li>
-<li><p>git安装</p>
-</li>
-</ol>
-<h4 id="使用npm下载安装Hexo"><a href="#使用npm下载安装Hexo" class="headerlink" title="使用npm下载安装Hexo"></a>使用npm下载安装Hexo</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g hexo-cli  </span><br><span class="line">$ cnpm install hexo-server --save</span><br></pre></td></tr></table></figure>
-<h4 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ cd blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>在本地浏览器上查看<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo,github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/05/HEXO-FIRST-EXPERIENCE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/05/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/05/hello-world/" class="archive-article-date">
-  	<time datetime="2019-02-05T05:00:14.831Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/05/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-android" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/19/android/">安卓adb、aapt调用</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/19/android/" class="archive-article-date">
-  	<time datetime="2018-07-19T15:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>安卓adb、aapt调用 使用subprocess库</p>
-<p>常用adb命令：</p>
-<p>adb devices ：列出连接设备 adb install -r “xxxx.apk” :安装app adb uninstall “Xxxx”</p>
-<p>adb shell “xxx”：执行shell命令，常用有“ls”、“mkdir”、“rm”</p>
-<p>adb shell screencap -p “保存截图的路径” ：截图保存</p>
-<p>adb pull “手机路径” “电脑路径” 将文件从手机导出到电脑</p>
-<p>#设备连接<br>def Has_device():<br> conn = ‘adb devices’<br> pi = subprocess.Popen(conn, shell=True, stdout=subprocess.PIPE)<br> if pi.stdout.read().splitlines().__len__() &gt;= 3:<br> return True<br> else:<br> return False</p>
-<p>#apk安装<br>def Install_apk(apk_name):<br> if apk_name!=” “:<br> install_apk = ‘adb install -r ‘ + apk_name<br> print(install_apk)</p>
-<p> #print(install_apk)<br> install = subprocess.Popen(install_apk, shell=True, stdout=subprocess.PIPE).stdout.read()<br> str1 = str(install)<br> if str1.find(“Success”)!=-1:<br> return True<br> else:<br> return False<br> else:<br> return False</p>
-<p>常用aapt命令： aapt dump badging “xxx.apk”：列出apk信息，包括包名等 aapt dump xmltree “xxx.xml” 解析xml文件，如解析AndroidManifest.xml</p>
-<p>aapt l “xxx.apk” 获取资源文件列表</p>
-<p>#获取ACTIVITIES<br>def getActivities(packagename,apk_Name,xmlName=’ AndroidManifest.xml’):<br> getMainXml = ‘aapt dump xmltree ‘+apk_Name +xmlName<br> MainXml = subprocess.Popen(getMainXml,shell=True,stdout=subprocess.PIPE).stdout.read().splitlines()<br> Activitys = []<br> for i in range(MainXml.__len__()):<br> str_xml = str(MainXml[i])<br> if(str(MainXml[i]).find(‘android:name’)!=-1 and str(MainXml[i]).find(packagename)!=-1):<br> index = str_xml.split(“\“”)<br> Activitys.append(index[1])<br> return Activitys</p>
-<p>#获取app包名<br>def getPackageName(apkname):<br> getBadging = ‘aapt dump badging ‘+apkname<br> res = bytes.decode(subprocess.Popen(getBadging,shell=True,stdout=subprocess.PIPE).stdout.read())<br> return  res.splitlines()[0].split(“\‘“)[1]</p>
-<p>#aapt 获取资源文件<br>def aapt_get(dirname,resname=”res”):<br> Img = [“.png”, “.jpg”, “.jpeg”, “.gif”, “.bmp”]<br> shell_ml = ‘aapt l ‘+dirname<br> ImgFolder = tempfile.mkdtemp(“img”,”unzip”,”.\\temp”)<br> res = subprocess.Popen(shell_ml,stdout=subprocess.PIPE,shell=True).stdout.read().splitlines()</p>
-<p> #print(dirname)<br> dir_pi= []<br> for i in res:<br> file = bytes.decode(os.path.splitext(i)[1])<br> if file in Img:<br> dir_pi.append(bytes.decode(i))<br> dir = zipfile.ZipFile(dirname)<br> tempfolder=tempfile.mkdtemp(resname+”_unzip”,prefix=”temp”,dir=’’)<br> for names in dir.namelist():<br> try:<br> dir.extract(names,tempfolder)<br> except:<br> continue<br> dir.close()<br> for item in dir_pi:</p>
-<p> #print(tempfolder+”/“+item)<br> try:<br> shutil.move(tempfolder+”/“+item, ImgFolder)<br> except:<br> continue<br> return ImgFolder</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安卓</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/19/android/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-tkinter-2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/19/tkinter-2/">Tkinter简单记录</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/19/tkinter-2/" class="archive-article-date">
-  	<time datetime="2018-07-19T15:01:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Python-Tkinter笔记"><a href="#Python-Tkinter笔记" class="headerlink" title="Python Tkinter笔记"></a>Python Tkinter笔记</h3><p>这次用了Tkinter ，特记录下</p>
-<blockquote>
-<p><strong>Tkinter：</strong> Tkinter 模块(Tk 接口)是 Python 的标准 Tk GUI 工具包的接口 .Tk 和 Tkinter 可以在大多数的 Unix 平台下使用,同样可以应用在 Windows 和 Macintosh 系统里。Tk8.0 的后续版本可以实现本地窗口风格,并良好地运行在绝大多数平台中。</p>
-</blockquote>
-<p>可以看到，可移植性是我选择它的前提</p>
-<p><strong>布局方式：</strong></p>
-<ul>
-<li><p>pack 包装，会从上往下分布</p>
-</li>
-<li><p>grid 网格，指定控件的（row，column）等参数，控制控件的分布</p>
-</li>
-<li><p>place 位置</p>
-</li>
-</ul>
-<p><strong>使用过的控件：</strong></p>
-<ul>
-<li>Button 按钮</li>
-</ul>
-<p><a href="http://www.runoob.com/python/python-tk-button.html" target="_blank" rel="noopener">http://www.runoob.com/python/python-tk-button.html</a></p>
-<p>btn_start = Button(root, text=”运行模拟器”, font=’微软雅黑 8 normal’, fg=’black’, command=start_Gen).grid(row=2, sticky=W,pady=10, padx=10)</p>
-<p>#pady距离上下，padx，距离左右，command:点击后的回调函数<br>btn_run = Button(root, text=”模拟运行APK”, font=’微软雅黑 8 normal’, fg=’black’, command=get_apk).grid(row=3, sticky=W,<br> pady=10, padx=10)<br>btn_res = Button(root, text=”获取资源文件”, font=’微软雅黑 8 normal’, fg=’black’, command=getRes).grid(row=4, sticky=W,<br> pady=10, padx=10)<br>btn_rec = Button(root, text=”识别”, font=’微软雅黑 8 normal’, fg=’black’, command=rec_txt).grid(row=5, sticky=W,<br> pady=10, padx=10)</p>
-<ul>
-<li>Entry 输入框</li>
-</ul>
-<p>res_e = StringVar()<br>enter_res= Entry(width=50,textvariable=res_e,fg=’#666666’)<br>enter_res.grid(row=10, column=1)<br>enter_res[‘state’]=’readonly’ #三种模式：readonly,normal,disable<br>res_dir = ‘./res/res.txt’<br>res_e.set(“default:  “+res_dir)</p>
-<ul>
-<li>Text 文本</li>
-</ul>
-<p>state = Text(root, width=50, height=20)<br>state.delete(0.0,END)#设置文本框为空<br>state.grid(row=2, rowspan=4, column=1, padx=10, pady=10) #rowspan跨越多行，columnspan<br>state.insert(END,”删除完成!”)#在末尾添加文本</p>
-<ul>
-<li>Label 标签</li>
-</ul>
-<p>label1 = Label(root, text=”当前目录：”, font=’微软雅黑 10 normal’, fg=’black’).grid(row=0, sticky=W, padx=10) #font 设置字体，fg设置字体颜色，sticky设置偏左，偏右，居中</p>
-<ul>
-<li>CheckButton 复选框</li>
-</ul>
-<p>default_btn = Checkbutton(root, text=”设置”,variable=default,command=default_it).grid(row=7, sticky=W, pady=5, padx=10, column=0)</p>
-<ul>
-<li>Canvas 画布</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tkinter</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/19/tkinter-2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysql" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/19/mysql/">mysql常用操作</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/19/mysql/" class="archive-article-date">
-  	<time datetime="2018-07-19T05:38:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.创建表<br>CREATE TABLE table_name (column_name column_type);<br>CREATE TABLE IF NOT EXISTS `runoob_tbl`(<br>   `runoob_id` INT UNSIGNED AUTO_INCREMENT,<br>   `runoob_title` VARCHAR(100) NOT NULL,<br>   `runoob_author` VARCHAR(40) NOT NULL,<br>   `submission_date` DATE,<br>   PRIMARY KEY ( `runoob_id` )<br>)ENGINE=InnoDB DEFAULT CHARSET=utf8;<br>2.查看表结构：<br>describe tablename;<br>show columns from tablename;<br>explain tablename;<br>3.添加列<br>alter table tablename add column columnname varchar(30);<br>4.删除列<br>alter table tablename drop column columnname;<br>5.修改列名<br>alter table tablename change columnname newname varchar(30);<br>6.修改列属性<br>alter table tablename modify columanname varchar(22);<br>7.添加主键约束：<br>alter table 表名 add constraint 主键 （形如：PK_表名） primary key 表名(主键字段);<br>8.添加外键约束：<br>alter table 从表 add constraint 外键（形如：FK_从表_主表） foreign key 从表(外键字段) references 主表(主键字段);<br>9.删除主键约束：<br>alter table 表名 drop primary key;<br>10.删除外键约束：<br>alter table 表名 drop foreign key 外键（区分大小写）;<br>11.修改表名：<br>alter table t_book rename to bbb;<br>12.select按降序：<br>select * from tablename order by columnname desc;<br>13.删除增加主键约束<br>alter table tablename drop primary key;<br>alter table tablename add primary key(xxx,xxx);</p>
-<h5 id="给已有字段设置默认值"><a href="#给已有字段设置默认值" class="headerlink" title="给已有字段设置默认值"></a>给已有字段设置默认值</h5><p>ALTER TABLE test ALTER COLUMN case_status SET DEFAULT ‘A’;</p>
-<h5 id="mysql编码格式"><a href="#mysql编码格式" class="headerlink" title="mysql编码格式"></a>mysql编码格式</h5><p>MYSQL写入数据时报错ERROR 1366 (HY000): Incorrect string value: ‘\xE8\x8B\xB1\xE5\xAF\xB8…’ for c 插入中文不能插入<br>解决：<br>    1.删除之前的表<br>    2.重新创建，并添加语句 ‘ DEFAULT CHARSET=utf8’<br>一些查看和修改字符集的命令：<br>查看mysql的字符集：show variables where Variable_name like ‘%char%’;<br>查看某一个数据库字符集：show create database enterprises;(注：enterprises为数据库)<br>查看某一个数据表字符集：show create table employees;(注：employees为数据表)<br>修改mysql的字符集：</p>
-<pre><code>mysql&gt; set character\_set\_client=utf8;
-
-mysql&gt; set character\_set\_connection=utf8;
-
-mysql&gt; set character\_set\_database=utf8;
-
-mysql&gt; set character\_set\_results=utf8;
-
-mysql&gt; set character\_set\_server=utf8;
-
-mysql&gt; set character\_set\_system=utf8;
-
-mysql&gt; set collation_connection=utf8;
-
-mysql&gt; set collation_database=utf8;
-
-mysql&gt; set collation_server=utf8;
-</code></pre><p>修改数据库enterprises的字符集：</p>
-<p>alter database enterprises character set utf8</p>
-<p>修改数据表employees的字符集：</p>
-<p>alter table employees character set utf8</p>
-<p>修改字段的字符集</p>
-<p>alter table employees change name name char(10) character set utf-8;</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql，数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/19/mysql/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-tkinter" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/19/tkinter/">Tkinter窗口使用</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/19/tkinter/" class="archive-article-date">
-  	<time datetime="2018-07-18T16:17:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#coding=utf-8<br>from tkinter import <em><br>from tkinter import filedialog<br>from Emulator import </em><br>import os</p>
-<p>#apk按钮事件<br>def get_apk():<br>    in_file = filedialog.askopenfilename()<br>    if Has_device():<br>        if Install_apk(in_file):<br>            pkname = getPackageName(in_file)<br>            Activities = getActivities(packagename=pkname, apk_Name=in_file)<br>            text.insert(END, “packagename：” + pkname + “\n”)<br>            pwd = os.getcwd()<br>            screen_dir = pwd + “\screen_shot”<br>            tmp_dir = screen_shot(screen_dir, apk_name=in_file,Activities=Activities,packagename=pkname)<br>            text.insert(END,”检索Activity：”+”\n”)<br>            for activity in Activities:<br>                text.insert(END, activity+”\n”)<br>            text.insert(END, “获取运行图片…”)<br>        else:<br>            text.insert(END, “安装失败！”)<br>    else:<br>        text.insert(END,”无设备连接！”)</p>
-<p>#运行模拟器事件<br>def start_Gen():<br>    os.system(‘D:\Applications\Genymotion2\genymotion.exe’)</p>
-<p>#初始化界面<br>def init(root):</p>
-<pre><code>#滑轮
-S = Scrollbar(root)
-#grid布局
-label1 = Label(root,text=&quot;当前目录：&quot;,font=&apos;微软雅黑 10 normal&apos;,fg=&apos;black&apos;).grid(row=0,sticky=W,padx=10)
-pwd = Label(root,text=os.getcwd(),font=&apos;微软雅黑 8 normal&apos;,fg=&apos;#666666&apos;).grid(row=0,column=1,sticky=W)
-
-label2 = Label(root,text=&quot;菜单&quot;,font=&apos;微软雅黑 10 normal&apos;,fg=&apos;black&apos;).grid(row=1,sticky=W,pady=5,padx=10)
-
-btn_start = Button(root,text=&quot;运行模拟器&quot;,font=&apos;微软雅黑 8 normal&apos;,fg=&apos;black&apos;).grid(row=2,sticky=W,pady=10,padx=10)
-btn_run = Button(root,text=&quot;模拟运行APK&quot;,font=&apos;微软雅黑 8 normal&apos;,fg=&apos;black&apos;).grid(row=3,sticky=W,pady=10,padx=10)
-btn_res = Button(root, text=&quot;获取资源文件&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=4, sticky=W, pady=10, padx=10)
-
-state = Text(root,width=50,height=20)
-state.grid(row=2,rowspan=3,column=1,padx=10,pady=10)
-state.config(yscrollcommand=S.set)
-
-label3= Label(root, text=&quot;参数设置&quot;, font=&apos;微软雅黑 10 normal&apos;, fg=&apos;black&apos;).grid(row=5, sticky=W, pady=5, padx=10)
-default_btn = Checkbutton(root,text=&quot;默认&quot;).grid(row=6 ,sticky=W, pady=5, padx=10,column=0)
-set_btn = Checkbutton(root,text=&quot;设置&quot;).grid(row=6 ,sticky=W, pady=5, padx=10,column=1)
-
-prefix = Label(root, text=&quot;资源文件保存位置：&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=7, sticky=W, pady=5, padx=10,column=0)
-enter_file = Entry(width=50).grid(row=7,column=1)
-
-log = Label(root, text=&quot;日志文件保存位置：&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=8, sticky=W, pady=5, padx=10,column=0)
-enter_log = Entry(width=50).grid(row=8, column=1)
-
-res = Label(root, text=&quot;结果文件保存位置：&quot;, font=&apos;微软雅黑 8 normal&apos;, fg=&apos;black&apos;).grid(row=9, sticky=W, pady=5, padx=10,column=0)
-enter_log = Entry(width=50).grid(row=9, column=1)
-
-confirm = Button(root,text=&quot;保存设置&quot;).grid(row=10, pady=5, padx=10, sticky=W)
-</code></pre><p>def main():</p>
-<pre><code>#设置主窗体属性
-root = Tk()
-root.geometry(&apos;500x600&apos;)
-root.title(&quot;Android应用资源文件检测程序&quot;)
-init(root)
-mainloop()
-</code></pre><p>if __name__ == ‘__main__‘:<br>    main()</p>
-<p><img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/TIM图片20180719001631.png" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tkinter</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ui</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/19/tkinter/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 
@@ -1190,6 +1272,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -1202,15 +1288,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1222,7 +1304,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1234,11 +1328,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1246,11 +1336,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1266,7 +1352,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1282,6 +1368,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">heap</a>
               </li>
              
@@ -1291,10 +1385,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1310,14 +1400,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">mysql，数据库</a>
               </li>
              
@@ -1330,11 +1412,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1347,6 +1433,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1371,6 +1461,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实习</a>
               </li>
             
             <div class="clearfix"></div>

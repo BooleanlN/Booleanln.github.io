@@ -146,6 +146,300 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-XMLHttpRequest-withCredentials" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/15/XMLHttpRequest-withCredentials/">XMLHttpRequest.withCredentials</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/15/XMLHttpRequest-withCredentials/" class="archive-article-date">
+  	<time datetime="2019-09-15T02:23:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>XMLHttpRequest.withCredentials</strong>是boolean类型，它指示了是否该使用类似cookies，authorization headers 或者TLS客户端证书这一类资格证书来创建一个跨站点访问控制请求，在同一站点下使用该属性是无效的。</p><br><p>当跨域请求设置该属性为true时，将在请求中携带cookie、HTTP认证头部或TLS等凭据。</p><br><h5 id="原生"><a href="#原生" class="headerlink" title="原生"></a>原生</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"></span><br><span class="line">xhr.open(<span class="string">‘GET’</span>,url)</span><br><span class="line"></span><br><span class="line">xhr.withCredentials = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">xhr.send()</span><br></pre></td></tr></table></figure><br><h5 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a>JQuery</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    url:url__,</span><br><span class="line">    xhrFields:&#123;</span><br><span class="line">        withCredentials:<span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/15/XMLHttpRequest-withCredentials/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Vue内的变化侦测" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/15/Vue内的变化侦测/">Vue内的变化侦测</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/15/Vue内的变化侦测/" class="archive-article-date">
+  	<time datetime="2019-09-15T02:07:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><blockquote><p>本文代码取自《深入浅出Vue》一书</p></blockquote></p>
+<p><ol></ol></p>
+<p><li><p>对象类型</p></li></p>
+<p>在学习javascript对象那一章的时候，有了解到Object.defineProperty()这一方法，当时只是用它去理解了对象一些可枚举，可设置等属性，后来了解到它是ES5vue实现变化侦测的核心。</p><br><br><br><p>   首先介绍下<code>Object.defineProperty(obj,prop,description)</code>，该方法是Object的原型方法，会直接在obj上面定义或者修改prop属性，description是prop属性的描述符，可定义的描述符有</p><br><p>   configurable、enumerable、value、writable、get、set</p><br><pre><code>变化侦测借用的主要是set与get函数<br></code></pre><p>   所以基本的思想便是当函数或者表达式使用了某obj的时候，可以在它读取obj对应属性时，触发get函数，在get函数中，我们将该函数或表达式收集到我们的依赖列表当中，那么，在set函数中，我们可以遍历该属性的依赖列表，通知每一个依赖项。</p><br>   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">data, key, val</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> dep = []</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(data,key,&#123;</span><br><span class="line">        enumerable:<span class="literal">true</span>,</span><br><span class="line">        configurable:<span class="literal">true</span>,</span><br><span class="line">        <span class="keyword">get</span>:function()&#123;</span><br><span class="line">            dep.push(<span class="built_in">window</span>.target)<span class="comment">//采用window.target下面会详细说明</span></span><br><span class="line">            <span class="keyword">return</span> val</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="keyword">set</span>:function(newVal)&#123;</span><br><span class="line">            <span class="keyword">if</span>(val === newVal) &#123;</span><br><span class="line">             <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            val = newVal</span><br><span class="line">            dep.notify() <span class="comment">// 通知每一项</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><p>   我们创建一个Dep类，为我们专门管理每一项依赖</p><br>   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Dep</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> () &#123;</span><br><span class="line">        <span class="keyword">this</span>.subs = []</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    addSub(sub)&#123;</span><br><span class="line">        <span class="keyword">this</span>.subs.push(sub)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    removeSub(sub)&#123;</span><br><span class="line">        remove(<span class="keyword">this</span>,subs,sub)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 依赖收集</span></span><br><span class="line">    depend()&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">window</span>.target)&#123;</span><br><span class="line">            <span class="keyword">this</span>.addSub(<span class="built_in">window</span>.target)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    notify()&#123;</span><br><span class="line">        <span class="comment">//通知所有依赖项</span></span><br><span class="line">        <span class="keyword">const</span> subs = <span class="keyword">this</span>.subs.slice()</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>,l=subs.length;i&lt;l;i++)&#123;</span><br><span class="line">            subs[i].update()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">remove</span>(<span class="params">arr,item</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr.length)&#123;</span><br><span class="line">        <span class="keyword">let</span> index = arr.indexOf(item)</span><br><span class="line">        <span class="keyword">if</span>(index &gt; <span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> arr.splice(index,<span class="number">1</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><p>   由于使用obj的可能是在我们的模板中，也可能通过watch，所以抽象出一个Watcher类，那么，每一个使用obj的都是Watcher的一个实例</p><br>   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Watcher</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> (vm,expOrFn,cb) </span><br><span class="line">        this.vm = vm</span><br><span class="line">        this.getter = parsePath(expOrFn)</span><br><span class="line">        console.log(this.getter)</span><br><span class="line">        this.cb = cb</span><br><span class="line">        this.value = this.<span class="keyword">get</span>()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">get</span> () &#123;</span><br><span class="line">        <span class="comment">// 将当前的函数或者表达式设置到window.target（唯一）上</span></span><br><span class="line">        <span class="built_in">window</span>.target = <span class="keyword">this</span></span><br><span class="line">        <span class="comment">// 读取数据时，会触发get</span></span><br><span class="line">        <span class="keyword">let</span> value = <span class="keyword">this</span>.getter.call(<span class="keyword">this</span>.vm,<span class="keyword">this</span>.vm)</span><br><span class="line">        <span class="built_in">window</span>.target = <span class="literal">undefined</span></span><br><span class="line">        <span class="keyword">return</span> value</span><br><span class="line">    &#125;</span><br><span class="line">    update()&#123;</span><br><span class="line">        <span class="comment">// 当observe对象内属性修改时，被触发</span></span><br><span class="line">        <span class="keyword">const</span> oldValue = <span class="keyword">this</span>.value</span><br><span class="line">        <span class="keyword">this</span>.value = <span class="keyword">this</span>.get()</span><br><span class="line">        <span class="keyword">this</span>.cb.call(<span class="keyword">this</span>.vm,<span class="keyword">this</span>.value,oldValue) <span class="comment">//执行回调</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parsePath</span>(<span class="params">path</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(bailRE.test(path)) <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">const</span> segments = path.split(<span class="string">‘.’</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;segments.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!obj)<span class="keyword">return</span></span><br><span class="line">            obj = obj[segments[i]]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> obj</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><p>   那么，现在我们就提供defineProperty方法将obj中的prop属性与我们的dep建立了链接，dep列表中，放的都是watcher的实例对象。</p><br><p>   现在只是将obj中的prop属性设置成了响应式，如果我们要将obj中每个属性都设置成响应式，就需要抽象出一个Observe类为我们处理这些事情</p><br>   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Dep <span class="keyword">from</span> <span class="string">“./Dep”</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Observer</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(value)&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = value</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">Array</span>.isArray(value))&#123;</span><br><span class="line">            <span class="keyword">this</span>.walk(value)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    walk(obj)&#123;</span><br><span class="line">        <span class="keyword">const</span> keys = <span class="built_in">Object</span>.keys(obj)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;keys.length;i++)&#123;</span><br><span class="line">            defineReactive(obj,keys[i],obj[keys[i]])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">data, key, val</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//将data中的属性递归地转变为响应式</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> val === <span class="string">‘object’</span>) &#123;</span><br><span class="line">        <span class="keyword">new</span> Observer(val)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> dep = <span class="keyword">new</span> Dep()</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(data,key,&#123;</span><br><span class="line">        enumerable:<span class="literal">true</span>,</span><br><span class="line">        configurable:<span class="literal">true</span>,</span><br><span class="line">        <span class="keyword">get</span>:function()&#123;</span><br><span class="line">            dep.depend()</span><br><span class="line">            <span class="keyword">return</span> val</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="keyword">set</span>:function(newVal)&#123;</span><br><span class="line">            <span class="keyword">if</span>(val === newVal)&#123;</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            val = newVal</span><br><span class="line">            dep.notify()<span class="comment">//通知依赖</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><p>   这里解释下window.target，window.target是我们设置的一个属性，在我们使用obj属性的时候，会将当前的函数或表达式设置到window.target上面，然后在observer的依赖收集里面我们就可以统一成收集window.target</p><br><p>   <img src="https://cn.vuejs.org/images/data.png" alt=""></p><br><p>   官方文档中的追踪变化示意图</p><br><p>   data-&gt;observer-&gt;[getter\setter]<->dep<->watcher</-></-></p>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/15/Vue内的变化侦测/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-正则表达式" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/15/正则表达式/">正则表达式</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/15/正则表达式/" class="archive-article-date">
+  	<time datetime="2019-09-15T02:03:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><h6 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">^word 表示搜寻的字符串在行首</span><br><span class="line">word$ 表示搜寻的字符串在行末</span><br><span class="line">. 表示1个任意字符</span><br><span class="line">\ 转义符</span><br><span class="line">* 表示重复0个到无穷多个前一个RE字符</span><br><span class="line">[list] 表示搜索含有l,i,s,t任意字符的字符串</span><br><span class="line">[n1-n2] 表示搜索指定的字符串范围，如[0-9]、[a-z]、[A-Z]、[\u4e00-\u9fa5]等</span><br><span class="line">[^list] 表示反向字符串的范围，如[^0-9]表示非数字</span><br><span class="line">\&#123;n,m\&#125; 表示找出n到m个前一个RE字符</span><br><span class="line">\&#123;n,\&#125; 表示n个以上的前一个RE字符</span><br><span class="line">+ 表示重复一个或一个以上的前一个RE字符</span><br><span class="line">? 表示重复零个或一个以上的前一个RE字符</span><br><span class="line">| 表示用或的方式找出数个字符串</span><br><span class="line">() 表示找出群组字符串 如 g(la|oo)d表示找出glad或者good这两个字符串</span><br><span class="line">()+ 多个重复组判别</span><br></pre></td></tr></table></figure><p></p>
+<p></p><h6 id="常用的正则"><a href="#常用的正则" class="headerlink" title="常用的正则"></a>常用的正则</h6><a id="more"></a><p></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">1</span>[<span class="number">3456789</span>]\d&#123;<span class="number">9</span>&#125;$/  <span class="comment">//手机号</span></span><br><span class="line">/^((\d&#123;<span class="number">3</span>,<span class="number">4</span>&#125;)|\d&#123;<span class="number">3</span>,<span class="number">4</span>&#125;-|\s)?\d&#123;<span class="number">7</span>,<span class="number">14</span>&#125;$/ <span class="comment">//固定电话</span></span><br><span class="line">/^[<span class="number">1</span><span class="number">-9</span>]\d&#123;<span class="number">5</span>&#125;[<span class="number">12</span>][<span class="number">890</span>]\d&#123;<span class="number">2</span>&#125;((<span class="number">0</span>\d)|<span class="number">1</span>[<span class="number">0</span><span class="number">-2</span>])(([<span class="number">012</span>]\d)|<span class="number">3</span>[<span class="number">01</span>])\d&#123;<span class="number">4</span>&#125;$/ <span class="comment">//18位身份证</span></span><br><span class="line">/^w+([-+.]\w+)<em>@\w+([-.]\w+)</em>.\w+([-.]\w+)*$ <span class="comment">// eamil</span></span><br><span class="line">/[<span class="number">1</span><span class="number">-9</span>][<span class="number">0</span><span class="number">-9</span>]&#123;<span class="number">4</span>,&#125;/ <span class="comment">//QQ</span></span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">正则</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/15/正则表达式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-let为什么不存在变量提升" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/15/let为什么不存在变量提升/">let为什么不存在变量提升</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/15/let为什么不存在变量提升/" class="archive-article-date">
+  	<time datetime="2019-09-15T02:03:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/15/let为什么不存在变量提升/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JavaScript-Module-Pattern-In-Depth-translate" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -241,18 +535,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Vue-nextTick源码浅析"><a href="#Vue-nextTick源码浅析" class="headerlink" title="Vue.nextTick源码浅析"></a>Vue.nextTick源码浅析</h3><p>PPT地址：<a href="https://ppt.baomitu.com/d/0052678d" target="_blank" rel="noopener">https://ppt.baomitu.com/d/0052678d</a></p>
-<p>唉，实习的时候忘记给文章做备份了，刚刚更新文章，在公司写的都给覆盖掉了</p>
-<p>(;´༎ຶД༎ຶ`) </p>
-<ul>
-<li>React学习笔记</li>
-<li>正则表达式</li>
-<li>nextTick浅析</li>
-<li>let关键字</li>
-<li>正则表达式手册</li>
-<li>猪厂实习记录</li>
-</ul>
-
+        <h3 id="Vue-nextTick源码浅析"><a href="#Vue-nextTick源码浅析" class="headerlink" title="Vue.nextTick源码浅析"></a>Vue.nextTick源码浅析</h3><p> </p><h3 id="Vue的nextTick源码简析"><a href="#Vue的nextTick源码简析" class="headerlink" title="Vue的nextTick源码简析"></a>Vue的nextTick源码简析</h3><p>开门见山，先放上Vue的nextTick源码。</p><p></p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/<em> @flow </em>/</span></span><br><span class="line"><span class="comment">/<em> globals MutationObserver </em>/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; noop &#125; <span class="keyword">from</span> <span class="string">‘shared/util’</span></span><br><span class="line"><span class="keyword">import</span> &#123; handleError &#125; <span class="keyword">from</span> <span class="string">‘./error’</span></span><br><span class="line"><span class="keyword">import</span> &#123; isIE, isIOS, isNative &#125; <span class="keyword">from</span> <span class="string">‘./env’</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> isUsingMicroTask = <span class="literal">false</span> <span class="comment">//是否使用了微任务</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> callbacks = [] <span class="comment">// 回调队列</span></span><br><span class="line"><span class="keyword">let</span> pending = <span class="literal">false</span> <span class="comment">// </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flushCallbacks</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  pending = <span class="literal">false</span></span><br><span class="line">  <span class="keyword">const</span> copies = callbacks.slice(<span class="number">0</span>)</span><br><span class="line">  callbacks.length = <span class="number">0</span> <span class="comment">// 清空队列</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; copies.length; i++) &#123;</span><br><span class="line">    copies<a href="">i</a></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Here we have async deferring wrappers using microtasks.</span></span><br><span class="line"><span class="comment">// In 2.5 we used (macro) tasks (in combination with microtasks).</span></span><br><span class="line"><span class="comment">// However, it has subtle problems when state is changed right before repaint</span></span><br><span class="line"><span class="comment">// (e.g. #6813, out-in transitions).</span></span><br><span class="line"><span class="comment">// Also, using (macro) tasks in event handler would cause some weird behaviors</span></span><br><span class="line"><span class="comment">// that cannot be circumvented (e.g. #7109, #7153, #7546, #7834, #8109).</span></span><br><span class="line"><span class="comment">// So we now use microtasks everywhere, again.</span></span><br><span class="line"><span class="comment">// A major drawback of this tradeoff is that there are some scenarios</span></span><br><span class="line"><span class="comment">// where microtasks have too high a priority and fire in between supposedly</span></span><br><span class="line"><span class="comment">// sequential events (e.g. #4521, #6690, which have workarounds)</span></span><br><span class="line"><span class="comment">// or even between bubbling of the same event (#6566).</span></span><br><span class="line"><span class="keyword">let</span> timerFunc</span><br><span class="line"></span><br><span class="line"><span class="comment">// The nextTick behavior leverages the microtask queue, which can be accessed</span></span><br><span class="line"><span class="comment">// via either native Promise.then or MutationObserver.</span></span><br><span class="line"><span class="comment">// MutationObserver has wider support, however it is seriously bugged in</span></span><br><span class="line"><span class="comment">// UIWebView in iOS &gt;= 9.3.3 when triggered in touch event handlers. It</span></span><br><span class="line"><span class="comment">// completely stops working after triggering a few times… so, if native</span></span><br><span class="line"><span class="comment">// Promise is available, we will use it:</span></span><br><span class="line"><span class="comment">/<em> istanbul ignore next, $flow-disable-line </em>/</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">Promise</span> !== <span class="string">‘undefined’</span> &amp;&amp; isNative(<span class="built_in">Promise</span>)) &#123;</span><br><span class="line">  <span class="keyword">const</span> p = <span class="built_in">Promise</span>.resolve()</span><br><span class="line">  timerFunc = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    p.then(flushCallbacks)</span><br><span class="line">    <span class="comment">// In problematic UIWebViews, Promise.then doesn’t completely break, but</span></span><br><span class="line">    <span class="comment">// it can get stuck in a weird state where callbacks are pushed into the</span></span><br><span class="line">    <span class="comment">// microtask queue but the queue isn’t being flushed, until the browser</span></span><br><span class="line">    <span class="comment">// needs to do some other work, e.g. handle a timer. Therefore we can</span></span><br><span class="line">    <span class="comment">// “force” the microtask queue to be flushed by adding an empty timer.</span></span><br><span class="line">    <span class="keyword">if</span> (isIOS) setTimeout(noop)</span><br><span class="line">  &#125;</span><br><span class="line">  isUsingMicroTask = <span class="literal">true</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (!isIE &amp;&amp; <span class="keyword">typeof</span> MutationObserver !== <span class="string">‘undefined’</span> &amp;&amp; (</span><br><span class="line">  isNative(MutationObserver) ||</span><br><span class="line">  <span class="comment">// PhantomJS and iOS 7.x</span></span><br><span class="line">  MutationObserver.toString() === <span class="string">‘[object MutationObserverConstructor]’</span></span><br><span class="line">)) &#123;</span><br><span class="line">  <span class="comment">// Use MutationObserver where native Promise is not available,</span></span><br><span class="line">  <span class="comment">// e.g. PhantomJS, iOS7, Android 4.4</span></span><br><span class="line">  <span class="comment">// (#6466 MutationObserver is unreliable in IE11)</span></span><br><span class="line">  <span class="keyword">let</span> counter = <span class="number">1</span></span><br><span class="line">  <span class="keyword">const</span> observer = <span class="keyword">new</span> MutationObserver(flushCallbacks)</span><br><span class="line">  <span class="keyword">const</span> textNode = <span class="built_in">document</span>.createTextNode(<span class="built_in">String</span>(counter))</span><br><span class="line">  observer.observe(textNode, &#123;</span><br><span class="line">    characterData: <span class="literal">true</span></span><br><span class="line">  &#125;)</span><br><span class="line">  timerFunc = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    counter = (counter + <span class="number">1</span>) % <span class="number">2</span></span><br><span class="line">    textNode.data = <span class="built_in">String</span>(counter)</span><br><span class="line">  &#125;</span><br><span class="line">  isUsingMicroTask = <span class="literal">true</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> setImmediate !== <span class="string">‘undefined’</span> &amp;&amp; isNative(setImmediate)) &#123;</span><br><span class="line">  <span class="comment">// Fallback to setImmediate.</span></span><br><span class="line">  <span class="comment">// Techinically it leverages the (macro) task queue,</span></span><br><span class="line">  <span class="comment">// but it is still a better choice than setTimeout.</span></span><br><span class="line">  timerFunc = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    setImmediate(flushCallbacks)</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// Fallback to setTimeout.</span></span><br><span class="line">  timerFunc = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    setTimeout(flushCallbacks, <span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">nextTick</span> (<span class="params">cb?: Function, ctx?: Object</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> _resolve</span><br><span class="line">  callbacks.push(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (cb) &#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        cb.call(ctx)</span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        handleError(e, ctx, <span class="string">‘nextTick’</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (_resolve) &#123;</span><br><span class="line">      _resolve(ctx)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">if</span> (!pending) &#123;</span><br><span class="line">    pending = <span class="literal">true</span></span><br><span class="line">    timerFunc()</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// $flow-disable-line</span></span><br><span class="line">  <span class="keyword">if</span> (!cb &amp;&amp; <span class="keyword">typeof</span> <span class="built_in">Promise</span> !== <span class="string">‘undefined’</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">      _resolve = resolve</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到，nextTick的代码很简短。想到去看nextTick的原因是之前的一次面试经历，面试官出了一道很经典的题目：</p><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;,<span class="number">0</span>)</span><br><span class="line"><span class="keyword">let</span> pm = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">    resolve(<span class="number">3</span>)</span><br><span class="line">&#125;)</span><br><span class="line">pm.then(<span class="function">(<span class="params">data</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">4</span>)</span><br></pre></td></tr></table></figure><br><p>问：输出结果是什么</p><br>
+        
       
 
       
@@ -265,11 +551,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -383,6 +669,157 @@
 
 
   
+    <article id="post-记录微信移动端的坑" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/27/记录微信移动端的坑/">记录微信移动端的坑</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/27/记录微信移动端的坑/" class="archive-article-date">
+  	<time datetime="2019-08-27T02:26:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  <blockquote></blockquote></p>
+<p></p><p> 记几个 微信移动端的坑</p><br><p></p>
+<ol><br><li><p>垂直居中问题</p><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">line-height</span><span class="selector-pseudo">:100</span>%;</span><br><span class="line"><span class="selector-tag">height</span><span class="selector-pseudo">:1rem</span>;</span><br></pre></td></tr></table></figure><br><p>换成flex-box</p><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">display</span><span class="selector-pseudo">:flex</span>;</span><br><span class="line"><span class="selector-tag">justify-content</span><span class="selector-pseudo">:center</span>;</span><br><span class="line"><span class="selector-tag">align-items</span><span class="selector-pseudo">:center</span>;</span><br></pre></td></tr></table></figure><br></li><br><li><p>微信字体被动修改</p><br><p>当通过微信打开我们的网站时，会在转码过程中，将字体设置为微信配置的字体，这可能会影响到我们网页的布局，所以，在body中，设置text-size-adjust属性。</p><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="selector-tag">-webkit-text-size-adjust</span>: 100% !<span class="selector-tag">important</span>;</span><br><span class="line">   <span class="selector-tag">text-size-adjust</span>: 100% !<span class="selector-tag">important</span>;</span><br><span class="line"><span class="selector-tag">-moz-text-size-adjust</span>: 100% !<span class="selector-tag">important</span>;</span><br></pre></td></tr></table></figure><br></li><br></ol><br><p>   text-size-adjust属性允许我们控制将文本溢出算法应用到一些手机设备上</p><br><ul><br><li>none：文本不会放缩</li><br><li>auto：会进行放缩（移动端默认值）</li><br><li>percentage：根据百分比放缩</li><br></ul><br><ol start="3"><br><li><p>关于移动端适配问题</p><br><p>目前主流的解决方案是这两种，flexible存在兼容问题，所以推荐采用<code>viewport</code>来做移动端兼容处理</p><br><ul><br><li>rem + flexible.js</li><br><li>vw</li><br></ul><br></li><br></ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/27/记录微信移动端的坑/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-font-weight为什么没有效果" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/21/font-weight为什么没有效果/">font-weight为什么没有效果</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/21/font-weight为什么没有效果/" class="archive-article-date">
+  	<time datetime="2019-08-21T02:24:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  </p><p>前端开发的童鞋们一定有过这样的体验：</p><p></p>
+<p></p><p>UI给出的视觉稿上，指明了<code>font-weight</code>的数值，采用到代码当中，缺没有相应的效果，比如使用<code>font-weight：500</code>，理应产生加粗的效果，但是却没有，必须改成<code>font-weight:bold</code>才可以，这是什么原因？</p><br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/21/font-weight为什么没有效果/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-算法导论论-4-分治策略·" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -457,495 +894,9 @@
 
 
   
-    <article id="post-数组最大值" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/05/数组最大值/">数组最大值</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/05/数组最大值/" class="archive-article-date">
-  	<time datetime="2019-07-05T04:16:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="数组最大值"><a href="#数组最大值" class="headerlink" title="数组最大值"></a>数组最大值</h3><p>求数组最大值的常用方法总结</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 排序方法</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">34</span>,<span class="number">21</span>,<span class="number">41</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line"><span class="keyword">let</span> compare = <span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (a&gt;b)<span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (a&lt;b) <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line">arr.sort(compare)</span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">0</span>])</span><br><span class="line"><span class="comment">// Math.max</span></span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">34</span>,<span class="number">21</span>,<span class="number">41</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line"><span class="keyword">let</span> max = <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>,arr)</span><br><span class="line"><span class="built_in">console</span>.log(max)</span><br><span class="line"><span class="comment">//reduce</span></span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">34</span>,<span class="number">21</span>,<span class="number">41</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">max = arr.reduce(<span class="function">(<span class="params">currentMax,item</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> item&gt;currentMax ? item : currentMax</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(max)</span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">34</span>,<span class="number">21</span>,<span class="number">41</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">max = <span class="built_in">Math</span>.max(...arr)</span><br><span class="line"><span class="built_in">console</span>.log(max)</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/05/数组最大值/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="‘-函数防抖与节流" class="article article-type-‘  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/04/函数防抖与节流/">函数防抖与节流</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/04/函数防抖与节流/" class="archive-article-date">
-  	<time datetime="2019-07-04T14:41:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="函数防抖与节流"><a href="#函数防抖与节流" class="headerlink" title="函数防抖与节流"></a>函数防抖与节流</h3><p>之前经历了网易云的一面二面，从第一面开始，面试官频繁问我关于页面优化的问题。可惜自己大项目经验少，没做过性能优化这块，答的模棱两可，尤其是函数防抖与节流这个知识点。</p>
-<p>函数节流与防抖主要是应用在以下场景：</p>
-<ul>
-<li>事件绑定在窗口滚动上</li>
-<li>输入框实时请求</li>
-<li>其他会在很短时间内启动多次的浏览器事件</li>
-</ul>
-<p>面试题目是要求对输入框绑定事件，要求停止输入内容后1000毫秒进行请求</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> context = <span class="built_in">document</span>.getElementById(<span class="string">'context'</span>)</span><br><span class="line"><span class="comment">// 未加防抖措施，会多次请求，造成性能问题</span></span><br><span class="line">context.addEventListener(<span class="string">'input'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(e.target.value)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//加防抖措施</span></span><br><span class="line"><span class="keyword">let</span> timeout</span><br><span class="line">context.addEventListener(<span class="string">'input'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">		clearTimeout(timeout)</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"开始请求"</span>)</span><br><span class="line">		timeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">'延时请求：'</span>+e.target.value)</span><br><span class="line">			&#125;,<span class="number">1000</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>当时忘记每轮清除定时器，这样的话，每次都会创建一个新的定时器加在异步队列当中，就达不到应该有的效果了</p>
-<p>以上用的便是函数的防抖</p>
-<p>防抖的意思是，避免频繁多次调用事件，通过定时器，隔一段时间调用一次事件</p>
-<p>而节流则是，在前一次结束的接触上隔一段时间执行下一次</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/04/函数防抖与节流/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-图片懒加载" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/25/图片懒加载/">图片懒加载</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/25/图片懒加载/" class="archive-article-date">
-  	<time datetime="2019-06-25T11:31:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="图片懒加载实现"><a href="#图片懒加载实现" class="headerlink" title="图片懒加载实现"></a>图片懒加载实现</h3><ul>
-<li>html</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"img-warpper"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"lazyload"</span> <span class="attr">data-original</span>=<span class="string">"https://media3.giphy.com/media/k5GuJn7VslbpGQqHUB/200w.webp"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"img-warpper"</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"lazyload"</span> <span class="attr">data-original</span>=<span class="string">"https://media1.giphy.com/media/2A7yoKf2B87kotTApZ/200w.webp"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"img-warpper"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"lazyload"</span> <span class="attr">data-original</span>=<span class="string">"https://media2.giphy.com/media/3h1rwFW1PpLxD9xLUR/200w.webp"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"img-warpper"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"lazyload"</span> <span class="attr">data-original</span>=<span class="string">"https://media0.giphy.com/media/igHgY3xzYxmRcxwZBs/200w.webp"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"img-warpper"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"lazyload"</span> <span class="attr">data-original</span>=<span class="string">"https://media0.giphy.com/media/69v5dFsLtzdpaFZz2N/200w.webp"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>css</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">		<span class="attribute">text-align</span>: center;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  margin-bottom: 100px; // 为了方便看效果，将图片尽可能的撑开</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>js</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LazyLoad</span></span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span> (el) &#123;</span><br><span class="line">		<span class="keyword">this</span>.imgList = <span class="built_in">Array</span>.from(<span class="built_in">document</span>.querySelectorAll(el))</span><br><span class="line">		<span class="keyword">this</span>.init()</span><br><span class="line">	&#125;</span><br><span class="line">	canLoad () &#123;</span><br><span class="line">		<span class="keyword">let</span> imgList = <span class="keyword">this</span>.imgList</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">let</span> i=imgList.length;i--;)&#123;</span><br><span class="line">			<span class="keyword">this</span>.getBound(imgList[i]) &amp;&amp; <span class="keyword">this</span>.loadImg(imgList[i], i)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	getBound (el) &#123;</span><br><span class="line">		<span class="comment">// 获得图片所在盒框的像素位置</span></span><br><span class="line">		<span class="keyword">let</span> bound = el.getBoundingClientRect()</span><br><span class="line">		<span class="keyword">let</span> clientHeight = <span class="built_in">window</span>.innerHeight <span class="comment">// 窗口可视区域高度</span></span><br><span class="line">		<span class="keyword">return</span> bound.top &lt;= clientHeight - <span class="number">99</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//加载图片</span></span><br><span class="line">	loadImg (el, index) &#123;</span><br><span class="line">		<span class="keyword">let</span> src = el.getAttribute(<span class="string">"data-original"</span>)</span><br><span class="line">		el.src = src</span><br><span class="line">		<span class="keyword">this</span>.imgList.splice(index, <span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	bindEvent () &#123;</span><br><span class="line">		<span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, () =&gt; &#123;</span><br><span class="line">			<span class="keyword">this</span>.imgList.length &amp;&amp; <span class="keyword">this</span>.canLoad()</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	init () &#123;</span><br><span class="line">		<span class="keyword">this</span>.canLoad()</span><br><span class="line">		<span class="keyword">this</span>.bindEvent()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> lazy = <span class="keyword">new</span> LazyLoad(<span class="string">'.lazyload'</span>)</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">web性能优化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/25/图片懒加载/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-事件委托" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/24/事件委托/">事件委托</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/24/事件委托/" class="archive-article-date">
-  	<time datetime="2019-06-24T15:05:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><h5 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h5><p>事件流，在DOM当中，事件一共经过三个阶段，分别是捕获阶段、目标执行阶段、冒泡阶段，也就是说事件会从顶层dom一直向下直到目标DOM节点，然后在目标节点执行回调函数，最后经过事件冒泡阶段，事件从下往上溢出</p>
-<h5 id="事件委托-1"><a href="#事件委托-1" class="headerlink" title="事件委托"></a>事件委托</h5><p>事件委托，即利用事件冒泡的原理，将事件绑定在dom节点的父级节点上，并通过事件冒泡，在父级节点将事件捕获，并通过事件的target属性，拿到此时点击dom的dom名称或domId，据此再做出对应的响应。</p>
-<p>事件委托在循环绑定事件时可以优化浏览器内存性能，带来更好的用户体验</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ulNode = <span class="built_in">document</span>.querySelector(<span class="string">"ul"</span>)</span><br><span class="line"><span class="keyword">let</span> box = <span class="built_in">document</span>.querySelector(<span class="string">"#box"</span>)</span><br><span class="line">ulNode.addEventListener(<span class="string">"click"</span>, (e) =&gt; &#123;</span><br><span class="line">	<span class="keyword">let</span> tar = e.target</span><br><span class="line">	<span class="keyword">let</span> tarName = tar.nodeName.toLowerCase()</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'你点击了'</span> + tarName)</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'currenttarget是'</span>+e.currentTarget.nodeName.toLowerCase())</span><br><span class="line">	<span class="keyword">if</span> (tarName === <span class="string">'li'</span>) &#123;</span><br><span class="line">		box.style.background = <span class="string">'red'</span></span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		box.style.background = <span class="string">'green'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/24/事件委托/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JS数组去重" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/24/JS数组去重/">JS数组去重</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/24/JS数组去重/" class="archive-article-date">
-  	<time datetime="2019-06-24T13:56:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>废话不多说，直接上代码！</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">34</span>,<span class="number">21</span>,<span class="number">41</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line"><span class="comment">// 排序去重</span></span><br><span class="line">arr.sort(<span class="function">(<span class="params">a,b</span>)=&gt;</span> &#123;<span class="keyword">return</span> a-b&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br><span class="line"><span class="keyword">let</span> tmp = [arr[<span class="number">0</span>]]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">	<span class="keyword">if</span> (arr[i] !== tmp[tmp.length<span class="number">-1</span>] ) &#123;</span><br><span class="line">		tmp.push(arr[i])</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(tmp)</span><br><span class="line"><span class="comment">//indexOf去重</span></span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">34</span>,<span class="number">21</span>,<span class="number">41</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line"><span class="keyword">let</span> res = []</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">	<span class="keyword">if</span>(res.indexOf(arr[i]) === <span class="number">-1</span>)&#123;</span><br><span class="line">		res.push(arr[i])</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'index'</span>,res)</span><br><span class="line"><span class="comment">//splice去重</span></span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">34</span>,<span class="number">21</span>,<span class="number">41</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> j=i+<span class="number">1</span>;j&lt;arr.length;j++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(arr[i] === arr[j])&#123;</span><br><span class="line">			arr.splice(j,<span class="number">1</span>)</span><br><span class="line">			j-- <span class="comment">// splice后，数组向后缩</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'splice'</span>,arr)</span><br><span class="line"><span class="comment">//indexOf+filter</span></span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">34</span>,<span class="number">21</span>,<span class="number">41</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line"><span class="keyword">let</span> result  = arr.filter(<span class="function">(<span class="params">item,index,arr</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> arr.indexOf(item,<span class="number">0</span>) === index</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'index+filter'</span>,result)</span><br><span class="line"><span class="comment">//ES6去重</span></span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">34</span>,<span class="number">21</span>,<span class="number">41</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line"><span class="keyword">let</span> result = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="keyword">set</span>(arr))</span><br><span class="line">console.log('<span class="keyword">set</span>',result)</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/24/JS数组去重/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-记头条的一道面试题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/23/记头条的一道面试题/">记头条的一道面试题</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/23/记头条的一道面试题/" class="archive-article-date">
-  	<time datetime="2019-06-23T06:21:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一道面试题"><a href="#一道面试题" class="headerlink" title="一道面试题"></a>一道面试题</h3><p>前几天，参加了两场面试，一个是字节跳动，也就是头条，一个是网易云音乐，面试岗位都是前端。</p>
-<p>两个面试都超过了一小时，不管结果如何，都通过这两次面试认识到了自己的短板。</p>
-<p>这里记一道面试题。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/23/记头条的一道面试题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1036,6 +987,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -1048,15 +1003,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1068,7 +1019,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1080,11 +1043,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1092,11 +1051,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1112,7 +1067,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1128,6 +1083,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">heap</a>
               </li>
              
@@ -1137,10 +1100,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1156,14 +1115,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">mysql，数据库</a>
               </li>
              
@@ -1176,11 +1127,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1193,6 +1148,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1217,6 +1176,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实习</a>
               </li>
             
             <div class="clearfix"></div>

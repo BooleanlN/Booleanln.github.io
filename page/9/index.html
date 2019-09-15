@@ -146,6 +146,1192 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-miniwechat-lottery" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/05/miniwechat-lottery/">微信小程序——抽奖小程序</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/05/miniwechat-lottery/" class="archive-article-date">
+  	<time datetime="2018-07-05T08:20:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>微信小程序-抽奖 git地址：<a href="https://github.com/BooleanlN/miniwechat_lottery" target="_blank" rel="noopener">https://github.com/BooleanlN/miniwechat_lottery</a> <img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/IMG_2656.png" alt=""><img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/IMG_2657.png" alt=""><img src="http://www.booleanln.cn/blog/wp-content/uploads/2018/07/IMG_2658.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/微信小程序//" class="article-tag-list-link color1">微信小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/05/miniwechat-lottery/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-flask-mod-wsgi" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/28/flask-mod-wsgi/">Flask+Apache2.4+mod_wsgi配置</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/28/flask-mod-wsgi/" class="archive-article-date">
+  	<time datetime="2018-06-28T04:43:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Flask-Apache2-4-Ubuntu16-04-mod-wsgi配置"><a href="#Flask-Apache2-4-Ubuntu16-04-mod-wsgi配置" class="headerlink" title="Flask+Apache2.4+Ubuntu16.04+mod_wsgi配置"></a>Flask+Apache2.4+Ubuntu16.04+mod_wsgi配置</h3><p>1. 安装Flask、Apache2.4 2. 安装mod_wsgi <code>#apt-get install libapache2-mod-wsgi</code> 3. 在Web项目文件夹中创建一个.WSGI文件 <code>import sys sys.path.insert(0, &#39;/var/www/html/C4Web/route&#39;)#如果wsgi与application不在一个文件夹，需要导入路径先 from web import app as application #导入app作为application（wsgi文件只识别这个名字）</code> 4. 配置Apache2.4 <code>cd /etc/apache2/sites-available/ sudo vim 000-default.conf WSGIPythonPath /var/www/html/C4Web/</code> <code>ServerAdmin webmaster@localhost DocumentRoot /var/www/html/C4Web/ WSGIScriptAlias / /var/www/html/C4Web/start.wsgi</code> <code>Require all granted #(apache2.4格式) #Order allow,deny #(apache2.2格式) #Allow from all WSGIScriptReloading On #支持自动重载</code> ErrorLog ${APACHE_LOG_DIR}/error.log LogLevel warn CustomLog ${APACHE_LOG_DIR}/access.log combined 5. web.py编写 <code>if __name__==&#39;__main__&#39;: app.debug= True app.run()</code> 出问题可查看 <code>/var/log/apache2</code> <a href="http://dormousehole.readthedocs.io/en/latest/deploying/mod_wsgi.html" target="_blank" rel="noopener">官方文档</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Other//" class="article-tag-list-link color1">Other</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Other/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Other/Python是最好的语言/Ubuntu//" class="article-tag-list-link color2">Ubuntu</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/28/flask-mod-wsgi/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-list" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/19/list/">线性表</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/19/list/" class="archive-article-date">
+  	<time datetime="2018-06-19T07:34:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="线性表的实现"><a href="#线性表的实现" class="headerlink" title="线性表的实现"></a>线性表的实现</h4><h6 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h6><p>#include </p>
+<p>#include </p>
+<p>#define MAXSIZE 10<br>//数据结构<br>//线性表的顺序存储<br> typedef struct LNode *List;<br> struct LNode{<br>    int Data[MAXSIZE];<br>    int last;<br>};<br>//置空<br>List MakeEmpty()<br>{<br>    List Ptrl;<br>    Ptrl = (List)malloc(sizeof(struct LNode));<br>    Ptrl-&gt;last = -1;<br>    return Ptrl;<br>}<br>//查找指定下标节点<br>int Find(int X,List Ptrl)<br>{<br>    int i = 0;<br>    for(i=0;i&lt;=Ptrl-&gt;last&amp;&amp;Ptrl-&gt;Data[i]!=X;i++);<br>    if(i&gt;Ptrl-&gt;last) return -1;<br>    else return i;</p>
+<p>}<br>/<em>链表尾插入</em>/<br>void insert(List Ptrl,int num)<br>{</p>
+<pre><code>if(Ptrl-&gt;last&lt;MAXSIZE-1) { Ptrl-&gt;last++;
+    Ptrl-&gt;Data\[Ptrl-&gt;last\]=num;
+    printf(&quot;last = %d\\n&quot;,Ptrl-&gt;last);
+}else{
+    printf(&quot;cannot extend anymore\\n&quot;);
+    return;
+}
+return Ptrl;
+</code></pre><p>}<br>/<em>指定位置插入</em>/<br>void insertI(List Ptrl,int j,int num)<br>{<br>    if(Ptrl-&gt;last&lt;MAXSIZE-1) { int i; Ptrl-&gt;last++;<br>        for(i=Ptrl-&gt;last;i&gt;j;i–)<br>        {<br>            Ptrl-&gt;Data[i] = Ptrl-&gt;Data[i-1];<br>            //printf(“前一个data=%d\n”,Ptrl-&gt;Data[i-1]);<br>        }<br>        Ptrl-&gt;Data[j]=num;</p>
+<pre><code>}
+else{
+    printf(&quot;cannot extend anymore\\n&quot;);
+
+}
+</code></pre><p>}<br>//删除指定下标节点<br>void deleteL(List Ptrl,int j)<br>{<br>    if(Ptrl-&gt;last!=-1&amp;&amp;Ptrl-&gt;last&gt;j&amp;&amp;j&gt;=0)<br>    {<br>        int i;<br>        for(i=j;ilast;i++)<br>        {<br>            Ptrl-&gt;Data[i]=Ptrl-&gt;Data[i+1];<br>        }<br>        Ptrl-&gt;last–;<br>    }else{<br>    printf(“something is wrong!\n”);<br>    }<br>}<br>void show(List Ptrl)<br>{<br>    if(Ptrl-&gt;last!=-1)<br>    {<br>        int i = 0;<br>        for(i=0;i&lt;=Ptrl-&gt;last;i++)<br>        {<br>            printf(“%d\n”,Ptrl-&gt;Data[i]);<br>        }<br>    }<br>}<br>int main()<br>{   List NList;<br>    NList = MakeEmpty();<br>    insert(NList,4);<br>    insert(NList,3);<br>    insert(NList,5);<br>    insert(NList,4);<br>    insert(NList,3);<br>    insert(NList,5);</p>
+<pre><code>insertI(NList,2,6);
+show(NList);
+deleteL(NList,3);
+show(NList);
+</code></pre><p>   // printf(“%d”,Find(5,NList));<br>    return 0;<br>}</p>
+<h6 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h6><p>#include </p>
+<p>#include </p>
+<p>#define MAXSIZE 10<br>//数据结构<br>//线性表的顺序存储<br> typedef struct LNode *List;<br> struct LNode{<br>    int Data[MAXSIZE];<br>    int last;<br>};<br>//置空<br>List MakeEmpty()<br>{<br>    List Ptrl;<br>    Ptrl = (List)malloc(sizeof(struct LNode));<br>    Ptrl-&gt;last = -1;<br>    return Ptrl;<br>}<br>//查找指定下标节点<br>int Find(int X,List Ptrl)<br>{<br>    int i = 0;<br>    for(i=0;i&lt;=Ptrl-&gt;last&amp;&amp;Ptrl-&gt;Data[i]!=X;i++);<br>    if(i&gt;Ptrl-&gt;last) return -1;<br>    else return i;</p>
+<p>}<br>/<em>链表尾插入</em>/<br>void insert(List Ptrl,int num)<br>{</p>
+<pre><code>if(Ptrl-&gt;last&lt;MAXSIZE-1) { Ptrl-&gt;last++;
+    Ptrl-&gt;Data\[Ptrl-&gt;last\]=num;
+    printf(&quot;last = %d\\n&quot;,Ptrl-&gt;last);
+}else{
+    printf(&quot;cannot extend anymore\\n&quot;);
+    return;
+}
+return Ptrl;
+</code></pre><p>}<br>/<em>指定位置插入</em>/<br>void insertI(List Ptrl,int j,int num)<br>{<br>    if(Ptrl-&gt;last&lt;MAXSIZE-1) { int i; Ptrl-&gt;last++;<br>        for(i=Ptrl-&gt;last;i&gt;j;i–)<br>        {<br>            Ptrl-&gt;Data[i] = Ptrl-&gt;Data[i-1];<br>            //printf(“前一个data=%d\n”,Ptrl-&gt;Data[i-1]);<br>        }<br>        Ptrl-&gt;Data[j]=num;</p>
+<pre><code>}
+else{
+    printf(&quot;cannot extend anymore\\n&quot;);
+
+}
+</code></pre><p>}<br>//删除指定下标节点<br>void deleteL(List Ptrl,int j)<br>{<br>    if(Ptrl-&gt;last!=-1&amp;&amp;Ptrl-&gt;last&gt;j&amp;&amp;j&gt;=0)<br>    {<br>        int i;<br>        for(i=j;ilast;i++)<br>        {<br>            Ptrl-&gt;Data[i]=Ptrl-&gt;Data[i+1];<br>        }<br>        Ptrl-&gt;last–;<br>    }else{<br>    printf(“something is wrong!\n”);<br>    }<br>}<br>void show(List Ptrl)<br>{<br>    if(Ptrl-&gt;last!=-1)<br>    {<br>        int i = 0;<br>        for(i=0;i&lt;=Ptrl-&gt;last;i++)<br>        {<br>            printf(“%d\n”,Ptrl-&gt;Data[i]);<br>        }<br>    }<br>}<br>int main()<br>{   List NList;<br>    NList = MakeEmpty();<br>    insert(NList,4);<br>    insert(NList,3);<br>    insert(NList,5);<br>    insert(NList,4);<br>    insert(NList,3);<br>    insert(NList,5);</p>
+<pre><code>insertI(NList,2,6);
+show(NList);
+deleteL(NList,3);
+show(NList);
+</code></pre><p>   // printf(“%d”,Find(5,NList));<br>    return 0;<br>}</p>
+<p>两个线性表的合并</p>
+<p>List Merge(List L1,List L2)<br>{<br>    List L,head;<br>    if(L1-&gt;Data&gt;L2-&gt;Data)<br>    {<br>        head = L2;<br>        L2 = L2-&gt;Next;<br>    }<br>    else<br>    {<br>        head = L1;<br>        L1 = L1-&gt;Next;<br>    }<br>    L = head;<br>    while(L1!=NULL&amp;&amp;L2!=NULL)<br>    {<br>        printf(“L1 = %d L =%d L2 = %d\n”,L1-&gt;Data,L-&gt;Data,L2-&gt;Data);<br>        if(L2-&gt;DataData)<br>        {<br>            L-&gt;Next = L2;<br>            L = L2;<br>            L2 = L2-&gt;Next;<br>        }<br>        else{<br>            L-&gt;Next = L1;<br>            L = L1;<br>            L1 = L1-&gt;Next;<br>        }<br>    }<br>    if(L1)<br>    {<br>        L-&gt;Next = L1;<br>    }<br>    else if(L2){</p>
+<pre><code>    L-&gt;Next = L2;
+}
+return head;
+</code></pre><p>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线性表</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据结构//" class="article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/19/list/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-overview-of-data-structure" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/19/overview-of-data-structure/">数据结构概述 (Overview of data structure)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/19/overview-of-data-structure/" class="archive-article-date">
+  	<time datetime="2018-06-19T01:33:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是数据结构？"><a href="#什么是数据结构？" class="headerlink" title="什么是数据结构？"></a>什么是数据结构？</h3><p>书架问题，怎么去摆放书，有多少种摆放方法？各种摆放方法有什么优势，劣势？</p>
+<p>数的遍历问题：</p>
+<p>两种遍历方法，对比：</p>
+<p>void printN(int N);<br>int main()<br>{<br> int n;<br> scanf(“%d”,&amp;n);<br> printN(n);<br> return 0;<br>}<br>//第一种<br>void printN(int N)<br>{<br> int i = 1;<br> for(i;i&lt;=N;i++)<br> {<br> printf(“%d\n”,i);<br> }<br> return;<br>}<br>//第二种<br>void printN(int N)<br>{<br> if(N)<br> {<br> printN(N-1);<br> printf(“%d\n”,N);<br> }<br> return;<br>}<br>​</p>
+<p>当输入N超过100000左右时，第二种递归方法会产生错误，跳出程序执行 结论：算法的优劣与空间的利用有关 两种计算多项式方法比较： 结论：算法优劣与时间效率有关 什么是数据结构？</p>
+<ul>
+<li><p>数据对象在计算机中的组织方式——逻辑结构，物理存储结构</p>
+</li>
+<li><p>数据对象必定与一系列加在其上的操作相关联</p>
+</li>
+<li><p>完成这些操作所用的方法，即算法</p>
+</li>
+</ul>
+<h3 id="什么是算法？"><a href="#什么是算法？" class="headerlink" title="什么是算法？"></a>什么是算法？</h3><ul>
+<li><p>一个有限指令集</p>
+</li>
+<li><p>接受一些输入</p>
+</li>
+<li><p>产生输出</p>
+</li>
+<li><p>有限步骤终止</p>
+</li>
+</ul>
+<p>好的算法：</p>
+<ul>
+<li><p>空间复杂度S(n)</p>
+</li>
+<li><p>时间复杂度T(n)</p>
+</li>
+<li><p>最坏情况复杂度Tworst(n)</p>
+</li>
+<li><p>平均复杂度Tavg(n)</p>
+</li>
+<li><p>复杂度的渐进表示法(复杂度从小到大)</p>
+<ul>
+<li><p>1</p>
+</li>
+<li><p>log n</p>
+</li>
+<li><p>n</p>
+</li>
+<li><p>nlog n</p>
+</li>
+<li><p>n*n</p>
+</li>
+<li><p>n<em> n </em> n</p>
+</li>
+<li><p>2^n</p>
+</li>
+<li><p>n!</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>两段算法分别有复杂度T1 = O(f(n))和 T2 = O(f(n)) T1+T2 = max(O(f1(n)),O(f2(n))) T1*T2 = O(f1(n)xf2(n)) 一个for循环的时间复杂度等于循环次数乘以循环体内代码的复杂度 if-else结构的复杂度取决于if的条件判断复杂度和两个分支部分的复杂度，总体复杂度取三者中最大 最大子列和问题学习：</p>
+<p>/*1.在线解决方法：*/<br>package leetcode;<br>​<br>import java.util.Scanner;<br>​<br>/*<em><br> \</em> Created by Boolean on 2018/5/8.<br> */<br>public class Solution2 {<br> public static void main(String[] args)<br> {<br> Scanner scanner = new Scanner(System.in);<br> int num = scanner.nextInt();<br> int[] arr = new int[num];<br> int i = 0;<br> while(num–!=0) {<br> arr[i] = scanner.nextInt();<br> i++;<br> }<br> scanner.close();<br> int sum = 0,currentsum=0;<br> for(i=0;i&lt;arr.length;i++)<br> {<br> currentsum+=arr[i];<br> if(currentsum&lt;0)<br> {<br> currentsum = 0;<br> }else if(currentsum&gt;sum){<br> sum = currentsum;<br> }<br> }<br> System.out.print(sum);<br> }<br>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Other//" class="article-tag-list-link color1">Other</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Other/数据结构//" class="article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/19/overview-of-data-structure/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-pythonunapk" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/18/pythonunapk/">Python解包APK文件</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/18/pythonunapk/" class="archive-article-date">
+  	<time datetime="2018-06-18T08:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="解包APK文件"><a href="#解包APK文件" class="headerlink" title="解包APK文件"></a><strong>解包APK文件</strong></h4><p><code>import zipfile import os def un_zip(filename): zip_file = zipfile.ZipFile(filename) if os.path.isdir(filename + &quot;_files&quot;): pass else: os.mkdir(filename+&quot;_files&quot;) for names in zip_file.namelist(): zip_file.extract(names,filename + &quot;_files/&quot;) zip_file.close() un_zip(&quot;xxxx.apk&quot;)</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Python是最好的语言//" class="article-tag-list-link color3">Python是最好的语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/18/pythonunapk/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-heap" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/18/heap/">堆（heap）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/18/heap/" class="archive-article-date">
+  	<time datetime="2018-06-18T05:52:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概念</strong> <strong>优先队列：特殊的队列，取出元素的顺序依照元素的优先权大小，而不是元素进入队列的先后顺序</strong> 如何实现优先队列：数组？有序数组？链表？有序链表？二叉搜索树？ 方法：使用数组表示的完全二叉树来表示，任何一个结点都是其子树所有节点的最大值（或最小值） 从任意路径都可以保证有序性 <strong>ADT：</strong> 类型名称：<strong>最大堆（MAXHeap）</strong> 数据对象：<strong>完全二叉树，每个结点的值不小于其子树的任意一个结点的元素值</strong> 操作集： <code>1.MaxHeap Create（int MaxSize） 2.Boolean IsFull(MaxHeap Heap) 3.void Insert(MaxHeap heap,ElementType Item) 4.Boolean IsEmpty(heap) 5.ElementType DeleteMax(MaxHeap heap)</code> 代码实现： 堆的声明： <code>struct MaxHeap{ int *data; int MaxSize; int size; }; typedef struct MaxHeap* mxheap;</code> 1.堆的创建： <code>mxheap CreateHeap(int MaxSize) { mxheap heap = (struct MaxHeap*)malloc(sizeof(struct MaxHeap)); heap-&gt;data = (int *)malloc(sizeof(int)*MaxSize); heap-&gt;size = 0; heap-&gt;MaxSize = MaxSize; return heap; }</code> 2.非空、非满 <code>int IsFull(mxheap heap) { return (heap-&gt;size+1==heap-&gt;MaxSize); } int IsEmpty(mxheap heap) { return (heap-&gt;size==0); }</code> 3.插入元素 <code>void Insert(mxheap heap,int item) { if(IsFull(heap)) { printf(&quot;堆已满\n&quot;); return; } int i = ++heap-&gt;size; //从下往上遍历。直到堆顶 //判断i&gt;1，否则跳出，若当前位置的父节点小于要插入的结点，则将当前结点改为父节点值，并更改i值，直到找到合适的位置 for(;i&gt;1&amp;&amp;heap-&gt;data[i/2]&lt;item;i/=2) { heap-&gt;data[i] = heap-&gt;data[i/2]; } //赋值 heap-&gt;data[i]=item; // printf(&quot;%d位置插入data=%d\n&quot;,heap-&gt;size,heap-&gt;data[heap-&gt;size]); }</code> 4.删除元素 <code>int Delete(mxheap heap) { //空堆否？ if(IsEmpty(heap)) { printf(&quot;堆为空!\n&quot;); return; } //保存堆顶值 int MaxItem = heap-&gt;data[1]; //获取最后一个结点的值 int FinData = heap-&gt;data[heap-&gt;size--]; int parent,child; //遍历，调整当前堆为最大堆 for(parent = 1;parent*2&lt;=heap-&gt;size;parent=child) { child = parent*2; //若有两个子树，判断哪个更大 if(child!=heap-&gt;size&amp;&amp;heap-&gt;data[child]data[child+1])child++; //若当前位置子树的结点值小于最后的值，则找到插入位置 if(FinData&gt;=heap-&gt;data[child]){break;} //否则，当前位置的值为两个结点中的最大值 else { heap-&gt;data[parent]=heap-&gt;data[child]; } } //若放在函数体中，当size=1时，函数返回错误，所以将其放在外面 heap-&gt;data[parent]=FinData; return MaxItem; }</code> 5.遍历元素 <code>//遍历输出Heap； void ShowHeap(mxheap heap) { while(!IsEmpty(heap)) { printf(&quot;%d\n&quot;,Delete(heap)); } }</code> 6.测试 <code>int main() { mxheap heap = CreateHeap(10); Insert(heap,5); Insert(heap,10); Insert(heap,1); Insert(heap,8); Insert(heap,50); Insert(heap,25); Insert(heap,17); Insert(heap,-5); Insert(heap,6); Insert(heap,64); ShowHeap(heap); return 0; }</code> 测试结果： <code>堆已满 50 25 17 10 8 6 5 1 -5 Process returned 0 (0x0) execution time : 0.008 s Press any key to continue.</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">heap</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">堆</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据结构//" class="article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/18/heap/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-elementary-os" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/04/elementary-os/">Elementary OS 初体验</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/04/elementary-os/" class="archive-article-date">
+  	<time datetime="2018-06-04T08:00:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近因为受够了windows下开发的各种不方便，所以转战linux，版本选了Elementary OS，之前一直用的Ubuntu的KDE桌面，也用过Debian的GNome，但感觉都不是很好，发现EOS后，被它的设计所吸引，就抓紧装上了。 安装步骤： 使用UltarlSO工具将iso文件刻录至U盘，不可以使用PE，自己还用PE去尝试了下，后来一下怎么可能，文件系统都不一样… 进入安装之后，我使用的是自定义分区，给swap分区16GB，剩余空间都给了根分区，没有去区分各个文件夹。 等待安装结束之后，进入系统，先在设置lang/region里面设置了china/chinease，重启，done！ 接着下载了火狐浏览器，使用的是 Firefox Quantum： <code>sudo add-apt-repository ppa:mozillateam/firefox-next</code> sudo apt update &amp;&amp; sudo apt upgrade 如果你已经安装了Firefox，你会发现它已经被变成了Quantum。 Firefox徽标立即更改。 如果你还没有安装Firefox，你可以使用下面的命令来安装它： <code>sudo apt install firefox</code> reference： 接着，开发怎么能少了音乐呢，网易云音乐走起 <code>sudo dpkg -i netease-cloud-music_1.0.0_amd64_ubuntu16.04.deb</code> sudo apt-get install -f 网易云第二天开的时候死活打不开，后来发现是权限问题，导致某些文件权限用不了 <code>sudo netease-cloud-music</code> sudo nohup netease-cloud-music 开发工具安装了VSCode</p>
+<blockquote>
+<p>sudo dpkg -i code_1.23.1-1525968403_amd64.deb</p>
+</blockquote>
+<p>pycharm community</p>
+<blockquote>
+<p>sudo tar -zxvf pycharm-community-2018.1.4.tar.gz -C /usr/local</p>
+</blockquote>
+<blockquote>
+<p>sh /usr/local/pyfile/bin/pycharm.sh &amp;</p>
+</blockquote>
+<p>//此时pycharm已经可以运行了，但我们需要把快捷方式放到桌面</p>
+<blockquote>
+<p>vim /usr/share/applications/PyCharm.desktop:</p>
+</blockquote>
+<blockquote>
+<p>[Desktop Entry] Encoding=UTF-8 Name=Pycharm Comment=Pycharm IDE Exec=sh /usr/local/pycharm-community-2018.1.4/bin/pycharm.sh Icon=/usr/local/pycharm-community-2018.1.4/bin/pycharm.png Terminal=false StartupNotify=true Type=Application Categories=Application;Development;</p>
+</blockquote>
+<blockquote>
+<p>cp Pycharm.desktop /home/bool/</p>
+</blockquote>
+<p>done! 同样的，安装上Phpstorm！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Ubuntu//" class="article-tag-list-link color2">Ubuntu</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/04/elementary-os/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-laravel1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/17/laravel1/">Laravel框架记录（一）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/17/laravel1/" class="archive-article-date">
+  	<time datetime="2018-05-17T12:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Lavavel"><a href="#Lavavel" class="headerlink" title="Lavavel"></a>Lavavel</h2><p>Lavavel是PHP的主流轻量框架之一。</p>
+<h4 id="install-and-config"><a href="#install-and-config" class="headerlink" title="install and config"></a>install and config</h4><ol>
+<li><p>php environment</p>
+<ul>
+<li><p>PHP &gt;=7.1.3</p>
+</li>
+<li><p>PHP OpenSSL etend</p>
+</li>
+<li><p>PHP PDO</p>
+</li>
+<li><p>PHP Mbstring</p>
+</li>
+<li><p>PHP Tokenizer</p>
+</li>
+<li><p>PHP XML</p>
+</li>
+<li><p>PHP Ctype</p>
+</li>
+<li><p>PHP JSON</p>
+</li>
+</ul>
+</li>
+<li><p>install Laravel with Composer</p>
+<p>install Laravel installer</p>
+<p><code>composer global require “laravel/installer”</code></p>
+<p>cd new floder</p>
+<p><code>laravel new xxx</code></p>
+</li>
+<li><p>start server</p>
+<p><code>php artisan serve</code></p>
+</li>
+</ol>
+<h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><ul>
+<li><p>App目录：包含了应用的核心代码</p>
+</li>
+<li><p>Boostrap目录（不是css框架哦！）：包含了少许文件，用于框架的启动和自动载入配置，cache放置了路由和服务缓存文件</p>
+</li>
+<li><p>Config目录：包含了应用所有的配置文件</p>
+</li>
+<li><p>Database目录：数据库迁移文件级填充文件</p>
+</li>
+<li><p>Public目录：包含了应用入口文件和index.php和前端资源文件</p>
+</li>
+<li><p>Resources目录：包含了应用视图文件和未编译的原生前端资源文件</p>
+</li>
+<li><p>Routes目录</p>
+<ul>
+<li><p>api.php——包含路由位于<code>api</code>中间件约束之内，支持频率限制功能。</p>
+</li>
+<li><p>web.php——定义路由位于<code>RouteServiceProvider</code>所定义的<code>web</code>中间件约束中，因而支持Session、CSRF保护以及Cookie加密功能。</p>
+</li>
+<li><p>console.php——文件用于定义所有基于闭包的控制台命令</p>
+</li>
+<li><p>channels.php——文件用于注册应用支持的所有事件广播频道</p>
+</li>
+</ul>
+</li>
+<li><p>Storage目录</p>
+<p>包含了编译后的Blade模板、基于文件的Session、文件缓存，以及其他框架生成的文件：</p>
+<ul>
+<li><p>app——应用生成的文件</p>
+</li>
+<li><p>framework——框架生成的文件和缓存</p>
+</li>
+<li><p>logs——应用的日志文件</p>
+</li>
+</ul>
+</li>
+<li><p>Test目录</p>
+<p>包含自动化测试文件，默认提供了一个开箱即用的PHPUnit实例</p>
+</li>
+<li><p>Vendor目录</p>
+<p>包含了应用所有通过Composer加载的依赖</p>
+</li>
+</ul>
+<h4 id="Laravel的生命周期"><a href="#Laravel的生命周期" class="headerlink" title="Laravel的生命周期"></a>Laravel的生命周期</h4><h5 id="入口"><a href="#入口" class="headerlink" title="入口"></a>入口</h5><p>Laravel所有的请求入口都为<code>public\index.php</code>文件，是加载框架其他文件的起点。 index.php文件载入composer生成的自动加载设置，然后从bootstrap/app.php脚本获取Laravel应用实例，Laravel的第一个动作就是创建服务器实例</p>
+<h5 id="Http-console内核"><a href="#Http-console内核" class="headerlink" title="Http/console内核"></a>Http/console内核</h5><p>接下来，请求被发送到Http内核或console内核，这取决于进入应用的请求类型，这两个内核， 是所有请求都要经过的中央处理器。 Http内核继承自<code>IIlluminate\Foundation\Http\Kernel</code>类</p>
+<h5 id="服务提供者"><a href="#服务提供者" class="headerlink" title="服务提供者"></a>服务提供者</h5><p>内核启动过程中最重要的动作之一便是为应用载入服务提供者，应用的所以服务提供者都被配置在<code>config/app.php</code>配置文件的providers数组当中。首先，所有提供者的register方法被调用，然后，所有提供者被注册后，boot方法被调用。 服务提供者负责启动框架的所有各种各样的组件，比如数据库、队列、验证器等。</p>
+<h5 id="分发请求"><a href="#分发请求" class="headerlink" title="分发请求"></a>分发请求</h5><p>一旦应用被启动并且所有的服务提供者被注册，Request将会交由路由器进行分发，路由器将会分发请求到路由或控制器，同时运行所有路由指定的中间件。</p>
+<h4 id="Artisan命令"><a href="#Artisan命令" class="headerlink" title="Artisan命令"></a>Artisan命令</h4><p>Artisan 就相当于 Laravel 为我们独家定制的一个命令行工具，提供了很多实用的命令，可以用来快速生成 Laravel 开发中常用的一些文件并完成相关的配置。 命令 说明 php artisan key:generate 生成 App Key php artisan make:controller 生成控制器 php artisan make:model 生成模型 php artisan make:policy 生成授权策略 php artisan make:seeder 生成 Seeder 文件 php artisan migrate 执行迁移 php artisan migrate:rollback 回滚迁移 php artisan migrate:refresh 重置数据库 php artisan db:seed 填充数据库 php artisan tinker 进入 tinker 环境 php artisan route:list 查看路由列表</p>
+<h4 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h4><p>​</p>
+<h4 id="数据库和数据库迁移"><a href="#数据库和数据库迁移" class="headerlink" title="数据库和数据库迁移"></a>数据库和数据库迁移</h4><p>Laravel支持四种类型的数据库：</p>
+<ul>
+<li><p>MySQL</p>
+</li>
+<li><p>Postgres</p>
+</li>
+<li><p>SQLite</p>
+</li>
+<li><p>SQL Server</p>
+</li>
+</ul>
+<p>数据库配置文件在config/database.php中</p>
+<p> &lt;?php<br>​<br> return [<br>​<br> /<em><br> |————————————————————————–<br> | Default Database Connection Name<br> |————————————————————————–<br> |<br> | Here you may specify which of the database connections below you wish<br> | to use as your default connection for all database work. Of course<br> | you may use many connections at once using the Database library.<br> |
+ </em>/<br>​<br> ‘default’ =&gt; env(‘DB_CONNECTION’, ‘mysql’),<br>​<br> /<em><br> |————————————————————————–<br> | Database Connections<br> |————————————————————————–<br> |<br> | Here are each of the database connections setup for your application.<br> | Of course, examples of configuring each database platform that is<br> | supported by Laravel is shown below to make development simple.<br> |<br> |<br> | All database work in Laravel is done through the PHP PDO facilities<br> | so make sure you have the driver for your particular database of<br> | choice installed on your machine before you begin development.<br> |
+ </em>/<br>​<br> ‘connections’ =&gt; [<br>​<br> ‘sqlite’ =&gt; [<br> ‘driver’ =&gt; ‘sqlite’,<br> ‘database’ =&gt; env(‘DB_DATABASE’, database_path(‘database.sqlite’)),<br> ‘prefix’ =&gt; ‘’,<br> ],<br>​<br> ‘mysql’ =&gt; [<br> ‘driver’ =&gt; ‘mysql’,<br> ‘host’ =&gt; env(‘DB_HOST’, ‘127.0.0.1’),<br> ‘port’ =&gt; env(‘DB_PORT’, ‘3306’),<br> ‘database’ =&gt; env(‘DB_DATABASE’, ‘forge’),<br> ‘username’ =&gt; env(‘DB_USERNAME’, ‘forge’),<br> ‘password’ =&gt; env(‘DB_PASSWORD’, ‘’),<br> ‘unix_socket’ =&gt; env(‘DB_SOCKET’, ‘’),<br> ‘charset’ =&gt; ‘utf8mb4’,<br> ‘collation’ =&gt; ‘utf8mb4_unicode_ci’,<br> ‘prefix’ =&gt; ‘’,<br> ‘strict’ =&gt; true,<br> ‘engine’ =&gt; null,</p>
+<p> ],<br>​<br> ‘pgsql’ =&gt; [<br> ‘driver’ =&gt; ‘pgsql’,<br> ‘host’ =&gt; env(‘DB_HOST’, ‘127.0.0.1’),<br> ‘port’ =&gt; env(‘DB_PORT’, ‘5432’),<br> ‘database’ =&gt; env(‘DB_DATABASE’, ‘forge’),<br> ‘username’ =&gt; env(‘DB_USERNAME’, ‘forge’),<br> ‘password’ =&gt; env(‘DB_PASSWORD’, ‘’),<br> ‘charset’ =&gt; ‘utf8’,<br> ‘prefix’ =&gt; ‘’,<br> ‘schema’ =&gt; ‘public’,<br> ‘sslmode’ =&gt; ‘prefer’,<br> ],<br>​<br> ‘sqlsrv’ =&gt; [<br> ‘driver’ =&gt; ‘sqlsrv’,<br> ‘host’ =&gt; env(‘DB_HOST’, ‘localhost’),<br> ‘port’ =&gt; env(‘DB_PORT’, ‘1433’),<br> ‘database’ =&gt; env(‘DB_DATABASE’, ‘forge’),<br> ‘username’ =&gt; env(‘DB_USERNAME’, ‘forge’),<br> ‘password’ =&gt; env(‘DB_PASSWORD’, ‘’),<br> ‘charset’ =&gt; ‘utf8’,<br> ‘prefix’ =&gt; ‘’,<br> ],<br>​<br> ],<br>​<br> /<em><br> |————————————————————————–<br> | Migration Repository Table<br> |————————————————————————–<br> |<br> | This table keeps track of all the migrations that have already run for<br> | your application. Using this information, we can determine which of<br> | the migrations on disk haven’t actually been run in the database.<br> |
+ </em>/<br>​<br> ‘migrations’ =&gt; ‘migrations’,<br>​<br> /<em><br> |————————————————————————–<br> | Redis Databases<br> |————————————————————————–<br> |<br> | Redis is an open source, fast, and advanced key-value store that also<br> | provides a richer set of commands than a typical key-value systems<br> | such as APC or Memcached. Laravel makes it easy to dig right in.<br> |
+ </em>/<br>​<br> ‘redis’ =&gt; [<br>​<br> ‘client’ =&gt; ‘predis’,<br>​<br> ‘default’ =&gt; [<br> ‘host’ =&gt; env(‘REDIS_HOST’, ‘127.0.0.1’),<br> ‘password’ =&gt; env(‘REDIS_PASSWORD’, null),<br> ‘port’ =&gt; env(‘REDIS_PORT’, 6379),<br> ‘database’ =&gt; 0,<br> ],<br>​<br> ],<br>​<br> ];<br>​</p>
+<p>数据库用户及密码等敏感信息位于.env文件当中</p>
+<p> DB_CONNECTION=mysql<br> DB_HOST=127.0.0.1<br> DB_PORT=3306<br> DB_DATABASE=lavarel<br> DB_USERNAME=???<br> DB_PASSWORD=???</p>
+<h6 id="运行原生SQL语句"><a href="#运行原生SQL语句" class="headerlink" title="运行原生SQL语句"></a>运行原生SQL语句</h6><p>配置好数据库连接后，可以使用<code>DB</code>facade来进行查询</p>
+<p> DB::select、update、delete、insert、statement<br> DB::select(‘select <em> from users where active = ？’,[1]); //返回结果集，每一个<br> DB::select(‘select </em> from user where active = :id’,[‘id’=&gt;1]);<br> DB::statement(‘drop table users’);<br> DB::transaction(function(){DB:table(‘user’)-&gt;update([‘votes’ =&gt; 1]);})<br> DB::beginTransaction();<br> DB::rollBack();<br> DB::commit();<br> //监听每一条SQL，可以使用listen方法，该方法对查询日志</p>
+<h6 id="查询构造器"><a href="#查询构造器" class="headerlink" title="查询构造器"></a>查询构造器</h6><p>Laravel的数据库查询构造器提供了方便、流畅的接口，以用来创建及运行数据库查询。可用来执行应用程序中的大部分数据库操作</p>
+<p> DB::table(‘users’)-&gt;get();//查询构造器<br> DB::table(‘users’)-&gt;where(‘name’,’John’)-&gt;first();//返回单个StdClass对象<br> DB::table(‘users’)-&gt;where(‘name’,’John’)-&gt;value(‘email’);//获取单个值<br> DB::table(‘roles’)-&gt;pluck(‘title’); //获取一个包含单个字段值的数组<br> DB::table(‘users’)-&gt;orderBy(‘id’)-&gt;chunk(100,function($users){<br> foreach($users as $user){</p>
+<p> }<br> })//chunk用于处理大量记录时使用，对结果集进行分块</p>
+<p>聚合 查询构造器提供了各种聚合方法，例如<code>count</code>、<code>max</code>、<code>min</code>、<code>avg</code> 以及<code>sum</code></p>
+<p> DB::table(‘users’)-&gt;count();<br> DB::table(‘orders’)-&gt;max(‘price’);</p>
+<p>Selects</p>
+<p> DB::table(‘users’)-&gt;select(‘name’,’email as user_email’)-&gt;get();<br> DB::table(‘users’)-&gt;distinct()-&gt;get();//强制查找返回不重复的结果<br> DB::raw-创建一个原始表达式</p>
+<p>Inserts</p>
+<p> DB::table(‘users’)-&gt;insert(<br> [‘email’ =&gt; <a href="mailto:&#39;john@example.com" target="_blank" rel="noopener">&#39;john@example.com</a>‘, ‘votes’ =&gt; 0],//插入一行<br> [‘email’ =&gt; <a href="mailto:&#39;john2@example.com" target="_blank" rel="noopener">&#39;john2@example.com</a>‘, ‘votes’ =&gt; 0],//插入多行<br> );<br> DB::table(‘users’)-&gt;insertGetId(<br> [‘email’ =&gt; <a href="mailto:&#39;john@example.com" target="_blank" rel="noopener">&#39;john@example.com</a>‘, ‘votes’ =&gt; 0]<br> )</p>
+<p>Updates</p>
+<p> DB::table(‘users’)<br> -&gt;where(‘id’,1)<br> -&gt;update([‘votes’ =&gt; 1]);</p>
+<p>递增或递减</p>
+<p> DB::table(‘users’)-&gt;increment(‘votes’);<br> DB::table(‘users’)-&gt;increment(‘votes’,5);</p>
+<p>Deletes</p>
+<p> DB::table(‘users’)-&gt;delete();<br> DB::table(‘users’)-&gt;where(‘votes’,’&gt;’,100)-&gt;delete();<br> DB::table(‘users’)-&gt;truncate();//删除所有数据列</p>
+<p>悲观锁定</p>
+<p> DB::table(‘users’)-&gt;where(‘votes’,’&gt;’,100)-&gt;sharedLock()-&gt;get();<br> DB::table(‘users’)-&gt;where(‘votes’,’&gt;’,100)-&gt;lockForUpdate()-&gt;get();</p>
+<p>分页 <code>paginate方法</code></p>
+<p> $users = DB::table(‘users’)-&gt;paginate(15);//15规定每页显示15条数据<br> return view(‘user.index’,[‘users’=&gt; $users]);</p>
+<p>简单分页<code>simplePaginate()</code></p>
+<p> $users = DB::table(‘users’)-&gt;simplePaginate(15);//不会在页面上显示页码 </p>
+<p>基于Eloquent模型分页</p>
+<p> $users = APP\User::paginate(15);<br> $users = User::where(‘votes’,’&gt;’,100)-&gt;paginate(15);<br> $users = User::where(‘votes’,’&gt;’,100)-&gt;simplePaginate(15);</p>
+<h6 id="数据库迁移"><a href="#数据库迁移" class="headerlink" title="数据库迁移"></a>数据库迁移</h6><p><code>make:migration</code> Artisan命令 database/migrations/xxxx_xx_xx_xxxxx_create_xxx_table.php（数据库迁移文件）</p>
+<p> class CreateUsersTable extends Migration<br> {<br> /<strong><br> * Run the migrations.<br> <em><br> \</em> @return void<br> */<br> public function up()//添加新的数据表、字段或索引<br> {<br> Schema::create(‘users’, function (Blueprint $table) {<br> $table-&gt;increments(‘id’);<br> $table-&gt;string(‘name’);<br> $table-&gt;string(‘email’)-&gt;unique();<br> $table-&gt;string(‘password’);<br> $table-&gt;rememberToken();<br> $table-&gt;timestamps();<br> });<br> }<br>​<br> /</strong><br> * Reverse the migrations.<br> <em><br> \</em> @return void<br> */<br> public function down()//up的逆操作<br> {<br> Schema::dropIfExists(‘users’);<br> }<br> }</p>
+<p>运行迁移（php artisan migrate [–force]） 回滚迁移（php artisan migrate:rollback [–step=5]） 回滚所有迁移（php artisan migrate:reset) 回滚加迁移 (php artisan migrate:refresh)</p>
+<p> public function up()<br> {<br> Schema::create(‘articles’, function (Blueprint $table) {<br> $table-&gt;engine = ‘InnoDB’;<br> $table-&gt;increments(‘id’);<br> $table-&gt;string(‘content’,100);<br> $table-&gt;Integer(‘num’);//Integer方法的第二个参数并不是指定长度,而是是否设置auto increment，所以integer方法无法指定子段长度，默认为11。<br> $table-&gt;enum(‘source’,[‘bank acount’,’credit’,’payPal’]);<br> $table-&gt;timestamps();//会自动创建updated_at、created_at字段<br>​<br> });<br> Schema::rename(‘articles’,’articless’);<br> }</p>
+<p>Seeds Laravel使用seed类来给数据库填充测试数据，所有的seed类都放在database/seeds目录下。</p>
+<p> class DatabaseSeeder extends Seeder<br> {<br> /*<em><br> \</em> Seed the application’s database.<br> <em><br> \</em> @return void<br> */<br> public function run()<br> {<br> // $this-&gt;call(UsersTableSeeder::class);<br> DB::table(‘articles’)-&gt;insert(<br> [‘content’=&gt;str_random(80),<br> ‘num’ =&gt; random_int(5, 100),<br> ‘source’=&gt;’bank acount’,]<br> }<br> }</p>
+<h6 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h6><h6 id=""><a href="#" class="headerlink" title="# # # # # # # # # # # # # #"></a># # # # # # # # # # # # # #</h6><h5 id="Eloquent"><a href="#Eloquent" class="headerlink" title="Eloquent"></a>Eloquent</h5><p>Laravel的Eloquent ORM提供了漂亮、简洁的ActiveRecord实现来和数据库做交互。每个数据表对应一个模型 定义模型 php artisan make:model Article [-m(附加数据库迁移文件)] 模型的使用</p>
+<p> &lt;?php<br> use App\Article;<br> $article = App\Article::all();//返回模型数据表的所有结果<br> $article = App\Article::where(‘article’,1)<br> -&gt;orderBy(‘name’,’desc’)<br> -&gt;take(10)<br> -&gt;get();<br> foreach($articles as $article){<br> echo $article-&gt;content;<br> }</p>
+<p> ##################<br> findOrFail()、firstOrFail()方法会取回查询的第一个结果。如果没有找到相应结果，则会抛出一个异常：<br> $model = App\Article::findOrFail(1);</p>
+<p>在这出了个巨98恐怖的巨低级的错误… use APP(App) 使用模型来进行数据库交互：</p>
+<p> use App\Article;//App不是APP！！！！<br> public function store(Request $request)<br> {<br>​<br> $article = Article::create([<br> ‘title’ =&gt; $request-&gt;title,<br> ‘content’ =&gt; $request-&gt;content,<br> ‘num’=&gt;5,<br> ‘source’=&gt;’bank acount’<br> ]);<br>​<br> return redirect()-&gt;route(‘articles.index’);<br> }</p>
+<h4 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h4><h5 id="基本路由"><a href="#基本路由" class="headerlink" title="基本路由"></a>基本路由</h5><p>最基本的路由只接收一个URL和一个闭包函数。</p>
+<p>Route::get(‘hello’,function(){<br> return “hello world”;<br>})</p>
+<h5 id="路由分类"><a href="#路由分类" class="headerlink" title="路由分类"></a>路由分类</h5><ul>
+<li><p>web路由：提供了CSRF保护和Session等功能</p>
+</li>
+<li><p>api路由：无状态的</p>
+<p>分配到不同的中间件</p>
+</li>
+</ul>
+<h5 id="常用的路由方法"><a href="#常用的路由方法" class="headerlink" title="常用的路由方法"></a>常用的路由方法</h5><p>Route::get(‘/net’,’net\NetController@index’);<br>Route::post($url,$callback);<br>Route::put($url,$callback);<br>Route::patch($url,$callback);<br>Route::delete($url,$callback);<br>Route::options($url,$callback);</p>
+<p>###########################################<br>Route::match([‘get’,’post’],’foo’,function(){<br> return “This is a request from get or post”;<br>});</p>
+<p>###any响应所有的http请求###<br>Route::any(‘bar’, function () {<br> return ‘This is a request from any HTTP verb’;<br>});</p>
+<h5 id="CSRF保护"><a href="#CSRF保护" class="headerlink" title="CSRF保护"></a>CSRF保护</h5><p>在 <code>routes/web.php</code> 路由文件中所有请求方式为 <code>PUT</code>、<code>POST</code> 或 <code>DELETE</code> 的路由对应的 HTML 表单都必须包含一个 CSRF 令牌字段，否则，请求会被拒绝。</p>
+<form method="POST" action="/profile"><br> { { csrf_field() }}<br> …<br></form>
+
+<h5 id="路由重定向"><a href="#路由重定向" class="headerlink" title="路由重定向"></a>路由重定向</h5><p>Route::redirect(‘/here(原路由)’, ‘/there（定向到的路由）’, 301);</p>
+<h5 id="路由直接返回一个视图"><a href="#路由直接返回一个视图" class="headerlink" title="路由直接返回一个视图"></a>路由直接返回一个视图</h5><p>Route::view(‘/welcome’,’welcome’);<br>Route::view(‘/welcome’, ‘welcome’, [‘name’ =&gt; ‘name’]);</p>
+<h5 id="路由参数"><a href="#路由参数" class="headerlink" title="路由参数"></a>路由参数</h5><ul>
+<li>必须参数</li>
+</ul>
+<p>Route::get(‘user/{id}’, function ($id) {<br> return ‘User ‘ . $id;<br>});</p>
+<p>根据上面的示例，路由参数需要通过花括号 <code>{}</code> 进行包裹并且是拼音字母，这些参数在路由被执行时会被传递到路由的闭包。路由参数名称不能包含 <code>-</code> 字符，如果需要的话可以使用 <code>_</code> 替代，比如如果某个路由参数定义成 <code>{post-id}</code> 则访问路由会报错，应该修改成 <code>{post_id}</code> 才行。路由参数被注入到路由回调/控制器取决于它们的顺序，与回调/控制器名称无关。</p>
+<ul>
+<li><p>可选参数</p>
+<p>有必选参数就有可选参数，这可以通过在参数名后加一个 <code>?</code> 标记来实现，这种情况下需要给相应的变量指定默认值，当对应的路由参数为空时，使用默认值：</p>
+<p>Route::get(‘user/{name?}’, function ($name = null) {<br> return $name;<br>});<br>​<br>Route::get(‘user/{name?}’, function ($name = ‘John’) {<br> return $name;<br>});</p>
+</li>
+<li><p>正则约束</p>
+<p>可以通过路由实例上的where方法来约束路由参数的格式。where方法接收参数名和一个正则表达式来定义该参数如何被约束</p>
+<p>Route::get(‘user/{name}’, function ($name) {<br> // $name 必须是字母且不能为空<br>})-&gt;where(‘name’, ‘[A-Za-z]+’);<br>​<br>Route::get(‘user/{id}’, function ($id) {<br> // $id 必须是数字<br>})-&gt;where(‘id’, ‘[0-9]+’);<br>​<br>Route::get(‘user/{id}/{name}’, function ($id, $name) {<br> // 同时指定 id 和 name 的数据格式<br>})-&gt;where([‘id’ =&gt; ‘[0-9]+’, ‘name’ =&gt; ‘[a-z]+’]);<br>###id为可选参数，默认为killer<br>Route::get(‘/testZZ/{id?}’,function($id=”killer”){<br> return $id;<br>})-&gt;where(‘id’,’[0-9]+’);//正则限制id只能为数字</p>
+</li>
+<li><p>全局约束</p>
+<p>如果想要路由参数在全局范围内被给定正则表达式约束，可以使用 <code>pattern</code> 方法。需要在 <code>RouteServiceProvider</code> 类的 <code>boot</code> 方法中定义这种约束模式：</p>
+<p>/*<em><br> \</em> 定义路由模型绑定，模式过滤器等<br> <em><br> \</em> @param  \Illuminate\Routing\Router  $router<br> * @return void<br> * @translator  <a href="http://laravelacademy.org" target="_blank" rel="noopener">http://laravelacademy.org</a><br> */<br>public function boot()<br>{<br> Route::pattern(‘id’, ‘[0-9]+’);<br> parent::boot();<br>}</p>
+</li>
+</ul>
+<h5 id="命名路由"><a href="#命名路由" class="headerlink" title="命名路由"></a>命名路由</h5><p>命名路由为生成 URL 或重定向提供了方便，实现起来也很简单，在路由定义之后使用 <code>name</code> 方法链的方式来定义该路由的名称：</p>
+<p>Route::get(‘user/profile’, function () {<br> // 通过路由名称生成 URL<br> return ‘my url: ‘ . route(‘profile’);<br>})-&gt;name(‘profile’);</p>
+<p>还可以为控制器动作指定路由名称：</p>
+<p>Route::get(‘user/profile’, ‘UserController@showProfile’)-&gt;name(‘profile’);</p>
+<p>这样我们就可以通过以下方式定义重定向：</p>
+<p>Route::get(‘redirect’, function() {<br>    // 通过路由名称进行重定向<br>    return redirect()-&gt;route(‘profile’);<br>});</p>
+<p>如果命名路由定义了参数，可以将该参数作为第二个参数传递给 <code>route</code> 函数。给定的路由参数将会自动插入到 URL 中：</p>
+<p>Route::get(‘user/{id}/profile’, function ($id) {<br>    $url = route(‘profile’, [‘id’ =&gt; 1]);<br>    return $url;<br>})-&gt;name(‘profile’);</p>
+<p><strong>检查当前路由</strong> 如果你想要判断当前请求是否被路由到给定命名路由，可以使用 Route 实例上的 <code>named</code> 方法，例如，你可以从路由中间件中检查当前路由名称：</p>
+<p>/**<br> * 处理输入请求<br> *<br> * @param  \Illuminate\Http\Request  $request<br> * @param  \Closure  $next<br> * @return mixed<br> */<br>public function handle($request, Closure $next)<br>{<br>    if ($request-&gt;route()-&gt;named(‘profile’)) {<br>        //<br>    }</p>
+<pre><code>return $next($request);
+</code></pre><p>}</p>
+<h5 id="路由分组"><a href="#路由分组" class="headerlink" title="路由分组"></a>路由分组</h5><h6 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h6><p>要给某个路由分组中定义的所有路由分配中间件，可以在定义分组之前使用 <code>middleware</code> 方法。中间件将会按照数组中定义的顺序依次执行：</p>
+<p>Route::middleware([‘first’, ‘second’])-&gt;group(function () {<br>    Route::get(‘/‘, function () {<br>        // Uses first &amp; second Middleware<br>    });</p>
+<pre><code>Route::get(&apos;user/profile&apos;, function () {
+    // Uses first &amp; second Middleware
+});
+</code></pre><p>});</p>
+<p>关于中间件的使用我们在后面单独讲<a href="http://laravelacademy.org/post/8739.html" target="_blank" rel="noopener">中间件</a>时再进行示例演示，这里我们先了解这样使用就行。</p>
+<h6 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h6><p>路由分组另一个通用的例子是使用 <code>namespace</code> 方法分配同一个 PHP 命名空间给该分组下的多个控制器：</p>
+<p>Route::namespace(‘Admin’)-&gt;group(function () {<br>    // Controllers Within The “App\Http\Controllers\Admin” Namespace<br>});</p>
+<p>默认情况下，<code>RouteServiceProvider</code> 在一个命名空间分组下引入所有路由文件，并指定所有控制器类所在的默认命名空间是 <code>App\Http\Controllers</code>，因此，我们在定义控制器的时候只需要指定命名空间 <code>App\Http\Controllers</code> 之后的部分即可。 关于命名空间后面我们单独讲控制器的时候还会再详细演示，这里先了解用法即可。</p>
+<h6 id="子域名路由"><a href="#子域名路由" class="headerlink" title="子域名路由"></a>子域名路由</h6><p>路由分组还可以被用于处理子域名路由，子域名可以像 URI 一样被分配给路由参数，从而允许捕获子域名的部分用于路由或者控制器，子域名可以在定义分组之前调用 <code>domain</code> 方法来指定：</p>
+<p>Route::domain(‘{account}.blog.dev’)-&gt;group(function () {<br>    Route::get(‘user/{id}’, function ($account, $id) {<br>        return ‘This is ‘ . $account . ‘ page of User ‘ . $id;<br>    });<br>});</p>
+<p>比如我们设置会员子域名为 <code>account.blog.test</code>，那么就可以通过 <code>http://account.blog.test/user/1</code> 访问用户ID为 <code>1</code> 的会员信息了：</p>
+<p>This is account page of User 1</p>
+<h6 id="路由前缀"><a href="#路由前缀" class="headerlink" title="路由前缀"></a>路由前缀</h6><p><code>prefix</code> 方法可以用来为分组中每个路由添加一个给定 URI 前缀，例如，你可以为分组中所有路由 URI 添加 <code>admin</code> 前缀 ：</p>
+<p>Route::prefix(‘admin’)-&gt;group(function () {<br>    Route::get(‘users’, function () {<br>        // Matches The “/admin/users” URL<br>    });<br>});</p>
+<p>这样我们就可以通过 <code>http://blog.test/admin/users</code> 访问路由了。</p>
+<h6 id="路由名称前缀"><a href="#路由名称前缀" class="headerlink" title="路由名称前缀"></a>路由名称前缀</h6><p><code>name</code> 方法可通过传入字符串为分组中的每个路由名称设置前缀，例如，你可能想要在所有分组路由的名称前添加 <code>admin</code> 前缀，由于给定字符串和指定路由名称前缀字符串完全一样，所以需要在前缀字符串末尾后加上 <code>.</code> 字符：</p>
+<p>Route::name(‘admin.’)-&gt;group(function () {<br>    Route::get(‘users’, function () {<br>        // 新的路由名称为 “admin.users”…<br>    })-&gt;name(‘users’);<br>});</p>
+<h5 id="自动路由，常用于api"><a href="#自动路由，常用于api" class="headerlink" title="自动路由，常用于api"></a>自动路由，常用于api</h5><p><code>Route::resource(&#39;articles&#39;,&#39;ArticleController&#39;);</code> 在routes.php中添加此语句，会自动生成路由：</p>
+<p>方法</p>
+<p>路由</p>
+<p>Controller里的方法名</p>
+<p>GET</p>
+<p>/users</p>
+<p>index</p>
+<p>GET</p>
+<p>/users/create</p>
+<p>create</p>
+<p>POST</p>
+<p>/users</p>
+<p>store</p>
+<p>GET</p>
+<p>/users/{user}</p>
+<p>show</p>
+<p>GET</p>
+<p>/users/{user}/edit</p>
+<p>edit</p>
+<p>PUT</p>
+<p>/users/{user}</p>
+<p>update</p>
+<p>DELETE</p>
+<p>/users/{user}</p>
+<p>destroy</p>
+<p>然后要在Controller里自己创建相应的方法：</p>
+<p> $article = Article::create([<br> ‘title’ =&gt; $request-&gt;title,<br> ‘content’ =&gt; $request-&gt;content,<br> ‘num’=&gt;5,<br> ‘source’=&gt;’bank acount’<br> ]);<br>​<br> return redirect()-&gt;route(‘articles.index’);<br> }</p>
+ <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p> public function show($id) {<br> echo $id;<br> }<br>​<br> public function edit($id) {}</p>
+<p> public function update($id) {}<br> public function create()<br> {<br> return view(‘articles.create’);<br> }</p>
+<h5 id="路由模型绑定"><a href="#路由模型绑定" class="headerlink" title="路由模型绑定"></a>路由模型绑定</h5><ul>
+<li><p>隐式绑定</p>
+<p>Route::get(‘article/{article}’,function (App\Article $article){</p>
+<pre><code>return $article;
+</code></pre><p>});</p>
+<p>访问：<a href="http://localhost:8000/api/article/1" target="_blank" rel="noopener">http://localhost:8000/api/article/1</a></p>
+<p>得到：</p>
+<p>{“id”:1,”content”:”dzdTdyGV5rsjoyFsjvVbdYfDq97GQleeneUSvYRpWDovBd20ySvfMa9u2Lb3Q3jpbauj9K45FcBo3ckN”,”num”:31,”source”:”bank acount”,”created_at”:”2018-04-29 16:41:59”,”updated_at”:”2018-04-29 16:41:59”,”title”:””}</p>
+</li>
+<li><p>显式绑定</p>
+</li>
+</ul>
+<h5 id="频率限制"><a href="#频率限制" class="headerlink" title="频率限制"></a>频率限制</h5><p>Laravel 自带了一个中间件用于限制对应用路由的访问频率。开始使用该功能之前，分配 <code>throttle</code> 中间件到某个路由或路由分组，<code>throttle</code> 中间件接收两个参数用于判断给定时间内（单位：分钟）的最大请求次数。例如，我们指定登录用户每分钟只能访问下面的分组路由 60 次：</p>
+<p>Route::middleware(‘auth:api’, ‘throttle:60,1’)-&gt;group(function () {<br>    Route::get(‘/user’, function () {<br>        //<br>    });<br>});</p>
+<p>超出访问次数后，会返回 <code>429</code> 状态码并提示”Too many requests”。 <strong>动态频率限制</strong> 此外，还可以基于 <code>User</code> 模型的属性来动态设置最大请求次数。例如，如果 <code>User</code> 模型包含 <code>rate_limit</code> 属性，就可以将其这个属性名传递到 <code>throttle</code> 中间件，这样就可以将属性值作为计算最大请求次数的数据来源：</p>
+<p>Route::middleware(‘auth:api’, ‘throttle:rate_limit,1’)-&gt;group(function () {<br>    Route::get(‘/user’, function () {<br>        //<br>    });<br>});</p>
+<h5 id="表单方法伪造"><a href="#表单方法伪造" class="headerlink" title="表单方法伪造"></a>表单方法伪造</h5><p>HTML 表单不支持 <code>PUT</code>、<code>PATCH</code> 或者 <code>DELETE</code> 请求方法，因此，在 HTML 表单中调用 <code>PUT</code>、<code>PATCH</code> 或 <code>DELETE</code> 路由时，需要添加一个隐藏的 <code>_method</code> 字段，其值被用作该表单的 HTTP 请求方法：</p>
+<form action="/foo/bar" method="POST"><br>    <input type="hidden" name="_method" value="PUT"><br>    <input type="hidden" name="\_token" value="{ { csrf\_token() }}"><br></form>
+
+<p>还可以直接使用 Blade 指令 <code>@method</code> 来生成 <code>_method</code> 字段：</p>
+<form action="/foo/bar" method="POST"><br>    @method(‘PUT’)<br>    @csrf<br></form>
+
+<h5 id="访问当前路由"><a href="#访问当前路由" class="headerlink" title="访问当前路由"></a>访问当前路由</h5><p>你可以使用 <code>Route</code> 门面上的 <code>current</code>、<code>currentRouteName</code> 和 <code>currentRouteAction</code> 方法来访问处理当前输入请求的路由信息：</p>
+<p>// 获取当前路由实例<br>$route = Route::current();<br>// 获取当前路由名称<br>$name = Route::currentRouteName();<br>// 获取当前路由action属性<br>$action = Route::currentRouteAction();</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">laravel</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/PHP是最好的语言//" class="article-tag-list-link color5">PHP是最好的语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/17/laravel1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-wx-createanimation" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/28/wx-createanimation/">wx.createAnimation微信小程序动画接口与CSS3对比</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/28/wx-createanimation/" class="archive-article-date">
+  	<time datetime="2018-04-28T03:37:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="wx-createAnimation微信小程序动画接口"><a href="#wx-createAnimation微信小程序动画接口" class="headerlink" title="wx.createAnimation微信小程序动画接口"></a><strong>wx.createAnimation微信小程序动画接口</strong></h3><p>首先创建一个动画实例：animation=”{ {animation对象}}”</p>
+&lt;image src=’../images/bglottery.png’style=’height:200px;width:200px;position:absolute;top:17%;left:25%;’ animation=”{ {an_zhuanp}}”&gt;
+
+<p>调用微信小程序实例方法，描述动画，初始化animation</p>
+<p> var animation = wx.createAnimation({<br> duration: 1000,<br> timingFunction: “ease”,<br> });<br> animation.rotate(360 * n).step();</p>
+<p>wx.createAnimation参数列表：</p>
+<ul>
+<li><p>duration Integer 默认值 400ms —动画持续时间</p>
+</li>
+<li><p>timing Function String 默认值“linear”</p>
+</li>
+<li><p>delay Integer 默认值 0 动画延迟时间</p>
+</li>
+<li><p>transformOrigin String 默认值”50% 50% 0“ 旋转的基点位置</p>
+</li>
+</ul>
+<p>timingFunction有效值：</p>
+<ul>
+<li><p>linear 动画从头到尾速度是相同的</p>
+</li>
+<li><p>ease 动画从低速开始，加快、变慢</p>
+</li>
+<li><p>ease-in 从低速开始</p>
+</li>
+<li><p>ease-in-out 低速开始，低速结束</p>
+</li>
+<li><p>ease-out 低速结束</p>
+</li>
+<li><p>step-start 动画第一帧就跳至结束状态直到</p>
+</li>
+<li><p>step-end 动画一直保持开始状态，最后一帧跳至结束状态</p>
+</li>
+</ul>
+<p>animation方法列表： 样式：</p>
+<ul>
+<li><p>opacity</p>
+</li>
+<li><p>backgroundColor</p>
+</li>
+<li><p>width</p>
+</li>
+<li><p>height</p>
+</li>
+<li><p>top</p>
+</li>
+<li><p>left</p>
+</li>
+<li><p>bottom</p>
+</li>
+<li><p>right</p>
+</li>
+</ul>
+<p>旋转：rotate 参数 deg（-180~180）</p>
+<ul>
+<li><p>rotateX</p>
+</li>
+<li><p>rotateY</p>
+</li>
+<li><p>rotateZ</p>
+</li>
+<li><p>rotate3d</p>
+</li>
+</ul>
+<p>缩放：scale (sx,[sy])一个参数X轴缩放sx，两个参数：x轴缩放sx，y轴缩放sy</p>
+<p>偏移：translate(tx,[ty])</p>
+<p>倾斜：skew(ax,[ay]) 矩阵变形：matrix(a,b,c,d,tx,ty) 调用操作方法后需要调用step()方法来表示一组动画的完成。（step 可以传入一个跟 <code>wx.createAnimation()</code> 一样的配置参数用于指定当前组动画的配置。）</p>
+<p>旋转实例：</p>
+<p> animation.rotate(360 * n).step();<br> _this.setData({<br> an_zhuanp: animation.export()<br> });</p>
+<p>例子：setInterval与setTime实现一个选择轮盘</p>
+<p>var timer=setInterval(function(){<br> var animation = wx.createAnimation({<br> duration: 1000,<br> timingFunction: “ease”,<br> });<br> animation.rotate(360 * n).step();<br> _this.setData({<br> an_zhuanp: animation.export()<br> });<br> n++;<br> },100);<br> setTimeout(function(){<br> clearInterval(timer);<br> timer=null;<br> var animation = wx.createAnimation({<br> duration:1000,<br> timingFunction:”ease”,<br> });<br> var deg = 0;<br> wx.request({<br> url: ‘<a href="https://www.booleanln.cn/net/getPrice.php&#39;" target="_blank" rel="noopener">https://www.booleanln.cn/net/getPrice.php&#39;</a>,<br> data:{<br> phone:xtele,<br> stunum:xh,<br> name :xm,<br> openid:openid<br> },<br> header: { “content-type”: “application/www-form-urlencode” },<br> method: ‘get’,<br> success: function (res) {<br> deg = res.data;<br> console.log(deg);<br> animation.rotate(deg).step();<br> _this.setData({<br> an_zhuanp: animation.export(),<br> start:null<br> });},3000}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/微信小程序//" class="article-tag-list-link color1">微信小程序</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/微信小程序/编程收录//" class="article-tag-list-link color5">编程收录</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/28/wx-createanimation/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-firstsec" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -294,781 +1480,9 @@
 
 
   
-    <article id="post-gituse1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/14/gituse1/">Git的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/14/gituse1/" class="archive-article-date">
-  	<time datetime="2018-04-14T13:46:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>git的使用</strong> 在大佬的要求下，强行学会了使用Git，故记一下 之前参加比赛有使用过Git，所有电脑安装好了Git，不过之前不知道干了什么操作，右键并没有Git Bash,所以转向网上求助！知乎大法好！ 通过在注册表修改HKEY_CLASSES_ROOT\Directory\Background\shell\ 添加open git ，OK了！ 那么接下来开始Git大法！参考连接 <strong>1.Git 初始化</strong> <strong>Git 配置</strong> $ git config –global user.name “John Doe” $ git config –global user.email <a href="mailto:johndoe@example.com" target="_blank" rel="noopener">johndoe@example.com</a> <strong>在相应目录右键Git Bash</strong> git init ——创建一个.git子目录，包含Git的骨干文件 git add xx ——向Git仓库添加文件 git status ——查看当前状态 三种状态：untracked、modified、committed git commit -m “描述语句”——提交并添加描述语句 git add 可将文件由untracked、modified状态转至committed git clone 下载远程仓库的文件 <strong>2.连接远程仓库</strong> 首先生成自己的sshkey ssh-keygen -t rsa -C “用户名” 会让填写保存地址，若直接回车会保存在默认文件夹 用户/.ssh 接着两次回车 会生成两个文件，一个rsa，一个rsa.pub cat xxx.rsa.pub 复制内容，粘贴在github或coding的ssh设置 git remote add-name -url git remote -v 查看当前添加的remote主机 <strong>3.新建分支</strong> 两种方式： 远程新建分支，本地推送 git checkout -b feature-branch origin/feature-branch //检出远程的feature-branch分支到本地 本地创建新分支，推送 $ git checkout -b feature-branch //创建并切换到分支feature-branch $ git push origin feature-branch:feature-branch //推送本地的feature-branch(冒号前面的)分支到远程origin的feature-branch(冒号后面的)分支(没有会自动创建)</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程收录//" class="article-tag-list-link color5">编程收录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/14/gituse1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-processor2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/12/processor2/">进程的描述与控制（下篇1）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/12/processor2/" class="archive-article-date">
-  	<time datetime="2018-04-12T01:44:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>操作系统内核 功能： 1. 支撑功能：中断处理、时钟管理、原语操作 2. 资源管理功能：进程管理、存储器管理，设备管理 中断处理 什么是中断？ 中断是改变处理器执行指令顺序的一种事件。与CPU芯片内外部硬件电路产生的电信号相对应 为什么需要中断 为了使得cpu能与其他设备并行工作，不需要轮询确定当前的状态，能有效提高cpu的利用率，改善系统性能 中断类型 - 内部中断——由CPU控制单元产生，如除0错误 - 外部中断——由其他硬件设备依照cpu时钟信号随机产生的 - 可屏蔽中断——关中断可被屏蔽的外部中断 - 不可屏蔽中断——硬件故障 响应中断的条件 前提：开中断、每执行一条指令会检测 单重终端执行过程 取指令-》执行指令-》检测是否有中断（若有）-》中断响应-》关中断-》保护现场-》执行中断服务子程序-》恢复现场-》开中断。 嵌套中断可在中断程序过程中，响应中断 如何找到中断子程序的入口地址 中断描述符表：与每一个中断或异常向量相联系，每一个向量在表中有相应的中断或异常处理程序的入口地址。内核在允许中断发生前，必须正确地初始化IDT（lidt） 当中断发生时，cpu根据中断号获取中断向量值，再根据中断描述符表找到子程序地址 时钟管理 两个时钟 1. RTC时钟，CMOS时钟，是一块时钟芯片，靠电池供电，最原始，最底层的时间数据 2. OS时钟，产生于PC机主板的定时/计数芯片，开机时有效，由OS控制 1. PIT可编程间隔定时器 由三部分组成：晶振、计数器、保持寄存器 2. 时钟驱动程序 OS时钟机制 1. 保存当前的日期和时间 2. 维持定时器 Linux时钟 时钟滴答 jiffes保存从时间基准（1970.1.1.0）至今的时钟滴答数 系统调用 操作系统内核中预先定义好的一些模块，它们提提供一条管道让应用程序或一般用户能由此得到核心程序的服务 用户态与内核态 程序在用户空间执行，则为进程的用户态执行 程序在系统核心空间执行，当进程处于具有执行系统核心代码的权力状态时，为内核态执行 系统调用执行过程：</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础课程收录//" class="article-tag-list-link color2">基础课程收录</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础课程收录/操作系统//" class="article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/12/processor2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-processor1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/10/processor1/">进程的描述与控制（上篇）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/10/processor1/" class="archive-article-date">
-  	<time datetime="2018-04-09T17:01:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="进程的描述与控制"><a href="#进程的描述与控制" class="headerlink" title="进程的描述与控制"></a>进程的描述与控制</h3><h4 id="为什么引入进程"><a href="#为什么引入进程" class="headerlink" title="为什么引入进程"></a>为什么引入进程</h4><p>首先了解下程序并发执行（同一时间间隔内运行多个程序，在一个程序结束之前就可以运行其他程序）的特点：</p>
-<ol>
-<li><p>间断性（程序通常是时断时续地来执行）</p>
-</li>
-<li><p>失去封闭性（程序的环境变量不再是封闭不可见的，是共享的，如全局变量）</p>
-</li>
-<li><p>不可再现性（由于失去了封闭性，使得执行结果不可再现，如全局变量）</p>
-</li>
-</ol>
-<p><strong>为了跟踪并描述程序的并发执行，引入了进程的概念。</strong> 当并发执行的时候，有可能是同一程序对不同资源的执行，也可能是不同程序对不同资源的执行，它们共享系统资源，用程序已经不能准确描述并发执行的过程。 比如同一程序在不同的数据集合上运行，那么如果用程序直接来描述的话，很容易产生这些程序是不同的错觉，这时候我们引入进程这一概念，就可以很好地去描述这些情况。</p>
-<h4 id="什么是进程"><a href="#什么是进程" class="headerlink" title="什么是进程"></a>什么是进程</h4><ol>
-<li><p>进程是程序在一个数据集合上的<strong>运行过程</strong></p>
-</li>
-<li><p>进程是由程序，用户数据，系统数据共同组成的一个<strong>执行环境</strong> ——各种指令和数据，额外数据</p>
-</li>
-<li><p><strong>进程表示的就是执行环境的状态，执行环境的动态变化的过程</strong></p>
-</li>
-<li><p>进程的特征：</p>
-<ul>
-<li><p>并发性</p>
-</li>
-<li><p>动态性（进程表示的是执行<strong>过程</strong> ，进程状态，进程映像（某一时刻进程的内容）的变化）</p>
-</li>
-<li><p>独立性</p>
-</li>
-<li><p>异步性</p>
-</li>
-<li><p>结构特征——程序，用户数据，系统数据</p>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="进程与程序的区别与联系"><a href="#进程与程序的区别与联系" class="headerlink" title="进程与程序的区别与联系"></a>进程与程序的区别与联系</h4><ol>
-<li><p>程序是静态的——有序的指令集合，进程是动态的——对应着程序执行的过程</p>
-</li>
-<li><p>程序是永久的，进程是暂时存在的</p>
-</li>
-<li><p><strong>二者的存在实体不同</strong>，程序是指令集合，进程则是包含了用户正文段、系统数据段、用户数据段的实体</p>
-</li>
-<li><p>联系</p>
-<ul>
-<li><p>进程是程序的一次执行，至少对应一个程序</p>
-</li>
-<li><p>一个程序可对应多个进程，同一进程可顺序执行多个程序</p>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="进程控制块（PCB）的概念"><a href="#进程控制块（PCB）的概念" class="headerlink" title="进程控制块（PCB）的概念"></a>进程控制块（PCB）的概念</h4><p>系统在创建进程的时候，为进程开辟了一个专用的存储区，用来记录操作系统所需要的用于描述进程及控制进程运行所需的全部信息。 特征：</p>
-<ul>
-<li><p>每个进程有唯一 的进程控制块</p>
-</li>
-<li><p>进程控制块是操作系统感知进程存在的唯一标志</p>
-</li>
-<li><p>进程控制块常驻内存</p>
-</li>
-<li><p>进程控制块在内核层</p>
-</li>
-</ul>
-<p>linux的进程控制块：</p>
-<p>struct task_struct{<br>volatile long state;-info<br>struct thread_info*thread<br>}</p>
-<p>Windows：执行体进程块(EPROCESS) 进程控制块中的信息</p>
-<ul>
-<li><p>进程标识符</p>
-<ul>
-<li><p>内部标识符（操作系统分配，用于标识进程）</p>
-</li>
-<li><p>外部标识符（由创建者提供，通常有字母和数字组成）</p>
-</li>
-</ul>
-</li>
-<li><p>处理机状态</p>
-<p>硬件上下文，以便进程可以重新从断点执行——通用寄存器、指令计数器、程序状态字psw、用户栈指针</p>
-</li>
-<li><p>进程调度信息</p>
-<p>进程状态、进程优先级、所需的其他信息、事件</p>
-</li>
-<li><p>进程控制信息</p>
-<p>程序和数据地址、进程同步和通信机制、资源清单、链接指针（本进程队列下一个pcb的地址）</p>
-<p><img src="file://C:/Users/Boolean/Documents/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/images/pcb_po.png?lastModify=1523293230" alt=""></p>
-</li>
-</ul>
-<h5 id="进程的基本状态"><a href="#进程的基本状态" class="headerlink" title="进程的基本状态"></a>进程的基本状态</h5><ol>
-<li><p>就绪状态</p>
-<p>进程一旦获得CPU就可以投入运行的状态（根据优先权，分成多个就绪队列）</p>
-</li>
-<li><p>执行状态</p>
-<p>进程获得CPU正在运行的状态</p>
-</li>
-<li><p>阻塞状态</p>
-<p>进程由于等待资源或由于某个事件的发生而暂停执行的状态（根据不同阻塞原因分成多个阻塞队列，便于唤醒）</p>
-<p><img src="file://C:/Users/Boolean/Documents/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/images/pcb_state.png?lastModify=1523293230" alt=""></p>
-</li>
-</ol>
-<h5 id="进程控制块的组织方式"><a href="#进程控制块的组织方式" class="headerlink" title="进程控制块的组织方式"></a>进程控制块的组织方式</h5><ol>
-<li><p>线性方式——把所有PCB组织在一张线性表中，将该表的首地址存放在内存的一个专用区域中，每次查找是需要扫描全表，适用于进程数不多的情况</p>
-</li>
-<li><p>链接方式——把<strong>具有同一状态</strong>的PCB，用其中的链接字链接成一个<strong>队列</strong>，PCB存储在<strong>一个连续的存区</strong></p>
-<p><img src="file://C:/Users/Boolean/Documents/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/images/pcb_link.png?lastModify=1523293230" alt=""></p>
-</li>
-<li><p>索引方式——各个索引表在内存单元中的首地址也记录在内存中的专用单元中，用添加索引表的方式记录具有相应状态下的某个PCB在PCB表中的地址。</p>
-<p><img src="file://C:/Users/Boolean/Documents/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/images/pcb_suoy.png?lastModify=1523293230" alt=""></p>
-</li>
-</ol>
-<h5 id="常见的进程调度算法"><a href="#常见的进程调度算法" class="headerlink" title="常见的进程调度算法"></a>常见的进程调度算法</h5><ol>
-<li><p><strong>先来先服务（FCFS）</strong></p>
-<p>算法描述：按照进程请求CPU的顺序来进行调度，谁第一个排，谁第一个执行</p>
-<p>算法优点：实现简单</p>
-<p>算法缺点：利于长进程，而不利于短进程，有利于CPU繁忙的进程，而不利于I/O繁忙的进程</p>
-</li>
-<li><p><strong>最短作业优先（SJF）</strong></p>
-<p>算法描述：对预计执行时间短的进程优先分派处理机</p>
-<p>算法优点：相比FCFS，提高了系统吞吐量，缩短了进程的等待时间</p>
-<p>算法缺点：对长进程非常不利，可能长时间得不到执行，且未能按照紧迫度划分优先级</p>
-</li>
-<li><p><strong>最高响应比优先法（HRRN）</strong></p>
-<p>算法描述：综合考虑每个作业的等待时间及估计需要执行时间的长短，从中选出响应比（R=（W+T）/T）最高的作业投入运行</p>
-<p>算法优点：长进程也可以得到执行</p>
-<p>算法缺点：由于每次调度前要计算响应比，系统开销也会增加</p>
-</li>
-<li><p><strong>时间片轮转算法（RR）</strong></p>
-<p>算法描述：让就绪进程以FCFS的方式按时间片轮流使用CPU的调度方式，即将系统中所有的就绪进程按照FCFS原则，排成一个队列，每次调度时将cpu分派给队首进程，让其执行一个时间片（cpu允许执行的时间）。时间片的长度从几个ms到几百ms。在一个时间片结束时，发生时钟中断，调度程序按此暂停当前进程的执行，将其送至就绪队列的末尾，并通过上下文切换执行当前的队首进程，进程也可以未完成一个时间片，就让出cpu</p>
-<p>算法优点：简单易行？、平均响应时间短（每个进程都执行一个时间片，那么，所有进程获得响应的时间就会减少）</p>
-<p>算法缺点：不利于处理紧急作业</p>
-<p><strong>时间片的确定：</strong>系统对响应时间的要求、就绪队列中进程的数目、系统的处理能力</p>
-</li>
-<li><p><strong>多级反馈队列（MFQ）</strong></p>
-<ol>
-<li><p>进程在进入待调度的队列等待时，首先进入优先级最高的Q1等待。</p>
-</li>
-<li><p>首先调度优先级高的队列中的进程。若高优先级中队列中已没有调度的进程，则调度次优先级队列中的进程。例如：Q1,Q2,Q3三个队列，只有在Q1中没有进程等待时才去调度Q2，同理，只有Q1,Q2都为空时才会去调度Q3。</p>
-</li>
-<li><p>对于同一个队列中的各个进程，按照时间片轮转法调度。比如Q1队列的时间片为N，那么Q1中的作业在经历了N个时间片后若还没有完成，则进入Q2队列等待，若Q2的时间片用完后作业还不能完成，一直进入下一级队列，直至完成。</p>
-</li>
-<li><p>在低优先级的队列中的进程在运行时，又有新到达的作业，那么在运行完这个时间片后，CPU马上分配给新到达的作业（抢占式）</p>
-<p><strong>在多级反馈队列调度算法中，如果规定第一个队列的时间片略大于多数人机交互所需之处理时间时，便能够较好的满足各种类型用户的需要。</strong></p>
-</li>
-</ol>
-</li>
-</ol>
-<pre><code>#### 进程的控制
-
-1.  进程的创建
-
-    *   申请空白的PCB
-
-    *   为新进程分配资源
-
-    *   初始化进程控制块
-
-    *   将新进程插入就绪队列
-
-
-    进程创建的情况：
-
-    *   用户登录
-
-    *   作业调度
-
-    *   提供服务
-
-    *   应用请求
-
-2.  进程的阻塞
-
-    *   请求系统服务
-
-    *   启动某种操作
-
-    *   新数据尚未到达
-
-    *   无新工作可做
-
-
-    阻塞过程：
-
-    *   暂停进程的执行，将状态改为阻塞态
-
-    *   将进程插入阻塞队列
-
-    *   转进程调度例程，重新进行进程调度
-
-3.  进程的唤醒
-
-    *   将进程从阻塞队列中移出
-
-    *   将状态由阻塞改为就绪
-
-    *   将进程插入就绪队列
-
-4.  进程的终止
-
-    引起终止的事件：
-
-    *   正常结束
-
-    *   异常结束
-
-    *   外界干预
-
-
-    终止的过程：
-
-    *   从进程PCB当中读进程状态
-
-    *   若进程正在执行则终止进程的执行
-
-    *   若进程有子孙进程则终止子孙进程
-
-    *   释放资源
-
-    *   将终止进程的PCB移出
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础课程收录//" class="article-tag-list-link color2">基础课程收录</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础课程收录/操作系统//" class="article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/10/processor1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-gs" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/08/gs/">操作系统概述</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/08/gs/" class="archive-article-date">
-  	<time datetime="2018-04-08T15:53:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="什么是操作系统"><a href="#什么是操作系统" class="headerlink" title="什么是操作系统"></a>什么是操作系统</h4><ol>
-<li><p>用户与计算机硬件的接口</p>
-<p>对硬件抽象，与硬件部分相互作用，为应用程序提供了运行环境，使应用程序的开发更简单，更高效</p>
-</li>
-<li><p>计算机资源的管理者</p>
-<p>管理处理机，内存，设备，文本，网络等</p>
-</li>
-</ol>
-<h4 id="操作系统的发展"><a href="#操作系统的发展" class="headerlink" title="操作系统的发展"></a>操作系统的发展</h4><ol>
-<li><p>无操作系统</p>
-<p>电子管，用插线板上的硬连线或穿孔卡表示程序，没有内存，无操作系统。</p>
-</li>
-<li><p>单道批处理系统</p>
-<p>晶体管，磁性存储，作业（程序+数据）</p>
-<p>特点：自动性、顺序性、单道性</p>
-<p>优点：减少人工等待的时间</p>
-<p>缺点：作业独占CPU、<strong>CPU等待I/O使得CPU利用率低</strong>（怎样的流程？）</p>
-<p>每次主机内存中仅存放一道作业，每当它运行期间（注意这里是“运行时”，并不是“完成后”）发出输入/输出请求后，高速的CPU便处于等待低速的I/O完成状态。</p>
-</li>
-<li><p>多道程序系统</p>
-<p>集成电路芯片，多道批处理系统、分时系统</p>
-<p>多道批处理系统：</p>
-<p>特点：多道性、无序性、调度性（作业调度与进程调度）、复杂性</p>
-<p>优点：1.<strong>提高CPU利用率</strong> （如何提高？） 2.提高内存和I/O利用率 3.增加系统吞吐量</p>
-<p>同时把多个程序放入内存，并允许它们交替在CPU中运行，它们共享系统中的各种硬、软件资源。当一道程序因I/O请求而暂停运行时，CPU便立即转去运行另一道程序。它没有用某些机制提高某一技术方面的瓶颈问题，而是让系统的各个组成部分都尽量去“忙”，花费很少时间去切换任务，达到了系统各部件之间的并行工作，使其整体在单位时间内的效率翻倍。</p>
-<p>缺点：1.<strong>平均周转时间长而系统吞吐量变大</strong> （为什么？） 2.缺乏交互能力</p>
-<p>微观上是串行的，那么这就使得某一作业已经完成了，但此时cpu处于“忙碌”状态，导致周转时间增加<br>周转时间为1个作业在系统中一直到处理完离开系统</p>
-<p>分时系统：</p>
-<p>特点：多路性、独立性、及时性、交互性</p>
-<p>优点：提高人机交互、多终端共享主机</p>
-</li>
-<li><p>微机操作系统</p>
-<p>Intel 8080</p>
-</li>
-<li><p>实时操作系统</p>
-<p>支持实时计算的系统，例如锅炉温度控制系统，系统正确性不仅取决于计算的逻辑结果，而且依赖于产生结果的时间</p>
-<p>特点：多路性、独立性、及时性、交互性、可靠性</p>
-<p>分类：硬实时：锅炉 软实时：手机</p>
-<p>硬实时系统中，任务只有在特定的时间区间内完成，才有正的收益。如果过早或过晚完成，收益为负无穷<br>软实时系统中，即使任务过早或过晚完成，仍有一定的收益。<br>硬实时系统可以认为是软实时系统的一种特例。</p>
-</li>
-<li><p>操作系统现状</p>
-<ul>
-<li><p>主机操作系统——OS/360</p>
-</li>
-<li><p>服务器操作系统——WindowsSever</p>
-</li>
-<li><p>微机操作系统——Macintosh、Windows</p>
-</li>
-<li><p>嵌入式操作系统——宿主于非计算机设备的计算机系统</p>
-<p>特点：小巧、实时性、可装卸、固化代码、弱交互性、强稳定性、统一的接口</p>
-<p>运行在嵌入式系统环境中，对整个嵌入式系统以及它所操作、控制的各种部件装置等等资源进行统一协调、调度、指挥和控制的系统软件<br>Android Vxwork、WindowsCE</p>
-</li>
-<li><p>实时操作系统</p>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="操作系统的特征"><a href="#操作系统的特征" class="headerlink" title="操作系统的特征"></a>操作系统的特征</h4><ol>
-<li><p>并发</p>
-<blockquote>
-<p>两个或多个事件在<strong>同一时间间隔</strong>内发生</p>
-</blockquote>
-<p><strong>并发与并行的辨析</strong></p>
-<p>并发的关键是你有处理多个任务的能力，不一定要同时。<br>并行的关键是你有同时处理多个任务的能力。</p>
-</li>
-<li><p>共享</p>
-<blockquote>
-<p>系统中的资源可供内存中多个并发执行的进程共同使用</p>
-</blockquote>
-<p>互斥共享、同时共享</p>
-<p>共享依赖于并发、并发需要共享的支持</p>
-</li>
-<li><p>虚拟</p>
-<blockquote>
-<p>通过某种技术把一个物理实体变成若干逻辑上的对应物 虚拟打印机、虚拟磁盘、虚拟CPU</p>
-</blockquote>
-</li>
-<li><p>异步</p>
-<blockquote>
-<p>进程以不可预知的速度向前推进，进程何时执行、何时结束、以怎样速度进行、需要花多少时间完成都是不可预知的</p>
-</blockquote>
-</li>
-</ol>
-<h4 id="操作系统的功能"><a href="#操作系统的功能" class="headerlink" title="操作系统的功能"></a>操作系统的功能</h4><ol>
-<li><p>存储器管理功能</p>
-<ul>
-<li><p>内存分配</p>
-</li>
-<li><p>内存保护——确保每道用户程序都在自己的内存空间中运行，互不干扰</p>
-</li>
-<li><p>地址映射——<strong>逻辑地址与物理地址</strong>的映射关系</p>
-<p>一个应用程序经编译后，通常会形成若干个目标程序，这些目标程序再经过链接而形成可装入程序。这些<br>程序的地址都是从某一起始地址开始的，程序中的其它地址都是相对于起始地址计算的；由这些地址所形成的地址范围称为“地址空间”，其中的地址称为“逻辑地址”<br>由内存中的一系列单元所限定的地址范围称为“内存空间”，其中的地址称为“物理地址”。</p>
-</li>
-<li><p>内存扩充——虚拟内存</p>
-</li>
-</ul>
-</li>
-<li><p>进程管理功能</p>
-<ul>
-<li><p>进程控制</p>
-</li>
-<li><p>进程同步</p>
-</li>
-<li><p>进程通信</p>
-</li>
-<li><p>进程调度</p>
-</li>
-</ul>
-</li>
-<li><p>设备管理功能</p>
-<ul>
-<li><p>缓冲管理</p>
-</li>
-<li><p>设备分配</p>
-</li>
-<li><p>设备处理</p>
-</li>
-<li><p>设备独立性和虚拟设备</p>
-</li>
-</ul>
-</li>
-<li><p>文件管理功能</p>
-<ul>
-<li><p>文件存储空间的管理</p>
-</li>
-<li><p>目录管理</p>
-</li>
-<li><p>文件的读写管理和存取控制</p>
-</li>
-</ul>
-</li>
-<li><p>用户接口</p>
-<ul>
-<li><p>命令接口</p>
-</li>
-<li><p>图形接口</p>
-</li>
-<li><p>程序接口</p>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="操作系统体系结构分析"><a href="#操作系统体系结构分析" class="headerlink" title="操作系统体系结构分析"></a>操作系统体系结构分析</h4><ol>
-<li><p>简单的监控程序模型 FMS、IBSYS</p>
-</li>
-<li><p>单体结构模型 MS-DOS、OS X、UNIX</p>
-<p>结构简单、便于理解和实现，系统所有部分集中于内核效率较高；但系统结构关系复杂，容易引起循环调用和死锁；系统可修改性与可维护性较差。</p>
-</li>
-<li><p>层次结构模型</p>
-<p>克服模块间的无需调用</p>
-</li>
-<li><p>客户/服务器模型与微内核结构</p>
-<p>核心功能外移，保留最基本的功能（处理器调度、消息通讯等），将其他部分放到内核之外作为一个独立的服务器进程来实现</p>
-</li>
-<li><p>动态可拓展模型</p>
-<p>运行过程中能够动态地实现系统行为拓展的结构</p>
-</li>
-</ol>
-<h4 id="指令的执行"><a href="#指令的执行" class="headerlink" title="指令的执行"></a>指令的执行</h4><ol>
-<li><p>指令周期</p>
-<p>一个单一指令需要的处理时间称为指令周期，包括两部分，取指周期与执行周期</p>
-</li>
-<li><p>取指令</p>
-<p>处理器从存储器中取一条指令，PC中存有下一次要取的指令的地址</p>
-</li>
-<li><p>执行指令</p>
-<p>取到的指令被放在IR中，通过指令译码部件及运算部件来进行指令的执行</p>
-</li>
-<li><p>PC：存指令地址</p>
-<p>IR：存正在执行的指令</p>
-<p>AC：临时存储体和累加操作</p>
-</li>
-<li><p><strong>硬件上下文</strong></p>
-<p>回复某一个程序P的执行必须保存的CPU寄存器的值就构成了进程P的硬件上下文。PC与AC中的内容一般都需要保存</p>
-</li>
-<li><p><strong>指令执行的结果</strong></p>
-<p>指令执行的结果就是使寄存器或内存单元的值发生变化。指令执行的过程也就是存储体内容不断变化的过程。</p>
-</li>
-</ol>
-<p>​ 不同硬件的体系结构支持不同的指令集合，为某一种硬件平台开发的操作系统不能直接在另一种体系结构的硬 件上运行。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础课程收录//" class="article-tag-list-link color2">基础课程收录</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/基础课程收录/操作系统//" class="article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/08/gs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world-1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/08/hello-world-1/">Guys！</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/08/hello-world-1/" class="archive-article-date">
-  	<time datetime="2018-04-08T15:46:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Hello Guys！This is my first page，LoL！</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Other//" class="article-tag-list-link color1">Other</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/08/hello-world-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
+      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
     </nav>
   
 
@@ -1159,6 +1573,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ORACLE</a>
               </li>
              
@@ -1171,15 +1589,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1191,7 +1605,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1203,11 +1629,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1215,11 +1637,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1235,7 +1653,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1251,6 +1669,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">heap</a>
               </li>
              
@@ -1260,10 +1686,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">web性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1279,14 +1701,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">mysql，数据库</a>
               </li>
              
@@ -1299,11 +1713,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1316,6 +1734,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1340,6 +1762,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实习</a>
               </li>
             
             <div class="clearfix"></div>
